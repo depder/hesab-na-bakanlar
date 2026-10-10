@@ -110,7 +110,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background:
     radial-gradient(120% 80% at 20% 0%, rgba(244, 180, 26, .14), transparent 60%),
     linear-gradient(160deg, #2a2924, #151513);
-  min-height: 240px;
 }
 
 .sec-head { max-width: 720px; margin-bottom: clamp(40px, 6vw, 64px); }
@@ -427,6 +426,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .contact__dl dt { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--dark-mute); padding-top: 3px; }
 .contact__dl dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
 .contact__dl a { text-decoration: none; border-bottom: 1px solid var(--yellow); }
+.contact__dl .kisi { display: block; margin-top: 6px; font-size: 14.5px; font-weight: 500; color: var(--dark-mute); }
 @media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; } }
 @media (max-width: 460px) { .contact__dl div { grid-template-columns: 1fr; gap: 4px; } }
 
@@ -519,7 +519,36 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   box-shadow: 0 14px 30px -10px rgba(20, 18, 10, .55);
 }
 .float-call svg { width: 18px; height: 18px; }
-@media (max-width: 760px) { .float-call { display: inline-flex; } }
+@media (max-width: 760px) { .float-call { display: inline-flex; right: auto; left: 16px; } }
+
+/* WhatsApp düğmesi: her ekranda sağ altta */
+.wa-btn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 61;
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 18px 8px 8px; border-radius: 999px;
+  background: #fff; color: var(--ink); text-decoration: none;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 36px -14px rgba(20, 18, 10, .45);
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(20, 18, 10, .5); }
+.wa-btn__ikon {
+  display: grid; place-items: center; flex: none;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #25d366; color: #fff;
+}
+.wa-btn__ikon svg { width: 26px; height: 26px; }
+.wa-btn__yazi { display: flex; flex-direction: column; line-height: 1.2; }
+.wa-btn__yazi b { font-family: var(--f-display); font-size: 15px; font-weight: 700; }
+.wa-btn__yazi small { font-size: 12.5px; font-weight: 600; color: var(--mute); }
+@media (max-width: 760px) {
+  .wa-btn { right: 16px; bottom: 16px; padding: 6px 14px 6px 6px; gap: 10px; }
+  .wa-btn__ikon { width: 40px; height: 40px; }
+  .wa-btn__ikon svg { width: 23px; height: 23px; }
+  .wa-btn__yazi b { font-size: 14px; }
+  .wa-btn__yazi small { font-size: 11.5px; }
+}
+@media (max-width: 360px) { .wa-btn__yazi small { display: none; } }
 
 /* ---------- görünür olunca hafif kayma ---------- */
 
