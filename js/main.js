@@ -71,18 +71,14 @@ form.addEventListener('submit', (e) => {
   ].filter(Boolean);
 
   const url = `https://wa.me/${ATOLYE.whatsapp}?text=${encodeURIComponent(satirlar.join('\n'))}`;
-  // 'noopener' özelliğiyle window.open her zaman null döner; engellendi mi anlamak için onu kullanmıyoruz.
-  const pencere = window.open(url, '_blank');
-  if (pencere) {
-    pencere.opener = null;
-    msg.classList.add('ok');
-    msg.textContent = 'WhatsApp açıldı. Mesajı gönderdiğinizde kaydınız bize ulaşır.';
-  } else {
-    // Açılır pencere engellendiyse aynı sekmede WhatsApp'a geç; o da olmazsa elle dokunulacak bağlantı kalsın
-    const link = document.createElement('a');
-    link.href = url;
-    link.textContent = 'WhatsApp açılmadıysa buraya dokunun.';
-    msg.replaceChildren(link);
-    window.location.href = url;
-  }
+  // 'noopener' ile window.open her zaman null döner, yani açılır pencere engellendi mi bilemeyiz.
+  // Bu yüzden elle dokunulacak bağlantıyı her durumda gösteriyoruz.
+  window.open(url, '_blank', 'noopener');
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'buraya dokunun';
+  msg.classList.add('ok');
+  msg.replaceChildren('WhatsApp yeni sekmede açılıyor. Açılmadıysa ', link, '. Mesajı gönderdiğinizde kaydınız bize ulaşır.');
 });
