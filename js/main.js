@@ -71,14 +71,21 @@ form.addEventListener('submit', (e) => {
   ].filter(Boolean);
 
   const url = `https://wa.me/${ATOLYE.whatsapp}?text=${encodeURIComponent(satirlar.join('\n'))}`;
-  // 'noopener' ile window.open her zaman null döner, yani açılır pencere engellendi mi bilemeyiz.
-  // Bu yüzden elle dokunulacak bağlantıyı her durumda gösteriyoruz.
-  window.open(url, '_blank', 'noopener');
   const link = document.createElement('a');
   link.href = url;
   link.target = '_blank';
   link.rel = 'noopener';
   link.textContent = 'buraya dokunun';
-  msg.classList.add('ok');
-  msg.replaceChildren('WhatsApp yeni sekmede açılıyor. Açılmadıysa ', link, '. Mesajı gönderdiğinizde kaydınız bize ulaşır.');
+
+  // Önce boş sekme açıyoruz: 'noopener' verilirse window.open her zaman null döner ve engellendiğini
+  // anlayamayız. Sekmenin bu sayfaya erişimini WhatsApp yüklenmeden önce kesiyoruz.
+  const sekme = window.open('', '_blank');
+  if (sekme) {
+    sekme.opener = null;
+    sekme.location.href = url;
+    msg.classList.add('ok');
+    msg.replaceChildren('WhatsApp yeni sekmede açıldı. Açılmadıysa ', link, '. Mesajı gönderdiğinizde kaydınız bize ulaşır.');
+  } else {
+    msg.replaceChildren('Tarayıcınız yeni sekmeyi engelledi. WhatsApp\'a geçmek için ', link, '.');
+  }
 });
