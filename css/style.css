@@ -16,6 +16,7 @@
   --f-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   --f-serif: "Source Serif 4", Georgia, serif;
+  --f-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
 
   --wrap: 1240px;
   --gut: clamp(16px, 4vw, 40px);
@@ -113,9 +114,35 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ---------- üst bar ---------- */
 
 .topbar { background: var(--ink); color: #c9c4b4; font: 13px/1 var(--f-mono); }
-.topbar__in { display: flex; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
+.topbar__in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; padding-top: 8px; padding-bottom: 8px; min-height: 38px; }
 .topbar a { color: var(--yellow); text-decoration: none; }
-@media (max-width: 720px) { .topbar__in > span:first-child { display: none; } .topbar__in { justify-content: center; } }
+@media (max-width: 720px) { .topbar__etiket { display: none; } }
+
+/* Şu an açık / kapalı — el yazısı, Türkiye saatine göre js/saatler.js hesaplıyor */
+.durum { margin: 0; display: flex; align-items: center; gap: 10px; }
+.durum--canli { font-family: var(--f-hand); line-height: 1; }
+.durum__nokta { width: 9px; height: 9px; border-radius: 50%; flex: none; background: currentColor; }
+.durum__yazi {
+  display: inline-block; transform: rotate(-2deg);
+  font-size: 23px; font-weight: 700; color: var(--paper);
+  text-decoration: underline wavy; text-decoration-thickness: 1.5px; text-underline-offset: 5px;
+}
+.durum__ek { font-size: 19px; font-weight: 500; color: #a7a292; }
+.durum--acik .durum__nokta { color: #6ccf5f; animation: nabiz 2.2s ease-out infinite; }
+.durum--acik .durum__yazi { text-decoration-color: var(--yellow); }
+.durum--kapali .durum__nokta { color: #e0693f; }
+.durum--kapali .durum__yazi { text-decoration-color: #e0693f; }
+@keyframes nabiz {
+  0% { box-shadow: 0 0 0 0 rgba(108, 207, 95, .55); }
+  70% { box-shadow: 0 0 0 8px rgba(108, 207, 95, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(108, 207, 95, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .durum--acik .durum__nokta { animation: none; } }
+@media (max-width: 520px) {
+  .topbar__in { flex-direction: column; justify-content: center; }
+  .durum__yazi { font-size: 21px; }
+  .durum__ek { font-size: 17px; }
+}
 
 /* ---------- header ---------- */
 

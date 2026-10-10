@@ -18,6 +18,37 @@ menu.addEventListener('click', (e) => {
 // Yıl
 document.getElementById('yil').textContent = new Date().getFullYear();
 
+// Üst şeritte "şu an açık / kapalı". Betik yüklenmezse sabit saat bilgisi kalır.
+const durumKutusu = document.getElementById('durum');
+if (durumKutusu && window.BaskentSaatler) {
+  let sonDurum = '';
+  const durumuGuncelle = () => {
+    const { gun, dakika } = BaskentSaatler.istanbulZamani(new Date());
+    const d = BaskentSaatler.calismaDurumu(gun, dakika);
+    const anahtar = `${d.baslik}|${d.ek}`;
+    if (anahtar === sonDurum) return;
+    sonDurum = anahtar;
+
+    const nokta = document.createElement('span');
+    nokta.className = 'durum__nokta';
+    nokta.setAttribute('aria-hidden', 'true');
+    const baslik = document.createElement('span');
+    baslik.className = 'durum__yazi';
+    baslik.textContent = d.baslik;
+    const ek = document.createElement('span');
+    ek.className = 'durum__ek';
+    ek.textContent = d.ek;
+
+    durumKutusu.classList.add('durum--canli');
+    durumKutusu.classList.toggle('durum--acik', d.acik);
+    durumKutusu.classList.toggle('durum--kapali', !d.acik);
+    durumKutusu.title = 'Hafta içi 09:00–18:30 · Cumartesi 09:00–13:30 · Pazar kapalı';
+    durumKutusu.replaceChildren(nokta, baslik, ek);
+  };
+  durumuGuncelle();
+  setInterval(durumuGuncelle, 30 * 1000);
+}
+
 // Kaydırınca beliren bloklar
 const revealables = document.querySelectorAll('.svc, .steps li, .mlist li, .g, .svc-extra > div, .faq details');
 if ('IntersectionObserver' in window) {
