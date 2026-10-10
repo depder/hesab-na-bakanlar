@@ -45,8 +45,17 @@ if (durumKutusu && window.BaskentSaatler) {
     durumKutusu.title = 'Hafta içi 09:00–18:30 · Cumartesi 09:00–13:30 · Pazar kapalı';
     durumKutusu.replaceChildren(nokta, baslik, ek);
   };
-  durumuGuncelle();
-  setInterval(durumuGuncelle, 30 * 1000);
+  // Saat dilimi verisi olmayan eski bir tarayıcıda hesap hata verirse sabit saat bilgisi yerinde kalır
+  const guvenliGuncelle = () => {
+    try {
+      durumuGuncelle();
+    } catch (hata) {
+      clearInterval(zamanlayici);
+      console.warn('Açık/kapalı durumu hesaplanamadı:', hata);
+    }
+  };
+  const zamanlayici = setInterval(guvenliGuncelle, 30 * 1000);
+  guvenliGuncelle();
 }
 
 // Kaydırınca beliren bloklar

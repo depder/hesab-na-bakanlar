@@ -16,16 +16,19 @@
 
   const saatYaz = (dk) => `${String(Math.floor(dk / 60)).padStart(2, '0')}:${String(dk % 60).padStart(2, '0')}`;
 
-  const istanbulBicimi = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Europe/Istanbul',
-    weekday: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-    hourCycle: 'h23',
-  });
+  // İlk kullanımda oluşturulur: saat dilimi verisi olmayan tarayıcıda hata yükleme sırasında değil,
+  // çağıran tarafın yakalayabileceği yerde çıksın.
+  let istanbulBicimi = null;
 
   // Verilen anın İstanbul'daki günü (0–6) ve günün dakikası (0–1439)
   function istanbulZamani(tarih) {
+    istanbulBicimi ??= new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Istanbul',
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
+    });
     const parcalar = istanbulBicimi.formatToParts(tarih);
     const al = (tur) => parcalar.find((p) => p.type === tur).value;
     const gun = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(al('weekday'));
