@@ -1,6 +1,6 @@
 // Atölye bilgileri: numara değişince yalnızca burayı güncelleyin.
 const ATOLYE = {
-  whatsapp: '903120000000', // ülke kodu ile, boşluksuz
+  whatsapp: '905380773571', // ülke kodu ile, boşluksuz
 };
 
 // Mobil menü

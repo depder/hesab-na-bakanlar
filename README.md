@@ -9,14 +9,14 @@ js/main.js        menü, animasyonlar, servis formu (WhatsApp'a yönlendirir)
 assets/           favicon
 ```
 
-## Yayına almadan önce değiştirilecekler
+## İletişim bilgileri nerede
 
 | Ne | Nerede |
 |---|---|
-| Telefon numarası | `index.html` içindeki `0 (312) 000 00 00` ve `tel:+903120000000` |
+| Telefon numarası | `index.html` içindeki `0538 077 35 71` ve `tel:+905380773571` |
 | WhatsApp numarası | `js/main.js` → `ATOLYE.whatsapp` |
-| E-posta | `index.html` → `servis@baskentismakinalari.com` |
-| Adres | `index.html` → `Sanayi Sitesi, Ankara` (iki yerde) |
+| E-posta | Şimdilik yok. Eklenecekse `index.html` → `.contact__dl` içine bir satır |
+| Adres | `index.html` → `Selimiye Mah. Sanayi Sitesi, Milas / Muğla` (iki yerde) |
 | Saha servisi bölgeleri | `index.html` → `.field__list` |
 
 ## Görseller
