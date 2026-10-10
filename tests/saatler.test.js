@@ -6,14 +6,14 @@ const PZT = 1, CUMA = 5, CMT = 6, PAZAR = 0;
 const dk = (s, d) => s * 60 + d;
 
 test('hafta içi mesai saatinde açık', () => {
-  assert.deepEqual(calismaDurumu(PZT, dk(9, 0)), { acik: true, baslik: 'Şu an açığız', ek: 'kapanış 18:30' });
+  assert.deepEqual(calismaDurumu(PZT, dk(9, 0)), { acik: true, baslik: 'Şu an açığız', ek: 'kapanış 17:30' });
   assert.equal(calismaDurumu(PZT, dk(13, 15)).acik, true);
 });
 
 test('kapanışa 30 dakika kala "kapanmak üzereyiz"', () => {
-  assert.equal(calismaDurumu(PZT, dk(17, 59)).baslik, 'Şu an açığız');
-  assert.equal(calismaDurumu(PZT, dk(18, 0)).baslik, 'Kapanmak üzereyiz');
-  assert.equal(calismaDurumu(PZT, dk(18, 29)).baslik, 'Kapanmak üzereyiz');
+  assert.equal(calismaDurumu(PZT, dk(16, 59)).baslik, 'Şu an açığız');
+  assert.equal(calismaDurumu(PZT, dk(17, 0)).baslik, 'Kapanmak üzereyiz');
+  assert.equal(calismaDurumu(PZT, dk(17, 29)).baslik, 'Kapanmak üzereyiz');
 });
 
 test('açılıştan önce kapalı, aynı gün açılış gösterilir', () => {
@@ -21,7 +21,7 @@ test('açılıştan önce kapalı, aynı gün açılış gösterilir', () => {
 });
 
 test('kapanış anında ve sonrasında kapalı, ertesi gün açılış', () => {
-  assert.deepEqual(calismaDurumu(PZT, dk(18, 30)), { acik: false, baslik: 'Şu an kapalıyız', ek: 'açılış yarın 09:00' });
+  assert.deepEqual(calismaDurumu(PZT, dk(17, 30)), { acik: false, baslik: 'Şu an kapalıyız', ek: 'açılış yarın 09:00' });
   assert.equal(calismaDurumu(CUMA, dk(22, 0)).ek, 'açılış yarın 09:00');
 });
 

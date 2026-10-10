@@ -4,11 +4,11 @@
   // getDay() sırasıyla: 0 = Pazar … 6 = Cumartesi. Günün dakikası olarak [açılış, kapanış]; null = kapalı.
   const SAATLER = [
     null,          // Pazar
-    [540, 1110],   // Pazartesi 09:00–18:30
-    [540, 1110],   // Salı
-    [540, 1110],   // Çarşamba
-    [540, 1110],   // Perşembe
-    [540, 1110],   // Cuma
+    [540, 1050],   // Pazartesi 09:00–17:30
+    [540, 1050],   // Salı
+    [540, 1050],   // Çarşamba
+    [540, 1050],   // Perşembe
+    [540, 1050],   // Cuma
     [540, 810],    // Cumartesi 09:00–13:30
   ];
   const GUNLER = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];

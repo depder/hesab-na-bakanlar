@@ -42,7 +42,7 @@ if (durumKutusu && window.BaskentSaatler) {
     durumKutusu.classList.add('durum--canli');
     durumKutusu.classList.toggle('durum--acik', d.acik);
     durumKutusu.classList.toggle('durum--kapali', !d.acik);
-    durumKutusu.title = 'Hafta içi 09:00–18:30 · Cumartesi 09:00–13:30 · Pazar kapalı';
+    durumKutusu.title = 'Hafta içi 09:00–17:30 · Cumartesi 09:00–13:30 · Pazar kapalı';
     durumKutusu.replaceChildren(nokta, baslik, ek);
   };
   // Saat dilimi verisi olmayan eski bir tarayıcıda hesap hata verirse sabit saat bilgisi yerinde kalır
