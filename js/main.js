@@ -78,8 +78,11 @@ form.addEventListener('submit', (e) => {
     msg.classList.add('ok');
     msg.textContent = 'WhatsApp açıldı. Mesajı gönderdiğinizde kaydınız bize ulaşır.';
   } else {
-    // Açılır pencere engellendiyse aynı sekmede WhatsApp'a geç
-    msg.textContent = 'WhatsApp açılıyor…';
+    // Açılır pencere engellendiyse aynı sekmede WhatsApp'a geç; o da olmazsa elle dokunulacak bağlantı kalsın
+    const link = document.createElement('a');
+    link.href = url;
+    link.textContent = 'WhatsApp açılmadıysa buraya dokunun.';
+    msg.replaceChildren(link);
     window.location.href = url;
   }
 });
