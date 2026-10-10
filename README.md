@@ -8,7 +8,8 @@ css/style.css     tasarım
 js/main.js        menü, animasyonlar, servis formu (WhatsApp'a yönlendirir), açık/kapalı yazısı
 js/saatler.js     çalışma saatleri ve "şu an açık mı" hesabı (Türkiye saatine göre)
 js/whatsapp.js    WhatsApp sekmesini güvenli açma (engellenirse false döner)
-tests/            saat hesabının testleri: `node --test` (Node 20+, kurulum gerekmez)
+js/telefon.js     arama bağlantıları: önizleme çerçevesi içindeyse yeni pencere yolundan açılır
+tests/            saat, WhatsApp ve arama testleri: `node --test` (Node 20+, kurulum gerekmez)
 assets/           favicon
 ```
 
