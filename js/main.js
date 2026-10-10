@@ -1,0 +1,77 @@
+// Atölye bilgileri: numara değişince yalnızca burayı güncelleyin.
+const ATOLYE = {
+  whatsapp: '903120000000', // ülke kodu ile, boşluksuz
+};
+
+// Mobil menü
+const toggle = document.querySelector('.nav__toggle');
+const menu = document.getElementById('menu');
+toggle.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.textContent = open ? 'Kapat' : 'Menü';
+});
+menu.addEventListener('click', (e) => {
+  if (e.target.closest('a') && menu.classList.contains('open')) toggle.click();
+});
+
+// Yıl
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+// Kaydırınca beliren bloklar
+const revealables = document.querySelectorAll('.svc, .steps li, .mlist li, .g, .svc-extra > div, .faq details');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  revealables.forEach((el) => { el.classList.add('reveal'); io.observe(el); });
+}
+
+// İş emri numarası: tarih + rastgele kısa ek
+const d = new Date();
+const pad = (n) => String(n).padStart(2, '0');
+const ticketNo = `${String(d.getFullYear()).slice(2)}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${Math.floor(100 + Math.random() * 900)}`;
+document.getElementById('ticketNo').textContent = `No. ${ticketNo}`;
+
+// Form → WhatsApp mesajı
+const form = document.getElementById('form');
+const msg = document.getElementById('formMsg');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  msg.className = 'ticket__msg';
+  form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
+
+  const data = new FormData(form);
+  const eksik = ['ad', 'tel', 'makine'].filter((k) => !String(data.get(k) || '').trim());
+  const tel = String(data.get('tel') || '').replace(/\D/g, '');
+  if (tel && tel.length < 10) eksik.push('tel');
+
+  if (eksik.length) {
+    eksik.forEach((k) => form.elements[k].classList.add('invalid'));
+    form.elements[eksik[0]].focus();
+    msg.textContent = 'Ad, telefon ve makine türü gerekli.';
+    return;
+  }
+
+  const alanlar = data.getAll('alan');
+  const satirlar = [
+    `*Servis kaydı* (${ticketNo})`,
+    `Ad / Firma: ${data.get('ad')}`,
+    `Telefon: ${data.get('tel')}`,
+    `Makine: ${data.get('makine')}${data.get('model') ? ' – ' + data.get('model') : ''}`,
+    alanlar.length ? `Arıza alanı: ${alanlar.join(', ')}` : '',
+    data.get('aciklama') ? `Şikâyet: ${data.get('aciklama')}` : '',
+    `Konum: ${data.get('yer')}`,
+  ].filter(Boolean);
+
+  const url = `https://wa.me/${ATOLYE.whatsapp}?text=${encodeURIComponent(satirlar.join('\n'))}`;
+  window.open(url, '_blank', 'noopener');
+  msg.classList.add('ok');
+  msg.textContent = 'WhatsApp açıldı. Mesajı gönderdiğinizde kaydınız bize ulaşır.';
+});
