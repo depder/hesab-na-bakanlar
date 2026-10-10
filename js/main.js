@@ -3,13 +3,29 @@ const ATOLYE = {
   whatsapp: '905380773571', // ülke kodu ile, boşluksuz
 };
 
+// Arama bağlantıları: sayfa önizleme çerçevesi içindeyse WhatsApp düğmesi gibi yeni pencere yolundan açılsın.
+if (window.BaskentTelefon) {
+  BaskentTelefon.telBaglantilariniAyarla(
+    document.querySelectorAll('a[href^="tel:"]'),
+    BaskentTelefon.cerceveIcindeMi(window),
+  );
+}
+
+// Görsel yüklenemezse koyu yer tutucu göster (betik çalışmadan önce bozulmuş görseller de yakalanır)
+document.querySelectorAll('.ph img').forEach((img) => {
+  const bos = () => img.parentNode.classList.add('ph--empty');
+  if (img.complete && img.naturalWidth === 0 && img.currentSrc) bos();
+  else img.addEventListener('error', bos, { once: true });
+});
+
 // Mobil menü
 const toggle = document.querySelector('.nav__toggle');
+const toggleYazi = toggle.querySelector('.nav__label');
 const menu = document.getElementById('menu');
 toggle.addEventListener('click', () => {
   const open = menu.classList.toggle('open');
   toggle.setAttribute('aria-expanded', open);
-  toggle.textContent = open ? 'Kapat' : 'Menü';
+  if (toggleYazi) toggleYazi.textContent = open ? 'Kapat' : 'Menü';
 });
 menu.addEventListener('click', (e) => {
   if (e.target.closest('a') && menu.classList.contains('open')) toggle.click();
@@ -85,7 +101,10 @@ const msg = document.getElementById('formMsg');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   msg.className = 'ticket__msg';
-  form.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
+  form.querySelectorAll('[aria-invalid]').forEach((el) => {
+    el.removeAttribute('aria-invalid');
+    el.removeAttribute('aria-describedby');
+  });
 
   const data = new FormData(form);
   const eksik = ['ad', 'tel', 'makine'].filter((k) => !String(data.get(k) || '').trim());
@@ -93,7 +112,10 @@ form.addEventListener('submit', (e) => {
   if (tel && tel.length < 10) eksik.push('tel');
 
   if (eksik.length) {
-    eksik.forEach((k) => form.elements[k].classList.add('invalid'));
+    eksik.forEach((k) => {
+      form.elements[k].setAttribute('aria-invalid', 'true');
+      form.elements[k].setAttribute('aria-describedby', 'formMsg');
+    });
     form.elements[eksik[0]].focus();
     msg.textContent = 'Ad, telefon ve makine türü gerekli.';
     return;
