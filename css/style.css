@@ -427,6 +427,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .contact__dl dt { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--dark-mute); padding-top: 3px; }
 .contact__dl dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
 .contact__dl a { text-decoration: none; border-bottom: 1px solid var(--yellow); }
+.contact__dl .kisi { display: block; margin-top: 6px; font-size: 14.5px; font-weight: 500; color: var(--dark-mute); }
 @media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; } }
 @media (max-width: 460px) { .contact__dl div { grid-template-columns: 1fr; gap: 4px; } }
 
