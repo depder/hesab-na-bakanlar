@@ -172,7 +172,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-size: 24px; font-weight: 700; color: #fff; white-space: nowrap;
   text-decoration: underline wavy; text-decoration-thickness: 1.5px; text-underline-offset: 5px;
 }
-.durum__ek { font-size: 20px; font-weight: 600; color: var(--night-mute); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.durum__ek { font-size: 20px; font-weight: 600; color: var(--night-mute); white-space: nowrap; }
 .durum--acik .durum__nokta { color: var(--ok); animation: nabiz 2.2s ease-out infinite; }
 .durum--acik .durum__yazi { text-decoration-color: var(--amber); }
 .durum--kapali .durum__nokta { color: var(--bad); }
@@ -214,17 +214,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
   border-radius: 10px; border: 1.5px solid var(--night-line); background: transparent;
   color: #fff; font-weight: 700; font-size: 15px; cursor: pointer;
 }
-.nav__bar, .nav__bar::before, .nav__bar::after {
-  display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px;
-  transition: transform .2s ease, background-color .2s ease;
-}
-.nav__bar { position: relative; }
-.nav__bar::before, .nav__bar::after { content: ''; position: absolute; left: 0; }
-.nav__bar::before { top: -6px; }
-.nav__bar::after { top: 6px; }
-.nav__toggle[aria-expanded="true"] .nav__bar { background: transparent; }
-.nav__toggle[aria-expanded="true"] .nav__bar::before { transform: translateY(6px) rotate(45deg); }
-.nav__toggle[aria-expanded="true"] .nav__bar::after { transform: translateY(-6px) rotate(-45deg); }
+/* Simge SVG çizgisiyle çizilir: arka plan rengiyle çizilen eski çizgiler bazı telefonlarda hiç görünmüyordu */
+.nav__ikon { width: 22px; height: 22px; flex: none; }
+.nav__ikon-kapa { display: none; }
+.nav__toggle[aria-expanded="true"] .nav__ikon-ac { display: none; }
+.nav__toggle[aria-expanded="true"] .nav__ikon-kapa { display: inline; }
 .head__call { flex: none; font-variant-numeric: tabular-nums; }
 
 /* ---------- Hero ---------- */
@@ -600,6 +594,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
   html { scroll-padding-bottom: 96px; }
   body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   .topbar__etiket { display: none; }
+  /* Telefonda durum iki satır: üstte açık/kapalı, altında saat bilgisi; hiçbiri kesilmez */
+  .topbar__in { padding-top: 6px; padding-bottom: 6px; }
+  .durum--canli { display: grid; grid-template-columns: auto auto; align-items: center; column-gap: 8px; row-gap: 4px; }
+  .durum--canli .durum__ek { grid-column: 2; }
 
   .brands { padding: 16px 0 14px; }
   .brands__in { flex-direction: column; align-items: stretch; gap: 8px; }
@@ -673,8 +671,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .logo__mark { height: 36px; }
   .logo__txt b { font-size: 18px; }
   .logo__txt span { font-size: 10px; letter-spacing: .14em; }
-  .nav__label { display: none; }
-  .nav__toggle { padding: 8px 12px; }
+  .nav__toggle { gap: 8px; padding: 8px 12px; }
   .arama-karti { padding: 12px; gap: 12px; }
   .arama-karti__ikon { width: 44px; height: 44px; }
   .arama-karti__ok { display: none; }
@@ -685,7 +682,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 @media (max-width: 360px) {
   .topbar__tel .ikon { display: none; }
-  .durum__ek { display: none; }
 }
 
 /* Hareket azaltma tercihi */
