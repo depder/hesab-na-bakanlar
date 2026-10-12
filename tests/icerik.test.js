@@ -24,10 +24,11 @@ test('sayfada tek telefon numarası var: 0538 077 35 71', () => {
   for (const n of gorunenNumaralar) assert.equal(n.replace(/^0/, ''), '5380773571');
 });
 
-test('hizmet kapsamı sınırı hem kapsam bölümünde hem formda açıkça yazılı', () => {
+test('uzmanlık bölümü yalnız yapılan işleri listeler; kapsam sınırı formda yazılı', () => {
   const kapsamBolumu = html.slice(html.indexOf('id="kapsam"'), html.indexOf('id="hizmetler"'));
   const form = html.slice(html.indexOf('id="isEmriFormu"'), html.indexOf('</form>'));
-  assert.ok(kapsamBolumu.includes(KAPSAM_CUMLESI));
+  // Müşteri isteği: "sunulmayan hizmetler" kutusu uzmanlık bölümünde yer almaz
+  assert.doesNotMatch(kapsamBolumu, /borvek|sunulma/i);
   assert.ok(form.includes(KAPSAM_CUMLESI));
   for (const alan of ['Kova tamiri', 'Hardox kaynak kaplama', 'Hidrolik piston revizyonu', 'Mekanik ağır bakım']) {
     assert.ok(kapsamBolumu.includes(alan), alan);
