@@ -6,9 +6,10 @@ const html = sayfaHtml();
 const metin = gorunenMetin();
 const ISLEMLER = ['Hidrolik sistem tamir ve bakım', 'Motor tamir, bakım ve revizyon', 'Kova tamiri ve Hardox zırhlama', 'Mekanik ağır bakım'];
 
-test('kişi adı olarak yalnızca Mücahit Çakır geçer', () => {
-  assert.match(metin, /Mücahit Çakır/);
-  assert.match(metin, /Master Technician \(Baş Uzman\)/);
+test('kişi adı olarak yalnızca Mücahit ÇAKIR geçer', () => {
+  assert.match(metin, /Mücahit ÇAKIR/);
+  assert.match(metin, /Mücahit ÇAKIR[\s\S]*Baş Teknisyen/);
+  assert.doesNotMatch(metin, /Master Technician|Baş Uzman|Mücahit Çakır/);
   assert.doesNotMatch(html, /\bCem\b/i);
   assert.doesNotMatch(html, /Şahin/i);
 });
@@ -80,6 +81,6 @@ test('yapısal veri (JSON-LD) geçerli JSON ve doğru bilgileri taşır', () => 
   const veri = JSON.parse(blok[1]);
   assert.equal(veri.name, 'Başkent İş Makinaları');
   assert.equal(veri.telephone, '+90-538-077-35-71');
-  assert.equal(veri.employee.name, 'Mücahit Çakır');
+  assert.equal(veri.employee.name, 'Mücahit ÇAKIR');
   assert.equal(veri.address.addressLocality, 'Milas');
 });
