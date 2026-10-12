@@ -1,642 +1,1947 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Başkent İş Makinaları — Motor, Hidrolik ve Bom Tamiri · Milas</title>
-  <meta name="description" content="Milas Sanayi Sitesi'nde iş makinası motor, hidrolik, bom kaynağı tamiri ve bakımı. Muğla geneli ve Didim'e saha servisi. Tel: 0538 077 35 71.">
-  <meta name="theme-color" content="#0b0e13">
-  <meta name="format-detection" content="telephone=yes">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="tr_TR">
-  <meta property="og:title" content="Başkent İş Makinaları — İş makinası tamir servisi, Milas">
-  <meta property="og:description" content="Motor, hidrolik, bom ve kaynak tamiri. Periyodik bakım, arıza teşhisi, saha servisi. Hemen arayın: 0538 077 35 71">
-  <meta property="og:image" content="https://depder.github.io/hesab-na-bakanlar/assets/img/logo.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="800">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Figtree:wght@400..700&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AutoRepair",
-    "name": "Başkent İş Makinaları",
-    "description": "İş makinası motor, hidrolik, bom ve kaynak tamiri, periyodik bakım, arıza teşhisi ve saha servisi.",
-    "telephone": "+90 538 077 35 71",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Selimiye Mah. Sanayi Sitesi",
-      "addressLocality": "Milas",
-      "addressRegion": "Muğla",
-      "addressCountry": "TR"
-    },
-    "areaServed": ["Muğla", "Didim"],
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:30" }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Başkent İş Makinaları — Kova Tamiri, Hardox Zırhlama ve Hidrolik Silindir Revizyonu · Milas</title>
+<meta name="description" content="Milas Sanayi Sitesi'nde iş makinası kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. WhatsApp ile iş emri: 0538 077 35 71.">
+<meta name="theme-color" content="#0b0e13">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Başkent İş Makinaları">
+<meta property="og:title" content="Başkent İş Makinaları — Kova Tamiri ve Hardox Zırhlama · Milas">
+<meta property="og:description" content="Kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. WhatsApp ile iş emri: 0538 077 35 71.">
+<meta property="og:image" content="https://depder.github.io/hesab-na-bakanlar/assets/img/logo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&amp;family=Figtree:wght@400..700&amp;display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Başkent İş Makinaları",
+  "description": "İş makinası kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.",
+  "telephone": "+90-538-077-35-71",
+  "image": "https://depder.github.io/hesab-na-bakanlar/assets/img/logo.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Selimiye Mah. Sanayi Sitesi",
+    "addressLocality": "Milas",
+    "addressRegion": "Muğla",
+    "addressCountry": "TR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:30" }
+  ],
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Muğla" },
+    { "@type": "City", "name": "Didim" }
+  ],
+  "employee": { "@type": "Person", "name": "Mücahit Çakır", "jobTitle": "Master Technician (Baş Uzman)" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Hizmetler",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kova tamiri" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hardox aşınma zırhlama (kaynak kaplama)" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hidrolik silindir (piston) revizyonu" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mekanik ağır bakım" } }
     ]
   }
-  </script>
+}
+</script>
+<style>
+/* ==========================================================================
+   Başkent İş Makinaları — Dark Industrial Luxury
+   ========================================================================== */
+:root {
+  --obs: #0b0e13;
+  --graf: #141922;
+  --graf-2: #1b212c;
+  --cizgi: #262d39;
+  --cizgi-2: #343c4a;
+  --metal: #8a93a3;
+  --metal-ac: #c3c9d3;
+  --yazi: #d4d9e1;
+  --soluk: #9aa2b1;
+  --beyaz: #f6f7f9;
+  --amber: #f5a524;
+  --amber-ac: #ffb83d;
+  --amber-koyu: #3a2508;
+  --amber-zemin: rgba(245, 165, 36, .12);
+  --wa: #25d366;
+  --acik: #4ade80;
+  --kapali: #f87171;
+  --hata: #fca5a5;
+  --f-baslik: 'Archivo', 'Arial Narrow', system-ui, sans-serif;
+  --f-govde: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --r-s: 10px;
+  --r: 16px;
+  --r-l: 24px;
+  --kenar: 16px;
+  --baslik-y: 72px;
+  --cam-zemin: linear-gradient(180deg, rgba(38, 45, 58, .58), rgba(20, 25, 34, .62));
+  --cam-kenar: rgba(255, 255, 255, .085);
+  --golge: 0 1px 0 rgba(255, 255, 255, .06) inset, 0 30px 60px -32px rgba(0, 0, 0, .75);
+}
+@media (min-width: 760px) { :root { --kenar: 28px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--baslik-y) + 16px); }
+body {
+  margin: 0; min-height: 100vh; background-color: var(--obs); color: var(--yazi);
+  font: 400 17px/1.6 var(--f-govde); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(1100px 620px at 88% -8%, rgba(245, 165, 36, .11), transparent 62%),
+    radial-gradient(900px 520px at -12% 34%, rgba(84, 112, 160, .08), transparent 60%);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+img, svg, canvas { display: block; max-width: 100%; }
+a { color: var(--amber); text-underline-offset: 3px; }
+a:hover { color: var(--amber-ac); }
+h1, h2, h3, h4 { margin: 0; color: var(--beyaz); font-family: var(--f-baslik); font-stretch: 112%; letter-spacing: -.015em; line-height: 1.08; text-wrap: balance; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--amber); color: #120c03; }
+
+.sar { width: min(1200px, 100% - 2 * var(--kenar)); margin-inline: auto; }
+.gorunmez { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.atla { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 12px 16px; background: var(--amber); color: #120c03; font-weight: 700; border-radius: 10px; text-decoration: none; }
+.atla:focus { top: 12px; color: #120c03; }
+.ikon { width: 20px; height: 20px; flex: none; }
+.ikon--cizgi { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sayi { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Cam kart */
+.cam {
+  background: var(--cam-zemin); border: 1px solid var(--cam-kenar); border-radius: var(--r-l); box-shadow: var(--golge);
+  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+}
+
+/* Düğmeler */
+.dugme {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 20px;
+  border: 1px solid transparent; border-radius: 12px; cursor: pointer; text-decoration: none; text-align: center;
+  font: 700 16px/1.15 var(--f-govde); letter-spacing: .005em;
+  transition: transform .16s ease, background-color .16s ease, box-shadow .22s ease, border-color .16s ease, color .16s ease;
+}
+.dugme:active { transform: translateY(1px); }
+.dugme--amber { background: var(--amber); color: #140f06; box-shadow: 0 12px 32px -12px rgba(245, 165, 36, .75), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.dugme--amber:hover { background: var(--amber-ac); color: #140f06; box-shadow: 0 16px 40px -12px rgba(245, 165, 36, .9), inset 0 1px 0 rgba(255, 255, 255, .45); transform: translateY(-1px); }
+.dugme--cam { background: rgba(255, 255, 255, .06); color: #fff; border-color: rgba(255, 255, 255, .16); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.dugme--cam:hover { color: #fff; border-color: var(--amber); background: rgba(245, 165, 36, .1); }
+.dugme--wa { background: var(--wa); color: #05200e; }
+.dugme--wa:hover { background: #3be07c; color: #05200e; }
+.dugme--buyuk { min-height: 56px; padding: 15px 24px; font-size: 17px; border-radius: 14px; }
+.dugme--kucuk { min-height: 44px; padding: 9px 14px; font-size: 15px; border-radius: 11px; }
+
+/* Etiket / bölüm başı */
+.etiket { display: inline-flex; align-items: center; gap: 12px; color: var(--amber); font: 700 13px/1 var(--f-govde); letter-spacing: .16em; text-transform: uppercase; }
+.etiket::before { content: ''; width: 28px; height: 2px; background: linear-gradient(90deg, var(--amber), transparent); }
+.etiket b { font-weight: 800; color: var(--soluk); letter-spacing: .08em; }
+.bolum { padding-block: clamp(72px, 9vw, 124px); position: relative; }
+.bolum__bas { display: grid; gap: 16px; max-width: 760px; margin-bottom: clamp(36px, 5vw, 56px); }
+.bolum__bas h2 { font-size: clamp(2rem, 1.1rem + 2.6vw, 3.1rem); }
+.bolum__bas p { color: var(--soluk); font-size: 18px; max-width: 640px; }
+
+/* ---------- Üst şerit: canlı çalışma durumu ---------- */
+.ust-serit { background: #07090c; border-bottom: 1px solid var(--cizgi); font-size: 14px; }
+.ust-serit__ic { display: flex; align-items: center; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; min-height: 44px; padding-block: 8px; }
+.ust-serit__tel { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: #fff; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.ust-serit__tel .ikon { width: 16px; height: 16px; color: var(--amber); }
+.ust-serit__tel:hover { color: var(--amber); }
+
+.rozet { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 10px; margin: 0; color: var(--yazi); line-height: 1.35; }
+.rozet__nokta { position: relative; width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--metal); }
+.rozet__metin { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.rozet__baslik { font-weight: 800; color: #fff; letter-spacing: .02em; }
+.rozet__alt { color: var(--yazi); font-weight: 600; }
+.rozet__ek { color: var(--soluk); font-weight: 500; }
+.rozet__ek:empty { display: none; }
+.rozet--acik .rozet__nokta { background: var(--acik); animation: nabiz 2.2s ease-out infinite; }
+.rozet--acik .rozet__baslik { color: var(--acik); }
+.rozet--kapali .rozet__nokta { background: var(--kapali); }
+.rozet--kapali .rozet__baslik { color: var(--kapali); }
+@keyframes nabiz {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, .55); }
+  70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* ---------- Başlık ---------- */
+.baslik {
+  position: sticky; top: 0; z-index: 50; color: #fff;
+  background: rgba(11, 14, 19, .78); border-bottom: 1px solid rgba(255, 255, 255, .07);
+  -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+}
+.baslik__ic { display: flex; align-items: center; gap: 20px; min-height: var(--baslik-y); }
+.logo { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: #fff; text-decoration: none; flex: none; }
+.logo:hover { color: #fff; }
+.logo__isaret { width: 72px; height: 44px; flex: none; background: var(--logo) center / contain no-repeat; }
+.logo__yazi { display: flex; flex-direction: column; line-height: 1; }
+.logo__yazi b { font: 800 21px/1 var(--f-baslik); font-stretch: 125%; letter-spacing: .03em; }
+.logo__yazi span { margin-top: 6px; color: var(--amber); font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+
+.menu { margin-left: auto; }
+.menu__liste { display: flex; align-items: center; gap: 2px; }
+.menu__liste a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 10px;
+  color: var(--yazi); font-weight: 600; font-size: 15px; text-decoration: none; transition: color .15s, background-color .15s;
+}
+.menu__liste a:hover { color: #fff; background: rgba(255, 255, 255, .07); }
+.menu__cta a { margin-left: 6px; color: var(--amber); border: 1px solid rgba(245, 165, 36, .45); }
+.menu__cta a:hover { color: #140f06; background: var(--amber); }
+.menu__dugme {
+  display: none; align-items: center; justify-content: center; gap: 8px; min-height: 44px; min-width: 44px; padding: 8px 12px;
+  border-radius: 11px; border: 1px solid var(--cizgi-2); background: rgba(255, 255, 255, .04); color: #fff;
+  font-weight: 700; font-size: 15px; cursor: pointer;
+}
+.menu__ikon { width: 22px; height: 22px; flex: none; }
+.menu__ikon-kapa { display: none; }
+.menu__dugme[aria-expanded="true"] .menu__ikon-ac { display: none; }
+.menu__dugme[aria-expanded="true"] .menu__ikon-kapa { display: inline; }
+.baslik__ara { flex: none; }
+
+/* ---------- Kahraman (hero) ---------- */
+.kahraman { position: relative; padding-block: clamp(40px, 6vw, 72px) clamp(48px, 6vw, 80px); overflow: hidden; isolation: isolate; }
+.kahraman::before {
+  content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%);
+}
+.kahraman__isik {
+  position: absolute; z-index: -1; right: -10%; top: 4%; width: min(760px, 90vw); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(245, 165, 36, .26), rgba(245, 165, 36, .06) 45%, transparent 68%);
+  filter: blur(10px); animation: sicaklik 9s ease-in-out infinite alternate;
+}
+@keyframes sicaklik { from { opacity: .75; transform: scale(.96); } to { opacity: 1; transform: scale(1.04); } }
+.kahraman__ic { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+.kahraman__metin { display: grid; gap: 24px; align-content: center; }
+.kahraman h1 { font-size: clamp(2.45rem, 1.15rem + 4.3vw, 4.7rem); font-weight: 800; line-height: 1.02; letter-spacing: -.025em; hyphens: manual; }
+.kahraman h1 em {
+  font-style: normal; color: var(--amber);
+  background: linear-gradient(92deg, #ffd27a, var(--amber) 55%, #e48a0a); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.kahraman__giris { max-width: 560px; color: var(--yazi); font-size: clamp(17px, 1rem + .3vw, 19.5px); }
+.kahraman__dugmeler { display: flex; flex-wrap: wrap; gap: 12px; }
+.uzman-cip { display: inline-flex; align-items: center; gap: 14px; max-width: 100%; padding: 10px 18px 10px 10px; border-radius: 999px; background: rgba(255, 255, 255, .04); border: 1px solid var(--cam-kenar); justify-self: start; }
+.uzman-cip__harf {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; flex: none;
+  font: 800 15px/1 var(--f-baslik); color: #140f06; background: conic-gradient(from 210deg, #ffd27a, var(--amber), #c9790a, #ffd27a);
+  box-shadow: 0 0 0 3px rgba(245, 165, 36, .18);
+}
+.uzman-cip__yazi { display: flex; flex-direction: column; line-height: 1.3; font-size: 14px; color: var(--soluk); }
+.uzman-cip__yazi b { color: #fff; font-size: 15.5px; }
+
+.kahraman__bilgi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: clamp(40px, 5vw, 64px); border-radius: var(--r); overflow: hidden; background: var(--cizgi); border: 1px solid var(--cizgi); }
+.kahraman__bilgi li { display: flex; align-items: center; gap: 14px; padding: 18px 20px; background: rgba(15, 19, 26, .92); }
+.kahraman__bilgi .ikon { width: 22px; height: 22px; color: var(--amber); }
+.kahraman__bilgi span { display: flex; flex-direction: column; line-height: 1.35; color: var(--soluk); font-size: 14.5px; }
+.kahraman__bilgi b { color: #fff; font-size: 15.5px; }
+.kahraman__bilgi a { color: #fff; text-decoration: none; }
+
+/* 3D sahne */
+.sahne-kap { margin: 0; display: grid; gap: 14px; }
+.sahne {
+  position: relative; aspect-ratio: 1 / 1; max-height: 640px; border-radius: 28px; overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(circle at 55% 62%, rgba(245, 165, 36, .2), transparent 58%),
+    linear-gradient(160deg, rgba(31, 38, 50, .75), rgba(11, 14, 19, .9));
+  border: 1px solid var(--cam-kenar); box-shadow: var(--golge);
+}
+.sahne::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; z-index: 3;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .06), transparent 22%);
+}
+.sahne__yedek { position: absolute; inset: 6%; width: 88%; height: 88%; z-index: 1; transition: opacity .8s ease; }
+.sahne__tuval { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; opacity: 0; transition: opacity .9s ease; touch-action: pan-y; cursor: grab; }
+.sahne__tuval:active { cursor: grabbing; }
+.sahne[data-sahne="hazir"] .sahne__tuval { opacity: 1; }
+.sahne[data-sahne="hazir"] .sahne__yedek { opacity: 0; }
+.sahne__yukleme { position: absolute; left: 50%; bottom: 18px; z-index: 4; transform: translateX(-50%); padding: 6px 12px; border-radius: 999px; background: rgba(11, 14, 19, .7); color: var(--soluk); font-size: 12.5px; font-weight: 600; letter-spacing: .04em; }
+.sahne:not([data-sahne="yukleniyor"]) .sahne__yukleme { display: none; }
+.sahne__isaretler { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.isaret {
+  position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap;
+  transform: translate3d(-999px, -999px, 0); opacity: 0; transition: opacity .5s ease; will-change: transform;
+}
+.sahne[data-sahne="hazir"] .isaret { opacity: 1; }
+.isaret i {
+  display: grid; place-items: center; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 50%; flex: none;
+  font: 800 12px/1 var(--f-govde); font-style: normal; color: #140f06; background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(245, 165, 36, .25), 0 0 18px rgba(245, 165, 36, .8);
+}
+.isaret b {
+  margin-top: -12px; padding: 6px 10px; border-radius: 999px; font: 600 12.5px/1 var(--f-govde); color: #fff;
+  background: rgba(11, 14, 19, .72); border: 1px solid rgba(255, 255, 255, .12); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.sahne[data-sahne] .isaret.isaret--gizli { opacity: 0; }
+.isaret--sol { flex-direction: row-reverse; }
+.isaret--sol i { margin: -12px -12px 0 0; }
+.sahne-kap figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; color: var(--soluk); font-size: 14px; }
+.sahne__ipucu { display: inline-flex; align-items: center; gap: 8px; }
+.sahne__ipucu .ikon { width: 18px; height: 18px; color: var(--amber); }
+.sahne__lejant { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; width: 100%; }
+.sahne__lejant li { display: flex; align-items: center; gap: 8px; color: var(--yazi); font-size: 14px; }
+.sahne__lejant i { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; flex: none; background: var(--amber); color: #140f06; font: 800 11.5px/1 var(--f-govde); font-style: normal; }
+.sahne-kap:has(.sahne[data-sahne="yedek"]) .sahne__lejant { display: grid; }
+
+/* ---------- Kapsam bandı ---------- */
+.kapsam { padding-block: 0 clamp(24px, 4vw, 40px); }
+.kapsam__kart { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); padding: clamp(24px, 4vw, 44px); overflow: hidden; }
+.kapsam__kart::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 6px;
+  background: repeating-linear-gradient(-45deg, var(--amber) 0 14px, #120d05 14px 28px); opacity: .9;
+}
+.kapsam__sol { display: grid; gap: 14px; align-content: start; }
+.kapsam__sol h2 { font-size: clamp(1.6rem, 1rem + 1.8vw, 2.4rem); }
+.kapsam__sol p { color: var(--soluk); }
+.kapsam__liste { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.kapsam__liste h3 { margin-bottom: 14px; font-size: 15px; font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; color: var(--soluk); }
+.tikli li, .carpili li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, .06); color: #fff; font-weight: 600; }
+.tikli .ikon { color: var(--acik); margin-top: 2px; }
+.carpili .ikon { color: var(--kapali); margin-top: 2px; }
+.kapsam__disi { padding: 18px 20px; border-radius: var(--r); background: rgba(248, 113, 113, .06); border: 1px solid rgba(248, 113, 113, .22); }
+.kapsam__disi p { margin-top: 12px; color: var(--yazi); font-size: 15px; }
+
+/* ---------- Hizmetler ---------- */
+.hizmetler__izgara { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.hizmet { position: relative; display: flex; flex-direction: column; gap: 18px; padding: clamp(24px, 3vw, 34px); overflow: hidden; transition: transform .3s ease, border-color .3s ease; }
+.hizmet::after {
+  content: ''; position: absolute; right: -80px; top: -80px; width: 220px; height: 220px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(245, 165, 36, .18), transparent 70%); opacity: .55; transition: opacity .3s ease;
+}
+.hizmet:hover { transform: translateY(-3px); border-color: rgba(245, 165, 36, .35); }
+.hizmet:hover::after { opacity: 1; }
+.hizmet__ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hizmet__ikon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; color: var(--amber); background: var(--amber-zemin); border: 1px solid rgba(245, 165, 36, .3); }
+.hizmet__ikon .ikon { width: 28px; height: 28px; }
+.hizmet__no { font: 800 44px/1 var(--f-baslik); font-stretch: 125%; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .16); }
+.hizmet h3 { font-size: clamp(1.45rem, 1.1rem + .9vw, 1.85rem); }
+.hizmet > p { color: var(--soluk); }
+.hizmet__liste { display: grid; gap: 2px; }
+.hizmet__liste li { display: flex; gap: 10px; padding: 8px 0; color: var(--yazi); font-size: 15.5px; border-top: 1px dashed rgba(255, 255, 255, .08); }
+.hizmet__liste li::before { content: ''; width: 6px; height: 6px; margin-top: 10px; flex: none; background: var(--amber); transform: rotate(45deg); }
+.hizmet__bag { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; min-height: 44px; font-weight: 700; text-decoration: none; }
+.hizmet__bag .ikon { width: 18px; height: 18px; transition: transform .2s ease; }
+.hizmet__bag:hover .ikon { transform: translateX(4px); }
+
+/* ---------- Süreç ---------- */
+.surec { background: linear-gradient(180deg, transparent, rgba(20, 25, 34, .55) 30%, rgba(20, 25, 34, .55) 70%, transparent); }
+.adimlar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; counter-reset: adim; position: relative; }
+.adimlar::before { content: ''; position: absolute; left: 0; right: 0; top: 27px; height: 1px; background: linear-gradient(90deg, var(--amber), rgba(245, 165, 36, .1)); }
+.adimlar li { position: relative; display: grid; gap: 12px; align-content: start; }
+.adimlar__no {
+  display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; font: 800 18px/1 var(--f-baslik);
+  color: var(--amber); background: var(--obs); border: 1px solid rgba(245, 165, 36, .55); box-shadow: 0 0 24px rgba(245, 165, 36, .25);
+}
+.adimlar h3 { font-size: 1.25rem; margin-top: 6px; }
+.adimlar p { color: var(--soluk); font-size: 15.5px; }
+
+/* ---------- Uzman ---------- */
+.uzman__kart { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(20px, 3vw, 40px); padding: clamp(24px, 4vw, 44px); position: relative; overflow: hidden; }
+.uzman__kart::before {
+  content: ''; position: absolute; left: -120px; bottom: -160px; width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 165, 36, .22), transparent 70%); pointer-events: none;
+}
+.uzman__harf {
+  position: relative; display: grid; place-items: center; width: clamp(96px, 12vw, 132px); aspect-ratio: 1; border-radius: 50%;
+  font: 800 clamp(34px, 4vw, 46px)/1 var(--f-baslik); font-stretch: 125%; color: #140f06;
+  background: conic-gradient(from 200deg, #ffd27a, var(--amber), #b86b06, #ffd27a);
+  box-shadow: 0 0 0 6px rgba(245, 165, 36, .12), 0 20px 50px -18px rgba(245, 165, 36, .7);
+}
+.uzman__metin { display: grid; gap: 10px; }
+.uzman__unvan { color: var(--amber); font-weight: 700; letter-spacing: .04em; }
+.uzman__metin h2 { font-size: clamp(1.9rem, 1.1rem + 2.2vw, 2.8rem); }
+.uzman__metin p:last-child { color: var(--soluk); max-width: 620px; }
+.uzman__dugmeler { display: grid; gap: 10px; }
+
+/* ---------- İş emri jeneratörü ---------- */
+.isemri { background: radial-gradient(900px 500px at 15% 10%, rgba(245, 165, 36, .08), transparent 60%); }
+.isemri__izgara { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr); gap: 24px; align-items: start; }
+.form { display: grid; gap: 26px; padding: clamp(22px, 3.5vw, 40px); }
+.alan { display: grid; gap: 10px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.alan legend, .alan > label { padding: 0; color: #fff; font-weight: 700; font-size: 16px; }
+.alan__adim { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 8px; border-radius: 50%; background: var(--amber-zemin); color: var(--amber); font-size: 13px; font-weight: 800; vertical-align: 1px; }
+.zorunlu { color: var(--amber); }
+.istege { color: var(--soluk); font-weight: 500; font-size: 14px; }
+.alan legend { margin-bottom: 10px; }
+.alan-cift { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+
+.secim { display: flex; flex-wrap: wrap; gap: 8px; }
+.secim label { position: relative; display: inline-flex; }
+.secim input, .kartsec input, .segment input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.secim span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border-radius: 999px; font-size: 15px; font-weight: 600;
+  color: var(--yazi); background: rgba(11, 14, 19, .55); border: 1px solid var(--cizgi-2); transition: all .15s ease;
+}
+.secim label:hover span { border-color: rgba(245, 165, 36, .5); }
+.secim input:checked + span { color: #140f06; background: var(--amber); border-color: var(--amber); }
+.secim input:focus-visible + span, .kartsec input:focus-visible + .kartsec__ic, .segment input:focus-visible + span { outline: 3px solid var(--amber); outline-offset: 2px; }
+
+.kartsec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.kartsec label { position: relative; display: flex; }
+.kartsec__ic {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; align-items: center; width: 100%; padding: 14px; border-radius: 14px;
+  background: rgba(11, 14, 19, .55); border: 1px solid var(--cizgi-2); transition: all .15s ease;
+}
+.kartsec__ic .ikon { grid-row: span 2; width: 26px; height: 26px; color: var(--amber); }
+.kartsec__ic b { color: #fff; font-size: 15.5px; line-height: 1.25; }
+.kartsec__ic small { color: var(--soluk); font-size: 13px; line-height: 1.35; }
+.kartsec label:hover .kartsec__ic { border-color: rgba(245, 165, 36, .5); }
+.kartsec input:checked + .kartsec__ic { border-color: var(--amber); background: linear-gradient(180deg, rgba(245, 165, 36, .16), rgba(245, 165, 36, .05)); box-shadow: 0 0 0 1px var(--amber) inset; }
+
+.segment { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 5px; border-radius: 14px; background: rgba(11, 14, 19, .55); border: 1px solid var(--cizgi-2); }
+.segment label { position: relative; display: flex; }
+.segment span { display: grid; place-items: center; width: 100%; min-height: 46px; padding: 8px 10px; border-radius: 10px; text-align: center; font-size: 14.5px; font-weight: 700; color: var(--soluk); line-height: 1.2; transition: all .15s ease; }
+.segment input:checked + span { color: #fff; background: var(--graf-2); box-shadow: 0 0 0 1px var(--cizgi-2) inset; }
+.segment input[value^="Acil"]:checked + span { color: #140f06; background: var(--amber); box-shadow: none; }
+
+.kapsam-notu { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; font-size: 14.5px; color: var(--yazi); background: rgba(248, 113, 113, .07); border: 1px solid rgba(248, 113, 113, .25); }
+.kapsam-notu .ikon { color: var(--kapali); margin-top: 1px; }
+.kapsam-notu b { color: #fff; }
+
+.girdi {
+  width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 12px; font-size: 16px; color: #fff;
+  background: rgba(11, 14, 19, .6); border: 1px solid var(--cizgi-2); transition: border-color .15s, box-shadow .15s;
+}
+.girdi::placeholder { color: #6f7889; }
+.girdi:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 3px rgba(245, 165, 36, .22); }
+textarea.girdi { min-height: 120px; resize: vertical; line-height: 1.5; }
+select.girdi { appearance: none; -webkit-appearance: none; padding-right: 42px; background-image: linear-gradient(45deg, transparent 50%, var(--amber) 50%), linear-gradient(135deg, var(--amber) 50%, transparent 50%); background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+select.girdi option { background: var(--graf); color: #fff; }
+.alan__alt { display: flex; justify-content: space-between; gap: 12px; color: var(--soluk); font-size: 13.5px; }
+.alan__hata { color: var(--hata); font-size: 14px; font-weight: 600; }
+.alan__hata:empty { display: none; }
+.alan--hata legend, .alan--hata > label { color: var(--hata); }
+.alan--hata .girdi, .alan--hata .secim span, .alan--hata .kartsec__ic { border-color: rgba(252, 165, 165, .7); }
+
+.form__alt { display: grid; gap: 12px; }
+.form__alt .dugme { width: 100%; }
+.form__not { color: var(--soluk); font-size: 14px; }
+.form__hata { color: var(--hata); font-weight: 700; }
+.form__hata:empty { display: none; }
+.form__yedek { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; min-height: 44px; }
+
+/* Bilet (canlı önizleme) */
+.bilet { position: sticky; top: calc(var(--baslik-y) + 20px); padding: 0; overflow: hidden; }
+.bilet__ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; background: linear-gradient(90deg, rgba(245, 165, 36, .22), rgba(245, 165, 36, .06)); border-bottom: 1px dashed rgba(245, 165, 36, .45); }
+.bilet__ust span { font: 800 13px/1.2 var(--f-govde); letter-spacing: .16em; text-transform: uppercase; color: var(--amber); }
+.bilet__ust b { font: 700 15px/1 ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; color: #fff; letter-spacing: .04em; }
+.bilet__govde { display: grid; gap: 14px; padding: 20px 22px 22px; }
+.bilet__liste { display: grid; gap: 0; margin: 0; }
+.bilet__liste div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+.bilet__liste dt { color: var(--soluk); font-size: 13.5px; font-weight: 600; }
+.bilet__liste dd { margin: 0; color: #fff; font-weight: 600; font-size: 15px; overflow-wrap: anywhere; white-space: pre-line; }
+.bilet__liste dd.bos { color: #5f6878; font-weight: 500; }
+.bilet__alici { display: flex; align-items: center; gap: 10px; color: var(--soluk); font-size: 14px; }
+.bilet__alici .ikon { color: var(--wa); }
+.bilet__alici b { color: #fff; }
+.bilet__uyari { display: flex; gap: 10px; padding: 12px 14px; border-radius: 12px; font-size: 14px; background: rgba(248, 113, 113, .08); border: 1px solid rgba(248, 113, 113, .3); }
+.bilet__uyari .ikon { color: var(--kapali); }
+.bilet__uyari[hidden] { display: none; }
+.bilet__kopya { justify-self: start; }
+
+/* ---------- Bölge ve saatler ---------- */
+.bolge__izgara { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 20px; }
+.bolge__kart { display: grid; gap: 18px; align-content: start; padding: clamp(22px, 3.5vw, 36px); }
+.bolge__kart h2 { font-size: clamp(1.6rem, 1rem + 1.6vw, 2.2rem); }
+.rozet--buyuk { padding: 14px 16px; border-radius: 14px; background: rgba(11, 14, 19, .55); border: 1px solid var(--cizgi-2); font-size: 16px; }
+.rozet--buyuk .rozet__nokta { width: 12px; height: 12px; }
+.saatler { width: 100%; border-collapse: collapse; font-size: 16px; }
+.saatler th, .saatler td { padding: 14px 4px; border-bottom: 1px solid rgba(255, 255, 255, .07); text-align: left; }
+.saatler th { color: var(--yazi); font-weight: 600; }
+.saatler td { text-align: right; color: #fff; font-weight: 700; font-variant-numeric: tabular-nums; }
+.saatler tr.bugun th, .saatler tr.bugun td { color: var(--amber); }
+.saatler tr.bugun th::after { content: 'Bugün'; margin-left: 10px; padding: 3px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #140f06; background: var(--amber); vertical-align: 1px; }
+.not { color: var(--soluk); font-size: 14.5px; }
+.cipler { display: flex; flex-wrap: wrap; gap: 8px; }
+.cipler li { padding: 7px 12px; border-radius: 999px; font-size: 14.5px; font-weight: 600; color: var(--yazi); background: rgba(255, 255, 255, .045); border: 1px solid var(--cizgi-2); }
+.cipler li.vurgu { color: #140f06; background: var(--amber); border-color: var(--amber); }
+
+/* ---------- SSS ---------- */
+.sss__izgara { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.sss__izgara .bolum__bas { position: sticky; top: calc(var(--baslik-y) + 24px); margin-bottom: 0; }
+.sss details { border-bottom: 1px solid var(--cizgi); }
+.sss summary { position: relative; display: block; padding: 22px 52px 22px 0; cursor: pointer; list-style: none; color: #fff; font: 700 18.5px/1.35 var(--f-govde); }
+.sss summary::-webkit-details-marker { display: none; }
+.sss summary::after { content: ''; position: absolute; right: 8px; top: 50%; width: 12px; height: 12px; margin-top: -9px; border-right: 2px solid var(--amber); border-bottom: 2px solid var(--amber); transform: rotate(45deg); transition: transform .2s ease; }
+.sss details[open] summary::after { transform: rotate(-135deg); margin-top: -3px; }
+.sss details p { padding: 0 40px 22px 0; color: var(--soluk); }
+
+/* ---------- İletişim + alt bilgi ---------- */
+.iletisim__kart { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); padding: clamp(26px, 4.5vw, 56px); position: relative; overflow: hidden; }
+.iletisim__kart::after { content: ''; position: absolute; right: -140px; top: -140px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(245, 165, 36, .25), transparent 70%); pointer-events: none; }
+.iletisim__sol { display: grid; gap: 18px; align-content: start; position: relative; z-index: 1; }
+.iletisim__sol h2 { font-size: clamp(2rem, 1.1rem + 2.6vw, 3.2rem); }
+.iletisim__sol p { color: var(--soluk); max-width: 520px; }
+.iletisim__dugmeler { display: flex; flex-wrap: wrap; gap: 12px; }
+.iletisim__liste { display: grid; gap: 4px; position: relative; z-index: 1; }
+.iletisim__liste li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, .07); }
+.iletisim__liste .ikon-kutu { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--amber-zemin); color: var(--amber); }
+.iletisim__liste span { display: flex; flex-direction: column; line-height: 1.4; color: var(--soluk); font-size: 14px; }
+.iletisim__liste b, .iletisim__liste a { color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; }
+.iletisim__liste a:hover { color: var(--amber); }
+
+.alt { padding-block: 48px calc(40px + env(safe-area-inset-bottom)); border-top: 1px solid var(--cizgi); margin-top: clamp(56px, 8vw, 96px); color: var(--soluk); font-size: 14.5px; }
+.alt__ic { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); gap: 32px; }
+.alt__marka { display: grid; gap: 14px; align-content: start; }
+.alt__marka .logo__isaret { width: 88px; height: 54px; }
+.alt h3 { margin-bottom: 12px; font-size: 13px; font-stretch: 100%; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+.alt li { padding: 4px 0; }
+.alt a { color: var(--yazi); text-decoration: none; }
+.alt a:hover { color: var(--amber); }
+.alt__son { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--cizgi); font-size: 13.5px; }
+
+/* Hızlı iletişim: masaüstünde yüzen WhatsApp, telefonda alt şerit */
+.hizli { position: fixed; right: 24px; bottom: 24px; z-index: 60; display: flex; }
+.hizli a { text-decoration: none; }
+.hizli__ara { display: none; }
+.hizli__wa {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 8px 20px 8px 8px; border-radius: 999px;
+  background: var(--wa); color: #05200e; box-shadow: 0 18px 40px -14px rgba(37, 211, 102, .7); transition: transform .2s ease;
+}
+.hizli__wa:hover { transform: translateY(-2px); color: #05200e; }
+.hizli__ikon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; flex: none; background: rgba(5, 32, 14, .92); color: var(--wa); }
+.hizli__ikon .ikon { width: 22px; height: 22px; }
+.hizli__yazi { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.hizli__yazi b { font: 800 15px/1.2 var(--f-govde); }
+.hizli__yazi small { font-size: 12.5px; font-weight: 700; opacity: .85; white-space: nowrap; }
+
+/* Kaydırınca belirme (yalnızca betik varsa) */
+.js .belir { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.js .belir.gorundu { opacity: 1; transform: none; }
+
+/* ==========================================================================
+   Duyarlı yerleşim
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .menu__liste a { padding: 8px 9px; font-size: 14.5px; }
+  .baslik__ara span { display: none; }
+  .baslik__ara { min-width: 44px; padding-inline: 12px; }
+}
+@media (max-width: 980px) {
+  :root { --baslik-y: 64px; }
+  .menu { order: 3; margin-left: 0; }
+  .menu__dugme { display: inline-flex; }
+  .baslik__ic { gap: 12px; }
+  .baslik__ara { margin-left: auto; }
+  .menu__liste {
+    display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 2px;
+    padding: 12px var(--kenar) 20px; background: rgba(11, 14, 19, .97); border-bottom: 1px solid var(--cizgi); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, .8);
+  }
+  .menu__liste.acik { display: flex; }
+  .menu__liste a { min-height: 50px; padding: 10px 12px; font-size: 17px; }
+  .menu__cta a { margin: 8px 0 0; justify-content: center; }
+
+  .kahraman__ic { grid-template-columns: 1fr; }
+  .sahne { aspect-ratio: 5 / 4; max-height: 560px; }
+  .kapsam__kart { grid-template-columns: 1fr; }
+  .adimlar { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 36px; }
+  .adimlar::before { display: none; }
+  .uzman__kart { grid-template-columns: auto minmax(0, 1fr); }
+  .uzman__dugmeler { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .isemri__izgara { grid-template-columns: 1fr; }
+  .bilet { position: static; }
+  .bolge__izgara, .sss__izgara, .iletisim__kart { grid-template-columns: 1fr; }
+  .sss__izgara .bolum__bas { position: static; }
+  .alt__ic { grid-template-columns: 1fr 1fr; }
+  .alt__marka { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); font-size: 16.5px; }
+  html { scroll-padding-bottom: 96px; }
+  .ust-serit__tel { display: none; }
+  .kahraman__bilgi { grid-template-columns: 1fr; }
+  .kahraman__dugmeler .dugme { flex: 1 1 100%; }
+  .hizmetler__izgara, .kapsam__liste { grid-template-columns: 1fr; }
+  .adimlar { grid-template-columns: 1fr; }
+  .alan-cift, .kartsec { grid-template-columns: 1fr; }
+  .sahne { aspect-ratio: 1 / 1; }
+  .isaret b { display: none; }
+  .sahne__lejant { display: grid; }
+  .alt__ic { grid-template-columns: 1fr; }
+
+  .hizli {
+    left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(11, 14, 19, .94); border-top: 1px solid var(--cizgi);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  }
+  .hizli__ara, .hizli__wa { display: flex; align-items: center; gap: 10px; min-width: 0; min-height: 56px; padding: 6px 10px 6px 6px; border-radius: 14px; box-shadow: none; }
+  .hizli__ara { background: var(--amber); color: #140f06; }
+  .hizli__ara:hover { color: #140f06; }
+  .hizli__ara .hizli__ikon { background: rgba(11, 14, 19, .9); color: var(--amber); border-radius: 10px; }
+  .hizli__wa .hizli__ikon { border-radius: 10px; }
+  .hizli__wa:hover { transform: none; }
+}
+@media (max-width: 420px) {
+  .logo__isaret { width: 60px; height: 36px; }
+  .logo__yazi b { font-size: 18px; }
+  .logo__yazi span { font-size: 10px; letter-spacing: .14em; }
+  .baslik__ic { gap: 10px; }
+  .uzman-cip { padding-right: 14px; }
+  .uzman__kart { grid-template-columns: 1fr; }
+  .uzman__dugmeler { grid-template-columns: 1fr; }
+  .segment { grid-template-columns: 1fr; }
+  .bilet__liste div { grid-template-columns: 84px minmax(0, 1fr); }
+  .hizli__yazi b { font-size: 14px; }
+  .hizli__yazi small { font-size: 11.5px; }
+}
+
+/* Hareket azaltma tercihi */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .js .belir { opacity: 1; transform: none; }
+}
+/* Yazdırma */
+@media print {
+  .ust-serit, .baslik, .hizli, .sahne-kap, .isemri { display: none !important; }
+  body { background: #fff; color: #000; padding: 0; }
+  .cam { box-shadow: none; background: none; border-color: #ccc; }
+  h1, h2, h3 { color: #000; }
+}
+</style>
+<style>:root { --logo: url("data:image/webp;base64,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"); }</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="currentColor"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.1 7.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6.5.9 1.2 1.6 2.1 2.1.3.2.4.1.6 0l.6-.6c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .9-.7 1.7-1.6 1.8-1 .1-2.6-.3-4.3-1.9-1.7-1.6-2.3-3.3-2.3-4.3 0-1 .6-1.7 1.3-2z" fill="currentColor"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-kova" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11.5l4.5 4-1.6 8.2H8.6L4 11.5z"/><path d="M9 17.2 8 20.5M12.4 17.2l-1 3.3M15.8 17.2l-1 3.3"/><circle cx="8" cy="5" r="1.4"/><circle cx="12.5" cy="5" r="1.4"/></g></symbol>
+  <symbol id="i-kalkan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 19 5.6v5.6c0 4.5-3 8.1-7 10-4-1.9-7-5.5-7-10V5.6z"/><path d="M8.5 9.5h7M8.5 12.5h7M10 15.5h4"/></g></symbol>
+  <symbol id="i-silindir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="11" height="7" rx="1.6"/><path d="M13.5 12h6"/><circle cx="20.5" cy="12" r="1.6"/><path d="M6 8.5V6.5M10 15.5v2"/></g></symbol>
+  <symbol id="i-anahtar" viewBox="0 0 24 24"><path d="M14.7 6.3a4.2 4.2 0 0 0-5.5 5.2L3 17.7V21h3.3l6.2-6.2a4.2 4.2 0 0 0 5.2-5.5l-2.7 2.7-2.6-.6-.6-2.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-onay" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.2 2.8 2.8L16.2 9.5"/></g></symbol>
+  <symbol id="i-carpi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></g></symbol>
+  <symbol id="i-saat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></g></symbol>
+  <symbol id="i-konum" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-uyari" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.2 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4M12 17h.01"/></g></symbol>
+  <symbol id="i-kopya" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5.5a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></g></symbol>
+  <symbol id="i-surukle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></g></symbol>
+</svg>
 
-<!--
-  GÖRSELLER
-  Şu an Wikimedia Commons'taki özgür lisanslı fotoğraflar kullanılıyor (kaynaklar sayfanın en altında).
-  Kendi atölye fotoğraflarınız geldiğinde assets/img/ klasörüne koyup ilgili <img src="..."> değerini değiştirmeniz yeterli.
--->
+<a class="atla" href="#icerik">İçeriğe geç</a>
 
-<a class="skip" href="#icerik">İçeriğe geç</a>
-
-<div class="topbar">
-  <div class="wrap topbar__in">
-    <p class="durum" id="durum"><span class="durum__statik">Hafta içi 09:00–17:30 · Cumartesi 09:00–13:30 · Pazar kapalı</span></p>
-    <a class="topbar__tel" href="tel:+905380773571">
-      <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>
-      <span class="topbar__etiket">Acil saha arızası:</span> 0538 077 35 71
-    </a>
+<div class="ust-serit">
+  <div class="sar ust-serit__ic">
+    <p class="rozet" data-durum aria-live="polite">
+      <span class="rozet__nokta" aria-hidden="true"></span>
+      <span class="rozet__metin"><b class="rozet__baslik">Çalışma saatleri</b><span class="rozet__alt">Hafta içi 09:00–17:30 · Cumartesi 09:00–13:30</span></span>
+      <span class="rozet__ek"></span>
+    </p>
+    <a class="ust-serit__tel" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span class="sayi">0538 077 35 71</span></a>
   </div>
 </div>
 
-<header class="head" id="ust">
-  <div class="wrap head__in">
-    <a class="logo" href="#ust" aria-label="Başkent İş Makinaları, sayfa başı">
-      <img class="logo__mark" src="assets/img/logo-isaret.png" alt="" width="240" height="144">
-      <span class="logo__txt"><b>BAŞKENT</b><span>İş Makinaları</span></span>
+<header class="baslik" id="ust">
+  <div class="sar baslik__ic">
+    <a class="logo" href="#anasayfa" aria-label="Başkent İş Makinaları, sayfa başı">
+      <span class="logo__isaret" aria-hidden="true"></span>
+      <span class="logo__yazi" aria-hidden="true"><b>BAŞKENT</b><span>İş Makinaları</span></span>
     </a>
-    <nav class="nav" aria-label="Ana menü">
-      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="nav__ikon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path class="nav__ikon-ac" d="M4 6.5h16M4 12h16M4 17.5h16"/><path class="nav__ikon-kapa" d="M6 6l12 12M18 6 6 18"/></svg><span class="nav__label">Menü</span>
+    <nav class="menu" aria-label="Ana menü">
+      <button class="menu__dugme" type="button" aria-expanded="false" aria-controls="menuListe">
+        <svg class="menu__ikon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path class="menu__ikon-ac" d="M4 6.5h16M4 12h16M4 17.5h16"/><path class="menu__ikon-kapa" d="M6 6l12 12M18 6 6 18"/></svg><span class="menu__yazi">Menü</span>
       </button>
-      <ul id="menu">
+      <ul class="menu__liste" id="menuListe">
         <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#makineler">Makineler</a></li>
         <li><a href="#surec">Süreç</a></li>
-        <li><a href="#saha">Saha servisi</a></li>
+        <li><a href="#uzman">Uzman</a></li>
+        <li><a href="#bolge">Saatler &amp; Bölge</a></li>
         <li><a href="#sss">SSS</a></li>
-        <li class="nav__cta-li"><a class="nav__cta" href="#iletisim">Servis kaydı aç</a></li>
+        <li class="menu__cta"><a href="#is-emri">İş Emri Oluştur</a></li>
       </ul>
     </nav>
-    <a class="btn btn--accent btn--sm head__call" href="tel:+905380773571" aria-label="Ara: 0538 077 35 71">
-      <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>
-      <span>0538 077 35 71</span>
-    </a>
+    <a class="dugme dugme--amber dugme--kucuk baslik__ara" href="tel:+905380773571" aria-label="Ara: 0538 077 35 71"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span class="sayi">0538 077 35 71</span></a>
   </div>
 </header>
 
 <main id="icerik">
-
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-baslik">
-    <figure class="hero__media ph">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_330_excavator_on_a_pile_of_dirt.jpg?width=1920"
-           alt="" width="1920" height="1280" fetchpriority="high" decoding="async"
->
-    </figure>
-    <div class="wrap hero__in">
-      <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Milas · Muğla · İş makinası servisi</p>
-      <h1 id="hero-baslik">Makineniz yatarken iş de yatar. <em>Biz onu ayağa kaldırırız.</em></h1>
-      <p class="lead">Motor, hidrolik, bom–arm kaynağı, yürüyüş takımı. Ekskavatörden lodere, dozerden greydere kadar her iş makinasının tamirini kendi atölyemizde ya da sahada yapıyoruz. Önce arızayı buluyoruz, sonra fiyat veriyoruz.</p>
-      <div class="hero__cta">
-        <a class="btn btn--accent btn--lg" href="tel:+905380773571">
-          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>
-          <span class="btn__iki"><b>Hemen ara</b><small>0538 077 35 71</small></span>
-        </a>
-        <a class="btn btn--glass btn--lg" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener">
-          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-          <span>WhatsApp'tan yazın</span>
-        </a>
-      </div>
-      <div class="hero__alt">
-        <p class="kisi">
-          <span class="kisi__harf" aria-hidden="true">MÇ</span>
-          <span class="kisi__yazi"><b>Mücahit ÇAKIR</b><small>Baş Teknisyen · telefonda muhatabınız</small></span>
-        </p>
-        <a class="hero__form" href="#iletisim">ya da servis kaydı açın
-          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ok"/></svg>
-        </a>
-      </div>
-      <ul class="hero__facts">
-        <li><b>Teşhis</b><span>Yerinde, cihazla</span></li>
-        <li><b>Saha servisi</b><span>Muğla geneli ve Didim</span></li>
-        <li><b>Teklif</b><span>Yazılı, iş başlamadan</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- MARKALAR -->
-  <section class="brands" aria-label="Servis verdiğimiz markalar">
-    <div class="wrap brands__in">
-      <p class="brands__label">Servis verdiğimiz markalar</p>
-      <ul class="brands__list">
-        <li>Caterpillar</li><li>Komatsu</li><li>Hidromek</li><li>JCB</li><li>Volvo CE</li><li>Hitachi</li>
-        <li>Hyundai</li><li>Doosan / Develon</li><li>Liebherr</li><li>Case</li><li>New Holland</li><li>Kobelco</li>
-        <li>Sany</li><li>Takeuchi</li><li>Bobcat</li><li>Mitsubishi</li>
-      </ul>
-    </div>
-    <p class="wrap brands__not">Marka adları yalnızca servis verilen makineleri belirtir; Başkent İş Makinaları bu markaların yetkili servisi değildir.</p>
-  </section>
-
-  <!-- HİZMETLER -->
-  <section class="services" id="hizmetler">
-    <div class="wrap">
-      <header class="sec-head">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Hizmetler</p>
-        <h2>Ne arızası olursa olsun, atölyede bir karşılığı var.</h2>
-        <p class="sec-head__note">Parça değiştirip geçmiyoruz. Arızanın neden çıktığını buluyoruz ki aynı şikâyetle bir ay sonra tekrar gelmeyin.</p>
-      </header>
-
-      <div class="svc-grid">
-        <article class="svc svc--genis">
-          <figure class="svc__img ph">
-            <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_C2_2_diesel_engine.jpg?width=1200"
-                 alt="Caterpillar dizel motor" width="1200" height="1056"
->
-          </figure>
-          <div class="svc__body">
-            <span class="svc__no">01</span>
-            <h3>Motor tamiri ve revizyon</h3>
-            <p>Yağ yakan, kompresyonu düşen, mavi duman atan, çekişten düşen motorlar. Silindir kapağından krank milline kadar komple revizyonu kendi tezgâhımızda yapıyoruz.</p>
-            <ul class="ticks">
-              <li>Komple ve yarım motor revizyonu</li>
-              <li>Enjektör, pompa ve yakıt sistemi ayarı</li>
-              <li>Turbo, soğutma ve radyatör onarımı</li>
-              <li>Kompresyon ve yağ basıncı testleri</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="svc svc--genis">
-          <figure class="svc__img ph">
-            <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mill_style_cylinder,hydraulic_cylinders.JPG?width=1200"
-                 alt="Tezgâhta duran hidrolik silindirler" width="1200" height="900"
->
-          </figure>
-          <div class="svc__body">
-            <span class="svc__no">02</span>
-            <h3>Hidrolik sistem</h3>
-            <p>Bom düşüyorsa, kova tutmuyorsa, makine ısınınca güçten düşüyorsa sorun çoğunlukla hidroliktedir. Basınç ve debi ölçümüyle arızanın pompada mı, valfte mi, silindirde mi olduğunu kesin olarak söylüyoruz.</p>
-            <ul class="ticks">
-              <li>Hidrolik pompa ve motor tamiri</li>
-              <li>Silindir sökme, keçe takımı, rot kaplama</li>
-              <li>Kumanda valfi ve kontrol bloğu onarımı</li>
-              <li>Hortum imalatı, basınç ve debi testi</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="svc">
-          <figure class="svc__img ph">
-            <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/GMAW.welding.af.ncs.jpg?width=900"
-                 alt="Koruyucu maskeyle gazaltı kaynağı yapan kaynakçı" width="900" height="600"
->
-          </figure>
-          <div class="svc__body">
-            <span class="svc__no">03</span>
-            <h3>Bom, arm ve kova kaynağı</h3>
-            <p>Çatlayan bom, yorulan arm, aşınan kova. Çatlağı açıp kökten dolduruyoruz, gerekiyorsa takviye sacı atıyoruz. Ovalleşen burç yuvalarını sahada ya da atölyede yeniden işliyoruz.</p>
-            <ul class="ticks">
-              <li>Bom ve arm çatlak kaynağı, takviye</li>
-              <li>Burç yuvası doldurma ve işleme</li>
-              <li>Pim–burç değişimi, boşluk alma</li>
-              <li>Kova bıçağı, tırnak ve yan sac yenileme</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="svc">
-          <figure class="svc__img ph">
-            <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bucket_wheel_excavator_under_repair_germany.jpg?width=900"
-                 alt="Bakım ve onarım için durdurulmuş büyük kazı makinası" width="900" height="600"
->
-          </figure>
-          <div class="svc__body">
-            <span class="svc__no">04</span>
-            <h3>Periyodik bakım ve kontrol</h3>
-            <p>250, 500, 1000 ve 2000 saat bakımlarını üretici takvimine göre yapıyoruz. Yağ analizi, filtre değişimi ve genel kontrolü tek seferde bitiriyor, her bakımın kaydını makinenizin dosyasına işliyoruz.</p>
-            <ul class="ticks">
-              <li>Saatlik periyodik bakım paketleri</li>
-              <li>Motor ve hidrolik yağ analizi</li>
-              <li>Yürüyüş takımı (palet, makara, zincir) ölçümü</li>
-              <li>Alım-satım öncesi ekspertiz raporu</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="svc">
-          <figure class="svc__img ph">
-            <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_215_Hydraulic_Excavator_(16927811617).jpg?width=900"
-                 alt="Eski model hidrolik ekskavatör" width="900" height="536"
->
-          </figure>
-          <div class="svc__body">
-            <span class="svc__no">05</span>
-            <h3>Arıza teşhisi ve elektronik</h3>
-            <p>Ekranda arıza kodu, kontrol lambası, kendi kendine rölantiye düşen makine. Diyagnostik cihazlarıyla kodları okuyup sensörleri, tesisatı ve beyni tek tek ölçüyoruz. Tahminle parça değiştirmiyoruz.</p>
-            <ul class="ticks">
-              <li>Arıza kodu okuma ve silme</li>
-              <li>Sensör, tesisat ve ECU kontrolü</li>
-              <li>Marş, şarj ve aydınlatma sistemi</li>
-              <li>Klima ve kabin elektriği</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-
-      <div class="svc-extra">
-        <div>
-          <h3>Şanzıman ve diferansiyel</h3>
-          <p>Loder ve kazıcı yükleyicilerde vites atma, kavrama kaçırma, diferansiyel sesi.</p>
+  <!-- Kahraman -->
+  <section class="kahraman" id="anasayfa" aria-labelledby="kahramanBaslik">
+    <div class="kahraman__isik" aria-hidden="true"></div>
+    <div class="sar kahraman__ic">
+      <div class="kahraman__metin">
+        <p class="etiket">Milas · Muğla — Ağır İş Makinası Onarım Merkezi</p>
+        <h1 id="kahramanBaslik">Aşınan kovaya <em>Hardox zırh</em>, yorulan silindire yeni ömür.</h1>
+        <p class="kahraman__giris">Kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. Selimiye Sanayi Sitesi'ndeki atölyemizde iş makinenizi sahaya güçlü döndürüyoruz.</p>
+        <div class="kahraman__dugmeler">
+          <a class="dugme dugme--amber dugme--buyuk" href="#is-emri"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp İş Emri Oluştur</a>
+          <a class="dugme dugme--cam dugme--buyuk" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara <span class="sayi">0538 077 35 71</span></a>
         </div>
-        <div>
-          <h3>Yürüyüş takımı</h3>
-          <p>Palet zinciri, makara, avare, yürüyüş motoru ve şanzımanı.</p>
-        </div>
-        <div>
-          <h3>Swing ve döner tabla</h3>
-          <p>Döner motor, döner redüktör ve tabla rulmanı boşluğu.</p>
-        </div>
-        <div>
-          <h3>Torna ve imalat</h3>
-          <p>Bulunmayan pim, burç ve flanşları ölçüsüne göre kendimiz işliyoruz.</p>
+        <div class="uzman-cip">
+          <span class="uzman-cip__harf" aria-hidden="true">MÇ</span>
+          <span class="uzman-cip__yazi"><b>Mücahit Çakır</b>Master Technician (Baş Uzman) · telefonda muhatabınız</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- MAKİNELER -->
-  <section class="machines koyu" id="makineler">
-    <div class="wrap machines__grid">
-      <header class="sec-head">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Hangi makineler</p>
-        <h2>İş makinası sınıfına giren her şey.</h2>
-        <p class="sec-head__note">1,5 tonluk mini ekskavatörden 50 tonluk paletliye kadar. Listede olmayan bir makineniz varsa arayın, büyük ihtimalle o da bizim işimiz.</p>
-        <a class="btn btn--line-acik" href="tel:+905380773571">
-          <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>
-          <span>Makinenizi sorun · 0538 077 35 71</span>
-        </a>
-      </header>
-      <ol class="mlist">
-        <li><span>Paletli ve lastikli ekskavatör</span><em>Hidrolik · Motor · Bom</em></li>
-        <li><span>Kazıcı yükleyici (beko loder)</span><em>Şanzıman · Hidrolik · Kaynak</em></li>
-        <li><span>Lastikli yükleyici (loder)</span><em>Şanzıman · Aks · Motor</em></li>
-        <li><span>Dozer</span><em>Yürüyüş takımı · Motor · Bıçak</em></li>
-        <li><span>Greyder</span><em>Hidrolik · Tandem · Bıçak</em></li>
-        <li><span>Silindir (kompaktör)</span><em>Vibrasyon · Hidrostatik</em></li>
-        <li><span>Mini ekskavatör ve mini yükleyici</span><em>Hidrolik · Elektrik</em></li>
-        <li><span>Forklift ve telehandler</span><em>Direk · Hidrolik · Motor</em></li>
-        <li><span>Mobil vinç ve kule vinç ekipmanları</span><em>Hidrolik · Kaynak</em></li>
-        <li><span>Kırıcı, kesici ve ataşmanlar</span><em>Kırıcı revizyonu · Pim–burç</em></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- SÜREÇ -->
-  <section class="process" id="surec">
-    <div class="wrap">
-      <header class="sec-head sec-head--orta">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Nasıl çalışıyoruz</p>
-        <h2>Sürpriz fatura yok.</h2>
-        <p class="sec-head__note">Siz onay vermeden tek cıvata sökülmez. Her adımı önceden bilirsiniz.</p>
-      </header>
-      <ol class="steps">
-        <li>
-          <span class="steps__n">01</span>
-          <h3>Arızayı anlatın</h3>
-          <p>Telefonla ya da formdan makinenin marka, model ve çalışma saatini, şikâyeti yazın. Fotoğraf veya video atabilirseniz daha iyi.</p>
-        </li>
-        <li>
-          <span class="steps__n">02</span>
-          <h3>Teşhis</h3>
-          <p>Makine atölyeye gelir ya da biz sahaya gideriz. Ölçüm ve testle arızanın yerini kesinleştiririz.</p>
-        </li>
-        <li>
-          <span class="steps__n">03</span>
-          <h3>Yazılı teklif</h3>
-          <p>Parça, işçilik ve süre kalem kalem yazılır. Siz onay vermeden tek cıvata sökülmez.</p>
-        </li>
-        <li>
-          <span class="steps__n">04</span>
-          <h3>Onarım</h3>
-          <p>Değişen parçalar size gösterilir, isterseniz eski parçanızı geri alırsınız.</p>
-        </li>
-        <li>
-          <span class="steps__n">05</span>
-          <h3>Test ve teslim</h3>
-          <p>Makine yük altında denenir, basınçlar ölçülür. Teslimde yapılan işin dökümünü alırsınız.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- SAHA SERVİSİ -->
-  <section class="field koyu" id="saha">
-    <div class="wrap field__grid">
-      <figure class="field__img ph">
-        <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_349EL_at_a_demolition_site_in_Sunnyvale.jpg?width=1400"
-             alt="Yıkım sahasında çalışan büyük paletli ekskavatör" width="1400" height="933"
->
-        <figcaption><span class="nokta" aria-hidden="true"></span>Şantiyede servis</figcaption>
+      <figure class="sahne-kap" aria-labelledby="sahneAciklama">
+        <div class="sahne" id="sahne" data-sahne="yukleniyor">
+          <svg class="sahne__yedek" viewBox="0 0 400 400" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <g stroke="rgba(255,255,255,.07)" stroke-width="1"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+            <g stroke="#f5a524" stroke-width="2.2">
+              <path d="M303 307 Q243 349 157.5 340 C96 334 72 257.5 79.5 187 Q84 118 117 103 L240 103 Z" fill="rgba(245,165,36,.06)"/>
+              <path d="M150 77.5 L95 -70" stroke-width="20" stroke="rgba(245,165,36,.18)"/>
+              <path d="M207 77.5 L125 -110" stroke-width="12" stroke="rgba(245,165,36,.35)"/>
+              <path d="M117 103 v-14 a33 33 0 0 1 66 0 v14 M174 103 v-14 a33 33 0 0 1 66 0 v14"/>
+              <circle cx="150" cy="77.5" r="9"/><circle cx="207" cy="77.5" r="9"/>
+              <path d="M303 307 l44 26 M290 316 l40 24"/>
+            </g>
+            <g stroke="#c3c9d3" stroke-width="1.6" stroke-dasharray="6 6"><path d="M285 318 Q240 344 160 336 C110 331 92 290 90 250"/></g>
+            <g fill="#f5a524" stroke="none" font-family="Figtree, sans-serif" font-size="12" font-weight="700"><text x="40" y="384">KOVA · HARDOX · HİDROLİK</text></g>
+          </svg>
+          <canvas class="sahne__tuval" id="sahneTuval" aria-hidden="true"></canvas>
+          <div class="sahne__isaretler" aria-hidden="true">
+            <span class="isaret" data-isaret="hardox"><i>1</i><b>Hardox aşınma plakası</b></span>
+            <span class="isaret" data-isaret="bicak"><i>2</i><b>Kesici bıçak ve tırnaklar</b></span>
+            <span class="isaret" data-isaret="pim"><i>3</i><b>Pim–burç yuvası</b></span>
+            <span class="isaret" data-isaret="silindir"><i>4</i><b>Hidrolik silindir</b></span>
+          </div>
+          <span class="sahne__yukleme">3D model yükleniyor…</span>
+        </div>
+        <figcaption id="sahneAciklama">
+          <span class="sahne__ipucu"><svg class="ikon" aria-hidden="true"><use href="#i-surukle"/></svg>Etkileşimli 3D kova ve hidrolik silindir modeli — sürükleyerek çevirin</span>
+          <ol class="sahne__lejant">
+            <li><i>1</i>Hardox aşınma plakası</li>
+            <li><i>2</i>Kesici bıçak ve tırnaklar</li>
+            <li><i>3</i>Pim–burç yuvası</li>
+            <li><i>4</i>Hidrolik silindir</li>
+          </ol>
+        </figcaption>
       </figure>
-      <div class="field__copy">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Saha servisi</p>
-        <h2>Makineyi taşıtmanız gerekmiyor.</h2>
-        <p>Kırk tonluk bir paletliyi lowbed'e yükleyip atölyeye getirmek hem para hem gün kaybı. Servis aracımızda kaynak makinesi, jeneratör, hidrolik test seti ve hortum presi var. Hortum patlaması, kaynak, pim–burç, arıza teşhisi gibi işlerin çoğunu şantiyede bitiriyoruz.</p>
-        <div class="bolge">
-          <h3 class="bolge__baslik">Muğla'nın tüm ilçeleri</h3>
-          <ul class="bolge__ilceler">
-            <li>Milas</li><li>Bodrum</li><li>Menteşe</li><li>Yatağan</li><li>Marmaris</li><li>Fethiye</li><li>Datça</li>
-            <li>Dalaman</li><li>Ortaca</li><li>Köyceğiz</li><li>Ula</li><li>Kavaklıdere</li><li>Seydikemer</li>
-          </ul>
-          <h3 class="bolge__baslik">Aydın'dan</h3>
-          <ul class="bolge__ilceler">
-            <li>Didim</li>
-          </ul>
+    </div>
+
+    <ul class="sar kahraman__bilgi">
+      <li><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span><b><a class="sayi" href="tel:+905380773571">0538 077 35 71</a></b>Telefon ve WhatsApp hattı</span></li>
+      <li><svg class="ikon ikon--cizgi" aria-hidden="true"><use href="#i-saat"/></svg><span><b>Pzt–Cum 09:00–17:30</b>Cumartesi 09:00–13:30 · Pazar kapalı</span></li>
+      <li><svg class="ikon ikon--cizgi" aria-hidden="true"><use href="#i-konum"/></svg><span><b>Selimiye Sanayi Sitesi, Milas</b>Muğla'nın tüm ilçeleri ve Didim</span></li>
+    </ul>
+  </section>
+
+  <!-- Hizmet kapsamı -->
+  <section class="kapsam" id="kapsam" aria-labelledby="kapsamBaslik">
+    <div class="sar">
+      <div class="kapsam__kart cam belir">
+        <div class="kapsam__sol">
+          <p class="etiket">Şeffaf hizmet kapsamı</p>
+          <h2 id="kapsamBaslik">Ne yaptığımızı da, şu an yapmadığımızı da açıkça söylüyoruz.</h2>
+          <p>Uzmanlık alanımız dört başlıkla sınırlıdır. Kapsam dışındaki işler için boşuna yol yapmamanız için bunu baştan belirtiyoruz.</p>
         </div>
-        <ul class="field__notlar">
-          <li>Diğer il ve ilçeler: özel görüşme ve fiyatlandırma ile</li>
-          <li>Ocak, maden ve büyük şantiyeler için periyodik saha bakımı</li>
-        </ul>
-        <div class="field__cta">
-          <a class="btn btn--accent" href="#iletisim">Saha servisi iste</a>
-          <a class="btn btn--line-acik" href="tel:+905380773571">
-            <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>
-            <span>0538 077 35 71</span>
-          </a>
+        <div class="kapsam__liste">
+          <div>
+            <h3>Uzmanlık alanımız</h3>
+            <ul class="tikli">
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Kova tamiri</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Hardox kaynak kaplama</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Hidrolik piston revizyonu</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Mekanik ağır bakım</li>
+            </ul>
+          </div>
+          <div class="kapsam__disi">
+            <h3>Şu anda sunulmayan</h3>
+            <ul class="carpili">
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-carpi"/></svg>Seyyar borvek</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-carpi"/></svg>Sıfırdan imalat</li>
+            </ul>
+            <p><strong>Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</strong> Bu işler için şu an teklif veremiyoruz.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ATÖLYE / GALERİ -->
-  <section class="shop" id="atolye">
-    <div class="wrap">
-      <header class="sec-head">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Atölye ve saha</p>
-        <h2>Servis verdiğimiz makineler.</h2>
-        <p class="sec-head__note">Görseller temsilidir.</p>
-      </header>
-      <div class="gallery">
-        <figure class="g g--wide ph">
-          <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_330B_Hydraulic_Excavator_side_-_Hillsboro,_Oregon.JPG?width=1400"
-               alt="Yandan görünüm, hidrolik paletli ekskavatör" width="1400" height="933"
->
-          <figcaption>Paletli ekskavatör</figcaption>
-        </figure>
-        <figure class="g ph">
-          <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_3406_engine_in_KW_W900_(left).jpg?width=900"
-               alt="Dizel motorun yandan görünümü" width="900" height="644"
->
-          <figcaption>Dizel motor</figcaption>
-        </figure>
-        <figure class="g g--tall ph">
-          <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Man_dressed_in_full_welding_gear.jpg?width=900"
-               alt="Tam kaynak ekipmanı giymiş kaynakçı" width="900" height="1200"
->
-          <figcaption>Kaynak</figcaption>
-        </figure>
-        <figure class="g ph">
-          <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/JCB_3CX_Backhoe_loader.jpg?width=900"
-               alt="Kazıcı yükleyici" width="900" height="600"
->
-          <figcaption>Kazıcı yükleyici</figcaption>
-        </figure>
-        <figure class="g ph">
-          <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Clamshell_bucket_-_Liebherr_Excavator.jpg?width=900"
-               alt="Ekskavatöre takılı istiridye kova" width="900" height="600"
->
-          <figcaption>Ataşman · kova</figcaption>
-        </figure>
-        <figure class="g g--wide ph">
-          <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Caterpillar_D6_Tractor,_Crawler,_Diesel.jpg?width=1400"
-               alt="Paletli dozer" width="1400" height="933"
->
-          <figcaption>Paletli dozer</figcaption>
-        </figure>
+  <!-- Hizmetler -->
+  <section class="bolum" id="hizmetler" aria-labelledby="hizmetlerBaslik">
+    <div class="sar">
+      <div class="bolum__bas belir">
+        <p class="etiket"><b>01</b> Hizmetler</p>
+        <h2 id="hizmetlerBaslik">Dört uzmanlık, tek atölye.</h2>
+        <p>Kovadan silindire, aşınan ve yorulan her noktayı yerinde tespit ederek onarıyoruz.</p>
+      </div>
+      <div class="hizmetler__izgara">
+        <article class="hizmet cam belir">
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg></span><span class="hizmet__no" aria-hidden="true">01</span></div>
+          <h3>Kova Tamiri</h3>
+          <p>Çatlak, yırtık ve deformasyonları kaynak ve takviyeyle onarır, kovanızı sahaya hazır hale getiririz.</p>
+          <ul class="hizmet__liste">
+            <li>Çatlak ve yırtık kaynağı</li>
+            <li>Kesici bıçak ve yan bıçak yenileme</li>
+            <li>Tırnak ve adaptör değişimi</li>
+            <li>Kulak ve pim–burç yuvası onarımı</li>
+          </ul>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Kova tamiri">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        </article>
+        <article class="hizmet cam belir">
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-kalkan"/></svg></span><span class="hizmet__no" aria-hidden="true">02</span></div>
+          <h3>Hardox Aşınma Zırhlama</h3>
+          <p>Aşınmanın en yoğun olduğu taban, yanak ve köşeleri Hardox aşınma plakalarıyla kaplayarak kovanın ana gövdesini koruruz.</p>
+          <ul class="hizmet__liste">
+            <li>Taban ve yanak Hardox kaplaması</li>
+            <li>Aşınma şeritleri ve köşe takviyeleri</li>
+            <li>Kritik bölgelerde kaynaklı takviye</li>
+          </ul>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Hardox kaynak kaplama">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        </article>
+        <article class="hizmet cam belir">
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg></span><span class="hizmet__no" aria-hidden="true">03</span></div>
+          <h3>Hidrolik Silindir Revizyonu</h3>
+          <p>Kaçak yapan, güç kaybeden ya da mili hasar görmüş hidrolik silindir ve pistonları söküp revize ederiz.</p>
+          <ul class="hizmet__liste">
+            <li>Söküm, temizlik ve ölçüm</li>
+            <li>Keçe ve sızdırmazlık elemanlarının yenilenmesi</li>
+            <li>Mil, gömlek ve piston kontrolü</li>
+            <li>Montaj ve kaçak kontrolü</li>
+          </ul>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Hidrolik piston revizyonu">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        </article>
+        <article class="hizmet cam belir">
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-anahtar"/></svg></span><span class="hizmet__no" aria-hidden="true">04</span></div>
+          <h3>Mekanik Ağır Bakım</h3>
+          <p>Boşluk yapan bağlantılar, aşınmış pim–burçlar ve yorulan mekanik aksamda ağır bakım ve onarım.</p>
+          <ul class="hizmet__liste">
+            <li>Pim–burç değişimi ve boşluk alma</li>
+            <li>Bağlantı ve mafsal noktalarının onarımı</li>
+            <li>Kaynaklı mekanik onarım</li>
+            <li>Periyodik ağır bakım</li>
+          </ul>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Mekanik ağır bakım">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Süreç -->
+  <section class="bolum surec" id="surec" aria-labelledby="surecBaslik">
+    <div class="sar">
+      <div class="bolum__bas belir">
+        <p class="etiket"><b>02</b> Süreç</p>
+        <h2 id="surecBaslik">İş emrinden teslime dört adım.</h2>
+      </div>
+      <ol class="adimlar">
+        <li class="belir"><span class="adimlar__no" aria-hidden="true">01</span><h3>İş emrini gönderin</h3><p>Formu doldurun; WhatsApp hazır iş emri metniyle açılır. Arızalı parçanın fotoğrafını ekleyin.</p></li>
+        <li class="belir"><span class="adimlar__no" aria-hidden="true">02</span><h3>Ön değerlendirme</h3><p>Mücahit Çakır gönderdiğiniz bilgi ve fotoğraflara bakar, size dönüş yapar.</p></li>
+        <li class="belir"><span class="adimlar__no" aria-hidden="true">03</span><h3>Tespit ve teklif</h3><p>Makine ya da parça atölyeye geldiğinde tespit yapılır; işin kapsamı ve tahmini süresi netleşir.</p></li>
+        <li class="belir"><span class="adimlar__no" aria-hidden="true">04</span><h3>Onarım ve teslim</h3><p>Onaylanan iş tamamlanır, kontrol edilerek teslim edilir.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Uzman -->
+  <section class="bolum" id="uzman" aria-labelledby="uzmanBaslik">
+    <div class="sar">
+      <div class="uzman__kart cam belir">
+        <span class="uzman__harf" aria-hidden="true">MÇ</span>
+        <div class="uzman__metin">
+          <p class="etiket"><b>03</b> Teknik kadro</p>
+          <h2 id="uzmanBaslik">Mücahit Çakır</h2>
+          <p class="uzman__unvan">Master Technician (Baş Uzman)</p>
+          <p>Arıza tespiti, onarım planı ve teslim kontrolü Baş Uzmanımız Mücahit Çakır'ın sorumluluğundadır. Telefonda ve WhatsApp'ta doğrudan muhatabınız odur.</p>
+        </div>
+        <div class="uzman__dugmeler">
+          <a class="dugme dugme--amber" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span class="sayi">0538 077 35 71</span></a>
+          <a class="dugme dugme--wa" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp'tan yaz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp iş emri jeneratörü -->
+  <section class="bolum isemri" id="is-emri" aria-labelledby="isemriBaslik">
+    <div class="sar">
+      <div class="bolum__bas belir">
+        <p class="etiket"><b>04</b> Akıllı iş emri</p>
+        <h2 id="isemriBaslik">Servis biletinizi oluşturun, tek tuşla WhatsApp'a gönderin.</h2>
+        <p>Makineyi, işlemi ve aciliyeti seçin. Sağdaki iş emri anlık oluşur; gönderdiğinizde <span class="sayi">0538 077 35 71</span> hattına hazır metinle iletilir.</p>
+      </div>
+      <div class="isemri__izgara">
+        <form class="form cam" id="isEmriFormu" novalidate aria-describedby="formNot">
+          <fieldset class="alan" id="alanMakine">
+            <legend><span class="alan__adim" aria-hidden="true">1</span>Makine türü <span class="zorunlu" aria-hidden="true">*</span></legend>
+            <div class="secim">
+              <label><input type="radio" name="makine" value="Paletli ekskavatör" required><span>Paletli ekskavatör</span></label>
+              <label><input type="radio" name="makine" value="Lastikli ekskavatör"><span>Lastikli ekskavatör</span></label>
+              <label><input type="radio" name="makine" value="Mini ekskavatör"><span>Mini ekskavatör</span></label>
+              <label><input type="radio" name="makine" value="Kazıcı yükleyici (beko loder)"><span>Kazıcı yükleyici (beko loder)</span></label>
+              <label><input type="radio" name="makine" value="Lastikli yükleyici (loder)"><span>Lastikli yükleyici (loder)</span></label>
+              <label><input type="radio" name="makine" value="Dozer"><span>Dozer</span></label>
+              <label><input type="radio" name="makine" value="Diğer iş makinası"><span>Diğer</span></label>
+            </div>
+            <p class="alan__hata" id="hataMakine"></p>
+          </fieldset>
+
+          <div class="alan">
+            <label for="model">Marka / model <span class="istege">(isteğe bağlı)</span></label>
+            <input class="girdi" id="model" name="model" type="text" maxlength="60" autocomplete="off" placeholder="Örn. CAT 320D, JCB 3CX, Hidromek 102S">
+          </div>
+
+          <fieldset class="alan" id="alanIslem">
+            <legend><span class="alan__adim" aria-hidden="true">2</span>Arıza kategorisi <span class="zorunlu" aria-hidden="true">*</span></legend>
+            <div class="kartsec">
+              <label><input type="radio" name="islem" value="Kova tamiri" required><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg><b>Kova tamiri</b><small>Çatlak, yırtık, bıçak, tırnak, kulak</small></span></label>
+              <label><input type="radio" name="islem" value="Hardox kaynak kaplama"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-kalkan"/></svg><b>Hardox kaynak kaplama</b><small>Taban, yanak ve köşe zırhlama</small></span></label>
+              <label><input type="radio" name="islem" value="Hidrolik piston revizyonu"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg><b>Hidrolik piston revizyonu</b><small>Kaçak, keçe, mil, gömlek</small></span></label>
+              <label><input type="radio" name="islem" value="Mekanik ağır bakım"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-anahtar"/></svg><b>Mekanik ağır bakım</b><small>Pim–burç, boşluk, mafsal</small></span></label>
+            </div>
+            <p class="kapsam-notu" id="kapsamNotu"><svg class="ikon" aria-hidden="true"><use href="#i-uyari"/></svg><span><b>Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</b> Uzmanlık alanımız yalnızca yukarıdaki dört başlıkla sınırlıdır.</span></p>
+            <p class="alan__hata" id="hataIslem"></p>
+          </fieldset>
+
+          <fieldset class="alan" id="alanAciliyet">
+            <legend><span class="alan__adim" aria-hidden="true">3</span>Aciliyet</legend>
+            <div class="segment">
+              <label><input type="radio" name="aciliyet" value="Planlı — acil değil" checked><span>Planlı</span></label>
+              <label><input type="radio" name="aciliyet" value="Bu hafta içinde"><span>Bu hafta</span></label>
+              <label><input type="radio" name="aciliyet" value="Acil — makine durdu"><span>Acil · makine durdu</span></label>
+            </div>
+          </fieldset>
+
+          <div class="alan-cift">
+            <div class="alan" id="alanAd">
+              <label for="ad">Ad soyad <span class="zorunlu" aria-hidden="true">*</span></label>
+              <input class="girdi" id="ad" name="ad" type="text" maxlength="60" autocomplete="name" required aria-describedby="hataAd">
+              <p class="alan__hata" id="hataAd"></p>
+            </div>
+            <div class="alan">
+              <label for="konum">Makinenin bulunduğu yer</label>
+              <select class="girdi" id="konum" name="konum">
+                <option value="">Seçiniz</option>
+                <option>Milas</option><option>Bodrum</option><option>Dalaman</option><option>Datça</option><option>Fethiye</option>
+                <option>Kavaklıdere</option><option>Köyceğiz</option><option>Marmaris</option><option>Menteşe</option><option>Ortaca</option>
+                <option>Seydikemer</option><option>Ula</option><option>Yatağan</option><option>Didim (Aydın)</option>
+                <option>Diğer il (özel anlaşma)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="alan" id="alanTel">
+            <label for="geriTel">Geri dönüş telefonu <span class="istege">(WhatsApp numaranızdan farklıysa)</span></label>
+            <input class="girdi" id="geriTel" name="geriTel" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="05xx xxx xx xx" aria-describedby="hataTel">
+            <p class="alan__hata" id="hataTel"></p>
+          </div>
+
+          <div class="alan">
+            <label for="detay">Arıza detayı <span class="istege">(isteğe bağlı)</span></label>
+            <textarea class="girdi" id="detay" name="detay" maxlength="600" placeholder="Örn. Kova tabanı incelmiş, sağ yanakta çatlak var; 2 tırnak kırık." aria-describedby="detaySayac"></textarea>
+            <p class="alan__alt"><span>Fotoğrafları WhatsApp açılınca ekleyebilirsiniz.</span><span id="detaySayac" class="sayi">0 / 600</span></p>
+          </div>
+
+          <div class="form__alt">
+            <p class="form__hata" id="formHata" role="alert"></p>
+            <button class="dugme dugme--amber dugme--buyuk" type="submit"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>İş Emrini WhatsApp'a Gönder</button>
+            <p class="form__not" id="formNot">Gönder'e bastığınızda WhatsApp, hazır iş emri metniyle <span class="sayi">0538 077 35 71</span> hattına açılır. Mesajı göndermeden önce düzenleyebilirsiniz.</p>
+            <a class="form__yedek" id="waYedek" href="https://wa.me/905380773571" target="_blank" rel="noopener" hidden>WhatsApp açılmadıysa buraya dokunun <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+            <noscript><p class="form__not">İş emri oluşturmak için tarayıcınızda JavaScript açık olmalı. Bunun yerine <a href="tel:+905380773571">0538 077 35 71</a> numarasını arayabilirsiniz.</p></noscript>
+          </div>
+        </form>
+
+        <aside class="bilet cam" aria-labelledby="biletBaslik">
+          <div class="bilet__ust"><span id="biletBaslik">Servis iş emri</span><b id="biletNo">BK-——</b></div>
+          <div class="bilet__govde">
+            <dl class="bilet__liste" id="biletListe" aria-live="polite">
+              <div><dt>Makine</dt><dd class="bos" data-alan="makine">Seçilmedi</dd></div>
+              <div><dt>İşlem</dt><dd class="bos" data-alan="islem">Seçilmedi</dd></div>
+              <div><dt>Aciliyet</dt><dd data-alan="aciliyet">Planlı — acil değil</dd></div>
+              <div><dt>Konum</dt><dd class="bos" data-alan="konum">Belirtilmedi</dd></div>
+              <div><dt>Ad soyad</dt><dd class="bos" data-alan="ad">Belirtilmedi</dd></div>
+              <div><dt>Detay</dt><dd class="bos" data-alan="detay">Belirtilmedi</dd></div>
+            </dl>
+            <p class="bilet__uyari" id="kapsamUyari" hidden><svg class="ikon" aria-hidden="true"><use href="#i-uyari"/></svg><span>Açıklamanız kapsam dışı bir işe benziyor. Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</span></p>
+            <p class="bilet__alici"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg><span>Alıcı: <b>Mücahit Çakır</b> · <span class="sayi">0538 077 35 71</span></span></p>
+            <button class="dugme dugme--cam dugme--kucuk bilet__kopya" type="button" id="metniKopyala"><svg class="ikon ikon--cizgi" aria-hidden="true"><use href="#i-kopya"/></svg><span>İş emri metnini kopyala</span></button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Saatler ve bölge -->
+  <section class="bolum" id="bolge" aria-labelledby="bolgeBaslik">
+    <div class="sar">
+      <div class="bolum__bas belir">
+        <p class="etiket"><b>05</b> Saatler ve bölge</p>
+        <h2 id="bolgeBaslik">Atölye ne zaman açık, nerelere hizmet veriyoruz?</h2>
+      </div>
+      <div class="bolge__izgara">
+        <div class="bolge__kart cam belir">
+          <h3 class="gorunmez">Çalışma saatleri</h3>
+          <p class="rozet rozet--buyuk" data-durum>
+            <span class="rozet__nokta" aria-hidden="true"></span>
+            <span class="rozet__metin"><b class="rozet__baslik">Çalışma saatleri</b><span class="rozet__alt">Hafta içi 09:00–17:30 · Cumartesi 09:00–13:30</span></span>
+            <span class="rozet__ek"></span>
+          </p>
+          <table class="saatler">
+            <caption class="gorunmez">Haftalık çalışma saatleri</caption>
+            <tbody>
+              <tr data-gunler="1 2 3 4 5"><th scope="row">Pazartesi – Cuma</th><td>09:00 – 17:30</td></tr>
+              <tr data-gunler="6"><th scope="row">Cumartesi</th><td>09:00 – 13:30</td></tr>
+              <tr data-gunler="0"><th scope="row">Pazar</th><td>Kapalı</td></tr>
+            </tbody>
+          </table>
+          <p class="not">Durum Türkiye saatine (Milas) göre anlık hesaplanır. Mesai dışında gelen iş emirlerine ilk mesai saatinde dönüş yapılır.</p>
+        </div>
+        <div class="bolge__kart cam belir">
+          <h3>Hizmet bölgesi</h3>
+          <p>Atölyemiz <strong>Selimiye Mah. Sanayi Sitesi, Milas / Muğla</strong>'dadır. Muğla'nın tüm ilçeleri ve Didim (Aydın) hizmet bölgemizdir.</p>
+          <ul class="cipler" aria-label="Hizmet verilen ilçeler">
+            <li class="vurgu">Milas</li><li>Bodrum</li><li>Dalaman</li><li>Datça</li><li>Fethiye</li><li>Kavaklıdere</li><li>Köyceğiz</li>
+            <li>Marmaris</li><li>Menteşe</li><li>Ortaca</li><li>Seydikemer</li><li>Ula</li><li>Yatağan</li><li class="vurgu">Didim (Aydın)</li>
+          </ul>
+          <p class="not">Diğer iller için özel anlaşma ve fiyatlandırma uygulanır. Seyyar borvek hizmeti şu anda verilmemektedir.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SSS -->
-  <section class="faq" id="sss">
-    <div class="wrap faq__grid">
-      <header class="sec-head">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Sık sorulanlar</p>
-        <h2>Aklınıza takılanlar.</h2>
-        <p class="sec-head__note">Cevabını bulamadığınız bir şey varsa arayın, telefonda anlatalım.</p>
-      </header>
-      <div class="faq__list">
+  <section class="bolum sss" id="sss" aria-labelledby="sssBaslik">
+    <div class="sar sss__izgara">
+      <div class="bolum__bas belir">
+        <p class="etiket"><b>06</b> Sıkça sorulanlar</p>
+        <h2 id="sssBaslik">Sormadan önce bilmek isteyebilecekleriniz.</h2>
+        <p>Yanıtını bulamadığınız soru için <a class="sayi" href="tel:+905380773571">0538 077 35 71</a> numarasını arayın.</p>
+      </div>
+      <div class="belir">
         <details>
-          <summary>Teşhis ücretli mi?</summary>
-          <p>Atölyeye getirilen makinede teşhis için ayrıca ücret almıyoruz, onarımı bize yaptırırsanız teşhis işçiliğe dahildir. Saha teşhisinde yalnızca yol ücreti çıkar, bunu da arayınca baştan söyleriz.</p>
+          <summary>Seyyar borvek yapıyor musunuz?</summary>
+          <p>Hayır. Seyyar borvek şu anda sunduğumuz hizmetler arasında değil.</p>
         </details>
         <details>
-          <summary>Orijinal parça mı kullanıyorsunuz?</summary>
-          <p>Teklifte her parçanın orijinal mi, OEM mi, muadil mi olduğu ayrı ayrı yazar. Seçim sizin. Hidrolik pompa ve enjektör gibi kritik parçalarda muadil önermiyoruz.</p>
+          <summary>Sıfırdan kova ya da parça imal ediyor musunuz?</summary>
+          <p>Hayır, sıfırdan imalat şu anda yapılmıyor. Mevcut kovanızı onarıyor ve Hardox aşınma plakalarıyla zırhlıyoruz.</p>
         </details>
         <details>
-          <summary>Onarım ne kadar sürer?</summary>
-          <p>Hortum, keçe, pim–burç gibi işler çoğunlukla aynı gün biter. Motor revizyonu parça durumuna göre 5–10 iş günü sürer. Teklifte tahmini süre de yazılı olur.</p>
+          <summary>Hardox kaplama kovaya ne kazandırır?</summary>
+          <p>Hardox aşınmaya dayanıklı bir çelik plakadır. Aşınmanın yoğun olduğu bölgelere kaplandığında kovanın ana gövdesini korur ve kullanım ömrünü uzatır.</p>
         </details>
         <details>
-          <summary>Yaptığınız işe garanti veriyor musunuz?</summary>
-          <p>Evet. Yapılan işçilik ve takılan parçalar için teslim belgesinde yazan süre boyunca garanti veriyoruz. Süre, işin türüne göre değişir ve teklifte belirtilir.</p>
+          <summary>Hidrolik silindir revizyonu ne kadar sürer?</summary>
+          <p>Süre; silindirin boyutuna, hasarın durumuna ve parça temin süresine bağlıdır. Tespitten sonra tahmini süreyi size bildiririz.</p>
         </details>
         <details>
-          <summary>Firmalar için bakım anlaşması yapıyor musunuz?</summary>
-          <p>Yapıyoruz. Filosu olan firmalar için makine bazında bakım takvimi çıkarıyor, saati gelen makineyi biz hatırlatıyoruz. Faturalandırma aylık yapılabilir.</p>
+          <summary>Hangi marka makinelere bakıyorsunuz?</summary>
+          <p>Marka ayırt etmeden ekskavatör, kazıcı yükleyici ve yükleyici gibi iş makinelerinin kova, hidrolik silindir ve mekanik aksamıyla ilgileniyoruz. Herhangi bir markanın yetkili servisi değiliz.</p>
+        </details>
+        <details>
+          <summary>Mesai dışında iş emri gönderebilir miyim?</summary>
+          <p>Evet. Mesai dışında gelen iş emirlerine ilk mesai saatinde dönüş yapılır.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- İLETİŞİM / İŞ EMRİ -->
-  <section class="contact" id="iletisim">
-    <div class="wrap contact__grid">
-      <div class="contact__info koyu">
-        <p class="kicker"><span class="kicker__cizgi" aria-hidden="true"></span>Servis kaydı</p>
-        <h2>Makinenizi anlatın, size dönelim.</h2>
-        <p class="contact__lead">Formu doldurduğunuzda mesajınız WhatsApp üzerinden doğrudan atölyeye gelir. Acil durumlarda aramanız daha hızlı olur.</p>
-
-        <a class="arama-karti" href="tel:+905380773571">
-          <span class="arama-karti__ikon" aria-hidden="true"><svg class="ikon" viewBox="0 0 24 24"><use href="#i-tel"/></svg></span>
-          <span class="arama-karti__yazi">
-            <small>Baş Teknisyen Mücahit ÇAKIR</small>
-            <b>0538 077 35 71</b>
-          </span>
-          <span class="arama-karti__ok">Ara</span>
-        </a>
-
-        <dl class="contact__dl">
-          <div>
-            <dt>Adres</dt>
-            <dd>Selimiye Mah. Sanayi Sitesi<br>Milas / Muğla</dd>
+  <!-- İletişim -->
+  <section class="iletisim" id="iletisim" aria-labelledby="iletisimBaslik">
+    <div class="sar">
+      <div class="iletisim__kart cam belir">
+        <div class="iletisim__sol">
+          <p class="etiket">İletişim</p>
+          <h2 id="iletisimBaslik">Makineniz mi yattı? Hemen konuşalım.</h2>
+          <p>Telefonda ve WhatsApp'ta muhatabınız Baş Uzmanımız Mücahit Çakır'dır.</p>
+          <div class="iletisim__dugmeler">
+            <a class="dugme dugme--amber dugme--buyuk" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara</a>
+            <a class="dugme dugme--wa dugme--buyuk" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
           </div>
-          <div>
-            <dt>Çalışma saatleri</dt>
-            <dd>Pzt–Cuma 09:00–17:30<br>Cumartesi 09:00–13:30<br>Pazar kapalı</dd>
-          </div>
-        </dl>
+        </div>
+        <ul class="iletisim__liste">
+          <li><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg></span><span>Telefon ve WhatsApp<a class="sayi" href="tel:+905380773571">0538 077 35 71</a></span></li>
+          <li><span class="ikon-kutu"><svg class="ikon ikon--cizgi" aria-hidden="true"><use href="#i-konum"/></svg></span><span>Adres<a href="https://www.google.com/maps/search/?api=1&amp;query=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla" target="_blank" rel="noopener">Selimiye Mah. Sanayi Sitesi, Milas / Muğla</a></span></li>
+          <li><span class="ikon-kutu"><svg class="ikon ikon--cizgi" aria-hidden="true"><use href="#i-saat"/></svg></span><span>Çalışma saatleri<b>Pzt–Cum 09:00–17:30 · Cmt 09:00–13:30</b></span></li>
+        </ul>
       </div>
-
-      <form class="ticket" id="form" novalidate aria-labelledby="formBaslik">
-        <div class="ticket__head">
-          <span class="ticket__baslik" id="formBaslik">İş emri</span>
-          <span class="ticket__no" id="ticketNo">No. —</span>
-        </div>
-        <div class="ticket__body">
-          <label class="f">
-            <span>Ad soyad / Firma</span>
-            <input name="ad" type="text" autocomplete="name" required>
-          </label>
-          <label class="f">
-            <span>Telefon</span>
-            <input name="tel" type="tel" autocomplete="tel" inputmode="tel" required>
-          </label>
-          <label class="f">
-            <span>Makine türü</span>
-            <select name="makine" required>
-              <option value="">Seçin</option>
-              <option>Paletli ekskavatör</option>
-              <option>Lastikli ekskavatör</option>
-              <option>Kazıcı yükleyici</option>
-              <option>Loder</option>
-              <option>Dozer</option>
-              <option>Greyder</option>
-              <option>Silindir</option>
-              <option>Mini ekskavatör / mini yükleyici</option>
-              <option>Forklift / telehandler</option>
-              <option>Diğer</option>
-            </select>
-          </label>
-          <label class="f">
-            <span>Marka / model</span>
-            <input name="model" type="text" placeholder="ör. Hidromek 102S">
-          </label>
-          <fieldset class="f f--full">
-            <legend>Arıza nerede?</legend>
-            <div class="chips">
-              <label><input type="checkbox" name="alan" value="Motor"><span>Motor</span></label>
-              <label><input type="checkbox" name="alan" value="Hidrolik"><span>Hidrolik</span></label>
-              <label><input type="checkbox" name="alan" value="Bom / kaynak"><span>Bom / kaynak</span></label>
-              <label><input type="checkbox" name="alan" value="Şanzıman"><span>Şanzıman</span></label>
-              <label><input type="checkbox" name="alan" value="Yürüyüş takımı"><span>Yürüyüş takımı</span></label>
-              <label><input type="checkbox" name="alan" value="Elektrik"><span>Elektrik</span></label>
-              <label><input type="checkbox" name="alan" value="Periyodik bakım"><span>Periyodik bakım</span></label>
-            </div>
-          </fieldset>
-          <label class="f f--full">
-            <span>Şikâyet</span>
-            <textarea name="aciklama" rows="4" placeholder="Ne zaman başladı, nasıl bir ses/belirti var, makine kaç saatte?"></textarea>
-          </label>
-          <fieldset class="f f--full ticket__where">
-            <legend>Makine nerede?</legend>
-            <div class="secim">
-              <label><input type="radio" name="yer" value="Atölyeye getireceğim" checked><span>Atölyeye getireceğim</span></label>
-              <label><input type="radio" name="yer" value="Sahada, servis gelsin"><span>Sahada, servis gelsin</span></label>
-            </div>
-          </fieldset>
-        </div>
-        <div class="ticket__foot">
-          <p class="ticket__msg" id="formMsg" role="status" aria-live="polite"></p>
-          <button class="btn btn--accent" type="submit">
-            <span>WhatsApp ile gönder</span>
-            <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ok"/></svg>
-          </button>
-        </div>
-      </form>
     </div>
   </section>
-
 </main>
 
-<footer class="foot koyu">
-  <div class="wrap foot__grid">
-    <div class="foot__marka">
-      <a class="logo" href="#ust" aria-label="Başkent İş Makinaları, sayfa başı">
-        <img class="logo__mark" src="assets/img/logo-isaret.png" alt="" width="240" height="144" loading="lazy">
-        <span class="logo__txt"><b>BAŞKENT</b><span>İş Makinaları</span></span>
-      </a>
-      <p class="foot__small">Motor, hidrolik, bom ve kaynak tamiri. Periyodik bakım, arıza teşhisi, saha servisi.</p>
+<footer class="alt">
+  <div class="sar">
+    <div class="alt__ic">
+      <div class="alt__marka">
+        <span class="logo__isaret" aria-hidden="true"></span>
+        <p><strong>Başkent İş Makinaları</strong> — Kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım.</p>
+        <p>Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</p>
+      </div>
+      <div>
+        <h3>Sayfa</h3>
+        <ul>
+          <li><a href="#hizmetler">Hizmetler</a></li>
+          <li><a href="#surec">Süreç</a></li>
+          <li><a href="#is-emri">İş emri oluştur</a></li>
+          <li><a href="#sss">SSS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>İletişim</h3>
+        <ul>
+          <li><a class="sayi" href="tel:+905380773571">0538 077 35 71</a></li>
+          <li>Selimiye Mah. Sanayi Sitesi</li>
+          <li>Milas / Muğla</li>
+        </ul>
+      </div>
     </div>
-    <nav aria-label="Alt menü">
-      <p class="foot__baslik">Sayfa</p>
-      <ul class="foot__links">
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#makineler">Makineler</a></li>
-        <li><a href="#surec">Süreç</a></li>
-        <li><a href="#saha">Saha servisi</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
-      </ul>
-    </nav>
-    <div>
-      <p class="foot__baslik">İletişim</p>
-      <p class="foot__small">
-        <a class="foot__tel" href="tel:+905380773571">0538 077 35 71</a><br>
-        Baş Teknisyen Mücahit ÇAKIR<br>
-        Selimiye Mah. Sanayi Sitesi, Milas / Muğla
-      </p>
+    <div class="alt__son">
+      <span>© <span id="yil">2026</span> Başkent İş Makinaları</span>
+      <span>Hiçbir markanın yetkili servisi değildir.</span>
     </div>
-    <div>
-      <p class="foot__baslik">Çalışma saatleri</p>
-      <p class="foot__small">Pzt–Cuma 09:00–17:30<br>Cumartesi 09:00–13:30<br>Pazar kapalı</p>
-    </div>
-  </div>
-  <div class="wrap foot__alt">
-    <p class="foot__copy">© <span id="yil">2026</span> Başkent İş Makinaları</p>
-    <details class="credits">
-      <summary>Görsel kaynakları</summary>
-      <p>Bu sitedeki fotoğraflar Wikimedia Commons üzerinden, dosya sayfalarında belirtilen özgür lisanslarla (CC BY, CC BY-SA, CC0 veya kamu malı) kullanılmaktadır. Yazar ve lisans bilgisi için dosya adına tıklayın.</p>
-      <ul>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_330_excavator_on_a_pile_of_dirt.jpg" rel="noopener" target="_blank">Caterpillar 330 excavator on a pile of dirt.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_C2_2_diesel_engine.jpg" rel="noopener" target="_blank">Caterpillar C2 2 diesel engine.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Mill_style_cylinder,hydraulic_cylinders.JPG" rel="noopener" target="_blank">Mill style cylinder, hydraulic cylinders.JPG</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:GMAW.welding.af.ncs.jpg" rel="noopener" target="_blank">GMAW.welding.af.ncs.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Bucket_wheel_excavator_under_repair_germany.jpg" rel="noopener" target="_blank">Bucket wheel excavator under repair germany.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_215_Hydraulic_Excavator_(16927811617).jpg" rel="noopener" target="_blank">Caterpillar 215 Hydraulic Excavator (16927811617).jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_349EL_at_a_demolition_site_in_Sunnyvale.jpg" rel="noopener" target="_blank">Caterpillar 349EL at a demolition site in Sunnyvale.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_330B_Hydraulic_Excavator_side_-_Hillsboro,_Oregon.JPG" rel="noopener" target="_blank">Caterpillar 330B Hydraulic Excavator side - Hillsboro, Oregon.JPG</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_3406_engine_in_KW_W900_(left).jpg" rel="noopener" target="_blank">Caterpillar 3406 engine in KW W900 (left).jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Man_dressed_in_full_welding_gear.jpg" rel="noopener" target="_blank">Man dressed in full welding gear.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:JCB_3CX_Backhoe_loader.jpg" rel="noopener" target="_blank">JCB 3CX Backhoe loader.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Clamshell_bucket_-_Liebherr_Excavator.jpg" rel="noopener" target="_blank">Clamshell bucket - Liebherr Excavator.jpg</a></li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_D6_Tractor,_Crawler,_Diesel.jpg" rel="noopener" target="_blank">Caterpillar D6 Tractor, Crawler, Diesel.jpg</a></li>
-      </ul>
-    </details>
   </div>
 </footer>
 
-<!-- Telefonda alt şerit: solda arama, sağda WhatsApp. Masaüstünde yalnızca WhatsApp düğmesi görünür. -->
 <aside class="hizli" aria-label="Hızlı iletişim">
-<a class="float-call" href="tel:+905380773571" aria-label="Hemen ara: Baş Teknisyen Mücahit ÇAKIR, 0538 077 35 71">
-  <span class="float-call__ikon" aria-hidden="true"><svg class="ikon" viewBox="0 0 24 24"><use href="#i-tel"/></svg></span>
-  <span class="float-call__yazi"><b>Hemen ara</b><small>0538 077 35 71</small></span>
-</a>
-
-<!-- WhatsApp: hazır mesajla 0538 077 35 71'e (Mücahit ÇAKIR) yazar -->
-<a class="wa-btn" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum."
-   target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın: Baş Teknisyen Mücahit ÇAKIR, 0538 077 35 71">
-  <span class="wa-btn__ikon" aria-hidden="true">
-    <svg viewBox="0 0 24 24"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.1 7.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6.5.9 1.2 1.6 2.1 2.1.3.2.4.1.6 0l.6-.6c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .9-.7 1.7-1.6 1.8-1 .1-2.6-.3-4.3-1.9-1.7-1.6-2.3-3.3-2.3-4.3 0-1 .6-1.7 1.3-2z" fill="currentColor"/></svg>
-  </span>
-  <span class="wa-btn__yazi"><b>Mücahit ÇAKIR</b><small>WhatsApp'tan yazın</small></span>
-</a>
+  <a class="hizli__ara" href="tel:+905380773571"><span class="hizli__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg></span><span class="hizli__yazi"><b>Hemen Ara</b><small class="sayi">0538 077 35 71</small></span></a>
+  <a class="hizli__wa" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><span class="hizli__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg></span><span class="hizli__yazi"><b>WhatsApp</b><small>Hazır mesajla yaz</small></span></a>
 </aside>
 
-<!-- Ortak simgeler -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="currentColor"/></symbol>
-  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.1 7.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6.5.9 1.2 1.6 2.1 2.1.3.2.4.1.6 0l.6-.6c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .9-.7 1.7-1.6 1.8-1 .1-2.6-.3-4.3-1.9-1.7-1.6-2.3-3.3-2.3-4.3 0-1 .6-1.7 1.3-2z" fill="currentColor"/></symbol>
-  <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
+<!-- Saf iş mantığı: saat hesabı, iş emri metni, WhatsApp adresi. Testler bu bloğu doğrudan çalıştırır. -->
+<script id="cekirdek">
+(function (kok) {
+  'use strict';
 
-<script src="js/saatler.js" defer></script>
-<script src="js/whatsapp.js" defer></script>
-<script src="js/telefon.js" defer></script>
-<script src="js/main.js" defer></script>
+  var TELEFON = '905380773571';
+  var KARSILAMA = 'Merhaba. Başkent iş Makinalarından Servis bilgisi Almak İstiyorum.';
+  var GUNLER = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+  // getDay() sırasıyla (0 = Pazar). Günün dakikası olarak [açılış, kapanış]; null = kapalı.
+  var SAATLER = [null, [540, 1050], [540, 1050], [540, 1050], [540, 1050], [540, 1050], [540, 810]];
+  var GUN_KISA = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  var DETAY_SINIRI = 600;
+  var bicimleyici = null;
+
+  // Atölye Milas'ta: durum ziyaretçinin bulunduğu yerden bağımsız olarak Türkiye saatiyle hesaplanır.
+  function istanbulZamani(tarih) {
+    if (!bicimleyici) {
+      bicimleyici = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Europe/Istanbul', weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+      });
+    }
+    var p = {};
+    bicimleyici.formatToParts(tarih).forEach(function (parca) { p[parca.type] = parca.value; });
+    var saat = Number(p.hour) % 24;
+    return { gun: GUN_KISA[p.weekday], dakika: saat * 60 + Number(p.minute), yil: p.year, ay: p.month, gunNo: p.day, saat: saat, dk: Number(p.minute) };
+  }
+
+  function saatYaz(dakika) {
+    return String(Math.floor(dakika / 60)).padStart(2, '0') + ':' + String(dakika % 60).padStart(2, '0');
+  }
+
+  // { acik, baslik, alt, ek } döner. z: { gun: 0-6, dakika: 0-1439 }
+  function durumHesapla(z) {
+    var bugun = SAATLER[z.gun];
+    if (bugun && z.dakika >= bugun[0] && z.dakika < bugun[1]) {
+      return { acik: true, baslik: 'Açık', alt: 'Atölye Hizmet Veriyor', ek: 'Bugün kapanış ' + saatYaz(bugun[1]) };
+    }
+    for (var fark = 0; fark <= 7; fark++) {
+      var g = (z.gun + fark) % 7;
+      var s = SAATLER[g];
+      if (!s || (fark === 0 && z.dakika >= s[0])) continue;
+      var hangiGun = fark === 0 ? 'bugün' : fark === 1 ? 'yarın' : GUNLER[g];
+      return { acik: false, baslik: 'Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: 'İlk mesai: ' + hangiGun + ' ' + saatYaz(s[0]) };
+    }
+    return { acik: false, baslik: 'Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: '' };
+  }
+
+  function iki(sayi) { return String(sayi).padStart(2, '0'); }
+
+  // İş emri numarası: BK-YYAAGG-SSDD (Türkiye saatiyle)
+  function isEmriNo(z) {
+    return 'BK-' + String(z.yil).slice(-2) + z.ay + z.gunNo + '-' + iki(z.saat) + iki(z.dk);
+  }
+
+  function tekSatir(deger) {
+    return String(deger == null ? '' : deger).replace(/\s+/g, ' ').trim();
+  }
+
+  function cokSatir(deger) {
+    return String(deger == null ? '' : deger)
+      .replace(/\r\n?/g, '\n')
+      .split('\n').map(function (s) { return s.replace(/[ \t]+/g, ' ').trim(); }).join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+      .slice(0, DETAY_SINIRI);
+  }
+
+  // v: { makine, model, islem, aciliyet, konum, ad, geriTel, detay }
+  function isEmriMetni(v, no) {
+    var satirlar = [KARSILAMA, '', '*SERVİS İŞ EMRİ · ' + no + '*'];
+    function ekle(etiket, deger) { if (deger) satirlar.push('*' + etiket + ':* ' + deger); }
+    var makine = [tekSatir(v.makine), tekSatir(v.model)].filter(Boolean).join(' — ');
+    ekle('Makine', makine);
+    ekle('İşlem', tekSatir(v.islem));
+    ekle('Aciliyet', tekSatir(v.aciliyet));
+    ekle('Konum', tekSatir(v.konum));
+    ekle('Ad soyad', tekSatir(v.ad));
+    ekle('Geri dönüş telefonu', tekSatir(v.geriTel));
+    var detay = cokSatir(v.detay);
+    if (detay) satirlar.push('*Arıza detayı:*', detay);
+    return satirlar.join('\n');
+  }
+
+  function waAdresi(metin) {
+    return 'https://wa.me/' + TELEFON + '?text=' + encodeURIComponent(metin);
+  }
+
+  // Açıklama kapsam dışı bir işe benziyorsa (seyyar borvek, sıfırdan imalat) uyarı göstermek için
+  function kapsamDisiMi(metin) {
+    var kucuk = String(metin || '').toLocaleLowerCase('tr');
+    return /bor\s*vek|sıfırdan|imalat|imal\s+et/.test(kucuk);
+  }
+
+  // Geri dönüş telefonu: boş olabilir; doluysa 10-13 hane olmalı
+  function telefonGecerliMi(deger) {
+    var haneler = String(deger || '').replace(/\D/g, '');
+    return haneler.length === 0 || (haneler.length >= 10 && haneler.length <= 13);
+  }
+
+  // Sayfa bir çerçevenin (iframe) içindeyse tel: bağlantıları yeni bağlamda açılır; aksi hâlde
+  // bazı önizlemelerde arama ekranı hiç açılmaz.
+  function cerceveIcindeMi(pencere) {
+    try { return pencere.self !== pencere.top; } catch (hata) { return true; }
+  }
+  function telBaglantilariniAyarla(baglantilar, cerceveIcinde) {
+    if (!cerceveIcinde) return 0;
+    var sayi = 0;
+    Array.prototype.forEach.call(baglantilar, function (a) {
+      if (String(a.getAttribute('href') || '').indexOf('tel:') !== 0) return;
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+      sayi += 1;
+    });
+    return sayi;
+  }
+
+  var api = {
+    TELEFON: TELEFON, KARSILAMA: KARSILAMA, SAATLER: SAATLER, GUNLER: GUNLER, DETAY_SINIRI: DETAY_SINIRI,
+    istanbulZamani: istanbulZamani, saatYaz: saatYaz, durumHesapla: durumHesapla, isEmriNo: isEmriNo,
+    isEmriMetni: isEmriMetni, waAdresi: waAdresi, kapsamDisiMi: kapsamDisiMi, telefonGecerliMi: telefonGecerliMi,
+    cerceveIcindeMi: cerceveIcindeMi, telBaglantilariniAyarla: telBaglantilariniAyarla
+  };
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else kok.Baskent = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+
+<!-- Arayüz: menü, canlı durum, iş emri formu, belirme -->
+<script>
+(function () {
+  'use strict';
+  var B = window.Baskent;
+  var kok = document.documentElement;
+  kok.classList.add('js');
+  var azHareket = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  B.telBaglantilariniAyarla(document.querySelectorAll('a[href^="tel:"]'), B.cerceveIcindeMi(window));
+
+  // ---- Menü ----
+  var menuDugme = document.querySelector('.menu__dugme');
+  var menuListe = document.getElementById('menuListe');
+  var menuYazi = menuDugme.querySelector('.menu__yazi');
+  function menuAyarla(acik) {
+    menuListe.classList.toggle('acik', acik);
+    menuDugme.setAttribute('aria-expanded', String(acik));
+    menuYazi.textContent = acik ? 'Kapat' : 'Menü';
+  }
+  menuDugme.addEventListener('click', function () { menuAyarla(!menuListe.classList.contains('acik')); });
+  menuListe.addEventListener('click', function (e) { if (e.target.closest('a')) menuAyarla(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menuListe.classList.contains('acik')) { menuAyarla(false); menuDugme.focus(); }
+  });
+
+  // ---- Canlı çalışma durumu ----
+  var rozetler = document.querySelectorAll('[data-durum]');
+  var saatSatirlari = document.querySelectorAll('.saatler tr[data-gunler]');
+  var sonDurum = '';
+  function durumuGuncelle() {
+    var z = B.istanbulZamani(new Date());
+    var d = B.durumHesapla(z);
+    var anahtar = d.baslik + d.alt + d.ek;
+    if (anahtar !== sonDurum) {
+      sonDurum = anahtar;
+      Array.prototype.forEach.call(rozetler, function (r) {
+        r.classList.toggle('rozet--acik', d.acik);
+        r.classList.toggle('rozet--kapali', !d.acik);
+        r.querySelector('.rozet__baslik').textContent = d.baslik;
+        r.querySelector('.rozet__alt').textContent = d.alt;
+        r.querySelector('.rozet__ek').textContent = d.ek;
+      });
+    }
+    Array.prototype.forEach.call(saatSatirlari, function (tr) {
+      tr.classList.toggle('bugun', tr.getAttribute('data-gunler').split(' ').indexOf(String(z.gun)) !== -1);
+    });
+    var yil = document.getElementById('yil');
+    if (yil) yil.textContent = z.yil;
+  }
+  durumuGuncelle();
+  setInterval(durumuGuncelle, 30000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) durumuGuncelle(); });
+
+  // ---- Kaydırınca belirme ----
+  var belirenler = document.querySelectorAll('.belir');
+  if ('IntersectionObserver' in window && !azHareket) {
+    var gozcu = new IntersectionObserver(function (girdiler) {
+      girdiler.forEach(function (g) {
+        if (g.isIntersecting) { g.target.classList.add('gorundu'); gozcu.unobserve(g.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    Array.prototype.forEach.call(belirenler, function (el) { gozcu.observe(el); });
+  } else {
+    Array.prototype.forEach.call(belirenler, function (el) { el.classList.add('gorundu'); });
+  }
+
+  // ---- Akıllı WhatsApp iş emri jeneratörü ----
+  var form = document.getElementById('isEmriFormu');
+  if (!form) return;
+  var biletNo = document.getElementById('biletNo');
+  var kapsamUyari = document.getElementById('kapsamUyari');
+  var formHata = document.getElementById('formHata');
+  var waYedek = document.getElementById('waYedek');
+  var detay = form.elements.detay;
+  var sayac = document.getElementById('detaySayac');
+  var kopyaDugme = document.getElementById('metniKopyala');
+  var BOS = { makine: 'Seçilmedi', islem: 'Seçilmedi', konum: 'Belirtilmedi', ad: 'Belirtilmedi', detay: 'Belirtilmedi' };
+
+  function degerler() {
+    return {
+      makine: (form.querySelector('input[name="makine"]:checked') || {}).value || '',
+      model: form.elements.model.value,
+      islem: (form.querySelector('input[name="islem"]:checked') || {}).value || '',
+      aciliyet: (form.querySelector('input[name="aciliyet"]:checked') || {}).value || '',
+      konum: form.elements.konum.value,
+      ad: form.elements.ad.value,
+      geriTel: form.elements.geriTel.value,
+      detay: detay.value
+    };
+  }
+
+  function guncelNo() { return B.isEmriNo(B.istanbulZamani(new Date())); }
+
+  function onizle() {
+    var v = degerler();
+    var gorunen = {
+      makine: [v.makine, v.model.trim()].filter(Boolean).join(' — '),
+      islem: v.islem, aciliyet: v.aciliyet, konum: v.konum, ad: v.ad.trim(), detay: detay.value.trim()
+    };
+    Object.keys(gorunen).forEach(function (alan) {
+      var dd = document.querySelector('#biletListe [data-alan="' + alan + '"]');
+      if (!dd) return;
+      var deger = gorunen[alan];
+      dd.textContent = deger || BOS[alan] || '—';
+      dd.classList.toggle('bos', !deger);
+    });
+    biletNo.textContent = guncelNo();
+    kapsamUyari.hidden = !B.kapsamDisiMi(v.detay + ' ' + v.model);
+    sayac.textContent = detay.value.length + ' / ' + B.DETAY_SINIRI;
+  }
+
+  function hataYaz(alanId, hataId, mesaj) {
+    var alan = document.getElementById(alanId);
+    var hata = document.getElementById(hataId);
+    if (alan) alan.classList.toggle('alan--hata', Boolean(mesaj));
+    if (hata) hata.textContent = mesaj || '';
+  }
+
+  function dogrula() {
+    var v = degerler();
+    var sorunlar = [];
+    hataYaz('alanMakine', 'hataMakine', v.makine ? '' : 'Makine türünü seçin.');
+    if (!v.makine) sorunlar.push(form.querySelector('input[name="makine"]'));
+    hataYaz('alanIslem', 'hataIslem', v.islem ? '' : 'Arıza kategorisini seçin.');
+    if (!v.islem) sorunlar.push(form.querySelector('input[name="islem"]'));
+    var adGecerli = v.ad.trim().length >= 2;
+    hataYaz('alanAd', 'hataAd', adGecerli ? '' : 'Adınızı yazın.');
+    form.elements.ad.setAttribute('aria-invalid', String(!adGecerli));
+    if (!adGecerli) sorunlar.push(form.elements.ad);
+    var telGecerli = B.telefonGecerliMi(v.geriTel);
+    hataYaz('alanTel', 'hataTel', telGecerli ? '' : 'Telefon numarasını 05xx xxx xx xx biçiminde yazın.');
+    form.elements.geriTel.setAttribute('aria-invalid', String(!telGecerli));
+    if (!telGecerli) sorunlar.push(form.elements.geriTel);
+    return sorunlar;
+  }
+
+  form.addEventListener('input', function (e) {
+    onizle();
+    if (form.dataset.denendi) dogrula();
+    if (e.target === detay) sayac.textContent = detay.value.length + ' / ' + B.DETAY_SINIRI;
+  });
+  form.addEventListener('change', onizle);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.dataset.denendi = '1';
+    var sorunlar = dogrula();
+    if (sorunlar.length) {
+      formHata.textContent = 'İş emrini göndermeden önce işaretli alanları tamamlayın.';
+      sorunlar[0].focus();
+      return;
+    }
+    formHata.textContent = '';
+    var adres = B.waAdresi(B.isEmriMetni(degerler(), guncelNo()));
+    waYedek.href = adres;
+    waYedek.hidden = false;
+    var pencere = null;
+    try { pencere = window.open(adres, '_blank'); } catch (hata) { pencere = null; }
+    if (pencere) { try { pencere.opener = null; } catch (hata) { /* yok say */ } }
+    else { window.location.href = adres; }
+  });
+
+  // Hizmet kartlarındaki "iş emri oluştur" bağlantıları kategoriyi önceden seçer
+  Array.prototype.forEach.call(document.querySelectorAll('[data-islem]'), function (bag) {
+    bag.addEventListener('click', function () {
+      var secenek = form.querySelector('input[name="islem"][value="' + bag.getAttribute('data-islem') + '"]');
+      if (secenek) { secenek.checked = true; onizle(); }
+    });
+  });
+
+  kopyaDugme.addEventListener('click', function () {
+    var metin = B.isEmriMetni(degerler(), guncelNo());
+    var yazi = kopyaDugme.querySelector('span');
+    function bildir(mesaj) { yazi.textContent = mesaj; setTimeout(function () { yazi.textContent = 'İş emri metnini kopyala'; }, 2200); }
+    function eskiYontem() {
+      var alan = document.createElement('textarea');
+      alan.value = metin; alan.setAttribute('readonly', ''); alan.style.position = 'fixed'; alan.style.opacity = '0';
+      document.body.appendChild(alan); alan.select();
+      var basarili = false;
+      try { basarili = document.execCommand('copy'); } catch (hata) { basarili = false; }
+      document.body.removeChild(alan);
+      bildir(basarili ? 'Kopyalandı ✓' : 'Kopyalanamadı — elle seçin');
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(metin).then(function () { bildir('Kopyalandı ✓'); }, eskiYontem);
+    } else {
+      eskiYontem();
+    }
+  });
+
+  onizle();
+  setInterval(function () { biletNo.textContent = guncelNo(); }, 30000);
+})();
+</script>
+
+<!-- 3D sahne: Three.js (CDN, sabit sürüm). Yüklenemezse çizim (SVG) yerinde kalır. -->
+<script type="module">
+const THREE_ADRES = 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js';
+const sahneKutu = document.getElementById('sahne');
+const tuval = document.getElementById('sahneTuval');
+
+function webglVarMi() {
+  try {
+    const c = document.createElement('canvas');
+    return Boolean(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+  } catch (hata) {
+    return false;
+  }
+}
+
+function yedegeGec(neden) {
+  if (sahneKutu) sahneKutu.dataset.sahne = 'yedek';
+  if (neden) console.warn('3D sahne gösterilemiyor, çizim gösteriliyor:', neden);
+}
+
+if (!sahneKutu || !tuval) {
+  // sayfada sahne yok
+} else if (!webglVarMi()) {
+  yedegeGec('WebGL desteklenmiyor');
+} else {
+  import(THREE_ADRES).then((THREE) => kur(THREE)).catch((hata) => yedegeGec(hata));
+}
+
+function kur(THREE) {
+  const azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const renderer = new THREE.WebGLRenderer({ canvas: tuval, antialias: (window.devicePixelRatio || 1) < 2, alpha: true, powerPreference: 'high-performance' });
+  let pikselOrani = Math.min(window.devicePixelRatio || 1, 1.75);
+  renderer.setPixelRatio(pikselOrani);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.25;
+
+  const sahne = new THREE.Scene();
+  const kamera = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
+  const hedef = new THREE.Vector3(0.12, 0.55, 0);
+  const V2 = (x, y) => new THREE.Vector2(x, y);
+
+  // ---- Ortam yansıması: küçük bir "atölye" sahnesinden önceden filtrelenmiş ışık ----
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  const ortam = new THREE.Scene();
+  const ortamGeo = [];
+  const odaGeo = new THREE.BoxGeometry(12, 7, 12); ortamGeo.push(odaGeo);
+  ortam.add(new THREE.Mesh(odaGeo, new THREE.MeshBasicMaterial({ color: 0x0d1016, side: THREE.BackSide })));
+  function panel(renk, guc, w, h, x, y, z, rx, ry) {
+    const g = new THREE.PlaneGeometry(w, h); ortamGeo.push(g);
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: new THREE.Color(renk).multiplyScalar(guc), side: THREE.DoubleSide }));
+    m.position.set(x, y, z); m.rotation.set(rx, ry, 0); ortam.add(m);
+  }
+  panel(0xffffff, 4, 7, 1.4, 0, 3.4, 0, Math.PI / 2, 0);
+  panel(0xf5a524, 3.2, 1, 5, -5.8, 0.6, 0, 0, Math.PI / 2);
+  panel(0xbcd0ff, 1.6, 5, 2.2, 0, 0.8, 5.8, 0, Math.PI);
+  panel(0xffffff, 1.2, 2, 3, 5.8, 1, -2, 0, -Math.PI / 2);
+  sahne.environment = pmrem.fromScene(ortam, 0.035).texture;
+  sahne.environmentIntensity = 1.5;
+  ortamGeo.forEach((g) => g.dispose());
+  pmrem.dispose();
+
+  // ---- Işıklar ----
+  sahne.add(new THREE.HemisphereLight(0x9fb1cf, 0x14110c, 0.75));
+  const anaIsik = new THREE.DirectionalLight(0xfff1dc, 3.2); anaIsik.position.set(3.5, 4.5, 4); sahne.add(anaIsik);
+  const konturIsik = new THREE.DirectionalLight(0xf5a524, 3.4); konturIsik.position.set(-4, 2.2, -3.2); sahne.add(konturIsik);
+  const dolguIsik = new THREE.DirectionalLight(0x9db4ff, 0.7); dolguIsik.position.set(-2.5, -1, 3); sahne.add(dolguIsik);
+
+  // ---- Malzemeler ----
+  const M = {
+    govde: new THREE.MeshStandardMaterial({ color: 0x3d4552, metalness: 0.5, roughness: 0.4, side: THREE.DoubleSide }),
+    ic: new THREE.MeshStandardMaterial({ color: 0x272d36, metalness: 0.4, roughness: 0.62, side: THREE.DoubleSide }),
+    hardox: new THREE.MeshStandardMaterial({ color: 0xb4bcc8, metalness: 0.92, roughness: 0.3, side: THREE.DoubleSide }),
+    celik: new THREE.MeshStandardMaterial({ color: 0x5d6675, metalness: 0.85, roughness: 0.36 }),
+    krom: new THREE.MeshStandardMaterial({ color: 0xeef2f7, metalness: 1, roughness: 0.1 }),
+    boya: new THREE.MeshStandardMaterial({ color: 0xf5a524, metalness: 0.3, roughness: 0.42 }),
+    dikis: new THREE.MeshStandardMaterial({ color: 0x3a2508, emissive: 0xff9f1a, emissiveIntensity: 1.8, metalness: 0.2, roughness: 0.6 })
+  };
+
+  // ---- Geometri yardımcıları ----
+  // 2B bir eğri boyunca dikdörtgen kesitli şerit (levha) üretir. Normal yönü eğrinin dış tarafıdır.
+  function disNormal(noktalar, i) {
+    const a = noktalar[Math.max(0, i - 1)], b = noktalar[Math.min(noktalar.length - 1, i + 1)];
+    const tx = b.x - a.x, ty = b.y - a.y, l = Math.hypot(tx, ty) || 1;
+    return V2(-ty / l, tx / l);
+  }
+  function supur(noktalar, z0, z1, ofset, kalinlik, gruplu) {
+    const konum = [], indeks = [];
+    const raylar = { ic0: [], dis0: [], ic1: [], dis1: [] };
+    noktalar.forEach((p, i) => {
+      const n = disNormal(noktalar, i);
+      const a = ofset, b = ofset + kalinlik;
+      raylar.ic0.push([p.x + n.x * a, p.y + n.y * a, z0]);
+      raylar.dis0.push([p.x + n.x * b, p.y + n.y * b, z0]);
+      raylar.ic1.push([p.x + n.x * a, p.y + n.y * a, z1]);
+      raylar.dis1.push([p.x + n.x * b, p.y + n.y * b, z1]);
+    });
+    const geo = new THREE.BufferGeometry();
+    function serit(A, Bray, grup) {
+      const bas = konum.length / 3, ilkIndeks = indeks.length;
+      for (let i = 0; i < A.length; i++) konum.push(...A[i], ...Bray[i]);
+      for (let i = 0; i < A.length - 1; i++) {
+        const a = bas + i * 2, b = a + 1, c = a + 2, d = a + 3;
+        indeks.push(a, b, c, b, d, c);
+      }
+      if (gruplu) geo.addGroup(ilkIndeks, indeks.length - ilkIndeks, grup);
+    }
+    serit(raylar.dis0, raylar.dis1, 0);
+    serit(raylar.ic0, raylar.ic1, 1);
+    serit(raylar.ic0, raylar.dis0, 0);
+    serit(raylar.ic1, raylar.dis1, 0);
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(konum, 3));
+    geo.setIndex(indeks);
+    geo.computeVertexNormals();
+    return geo;
+  }
+
+  // ---- Kova profili (yandan görünüş; x ileri, y yukarı) ----
+  const KOVA_G = 1.12;                 // kova genişliği
+  const ARKA_PIM = V2(0, 1.15);        // kol pimi: kova bunun etrafında döner
+  const ON_PIM = V2(0.38, 1.15);       // silindirin bağlandığı pim
+  const yol = new THREE.Path();
+  yol.moveTo(1.02, -0.38);                                   // kesici kenar
+  yol.quadraticCurveTo(0.62, -0.66, 0.05, -0.6);             // taban
+  yol.bezierCurveTo(-0.36, -0.56, -0.52, -0.05, -0.47, 0.42); // arka eğri
+  yol.quadraticCurveTo(-0.44, 0.88, -0.22, 0.98);            // arka üst köşe
+  yol.lineTo(0.6, 0.98);                                     // üst plaka
+  const kabuk = yol.getSpacedPoints(90);
+
+  const duzen = new THREE.Group();          // fareyle dönen ana grup
+  sahne.add(duzen);
+  const kovaMafsal = new THREE.Group();     // arka pim etrafında dönen kova
+  kovaMafsal.position.set(ARKA_PIM.x, ARKA_PIM.y, 0);
+  duzen.add(kovaMafsal);
+  const kova = new THREE.Group();
+  kova.position.set(-ARKA_PIM.x, -ARKA_PIM.y, 0);
+  kovaMafsal.add(kova);
+
+  // Kabuk (taban + arka + üst) — dış yüz gövde, iç yüz koyu
+  const yariG = KOVA_G / 2;
+  kova.add(new THREE.Mesh(supur(kabuk, -yariG + 0.03, yariG - 0.03, 0, 0.03, true), [M.govde, M.ic]));
+
+  // Yan levhalar
+  const yanSekil = new THREE.Shape(kabuk);
+  const yanGeo = new THREE.ExtrudeGeometry(yanSekil, { depth: 0.035, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1, curveSegments: 8 });
+  const yanSag = new THREE.Mesh(yanGeo, M.govde); yanSag.position.z = yariG - 0.035; kova.add(yanSag);
+  const yanSol = new THREE.Mesh(yanGeo, M.govde); yanSol.position.z = -yariG; kova.add(yanSol);
+
+  // Hardox aşınma şeritleri + parlayan kaynak dikişleri
+  const tabanBolumu = kabuk.slice(4, 40);
+  const seritZ = [-0.36, -0.12, 0.12, 0.36];
+  const seritYari = 0.075;
+  const dikisler = [];
+  seritZ.forEach((zc) => {
+    kova.add(new THREE.Mesh(supur(tabanBolumu, zc - seritYari, zc + seritYari, 0.03, 0.022), M.hardox));
+    [zc - seritYari - 0.005, zc + seritYari + 0.005].forEach((zk) => {
+      const eksen = tabanBolumu.map((p, i) => {
+        const n = disNormal(tabanBolumu, i);
+        return new THREE.Vector3(p.x + n.x * 0.04, p.y + n.y * 0.04, zk);
+      });
+      const tup = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(eksen), 48, 0.008, 5, false), M.dikis);
+      kova.add(tup);
+      dikisler.push(tup);
+    });
+  });
+
+  // Kesici bıçak ve tırnaklar
+  const kenar = kabuk[0];
+  const geri = kabuk[3];
+  const ileri = V2(kenar.x - geri.x, kenar.y - geri.y).normalize();
+  const kenarAci = Math.atan2(ileri.y, ileri.x);
+  const bicak = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.05, KOVA_G + 0.02), M.hardox);
+  bicak.position.set(kenar.x - ileri.x * 0.06, kenar.y - ileri.y * 0.06 + 0.012, 0);
+  bicak.rotation.z = kenarAci;
+  kova.add(bicak);
+  const adaptorGeo = new THREE.BoxGeometry(0.2, 0.085, 0.1);
+  const tirnakGeo = new THREE.ConeGeometry(0.06, 0.26, 4);
+  tirnakGeo.rotateY(Math.PI / 4);
+  tirnakGeo.scale(0.62, 1, 1);
+  const tirnakZ = [-0.44, -0.22, 0, 0.22, 0.44];
+  let ortaTirnak = null;
+  tirnakZ.forEach((z) => {
+    const adaptor = new THREE.Mesh(adaptorGeo, M.celik);
+    adaptor.position.set(kenar.x + ileri.x * 0.05, kenar.y + ileri.y * 0.05, z);
+    adaptor.rotation.z = kenarAci;
+    kova.add(adaptor);
+    const tirnak = new THREE.Mesh(tirnakGeo, M.celik);
+    tirnak.position.set(kenar.x + ileri.x * 0.25, kenar.y + ileri.y * 0.25, z);
+    tirnak.rotation.z = kenarAci - Math.PI / 2;
+    kova.add(tirnak);
+    if (z === 0) ortaTirnak = tirnak;
+  });
+
+  // Yan bıçaklar (yanak Hardox levhası)
+  const ustOn = V2(0.6, 0.98);
+  const acikKenar = V2(kenar.x - ustOn.x, kenar.y - ustOn.y);
+  const yanBicakAci = Math.atan2(acikKenar.y, acikKenar.x);
+  const yanBicakGeo = new THREE.BoxGeometry(0.56, 0.11, 0.022);
+  [yariG + 0.012, -yariG - 0.012].forEach((z) => {
+    const yb = new THREE.Mesh(yanBicakGeo, M.hardox);
+    const t = 0.68;
+    const nx = acikKenar.y, ny = -acikKenar.x, nl = Math.hypot(nx, ny);
+    yb.position.set(ustOn.x + acikKenar.x * t - (nx / nl) * 0.07, ustOn.y + acikKenar.y * t - (ny / nl) * 0.07, z);
+    yb.rotation.z = yanBicakAci;
+    kova.add(yb);
+  });
+
+  // Kulaklar (pim yuvaları), pimler ve burçlar
+  const kulak = new THREE.Shape();
+  kulak.moveTo(-0.17, 0.97);
+  kulak.lineTo(-0.17, 1.15);
+  kulak.absarc(0, 1.15, 0.17, Math.PI, Math.PI / 2, true);
+  kulak.lineTo(0.38, 1.32);
+  kulak.absarc(0.38, 1.15, 0.17, Math.PI / 2, 0, true);
+  kulak.lineTo(0.55, 0.97);
+  kulak.lineTo(-0.17, 0.97);
+  [ARKA_PIM, ON_PIM].forEach((p) => {
+    const delik = new THREE.Path();
+    delik.absarc(p.x, p.y, 0.058, 0, Math.PI * 2, false);
+    kulak.holes.push(delik);
+  });
+  const kulakGeo = new THREE.ExtrudeGeometry(kulak, { depth: 0.045, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1, curveSegments: 20 });
+  [0.18, -0.225].forEach((z) => { const k = new THREE.Mesh(kulakGeo, M.govde); k.position.z = z; kova.add(k); });
+  const pimGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.64, 24); pimGeo.rotateX(Math.PI / 2);
+  const burcGeo = new THREE.CylinderGeometry(0.088, 0.088, 0.05, 28); burcGeo.rotateX(Math.PI / 2);
+  let onBurc = null;
+  [ARKA_PIM, ON_PIM].forEach((p, i) => {
+    const pim = new THREE.Mesh(pimGeo, M.krom); pim.position.set(p.x, p.y, 0); kova.add(pim);
+    [0.25, -0.25].forEach((z) => {
+      const burc = new THREE.Mesh(burcGeo, M.celik); burc.position.set(p.x, p.y, z); kova.add(burc);
+      if (i === 1 && z > 0) onBurc = burc;
+    });
+  });
+
+  // ---- Kol (stick) ve hidrolik silindir ----
+  const kolYon = V2(-0.36, 1).normalize();
+  const kolDik = V2(kolYon.y, -kolYon.x);
+  const kolBoy = 2.6;
+  const kol = new THREE.Mesh(new THREE.BoxGeometry(0.24, kolBoy, 0.3), M.boya);
+  kol.position.set(ARKA_PIM.x + kolYon.x * kolBoy / 2, ARKA_PIM.y + kolYon.y * kolBoy / 2, 0);
+  kol.rotation.z = Math.atan2(kolYon.y, kolYon.x) - Math.PI / 2;
+  duzen.add(kol);
+  const kolUc = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.3, 28).rotateX(Math.PI / 2), M.boya);
+  kolUc.position.set(ARKA_PIM.x, ARKA_PIM.y, 0);
+  duzen.add(kolUc);
+
+  const BAGLANTI = V2(ARKA_PIM.x + kolYon.x * 1.45 + kolDik.x * 0.24, ARKA_PIM.y + kolYon.y * 1.45 + kolDik.y * 0.24);
+  const GOVDE_BOY = 0.95;
+  const silindir = new THREE.Group();
+  silindir.position.set(BAGLANTI.x, BAGLANTI.y, 0);
+  duzen.add(silindir);
+  const govdeGeo = new THREE.CylinderGeometry(0.088, 0.088, GOVDE_BOY, 32); govdeGeo.translate(0, GOVDE_BOY / 2, 0);
+  silindir.add(new THREE.Mesh(govdeGeo, M.boya));
+  const kapak = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.06, 32), M.celik); kapak.position.y = GOVDE_BOY; silindir.add(kapak);
+  const dipGoz = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.14, 24).rotateX(Math.PI / 2), M.celik); silindir.add(dipGoz);
+  const milGeo = new THREE.CylinderGeometry(0.044, 0.044, 1, 24); milGeo.translate(0, 0.5, 0);
+  const mil = new THREE.Mesh(milGeo, M.krom); mil.position.y = GOVDE_BOY; silindir.add(mil);
+  const milGoz = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.13, 24).rotateX(Math.PI / 2), M.celik); silindir.add(milGoz);
+  const silindirIsareti = new THREE.Object3D(); silindirIsareti.position.set(0.1, GOVDE_BOY * 0.45, 0); silindir.add(silindirIsareti);
+  const yukari = new THREE.Vector3(0, 1, 0);
+  const geciciV = new THREE.Vector3();
+
+  function silindiriGuncelle() {
+    // Ön pimin (kovayla birlikte dönen) düzen içindeki konumu
+    const aci = kovaMafsal.rotation.z;
+    const dx = ON_PIM.x - ARKA_PIM.x, dy = ON_PIM.y - ARKA_PIM.y;
+    const px = ARKA_PIM.x + dx * Math.cos(aci) - dy * Math.sin(aci);
+    const py = ARKA_PIM.y + dx * Math.sin(aci) + dy * Math.cos(aci);
+    geciciV.set(px - BAGLANTI.x, py - BAGLANTI.y, 0);
+    const boy = geciciV.length();
+    silindir.quaternion.setFromUnitVectors(yukari, geciciV.normalize());
+    const milBoy = Math.max(0.05, boy - GOVDE_BOY);
+    mil.scale.y = milBoy;
+    milGoz.position.y = boy;
+  }
+
+  // ---- Zemin parıltısı ve gölge ----
+  function radyalDoku(ic, dis) {
+    const c = document.createElement('canvas'); c.width = c.height = 128;
+    const x = c.getContext('2d');
+    const g = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+    g.addColorStop(0, ic); g.addColorStop(1, dis);
+    x.fillStyle = g; x.fillRect(0, 0, 128, 128);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  }
+  const golge = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 2.4), new THREE.MeshBasicMaterial({ map: radyalDoku('rgba(0,0,0,0.75)', 'rgba(0,0,0,0)'), transparent: true, depthWrite: false }));
+  golge.rotation.x = -Math.PI / 2; golge.position.set(0.25, -0.98, 0); duzen.add(golge);
+  const parilti = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 3.2), new THREE.MeshBasicMaterial({ map: radyalDoku('rgba(245,165,36,0.55)', 'rgba(245,165,36,0)'), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+  parilti.rotation.x = -Math.PI / 2; parilti.position.set(0.25, -0.99, 0); duzen.add(parilti);
+
+  // ---- Kaynak kıvılcımları ----
+  const KIVILCIM = 70;
+  const kKonum = new Float32Array(KIVILCIM * 3);
+  const kRenk = new Float32Array(KIVILCIM * 3);
+  const kHiz = new Float32Array(KIVILCIM * 3);
+  const kOmur = new Float32Array(KIVILCIM);
+  const kivilcimGeo = new THREE.BufferGeometry();
+  kivilcimGeo.setAttribute('position', new THREE.BufferAttribute(kKonum, 3));
+  kivilcimGeo.setAttribute('color', new THREE.BufferAttribute(kRenk, 3));
+  const kivilcimlar = new THREE.Points(kivilcimGeo, new THREE.PointsMaterial({
+    size: 0.045, map: radyalDoku('rgba(255,255,255,1)', 'rgba(255,255,255,0)'), vertexColors: true,
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+  }));
+  kivilcimlar.frustumCulled = false;
+  kova.add(kivilcimlar);
+  const kaynakNokta = tabanBolumu[14];
+  const kaynakNormal = disNormal(tabanBolumu, 14);
+  const kaynakZ = seritZ[1] + seritYari + 0.005;
+  const kaynakIsik = new THREE.PointLight(0xffa634, 0, 1.6, 2);
+  kaynakIsik.position.set(kaynakNokta.x + kaynakNormal.x * 0.08, kaynakNokta.y + kaynakNormal.y * 0.08, kaynakZ);
+  kova.add(kaynakIsik);
+  for (let i = 0; i < KIVILCIM; i++) { kOmur[i] = 0; kKonum[i * 3 + 1] = -99; }
+
+  function kivilcimGuncelle(dt, zaman) {
+    const kaynakAcik = (zaman % 2.6) < 1.5;
+    kaynakIsik.intensity = kaynakAcik ? 1.2 + Math.random() * 1.4 : Math.max(0, kaynakIsik.intensity - dt * 8);
+    for (let i = 0; i < KIVILCIM; i++) {
+      const j = i * 3;
+      kOmur[i] -= dt;
+      if (kOmur[i] <= 0) {
+        if (!kaynakAcik || Math.random() > 0.35) { kKonum[j + 1] = -99; kRenk[j] = kRenk[j + 1] = kRenk[j + 2] = 0; continue; }
+        kOmur[i] = 0.35 + Math.random() * 0.5;
+        kKonum[j] = kaynakNokta.x + kaynakNormal.x * 0.045;
+        kKonum[j + 1] = kaynakNokta.y + kaynakNormal.y * 0.045;
+        kKonum[j + 2] = kaynakZ;
+        const hiz = 0.6 + Math.random() * 1.3;
+        kHiz[j] = kaynakNormal.x * hiz + (Math.random() - 0.5) * 1.1;
+        kHiz[j + 1] = kaynakNormal.y * hiz + Math.random() * 0.6;
+        kHiz[j + 2] = (Math.random() - 0.5) * 1.4;
+      }
+      kHiz[j + 1] -= 3.2 * dt;
+      kKonum[j] += kHiz[j] * dt;
+      kKonum[j + 1] += kHiz[j + 1] * dt;
+      kKonum[j + 2] += kHiz[j + 2] * dt;
+      const t = Math.min(1, kOmur[i] / 0.6);
+      kRenk[j] = 1;
+      kRenk[j + 1] = 0.45 + 0.5 * t;
+      kRenk[j + 2] = 0.12 + 0.6 * t * t;
+      kRenk[j] *= t; kRenk[j + 1] *= t; kRenk[j + 2] *= t;
+    }
+    kivilcimGeo.attributes.position.needsUpdate = true;
+    kivilcimGeo.attributes.color.needsUpdate = true;
+  }
+
+  // ---- Etiket işaretleri (3B noktayı ekrana yansıtır) ----
+  const hardoxIsareti = new THREE.Object3D();
+  const isaretNokta = tabanBolumu[24];
+  const isaretN = disNormal(tabanBolumu, 24);
+  hardoxIsareti.position.set(isaretNokta.x + isaretN.x * 0.07, isaretNokta.y + isaretN.y * 0.07, seritZ[2]);
+  kova.add(hardoxIsareti);
+  const bicakIsareti = new THREE.Object3D(); bicakIsareti.position.set(0, 0.13, 0); ortaTirnak.add(bicakIsareti);
+  const pimIsareti = new THREE.Object3D(); pimIsareti.position.set(0, 0, 0.04); onBurc.add(pimIsareti);
+  const isaretler = [
+    { nesne: hardoxIsareti, el: sahneKutu.querySelector('[data-isaret="hardox"]') },
+    { nesne: bicakIsareti, el: sahneKutu.querySelector('[data-isaret="bicak"]') },
+    { nesne: pimIsareti, el: sahneKutu.querySelector('[data-isaret="pim"]') },
+    { nesne: silindirIsareti, el: sahneKutu.querySelector('[data-isaret="silindir"]') }
+  ].filter((x) => x.el);
+  const yansit = new THREE.Vector3();
+  let gen = 1, yuk = 1;
+  function etiketleriGuncelle() {
+    isaretler.forEach(({ nesne, el }) => {
+      nesne.getWorldPosition(yansit).project(kamera);
+      const x = (yansit.x + 1) / 2 * gen;
+      const y = (1 - yansit.y) / 2 * yuk;
+      // Kadraj dışına düşen noktanın etiketi gizlenir (kenardan taşmasın)
+      const icinde = yansit.z < 1 && x > 16 && x < gen - 16 && y > 16 && y < yuk - 16;
+      const sol = x > gen * 0.6;
+      el.classList.toggle('isaret--gizli', !icinde);
+      el.classList.toggle('isaret--sol', sol);
+      // Sağ yarıdaki etiketin yazısı noktanın soluna düşer; kutu kendi genişliği kadar sola kaydırılır
+      el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)' + (sol ? ' translateX(-100%)' : '');
+    });
+  }
+
+  // ---- Boyut ve kamera kadrajı ----
+  function boyutla() {
+    gen = Math.max(1, sahneKutu.clientWidth);
+    yuk = Math.max(1, sahneKutu.clientHeight);
+    renderer.setSize(gen, yuk, false);
+    kamera.aspect = gen / yuk;
+    // Dar kadrajda kamerayı geri çekerek kovanın tamamını sığdırır
+    const uzaklik = 6.4 / Math.min(1, kamera.aspect * 1.05);
+    kamera.position.set(hedef.x + 0.25, hedef.y + 0.25, hedef.z + uzaklik);
+    kamera.lookAt(hedef);
+    kamera.updateProjectionMatrix();
+  }
+
+  // ---- Etkileşim: fare paralaksı, sürükleyerek döndürme ve atalet ----
+  const TABAN_DONUS = -0.35;
+  let imlecX = 0, imlecY = 0, ekDonus = 0, atalet = 0, surukle = null;
+  const kahraman = document.querySelector('.kahraman') || sahneKutu;
+  kahraman.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    const r = sahneKutu.getBoundingClientRect();
+    imlecX = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2 + 200)));
+    imlecY = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2 + 200)));
+    uyandir();
+  });
+  kahraman.addEventListener('pointerleave', () => { imlecX = 0; imlecY = 0; uyandir(); });
+  tuval.addEventListener('pointerdown', (e) => {
+    surukle = { x: e.clientX, t: performance.now(), hiz: 0 };
+    atalet = 0;
+    try { tuval.setPointerCapture(e.pointerId); } catch (hata) { /* yok say */ }
+    uyandir();
+  });
+  tuval.addEventListener('pointermove', (e) => {
+    if (!surukle) return;
+    const simdi = performance.now();
+    const fark = (e.clientX - surukle.x) * 0.009;
+    ekDonus += fark;
+    surukle.hiz = fark / Math.max(0.008, (simdi - surukle.t) / 1000);
+    surukle.x = e.clientX; surukle.t = simdi;
+    uyandir();
+  });
+  function surukleBitti() { if (surukle) { atalet = Math.max(-6, Math.min(6, surukle.hiz)); surukle = null; uyandir(); } }
+  tuval.addEventListener('pointerup', surukleBitti);
+  tuval.addEventListener('pointercancel', () => { surukle = null; });
+
+  // ---- Döngü: yalnızca sahne görünürken ve sekme açıkken çizer ----
+  const saat = new THREE.Clock();
+  let zaman = 0, gorunur = true, sekmeAcik = !document.hidden, calisiyor = false, ilkKare = true;
+  let olcumToplam = 0, olcumKare = 0;
+
+  function kare() {
+    const dt = Math.min(saat.getDelta(), 0.05);
+    if (!azHareket) zaman += dt;
+
+    kovaMafsal.rotation.z = azHareket ? -0.35 : -0.35 + 0.22 * Math.sin(zaman * 0.75);
+    silindiriGuncelle();
+
+    if (!surukle && atalet) {
+      ekDonus += atalet * dt;
+      atalet *= Math.pow(0.03, dt);
+      if (Math.abs(atalet) < 0.01) atalet = 0;
+    }
+    const salinim = azHareket ? 0 : Math.sin(zaman * 0.4) * 0.08;
+    const hedefY = TABAN_DONUS + imlecX * 0.4 + ekDonus + salinim;
+    const hedefX = imlecY * 0.14;
+    const yumusak = 1 - Math.pow(0.002, dt);
+    duzen.rotation.y += (hedefY - duzen.rotation.y) * yumusak;
+    duzen.rotation.x += (hedefX - duzen.rotation.x) * yumusak;
+    duzen.position.y = azHareket ? 0 : Math.sin(zaman * 0.9) * 0.025;
+
+    if (!azHareket) {
+      kivilcimGuncelle(dt, zaman);
+      const nabiz = 1.5 + Math.sin(zaman * 5.2) * 0.45;
+      M.dikis.emissiveIntensity = nabiz;
+    }
+
+    renderer.render(sahne, kamera);
+    etiketleriGuncelle();
+
+    if (ilkKare) { ilkKare = false; sahneKutu.dataset.sahne = 'hazir'; }
+
+    // Yavaş cihazda çözünürlüğü kademeli düşürerek akıcılığı korur
+    if (!azHareket) {
+      olcumToplam += dt; olcumKare += 1;
+      if (olcumKare >= 90) {
+        const ortalama = olcumToplam / olcumKare;
+        if (ortalama > 1 / 45 && pikselOrani > 1) {
+          pikselOrani = Math.max(1, pikselOrani - 0.25);
+          renderer.setPixelRatio(pikselOrani);
+          boyutla();
+        }
+        olcumToplam = 0; olcumKare = 0;
+      }
+    }
+
+    // Hareket azaltıldığında görüntü durulunca döngüyü durdur
+    if (azHareket && !surukle && !atalet && Math.abs(hedefY - duzen.rotation.y) < 1e-4 && Math.abs(hedefX - duzen.rotation.x) < 1e-4) {
+      durdur();
+    }
+  }
+
+  function baslat() {
+    if (calisiyor || !gorunur || !sekmeAcik) return;
+    calisiyor = true;
+    saat.getDelta();
+    renderer.setAnimationLoop(kare);
+  }
+  function durdur() {
+    if (!calisiyor) return;
+    calisiyor = false;
+    renderer.setAnimationLoop(null);
+  }
+  function uyandir() { baslat(); }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((girdiler) => {
+      gorunur = girdiler[girdiler.length - 1].isIntersecting;
+      if (gorunur) baslat(); else durdur();
+    }, { rootMargin: '120px' }).observe(sahneKutu);
+  }
+  document.addEventListener('visibilitychange', () => {
+    sekmeAcik = !document.hidden;
+    if (sekmeAcik) baslat(); else durdur();
+  });
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => { boyutla(); uyandir(); if (!calisiyor) renderer.render(sahne, kamera); }).observe(sahneKutu);
+  } else {
+    window.addEventListener('resize', () => { boyutla(); uyandir(); });
+  }
+
+  tuval.addEventListener('webglcontextlost', (e) => { e.preventDefault(); durdur(); yedegeGec('WebGL bağlamı kayboldu'); });
+
+  boyutla();
+  silindiriGuncelle();
+  baslat();
+}
+</script>
 </body>
 </html>
