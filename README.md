@@ -1,6 +1,6 @@
 # Başkent İş Makinaları
 
-İş makinası kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım atölyesinin tanıtım sitesi. **Tek dosyadır:** `index.html` içinde tüm HTML, CSS ve JavaScript ile gömülü logo bulunur. Derleme adımı yoktur; dosyayı tarayıcıda açmanız ya da herhangi bir statik sunucuya (GitHub Pages, Netlify, cPanel vb.) yüklemeniz yeterli.
+Her marka kepçe, ekskavatör ve vinç için hidrolik sistem ve motor tamiri, bakım ve revizyon; kova tamiri, Hardox zırhlama ve mekanik ağır bakım yapan atölyenin tanıtım sitesi. **Tek dosyadır:** `index.html` içinde tüm HTML, CSS ve JavaScript ile gömülü logo bulunur. Derleme adımı yoktur; dosyayı tarayıcıda açmanız ya da herhangi bir statik sunucuya (GitHub Pages, Netlify, cPanel vb.) yüklemeniz yeterli.
 
 ```
 index.html        sitenin tamamı (tek dosya)
@@ -10,10 +10,9 @@ assets/           sosyal medya önizleme görseli (logo.jpg) ve apple-touch simg
 
 ## Sayfadaki özellikler
 
-- **3D sahne (Three.js 0.170.0, jsDelivr CDN):** fareyle yönlenen, sürükleyerek çevrilen kova + hidrolik silindir modeli. Sahne yalnızca ekranda görünürken çizilir; yavaş cihazda çözünürlük kendiliğinden düşer. CDN yüklenemezse ya da WebGL yoksa yerine teknik çizim (SVG) kalır. "Hareketi azalt" tercihinde animasyon durur.
+- **3D sahne (Three.js 0.170.0, jsDelivr CDN):** fareyle yönlenen, sürükleyerek çevrilen paletli ekskavatör modeli (bom, kol ve kova kazı döngüsünde; hidrolik silindirler birlikte uzayıp kısalır). Sahne yalnızca ekranda görünürken çizilir; yavaş cihazda çözünürlük kendiliğinden düşer. CDN yüklenemezse ya da WebGL yoksa yerine teknik çizim (SVG) kalır. "Hareketi azalt" tercihinde animasyon durur.
 - **Canlı çalışma durumu:** Hafta içi 09:00–17:30, Cumartesi 09:00–13:30. Durum ziyaretçinin bulunduğu yerden bağımsız olarak **Türkiye saatine** göre hesaplanır: "Açık / Atölye Hizmet Veriyor" ya da "Kapalı / İlk Mesai Saatinde Dönüş Yapılacak".
 - **WhatsApp iş emri jeneratörü:** makine türü, arıza kategorisi, aciliyet ve detaylardan biçimli bir servis bileti oluşturur ve 0538 077 35 71 hattına hazır metinle açar.
-- **Hizmet kapsamı:** Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır; bu not kapsam bölümünde, formda, SSS'de ve alt bilgide yazılıdır.
 
 ## Bilgiler nerede
 

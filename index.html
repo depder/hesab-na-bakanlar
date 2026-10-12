@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Başkent İş Makinaları — Kova Tamiri, Hardox Zırhlama ve Hidrolik Silindir Revizyonu · Milas</title>
-<meta name="description" content="Milas Sanayi Sitesi'nde iş makinası kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. WhatsApp ile iş emri: 0538 077 35 71.">
+<title>Başkent İş Makinaları — Hidrolik Sistem ve Motor Tamiri, Bakım, Revizyon · Milas</title>
+<meta name="description" content="Milas Sanayi Sitesi'nde her marka kepçe, ekskavatör ve vinç için hidrolik sistem tamiri, motor bakım ve revizyonu, kova tamiri ve Hardox zırhlama. WhatsApp ile iş emri: 0538 077 35 71.">
 <meta name="theme-color" content="#0b0e13">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Başkent İş Makinaları">
-<meta property="og:title" content="Başkent İş Makinaları — Kova Tamiri ve Hardox Zırhlama · Milas">
-<meta property="og:description" content="Kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. WhatsApp ile iş emri: 0538 077 35 71.">
+<meta property="og:title" content="Başkent İş Makinaları — Hidrolik ve Motor Tamiri · Milas">
+<meta property="og:description" content="Her marka kepçe, ekskavatör ve vinç için hidrolik sistem ve motor tamiri, bakım ve revizyon. WhatsApp ile iş emri: 0538 077 35 71.">
 <meta property="og:image" content="https://depder.github.io/hesab-na-bakanlar/assets/img/logo.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="800">
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Başkent İş Makinaları",
-  "description": "İş makinası kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.",
+  "description": "Her marka kepçe, ekskavatör ve vinç için hidrolik sistem tamiri, bakım ve onarımı; motor tamiri, bakımı ve revizyonu; kova tamiri, Hardox zırhlama ve mekanik ağır bakım.",
   "telephone": "+90-538-077-35-71",
   "image": "https://depder.github.io/hesab-na-bakanlar/assets/img/logo.jpg",
   "address": {
@@ -50,9 +50,9 @@
     "@type": "OfferCatalog",
     "name": "Hizmetler",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kova tamiri" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hardox aşınma zırhlama (kaynak kaplama)" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hidrolik silindir (piston) revizyonu" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hidrolik sistem tamir, bakım ve onarım" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Motor tamir, bakım ve revizyon" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kova tamiri ve Hardox zırhlama" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mekanik ağır bakım" } }
     ]
   }
@@ -327,6 +327,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hizmet__ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .hizmet__ikon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; color: var(--amber); background: var(--amber-zemin); border: 1px solid rgba(245, 165, 36, .3); }
 .hizmet__ikon .ikon { width: 28px; height: 28px; }
+.hizmet--one { border-color: rgba(245, 165, 36, .38); background: linear-gradient(180deg, rgba(245, 165, 36, .1), rgba(20, 25, 34, .62) 45%); }
+.hizmet--one::after { opacity: 1; }
+.hizmet__rozet { margin-right: auto; padding: 5px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #140f06; background: var(--amber); }
 .hizmet__no { font: 800 44px/1 var(--f-baslik); font-stretch: 125%; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .16); }
 .hizmet h3 { font-size: clamp(1.45rem, 1.1rem + .9vw, 1.85rem); }
 .hizmet > p { color: var(--soluk); }
@@ -408,9 +411,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .segment input:checked + span { color: #fff; background: var(--graf-2); box-shadow: 0 0 0 1px var(--cizgi-2) inset; }
 .segment input[value^="Acil"]:checked + span { color: #140f06; background: var(--amber); box-shadow: none; }
 
-.kapsam-notu { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; font-size: 14.5px; color: var(--yazi); background: rgba(248, 113, 113, .07); border: 1px solid rgba(248, 113, 113, .25); }
-.kapsam-notu .ikon { color: var(--kapali); margin-top: 1px; }
-.kapsam-notu b { color: #fff; }
 
 .girdi {
   width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 12px; font-size: 16px; color: #fff;
@@ -448,9 +448,6 @@ select.girdi option { background: var(--graf); color: #fff; }
 .bilet__alici { display: flex; align-items: center; gap: 10px; color: var(--soluk); font-size: 14px; }
 .bilet__alici .ikon { color: var(--wa); }
 .bilet__alici b { color: #fff; }
-.bilet__uyari { display: flex; gap: 10px; padding: 12px 14px; border-radius: 12px; font-size: 14px; background: rgba(248, 113, 113, .08); border: 1px solid rgba(248, 113, 113, .3); }
-.bilet__uyari .ikon { color: var(--kapali); }
-.bilet__uyari[hidden] { display: none; }
 .bilet__kopya { justify-self: start; }
 
 /* ---------- Bölge ve saatler ---------- */
@@ -639,13 +636,12 @@ select.girdi option { background: var(--graf); color: #fff; }
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.1 7.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6.5.9 1.2 1.6 2.1 2.1.3.2.4.1.6 0l.6-.6c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5 0 .9-.7 1.7-1.6 1.8-1 .1-2.6-.3-4.3-1.9-1.7-1.6-2.3-3.3-2.3-4.3 0-1 .6-1.7 1.3-2z" fill="currentColor"/></symbol>
   <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-kova" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11.5l4.5 4-1.6 8.2H8.6L4 11.5z"/><path d="M9 17.2 8 20.5M12.4 17.2l-1 3.3M15.8 17.2l-1 3.3"/><circle cx="8" cy="5" r="1.4"/><circle cx="12.5" cy="5" r="1.4"/></g></symbol>
-  <symbol id="i-kalkan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 19 5.6v5.6c0 4.5-3 8.1-7 10-4-1.9-7-5.5-7-10V5.6z"/><path d="M8.5 9.5h7M8.5 12.5h7M10 15.5h4"/></g></symbol>
   <symbol id="i-silindir" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="11" height="7" rx="1.6"/><path d="M13.5 12h6"/><circle cx="20.5" cy="12" r="1.6"/><path d="M6 8.5V6.5M10 15.5v2"/></g></symbol>
+  <symbol id="i-motor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h3V6h4v2h2l2 2h2v2.5h1.5v3H20V18h-3l-2 2H8l-1-2H5v-3H3.5v-3H5V10l2-2z"/><path d="M10 6V4.5h4V6M11 12.5l-1.5 2.5h3L11 17.5"/></g></symbol>
   <symbol id="i-anahtar" viewBox="0 0 24 24"><path d="M14.7 6.3a4.2 4.2 0 0 0-5.5 5.2L3 17.7V21h3.3l6.2-6.2a4.2 4.2 0 0 0 5.2-5.5l-2.7 2.7-2.6-.6-.6-2.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-onay" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.2 2.8 2.8L16.2 9.5"/></g></symbol>
   <symbol id="i-saat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></g></symbol>
   <symbol id="i-konum" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
-  <symbol id="i-uyari" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.2 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4M12 17h.01"/></g></symbol>
   <symbol id="i-kopya" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5.5a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></g></symbol>
   <symbol id="i-surukle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></g></symbol>
 </svg>
@@ -692,9 +688,9 @@ select.girdi option { background: var(--graf); color: #fff; }
     <div class="kahraman__isik" aria-hidden="true"></div>
     <div class="sar kahraman__ic">
       <div class="kahraman__metin">
-        <p class="etiket">Milas · Muğla — Ağır İş Makinası Onarım Merkezi</p>
-        <h1 id="kahramanBaslik">Aşınan kovaya <em>Hardox zırh</em>, yorulan silindire yeni ömür.</h1>
-        <p class="kahraman__giris">Kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım. Selimiye Sanayi Sitesi'ndeki atölyemizde iş makinenizi sahaya güçlü döndürüyoruz.</p>
+        <p class="etiket">Her marka kepçe, ekskavatör ve vinç · Milas</p>
+        <h1 id="kahramanBaslik">Hidrolikten motora, makinenizi <em>yeniden sahaya</em> çıkarıyoruz.</h1>
+        <p class="kahraman__giris">Hidrolik sistem tamiri, bakımı ve onarımı; motor tamiri, bakımı ve revizyonu. Kova tamiri, Hardox zırhlama ve mekanik ağır bakım da Selimiye Sanayi Sitesi'ndeki atölyemizde.</p>
         <div class="kahraman__dugmeler">
           <a class="dugme dugme--amber dugme--buyuk" href="#is-emri"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp İş Emri Oluştur</a>
           <a class="dugme dugme--cam dugme--buyuk" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara <span class="sayi">0538 077 35 71</span></a>
@@ -709,33 +705,40 @@ select.girdi option { background: var(--graf); color: #fff; }
         <div class="sahne" id="sahne" data-sahne="yukleniyor">
           <svg class="sahne__yedek" viewBox="0 0 400 400" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <g stroke="rgba(255,255,255,.07)" stroke-width="1"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+            <g stroke="rgba(255,255,255,.18)" stroke-width="1.4"><path d="M20 331h360"/></g>
             <g stroke="#f5a524" stroke-width="2.2">
-              <path d="M303 307 Q243 349 157.5 340 C96 334 72 257.5 79.5 187 Q84 118 117 103 L240 103 Z" fill="rgba(245,165,36,.06)"/>
-              <path d="M150 77.5 L95 -70" stroke-width="20" stroke="rgba(245,165,36,.18)"/>
-              <path d="M207 77.5 L125 -110" stroke-width="12" stroke="rgba(245,165,36,.35)"/>
-              <path d="M117 103 v-14 a33 33 0 0 1 66 0 v14 M174 103 v-14 a33 33 0 0 1 66 0 v14"/>
-              <circle cx="150" cy="77.5" r="9"/><circle cx="207" cy="77.5" r="9"/>
-              <path d="M303 307 l44 26 M290 316 l40 24"/>
+              <rect x="175" y="292" width="195" height="38" rx="19" fill="rgba(245,165,36,.05)"/>
+              <circle cx="194" cy="311" r="11"/><circle cx="351" cy="311" r="11"/>
+              <path d="M178 272h194v20H178z"/>
+              <path d="M330 272v-40q0-10 10-10h22q12 0 12 14v36" fill="rgba(245,165,36,.08)"/>
+              <path d="M255 232h77v40h-77z" fill="rgba(245,165,36,.14)"/>
+              <path d="M192 170h48v102h-48z"/><path d="M198 178h36v52h-36z" stroke-width="1.4"/>
+              <path d="M232 250 165 140 88 176" stroke-width="14" stroke="rgba(245,165,36,.28)"/>
+              <path d="M232 250 165 140 88 176"/>
+              <path d="M88 176 96 286" stroke-width="10" stroke="rgba(245,165,36,.28)"/>
+              <path d="M88 176 96 286"/>
+              <path d="M96 286q-36 4-38 28 2 16 26 18l26-2z" fill="rgba(245,165,36,.1)"/>
+              <circle cx="232" cy="250" r="6"/><circle cx="88" cy="176" r="6"/><circle cx="96" cy="286" r="5"/>
             </g>
-            <g stroke="#c3c9d3" stroke-width="1.6" stroke-dasharray="6 6"><path d="M285 318 Q240 344 160 336 C110 331 92 290 90 250"/></g>
-            <g fill="#f5a524" stroke="none" font-family="Figtree, sans-serif" font-size="12" font-weight="700"><text x="40" y="384">KOVA · HARDOX · HİDROLİK</text></g>
+            <g stroke="#c3c9d3" stroke-width="3"><path d="M238 268 182 178M150 128 82 158M100 192l4 80"/></g>
+            <g fill="#f5a524" stroke="none" font-family="Figtree, sans-serif" font-size="12" font-weight="700"><text x="40" y="370">HİDROLİK · MOTOR · KOVA</text></g>
           </svg>
           <canvas class="sahne__tuval" id="sahneTuval" aria-hidden="true"></canvas>
           <div class="sahne__isaretler" aria-hidden="true">
-            <span class="isaret" data-isaret="hardox"><i>1</i><b>Hardox aşınma plakası</b></span>
-            <span class="isaret" data-isaret="bicak"><i>2</i><b>Kesici bıçak ve tırnaklar</b></span>
-            <span class="isaret" data-isaret="pim"><i>3</i><b>Pim–burç yuvası</b></span>
-            <span class="isaret" data-isaret="silindir"><i>4</i><b>Hidrolik silindir</b></span>
+            <span class="isaret" data-isaret="silindir"><i>1</i><b>Hidrolik silindirler</b></span>
+            <span class="isaret" data-isaret="motor"><i>2</i><b>Motor</b></span>
+            <span class="isaret" data-isaret="kova"><i>3</i><b>Kova ve tırnaklar</b></span>
+            <span class="isaret" data-isaret="pim"><i>4</i><b>Pim–burç bağlantıları</b></span>
           </div>
           <span class="sahne__yukleme">3D model yükleniyor…</span>
         </div>
         <figcaption id="sahneAciklama">
-          <span class="sahne__ipucu"><svg class="ikon" aria-hidden="true"><use href="#i-surukle"/></svg>Etkileşimli 3D kova ve hidrolik silindir modeli — sürükleyerek çevirin</span>
+          <span class="sahne__ipucu"><svg class="ikon" aria-hidden="true"><use href="#i-surukle"/></svg>Etkileşimli 3D ekskavatör modeli — sürükleyerek çevirin</span>
           <ol class="sahne__lejant">
-            <li><i>1</i>Hardox aşınma plakası</li>
-            <li><i>2</i>Kesici bıçak ve tırnaklar</li>
-            <li><i>3</i>Pim–burç yuvası</li>
-            <li><i>4</i>Hidrolik silindir</li>
+            <li><i>1</i>Hidrolik silindirler</li>
+            <li><i>2</i>Motor</li>
+            <li><i>3</i>Kova ve tırnaklar</li>
+            <li><i>4</i>Pim–burç bağlantıları</li>
           </ol>
         </figcaption>
       </figure>
@@ -754,13 +757,13 @@ select.girdi option { background: var(--graf); color: #fff; }
       <div class="kapsam__kart cam belir">
         <div class="kapsam__sol">
           <p class="etiket">Uzmanlık alanımız</p>
-          <h2 id="kapsamBaslik">Dört işe odaklanan bir atölye.</h2>
-          <p>Kovadan hidrolik silindire, işimizi bu dört başlıkta topluyoruz.</p>
+          <h2 id="kapsamBaslik">Hidrolikte ve motorda uzman atölye.</h2>
+          <p>Marka ayırt etmeden kepçe, ekskavatör ve vinçlerin tamir, bakım ve revizyonunu yapıyoruz.</p>
         </div>
         <ul class="tikli kapsam__liste">
-          <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Kova tamiri</li>
-          <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Hardox kaynak kaplama</li>
-          <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Hidrolik piston revizyonu</li>
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Hidrolik sistem tamir, bakım ve onarım</li>
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Motor tamir, bakım ve revizyon</li>
+          <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Kova tamiri ve Hardox zırhlama</li>
           <li><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg>Mekanik ağır bakım</li>
         </ul>
       </div>
@@ -772,44 +775,45 @@ select.girdi option { background: var(--graf); color: #fff; }
     <div class="sar">
       <div class="bolum__bas belir">
         <p class="etiket"><b>01</b> Hizmetler</p>
-        <h2 id="hizmetlerBaslik">Dört uzmanlık, tek atölye.</h2>
-        <p>Kovadan silindire, aşınan ve yorulan her noktayı yerinde tespit ederek onarıyoruz.</p>
+        <h2 id="hizmetlerBaslik">Hidrolik ve motor önce gelir.</h2>
+        <p>Her marka kepçe, ekskavatör ve vinçte arızayı yerinde tespit eder, tamir, bakım ve revizyonu tek atölyede yaparız.</p>
       </div>
       <div class="hizmetler__izgara">
+        <article class="hizmet hizmet--one cam belir">
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg></span><span class="hizmet__rozet">Ana uzmanlık</span><span class="hizmet__no" aria-hidden="true">01</span></div>
+          <h3>Hidrolik Sistem Tamir, Bakım ve Onarım</h3>
+          <p>Güç kaybı, yavaşlama, kaçak ve aşırı ısınma gibi hidrolik arızaları tespit eder; pompadan silindire tüm hidrolik devrenin tamir ve bakımını yaparız.</p>
+          <ul class="hizmet__liste">
+            <li>Hidrolik pompa ve hidromotor arızaları</li>
+            <li>Kumanda valfi ve hidrolik devre arızaları</li>
+            <li>Hidrolik silindir revizyonu: keçe, mil, gömlek</li>
+            <li>Hortum, rakor ve kaçak onarımı</li>
+            <li>Periyodik hidrolik bakım: yağ ve filtre</li>
+          </ul>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Hidrolik sistem tamir ve bakım">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        </article>
+        <article class="hizmet hizmet--one cam belir">
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-motor"/></svg></span><span class="hizmet__rozet">Ana uzmanlık</span><span class="hizmet__no" aria-hidden="true">02</span></div>
+          <h3>Motor Tamir, Bakım ve Revizyon</h3>
+          <p>Çekiş kaybı, duman, yağ eksiltme ya da çalışmama gibi motor sorunlarında arıza tespiti, onarım ve komple revizyon yaparız.</p>
+          <ul class="hizmet__liste">
+            <li>Motor arıza tespiti ve onarımı</li>
+            <li>Komple motor revizyonu</li>
+            <li>Periyodik motor bakımı: yağ, filtre, ayar</li>
+            <li>Soğutma ve yakıt sistemi kontrolü</li>
+          </ul>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Motor tamir, bakım ve revizyon">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        </article>
         <article class="hizmet cam belir">
-          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg></span><span class="hizmet__no" aria-hidden="true">01</span></div>
-          <h3>Kova Tamiri</h3>
-          <p>Çatlak, yırtık ve deformasyonları kaynak ve takviyeyle onarır, kovanızı sahaya hazır hale getiririz.</p>
+          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg></span><span class="hizmet__no" aria-hidden="true">03</span></div>
+          <h3>Kova Tamiri ve Hardox Zırhlama</h3>
+          <p>Çatlak, yırtık ve aşınmış kovaları onarır; aşınmanın yoğun olduğu bölgeleri Hardox plakalarla zırhlarız.</p>
           <ul class="hizmet__liste">
             <li>Çatlak ve yırtık kaynağı</li>
-            <li>Kesici bıçak ve yan bıçak yenileme</li>
-            <li>Tırnak ve adaptör değişimi</li>
-            <li>Kulak ve pim–burç yuvası onarımı</li>
-          </ul>
-          <a class="hizmet__bag" href="#is-emri" data-islem="Kova tamiri">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
-        </article>
-        <article class="hizmet cam belir">
-          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-kalkan"/></svg></span><span class="hizmet__no" aria-hidden="true">02</span></div>
-          <h3>Hardox Aşınma Zırhlama</h3>
-          <p>Aşınmanın en yoğun olduğu taban, yanak ve köşeleri Hardox aşınma plakalarıyla kaplayarak kovanın ana gövdesini koruruz.</p>
-          <ul class="hizmet__liste">
+            <li>Bıçak, tırnak ve adaptör yenileme</li>
             <li>Taban ve yanak Hardox kaplaması</li>
-            <li>Aşınma şeritleri ve köşe takviyeleri</li>
-            <li>Kritik bölgelerde kaynaklı takviye</li>
           </ul>
-          <a class="hizmet__bag" href="#is-emri" data-islem="Hardox kaynak kaplama">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
-        </article>
-        <article class="hizmet cam belir">
-          <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg></span><span class="hizmet__no" aria-hidden="true">03</span></div>
-          <h3>Hidrolik Silindir Revizyonu</h3>
-          <p>Kaçak yapan, güç kaybeden ya da mili hasar görmüş hidrolik silindir ve pistonları söküp revize ederiz.</p>
-          <ul class="hizmet__liste">
-            <li>Söküm, temizlik ve ölçüm</li>
-            <li>Keçe ve sızdırmazlık elemanlarının yenilenmesi</li>
-            <li>Mil, gömlek ve piston kontrolü</li>
-            <li>Montaj ve kaçak kontrolü</li>
-          </ul>
-          <a class="hizmet__bag" href="#is-emri" data-islem="Hidrolik piston revizyonu">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
+          <a class="hizmet__bag" href="#is-emri" data-islem="Kova tamiri ve Hardox zırhlama">Bu iş için iş emri oluştur <svg class="ikon" aria-hidden="true"><use href="#i-ok"/></svg></a>
         </article>
         <article class="hizmet cam belir">
           <div class="hizmet__ust"><span class="hizmet__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-anahtar"/></svg></span><span class="hizmet__no" aria-hidden="true">04</span></div>
@@ -880,6 +884,7 @@ select.girdi option { background: var(--graf); color: #fff; }
               <label><input type="radio" name="makine" value="Mini ekskavatör"><span>Mini ekskavatör</span></label>
               <label><input type="radio" name="makine" value="Kazıcı yükleyici (beko loder)"><span>Kazıcı yükleyici (beko loder)</span></label>
               <label><input type="radio" name="makine" value="Lastikli yükleyici (loder)"><span>Lastikli yükleyici (loder)</span></label>
+              <label><input type="radio" name="makine" value="Vinç"><span>Vinç</span></label>
               <label><input type="radio" name="makine" value="Dozer"><span>Dozer</span></label>
               <label><input type="radio" name="makine" value="Diğer iş makinası"><span>Diğer</span></label>
             </div>
@@ -894,12 +899,11 @@ select.girdi option { background: var(--graf); color: #fff; }
           <fieldset class="alan" id="alanIslem">
             <legend><span class="alan__adim" aria-hidden="true">2</span>Arıza kategorisi <span class="zorunlu" aria-hidden="true">*</span></legend>
             <div class="kartsec">
-              <label><input type="radio" name="islem" value="Kova tamiri" required><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg><b>Kova tamiri</b><small>Çatlak, yırtık, bıçak, tırnak, kulak</small></span></label>
-              <label><input type="radio" name="islem" value="Hardox kaynak kaplama"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-kalkan"/></svg><b>Hardox kaynak kaplama</b><small>Taban, yanak ve köşe zırhlama</small></span></label>
-              <label><input type="radio" name="islem" value="Hidrolik piston revizyonu"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg><b>Hidrolik piston revizyonu</b><small>Kaçak, keçe, mil, gömlek</small></span></label>
+              <label><input type="radio" name="islem" value="Hidrolik sistem tamir ve bakım" required><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg><b>Hidrolik sistem</b><small>Pompa, valf, silindir, hortum, kaçak</small></span></label>
+              <label><input type="radio" name="islem" value="Motor tamir, bakım ve revizyon"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-motor"/></svg><b>Motor</b><small>Arıza, bakım, komple revizyon</small></span></label>
+              <label><input type="radio" name="islem" value="Kova tamiri ve Hardox zırhlama"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg><b>Kova tamiri ve Hardox</b><small>Çatlak, tırnak, bıçak, zırhlama</small></span></label>
               <label><input type="radio" name="islem" value="Mekanik ağır bakım"><span class="kartsec__ic"><svg class="ikon" aria-hidden="true"><use href="#i-anahtar"/></svg><b>Mekanik ağır bakım</b><small>Pim–burç, boşluk, mafsal</small></span></label>
             </div>
-            <p class="kapsam-notu" id="kapsamNotu"><svg class="ikon" aria-hidden="true"><use href="#i-uyari"/></svg><span><b>Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</b> Uzmanlık alanımız yalnızca yukarıdaki dört başlıkla sınırlıdır.</span></p>
             <p class="alan__hata" id="hataIslem"></p>
           </fieldset>
 
@@ -962,7 +966,6 @@ select.girdi option { background: var(--graf); color: #fff; }
               <div><dt>Ad soyad</dt><dd class="bos" data-alan="ad">Belirtilmedi</dd></div>
               <div><dt>Detay</dt><dd class="bos" data-alan="detay">Belirtilmedi</dd></div>
             </dl>
-            <p class="bilet__uyari" id="kapsamUyari" hidden><svg class="ikon" aria-hidden="true"><use href="#i-uyari"/></svg><span>Açıklamanız kapsam dışı bir işe benziyor. Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</span></p>
             <p class="bilet__alici"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg><span>Alıcı: <b>Mücahit Çakır</b> · <span class="sayi">0538 077 35 71</span></span></p>
             <button class="dugme dugme--cam dugme--kucuk bilet__kopya" type="button" id="metniKopyala"><svg class="ikon ikon--cizgi" aria-hidden="true"><use href="#i-kopya"/></svg><span>İş emri metnini kopyala</span></button>
           </div>
@@ -1003,7 +1006,7 @@ select.girdi option { background: var(--graf); color: #fff; }
             <li class="vurgu">Milas</li><li>Bodrum</li><li>Dalaman</li><li>Datça</li><li>Fethiye</li><li>Kavaklıdere</li><li>Köyceğiz</li>
             <li>Marmaris</li><li>Menteşe</li><li>Ortaca</li><li>Seydikemer</li><li>Ula</li><li>Yatağan</li><li class="vurgu">Didim (Aydın)</li>
           </ul>
-          <p class="not">Diğer iller için özel anlaşma ve fiyatlandırma uygulanır. Seyyar borvek hizmeti şu anda verilmemektedir.</p>
+          <p class="not">Diğer iller için özel anlaşma ve fiyatlandırma uygulanır.</p>
         </div>
       </div>
     </div>
@@ -1019,24 +1022,24 @@ select.girdi option { background: var(--graf); color: #fff; }
       </div>
       <div class="belir">
         <details>
-          <summary>Seyyar borvek yapıyor musunuz?</summary>
-          <p>Hayır. Seyyar borvek şu anda sunduğumuz hizmetler arasında değil.</p>
+          <summary>Hangi makinelere bakıyorsunuz?</summary>
+          <p>Marka ayırt etmeden kepçe, ekskavatör, vinç ve diğer iş makinelerinin hidrolik sistemi, motoru, kovası ve mekanik aksamıyla ilgileniyoruz. Herhangi bir markanın yetkili servisi değiliz.</p>
         </details>
         <details>
-          <summary>Sıfırdan kova ya da parça imal ediyor musunuz?</summary>
-          <p>Hayır, sıfırdan imalat şu anda yapılmıyor. Mevcut kovanızı onarıyor ve Hardox aşınma plakalarıyla zırhlıyoruz.</p>
+          <summary>Hidrolik arızanın belirtileri nelerdir?</summary>
+          <p>Makinede yavaşlama, güç kaybı, hidrolik yağın aşırı ısınması, kaçak ya da silindirlerin kendiliğinden çökmesi hidrolik arızaya işaret edebilir. Erken tespit, arızanın büyümesini önler.</p>
+        </details>
+        <details>
+          <summary>Motor revizyonu ne zaman gerekir?</summary>
+          <p>Belirgin güç kaybı, aşırı yağ eksiltme, yoğun duman ya da ilk çalıştırmada zorlanma revizyon ihtiyacına işaret edebilir. Kesin karar, motor tespitinden sonra verilir.</p>
         </details>
         <details>
           <summary>Hardox kaplama kovaya ne kazandırır?</summary>
           <p>Hardox aşınmaya dayanıklı bir çelik plakadır. Aşınmanın yoğun olduğu bölgelere kaplandığında kovanın ana gövdesini korur ve kullanım ömrünü uzatır.</p>
         </details>
         <details>
-          <summary>Hidrolik silindir revizyonu ne kadar sürer?</summary>
-          <p>Süre; silindirin boyutuna, hasarın durumuna ve parça temin süresine bağlıdır. Tespitten sonra tahmini süreyi size bildiririz.</p>
-        </details>
-        <details>
-          <summary>Hangi marka makinelere bakıyorsunuz?</summary>
-          <p>Marka ayırt etmeden ekskavatör, kazıcı yükleyici ve yükleyici gibi iş makinelerinin kova, hidrolik silindir ve mekanik aksamıyla ilgileniyoruz. Herhangi bir markanın yetkili servisi değiliz.</p>
+          <summary>Tamir ya da revizyon ne kadar sürer?</summary>
+          <p>Süre; arızanın türüne, hasarın durumuna ve parça temin süresine bağlıdır. Tespitten sonra tahmini süreyi size bildiririz.</p>
         </details>
         <details>
           <summary>Mesai dışında iş emri gönderebilir miyim?</summary>
@@ -1074,8 +1077,7 @@ select.girdi option { background: var(--graf); color: #fff; }
     <div class="alt__ic">
       <div class="alt__marka">
         <span class="logo__isaret" aria-hidden="true"></span>
-        <p><strong>Başkent İş Makinaları</strong> — Kova tamiri, Hardox aşınma zırhlama, hidrolik silindir revizyonu ve mekanik ağır bakım.</p>
-        <p>Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.</p>
+        <p><strong>Başkent İş Makinaları</strong> — Her marka kepçe, ekskavatör ve vinç için hidrolik sistem ve motor tamiri, bakım ve revizyon; kova tamiri, Hardox zırhlama ve mekanik ağır bakım.</p>
       </div>
       <div>
         <h3>Sayfa</h3>
@@ -1195,12 +1197,6 @@ select.girdi option { background: var(--graf); color: #fff; }
     return 'https://wa.me/' + TELEFON + '?text=' + encodeURIComponent(metin);
   }
 
-  // Açıklama kapsam dışı bir işe benziyorsa (seyyar borvek, sıfırdan imalat) uyarı göstermek için
-  function kapsamDisiMi(metin) {
-    var kucuk = String(metin || '').toLocaleLowerCase('tr');
-    return /bor\s*vek|sıfırdan|imalat|imal\s+et/.test(kucuk);
-  }
-
   // Geri dönüş telefonu: boş olabilir; doluysa 10-13 hane olmalı
   function telefonGecerliMi(deger) {
     var haneler = String(deger || '').replace(/\D/g, '');
@@ -1227,7 +1223,7 @@ select.girdi option { background: var(--graf); color: #fff; }
   var api = {
     TELEFON: TELEFON, KARSILAMA: KARSILAMA, SAATLER: SAATLER, GUNLER: GUNLER, DETAY_SINIRI: DETAY_SINIRI,
     istanbulZamani: istanbulZamani, saatYaz: saatYaz, durumHesapla: durumHesapla, isEmriNo: isEmriNo,
-    isEmriMetni: isEmriMetni, waAdresi: waAdresi, kapsamDisiMi: kapsamDisiMi, telefonGecerliMi: telefonGecerliMi,
+    isEmriMetni: isEmriMetni, waAdresi: waAdresi, telefonGecerliMi: telefonGecerliMi,
     cerceveIcindeMi: cerceveIcindeMi, telBaglantilariniAyarla: telBaglantilariniAyarla
   };
   if (typeof module === 'object' && module.exports) module.exports = api;
@@ -1309,7 +1305,6 @@ select.girdi option { background: var(--graf); color: #fff; }
   var form = document.getElementById('isEmriFormu');
   if (!form) return;
   var biletNo = document.getElementById('biletNo');
-  var kapsamUyari = document.getElementById('kapsamUyari');
   var formHata = document.getElementById('formHata');
   var waYedek = document.getElementById('waYedek');
   var detay = form.elements.detay;
@@ -1346,7 +1341,6 @@ select.girdi option { background: var(--graf); color: #fff; }
       dd.classList.toggle('bos', !deger);
     });
     biletNo.textContent = guncelNo();
-    kapsamUyari.hidden = !B.kapsamDisiMi(v.detay + ' ' + v.model);
     sayac.textContent = detay.value.length + ' / ' + B.DETAY_SINIRI;
   }
 
@@ -1469,57 +1463,229 @@ function kur(THREE) {
   renderer.setPixelRatio(pikselOrani);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  renderer.toneMappingExposure = 1.2;
 
   const sahne = new THREE.Scene();
-  const kamera = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
-  const hedef = new THREE.Vector3(0.12, 0.55, 0);
+  const kamera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
+  const hedef = new THREE.Vector3(-0.35, 1.45, 0);   // kameraya yakın kova tarafı perspektifte büyür; kadraj biraz sola kayar
   const V2 = (x, y) => new THREE.Vector2(x, y);
 
   // ---- Ortam yansıması: küçük bir "atölye" sahnesinden önceden filtrelenmiş ışık ----
   const pmrem = new THREE.PMREMGenerator(renderer);
   const ortam = new THREE.Scene();
   const ortamGeo = [];
-  const odaGeo = new THREE.BoxGeometry(12, 7, 12); ortamGeo.push(odaGeo);
+  const odaGeo = new THREE.BoxGeometry(14, 8, 14); ortamGeo.push(odaGeo);
   ortam.add(new THREE.Mesh(odaGeo, new THREE.MeshBasicMaterial({ color: 0x0d1016, side: THREE.BackSide })));
   function panel(renk, guc, w, h, x, y, z, rx, ry) {
     const g = new THREE.PlaneGeometry(w, h); ortamGeo.push(g);
     const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: new THREE.Color(renk).multiplyScalar(guc), side: THREE.DoubleSide }));
     m.position.set(x, y, z); m.rotation.set(rx, ry, 0); ortam.add(m);
   }
-  panel(0xffffff, 4, 7, 1.4, 0, 3.4, 0, Math.PI / 2, 0);
-  panel(0xf5a524, 3.2, 1, 5, -5.8, 0.6, 0, 0, Math.PI / 2);
-  panel(0xbcd0ff, 1.6, 5, 2.2, 0, 0.8, 5.8, 0, Math.PI);
-  panel(0xffffff, 1.2, 2, 3, 5.8, 1, -2, 0, -Math.PI / 2);
+  panel(0xffffff, 4, 9, 1.6, 0, 3.9, 0, Math.PI / 2, 0);
+  panel(0xf5a524, 3, 1.2, 6, -6.8, 0.8, 0, 0, Math.PI / 2);
+  panel(0xbcd0ff, 1.6, 6, 2.4, 0, 1, 6.8, 0, Math.PI);
+  panel(0xffffff, 1.2, 2.4, 3.4, 6.8, 1.2, -2.4, 0, -Math.PI / 2);
   sahne.environment = pmrem.fromScene(ortam, 0.035).texture;
-  sahne.environmentIntensity = 1.5;
+  sahne.environmentIntensity = 1.4;
   ortamGeo.forEach((g) => g.dispose());
   pmrem.dispose();
 
   // ---- Işıklar ----
-  sahne.add(new THREE.HemisphereLight(0x9fb1cf, 0x14110c, 0.75));
-  const anaIsik = new THREE.DirectionalLight(0xfff1dc, 3.2); anaIsik.position.set(3.5, 4.5, 4); sahne.add(anaIsik);
-  const konturIsik = new THREE.DirectionalLight(0xf5a524, 3.4); konturIsik.position.set(-4, 2.2, -3.2); sahne.add(konturIsik);
-  const dolguIsik = new THREE.DirectionalLight(0x9db4ff, 0.7); dolguIsik.position.set(-2.5, -1, 3); sahne.add(dolguIsik);
+  sahne.add(new THREE.HemisphereLight(0x9fb1cf, 0x14110c, 0.8));
+  const anaIsik = new THREE.DirectionalLight(0xfff1dc, 3); anaIsik.position.set(4, 7, 6); sahne.add(anaIsik);
+  const konturIsik = new THREE.DirectionalLight(0xf5a524, 3); konturIsik.position.set(-6, 3.5, -5); sahne.add(konturIsik);
+  const dolguIsik = new THREE.DirectionalLight(0x9db4ff, 0.8); dolguIsik.position.set(-3, 1.5, 6); sahne.add(dolguIsik);
 
   // ---- Malzemeler ----
   const M = {
-    govde: new THREE.MeshStandardMaterial({ color: 0x3d4552, metalness: 0.5, roughness: 0.4, side: THREE.DoubleSide }),
-    ic: new THREE.MeshStandardMaterial({ color: 0x272d36, metalness: 0.4, roughness: 0.62, side: THREE.DoubleSide }),
-    hardox: new THREE.MeshStandardMaterial({ color: 0xb4bcc8, metalness: 0.92, roughness: 0.3, side: THREE.DoubleSide }),
+    turuncu: new THREE.MeshStandardMaterial({ color: 0xe8661e, metalness: 0.3, roughness: 0.42 }),
+    koyu: new THREE.MeshStandardMaterial({ color: 0x2d3239, metalness: 0.5, roughness: 0.5 }),
+    siyah: new THREE.MeshStandardMaterial({ color: 0x16191e, metalness: 0.4, roughness: 0.45 }),
+    cam: new THREE.MeshStandardMaterial({ color: 0x1b2836, metalness: 0.95, roughness: 0.06 }),
+    palet: new THREE.MeshStandardMaterial({ color: 0x2b2d31, metalness: 0.55, roughness: 0.78 }),
     celik: new THREE.MeshStandardMaterial({ color: 0x5d6675, metalness: 0.85, roughness: 0.36 }),
     krom: new THREE.MeshStandardMaterial({ color: 0xeef2f7, metalness: 1, roughness: 0.1 }),
-    boya: new THREE.MeshStandardMaterial({ color: 0xf5a524, metalness: 0.3, roughness: 0.42 }),
-    dikis: new THREE.MeshStandardMaterial({ color: 0x3a2508, emissive: 0xff9f1a, emissiveIntensity: 1.8, metalness: 0.2, roughness: 0.6 })
+    hardox: new THREE.MeshStandardMaterial({ color: 0xb4bcc8, metalness: 0.92, roughness: 0.3, side: THREE.DoubleSide }),
+    kova: new THREE.MeshStandardMaterial({ color: 0x3d3b39, metalness: 0.55, roughness: 0.52, side: THREE.DoubleSide }),
+    kovaIc: new THREE.MeshStandardMaterial({ color: 0x292725, metalness: 0.4, roughness: 0.7, side: THREE.DoubleSide })
   };
 
-  // ---- Geometri yardımcıları ----
-  // 2B bir eğri boyunca dikdörtgen kesitli şerit (levha) üretir. Normal yönü eğrinin dış tarafıdır.
+  // ---- Yardımcılar ----
+  function kutu(en, boy, derinlik, malzeme, x, y, z, ebeveyn) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(en, boy, derinlik), malzeme);
+    m.position.set(x, y, z);
+    ebeveyn.add(m);
+    return m;
+  }
+  // Ekseni z yönünde (pim yönünde) duran silindir
+  function pimSilindiri(yaricap, boy, malzeme, x, y, z, ebeveyn) {
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(yaricap, yaricap, boy, 24).rotateX(Math.PI / 2), malzeme);
+    m.position.set(x, y, z);
+    ebeveyn.add(m);
+    return m;
+  }
+  function ekstrude(sekil, derinlik, malzeme, zBas, ebeveyn) {
+    const geo = new THREE.ExtrudeGeometry(sekil, { depth: derinlik, bevelEnabled: true, bevelThickness: 0.015, bevelSize: 0.015, bevelSegments: 1, curveSegments: 16 });
+    const m = new THREE.Mesh(geo, malzeme);
+    m.position.z = zBas;
+    ebeveyn.add(m);
+    return m;
+  }
+  function nokta(ebeveyn, x, y, z) {
+    const o = new THREE.Object3D();
+    o.position.set(x, y, z);
+    ebeveyn.add(o);
+    return o;
+  }
+
+  const duzen = new THREE.Group();   // fareyle dönen ana grup
+  sahne.add(duzen);
+  const makine = new THREE.Group();
+  makine.position.x = -1.25;         // makinenin ortası dönme ekseninde dursun
+  duzen.add(makine);
+
+  // ---- Paletler (alt yürüyüş) ----
+  const PALET_X = 1.75, PALET_R = 0.43, PALET_G = 0.62, PALET_Z = 1.12;
+  function stadyum(r) {
+    const s = new THREE.Shape();
+    s.moveTo(-PALET_X, -r);
+    s.lineTo(PALET_X, -r);
+    s.absarc(PALET_X, 0, r, -Math.PI / 2, Math.PI / 2, false);
+    s.lineTo(-PALET_X, r);
+    s.absarc(-PALET_X, 0, r, Math.PI / 2, Math.PI * 1.5, false);
+    return s;
+  }
+  const kusakSekil = stadyum(PALET_R);
+  kusakSekil.holes.push(stadyum(PALET_R - 0.11));
+  const kusakGeo = new THREE.ExtrudeGeometry(kusakSekil, { depth: PALET_G, bevelEnabled: false, curveSegments: 18 });
+  const sasiGeo = new THREE.ExtrudeGeometry(stadyum(PALET_R - 0.12), { depth: PALET_G - 0.14, bevelEnabled: false, curveSegments: 14 });
+  [-1, 1].forEach((yon) => {
+    const zMerkez = yon * PALET_Z;
+    const k = new THREE.Mesh(kusakGeo, M.palet); k.position.set(0, PALET_R, zMerkez - PALET_G / 2); makine.add(k);
+    const s = new THREE.Mesh(sasiGeo, M.koyu); s.position.set(0, PALET_R, zMerkez - (PALET_G - 0.14) / 2); makine.add(s);
+    pimSilindiri(0.31, 0.06, M.celik, PALET_X, PALET_R, zMerkez + yon * (PALET_G / 2 - 0.02), makine);   // gergi tekeri
+    pimSilindiri(0.31, 0.06, M.celik, -PALET_X, PALET_R, zMerkez + yon * (PALET_G / 2 - 0.02), makine);  // yürüyüş dişlisi
+  });
+  // Palet pabuçları (tek çizimde, örnekli)
+  const PABUC = 54;
+  const pabuclar = new THREE.InstancedMesh(new THREE.BoxGeometry(0.15, 0.055, PALET_G + 0.02), M.palet, PABUC * 2);
+  const cevre = 4 * PALET_X + 2 * Math.PI * PALET_R;
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), birim = new THREE.Vector3(1, 1, 1), yer = new THREE.Vector3(), eksenZ = new THREE.Vector3(0, 0, 1);
+  let say = 0;
+  [-1, 1].forEach((yon) => {
+    for (let i = 0; i < PABUC; i++) {
+      let s = (i / PABUC) * cevre, x, y, aci;
+      const r = PALET_R + 0.02;
+      if (s < 2 * PALET_X) { x = -PALET_X + s; y = -r; aci = 0; }
+      else if ((s -= 2 * PALET_X) < Math.PI * PALET_R) { const t = s / PALET_R - Math.PI / 2; x = PALET_X + Math.cos(t) * r; y = Math.sin(t) * r; aci = t + Math.PI / 2; }
+      else if ((s -= Math.PI * PALET_R) < 2 * PALET_X) { x = PALET_X - s; y = r; aci = Math.PI; }
+      else { s -= 2 * PALET_X; const t = s / PALET_R + Math.PI / 2; x = -PALET_X + Math.cos(t) * r; y = Math.sin(t) * r; aci = t + Math.PI / 2; }
+      q.setFromAxisAngle(eksenZ, aci);
+      yer.set(x, y + PALET_R, yon * PALET_Z);
+      pabuclar.setMatrixAt(say++, m4.compose(yer, q, birim));
+    }
+  });
+  makine.add(pabuclar);
+  const makaralar = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.1, 0.1, 0.05, 16).rotateX(Math.PI / 2), M.celik, 12);
+  say = 0;
+  [-1, 1].forEach((yon) => {
+    for (let i = 0; i < 6; i++) makaralar.setMatrixAt(say++, m4.makeTranslation(-1.3 + i * 0.52, 0.2, yon * (PALET_Z + PALET_G / 2)));
+  });
+  makine.add(makaralar);
+  kutu(1.5, 0.3, 1.7, M.koyu, 0, 0.78, 0, makine);   // alt şasi
+  const tabla = new THREE.Mesh(new THREE.CylinderGeometry(0.95, 0.95, 0.12, 40), M.koyu);
+  tabla.position.y = 0.98;
+  makine.add(tabla);
+
+  // ---- Üst yapı (döner) ----
+  const ust = new THREE.Group();
+  ust.position.y = 1.04;
+  makine.add(ust);
+  kutu(3.3, 0.22, 2.6, M.koyu, -0.3, 0.11, 0, ust);                       // döner şasi
+  const agirlik = new THREE.Shape();                                     // karşı ağırlık (yandan profil)
+  agirlik.moveTo(-1.45, 0.05);
+  agirlik.lineTo(-2.0, 0.05);
+  agirlik.quadraticCurveTo(-2.32, 0.05, -2.32, 0.4);
+  agirlik.lineTo(-2.32, 0.62);
+  agirlik.quadraticCurveTo(-2.32, 0.98, -1.95, 0.98);
+  agirlik.lineTo(-1.45, 0.98);
+  agirlik.lineTo(-1.45, 0.05);
+  ekstrude(agirlik, 2.5, M.siyah, -1.25, ust);
+  kutu(1.5, 0.74, 1.85, M.turuncu, -0.75, 0.59, -0.33, ust);           // motor kaputu
+  kutu(1.35, 0.05, 1.7, M.koyu, -0.75, 0.985, -0.33, ust);             // kaput üstü
+  for (let i = 0; i < 7; i++) kutu(0.06, 0.42, 0.02, M.siyah, -1.33 + i * 0.13, 0.62, -1.265, ust);   // havalandırma
+  const egzoz = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.46, 16), M.siyah);
+  egzoz.position.set(-0.55, 1.2, -0.85);
+  ust.add(egzoz);
+  kutu(1.3, 0.03, 0.03, M.siyah, -0.75, 1.21, -1.2, ust);             // tırabzan
+  [-1.35, -0.75, -0.15].forEach((x) => kutu(0.03, 0.22, 0.03, M.siyah, x, 1.1, -1.2, ust));
+  kutu(1.2, 0.68, 0.85, M.turuncu, 0.62, 0.56, -0.83, ust);             // sağ ön dolap
+  kutu(1.15, 1.7, 0.86, M.siyah, 0.62, 1.07, 0.83, ust);                // kabin
+  kutu(0.02, 1.0, 0.7, M.cam, 1.205, 1.3, 0.83, ust);                   // ön cam
+  kutu(0.95, 0.9, 0.02, M.cam, 0.6, 1.33, 1.265, ust);                  // sol cam
+  kutu(0.95, 0.9, 0.02, M.cam, 0.6, 1.33, 0.395, ust);                  // sağ cam
+  kutu(1.2, 0.06, 0.92, M.siyah, 0.62, 1.95, 0.83, ust);                // kabin tavanı
+  kutu(0.55, 0.55, 0.55, M.koyu, 1.02, 0.47, -0.03, ust);               // bom ayağı
+  kutu(0.25, 0.2, 0.95, M.koyu, 1.55, 0.3, -0.03, ust);                 // bom silindiri bağlantısı
+  const motorIsareti = nokta(ust, -0.75, 0.75, -1.28);
+
+  // ---- Bom ----
+  const BOM_UC = V2(3.62, 0);
+  const bom = new THREE.Group();
+  bom.position.set(1.05, 0.75, -0.03);
+  ust.add(bom);
+  const bomSekil = new THREE.Shape();
+  bomSekil.moveTo(-0.28, 0);
+  bomSekil.quadraticCurveTo(-0.28, 0.22, -0.05, 0.24);
+  bomSekil.lineTo(0.45, 0.38);
+  bomSekil.lineTo(1.6, 0.8);
+  bomSekil.lineTo(3.45, 0.22);
+  bomSekil.quadraticCurveTo(3.85, 0.1, 3.82, -0.06);
+  bomSekil.quadraticCurveTo(3.78, -0.24, 3.52, -0.2);
+  bomSekil.lineTo(1.62, 0.42);
+  bomSekil.lineTo(0.6, 0);
+  bomSekil.lineTo(0, -0.22);
+  bomSekil.quadraticCurveTo(-0.28, -0.22, -0.28, 0);
+  ekstrude(bomSekil, 0.46, M.turuncu, -0.23, bom);
+  pimSilindiri(0.17, 0.58, M.celik, 0, 0, 0, bom);
+  pimSilindiri(0.14, 0.52, M.celik, BOM_UC.x, BOM_UC.y, 0, bom);
+  kutu(0.22, 0.42, 0.2, M.turuncu, 1.0, 0.8, 0, bom);                   // kol silindiri ayağı
+  kutu(0.2, 0.22, 0.86, M.koyu, 1.35, 0.25, 0, bom);                    // bom silindiri kulağı
+  const pimIsareti = nokta(bom, BOM_UC.x, BOM_UC.y, -0.28);
+
+  // ---- Kol ----
+  const KOL_UC = V2(2.02, 0);
+  const kol = new THREE.Group();
+  kol.position.set(BOM_UC.x, BOM_UC.y, 0);
+  bom.add(kol);
+  const kolSekil = new THREE.Shape();
+  kolSekil.moveTo(-0.62, 0.2);
+  kolSekil.quadraticCurveTo(-0.62, 0.38, -0.42, 0.38);
+  kolSekil.lineTo(0.55, 0.2);
+  kolSekil.lineTo(2.02, 0.08);
+  kolSekil.quadraticCurveTo(2.2, 0, 2.02, -0.09);
+  kolSekil.lineTo(0.45, -0.2);
+  kolSekil.lineTo(-0.12, -0.17);
+  kolSekil.quadraticCurveTo(-0.62, -0.05, -0.62, 0.2);
+  ekstrude(kolSekil, 0.36, M.turuncu, -0.18, kol);
+  pimSilindiri(0.1, 0.46, M.celik, KOL_UC.x, KOL_UC.y, 0, kol);
+
+  // ---- Kova (kolun ucunda; ağzı makineye bakar) ----
+  const kovaMafsal = new THREE.Group();
+  kovaMafsal.position.set(KOL_UC.x, KOL_UC.y, 0);
+  kol.add(kovaMafsal);
+  const kovaCevir = new THREE.Group();
+  kovaCevir.rotation.y = Math.PI;
+  kovaMafsal.add(kovaCevir);
+  const kovaParca = kovaYap();
+  kovaCevir.add(kovaParca.grup);
+
   function disNormal(noktalar, i) {
     const a = noktalar[Math.max(0, i - 1)], b = noktalar[Math.min(noktalar.length - 1, i + 1)];
     const tx = b.x - a.x, ty = b.y - a.y, l = Math.hypot(tx, ty) || 1;
     return V2(-ty / l, tx / l);
   }
+  // 2B bir eğri boyunca dikdörtgen kesitli levha üretir (normal yönü eğrinin dış tarafı)
   function supur(noktalar, z0, z1, ofset, kalinlik, gruplu) {
     const konum = [], indeks = [];
     const raylar = { ic0: [], dis0: [], ic1: [], dis1: [] };
@@ -1551,166 +1717,112 @@ function kur(THREE) {
     return geo;
   }
 
-  // ---- Kova profili (yandan görünüş; x ileri, y yukarı) ----
-  const KOVA_G = 1.12;                 // kova genişliği
-  const ARKA_PIM = V2(0, 1.15);        // kol pimi: kova bunun etrafında döner
-  const ON_PIM = V2(0.38, 1.15);       // silindirin bağlandığı pim
-  const yol = new THREE.Path();
-  yol.moveTo(1.02, -0.38);                                   // kesici kenar
-  yol.quadraticCurveTo(0.62, -0.66, 0.05, -0.6);             // taban
-  yol.bezierCurveTo(-0.36, -0.56, -0.52, -0.05, -0.47, 0.42); // arka eğri
-  yol.quadraticCurveTo(-0.44, 0.88, -0.22, 0.98);            // arka üst köşe
-  yol.lineTo(0.6, 0.98);                                     // üst plaka
-  const kabuk = yol.getSpacedPoints(90);
-
-  const duzen = new THREE.Group();          // fareyle dönen ana grup
-  sahne.add(duzen);
-  const kovaMafsal = new THREE.Group();     // arka pim etrafında dönen kova
-  kovaMafsal.position.set(ARKA_PIM.x, ARKA_PIM.y, 0);
-  duzen.add(kovaMafsal);
-  const kova = new THREE.Group();
-  kova.position.set(-ARKA_PIM.x, -ARKA_PIM.y, 0);
-  kovaMafsal.add(kova);
-
-  // Kabuk (taban + arka + üst) — dış yüz gövde, iç yüz koyu
-  const yariG = KOVA_G / 2;
-  kova.add(new THREE.Mesh(supur(kabuk, -yariG + 0.03, yariG - 0.03, 0, 0.03, true), [M.govde, M.ic]));
-
-  // Yan levhalar
-  const yanSekil = new THREE.Shape(kabuk);
-  const yanGeo = new THREE.ExtrudeGeometry(yanSekil, { depth: 0.035, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1, curveSegments: 8 });
-  const yanSag = new THREE.Mesh(yanGeo, M.govde); yanSag.position.z = yariG - 0.035; kova.add(yanSag);
-  const yanSol = new THREE.Mesh(yanGeo, M.govde); yanSol.position.z = -yariG; kova.add(yanSol);
-
-  // Hardox aşınma şeritleri + parlayan kaynak dikişleri
-  const tabanBolumu = kabuk.slice(4, 40);
-  const seritZ = [-0.36, -0.12, 0.12, 0.36];
-  const seritYari = 0.075;
-  const dikisler = [];
-  seritZ.forEach((zc) => {
-    kova.add(new THREE.Mesh(supur(tabanBolumu, zc - seritYari, zc + seritYari, 0.03, 0.022), M.hardox));
-    [zc - seritYari - 0.005, zc + seritYari + 0.005].forEach((zk) => {
-      const eksen = tabanBolumu.map((p, i) => {
-        const n = disNormal(tabanBolumu, i);
-        return new THREE.Vector3(p.x + n.x * 0.04, p.y + n.y * 0.04, zk);
-      });
-      const tup = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(eksen), 48, 0.008, 5, false), M.dikis);
-      kova.add(tup);
-      dikisler.push(tup);
+  function kovaYap() {
+    const OLCEK = 0.62;
+    const ARKA_PIM = V2(0, 1.15), ON_PIM = V2(0.38, 1.15), KOVA_G = 1.12, yariG = KOVA_G / 2;
+    const grup = new THREE.Group();
+    grup.scale.setScalar(OLCEK);
+    grup.position.set(-ARKA_PIM.x * OLCEK, -ARKA_PIM.y * OLCEK, 0);
+    const yol = new THREE.Path();
+    yol.moveTo(1.02, -0.38);
+    yol.quadraticCurveTo(0.62, -0.66, 0.05, -0.6);
+    yol.bezierCurveTo(-0.36, -0.56, -0.52, -0.05, -0.47, 0.42);
+    yol.quadraticCurveTo(-0.44, 0.88, -0.22, 0.98);
+    yol.lineTo(0.6, 0.98);
+    const kabuk = yol.getSpacedPoints(80);
+    grup.add(new THREE.Mesh(supur(kabuk, -yariG + 0.03, yariG - 0.03, 0, 0.03, true), [M.kova, M.kovaIc]));
+    const yanGeo = new THREE.ExtrudeGeometry(new THREE.Shape(kabuk), { depth: 0.035, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1, curveSegments: 8 });
+    const yanSag = new THREE.Mesh(yanGeo, M.kova); yanSag.position.z = yariG - 0.035; grup.add(yanSag);
+    const yanSol = new THREE.Mesh(yanGeo, M.kova); yanSol.position.z = -yariG; grup.add(yanSol);
+    const taban = kabuk.slice(4, 36);
+    [-0.36, -0.12, 0.12, 0.36].forEach((zc) => grup.add(new THREE.Mesh(supur(taban, zc - 0.075, zc + 0.075, 0.03, 0.022), M.hardox)));
+    // Kesici bıçak ve tırnaklar
+    const kenar = kabuk[0], geri = kabuk[3];
+    const ileri = V2(kenar.x - geri.x, kenar.y - geri.y).normalize();
+    const kenarAci = Math.atan2(ileri.y, ileri.x);
+    const bicak = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.05, KOVA_G + 0.02), M.hardox);
+    bicak.position.set(kenar.x - ileri.x * 0.06, kenar.y - ileri.y * 0.06 + 0.012, 0);
+    bicak.rotation.z = kenarAci;
+    grup.add(bicak);
+    const adaptorGeo = new THREE.BoxGeometry(0.2, 0.085, 0.1);
+    const tirnakGeo = new THREE.ConeGeometry(0.06, 0.26, 4);
+    tirnakGeo.rotateY(Math.PI / 4);
+    tirnakGeo.scale(0.62, 1, 1);
+    let ortaTirnak = null;
+    [-0.44, -0.22, 0, 0.22, 0.44].forEach((z) => {
+      const adaptor = new THREE.Mesh(adaptorGeo, M.celik);
+      adaptor.position.set(kenar.x + ileri.x * 0.05, kenar.y + ileri.y * 0.05, z);
+      adaptor.rotation.z = kenarAci;
+      grup.add(adaptor);
+      const tirnak = new THREE.Mesh(tirnakGeo, M.celik);
+      tirnak.position.set(kenar.x + ileri.x * 0.25, kenar.y + ileri.y * 0.25, z);
+      tirnak.rotation.z = kenarAci - Math.PI / 2;
+      grup.add(tirnak);
+      if (z === 0) ortaTirnak = tirnak;
     });
-  });
-
-  // Kesici bıçak ve tırnaklar
-  const kenar = kabuk[0];
-  const geri = kabuk[3];
-  const ileri = V2(kenar.x - geri.x, kenar.y - geri.y).normalize();
-  const kenarAci = Math.atan2(ileri.y, ileri.x);
-  const bicak = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.05, KOVA_G + 0.02), M.hardox);
-  bicak.position.set(kenar.x - ileri.x * 0.06, kenar.y - ileri.y * 0.06 + 0.012, 0);
-  bicak.rotation.z = kenarAci;
-  kova.add(bicak);
-  const adaptorGeo = new THREE.BoxGeometry(0.2, 0.085, 0.1);
-  const tirnakGeo = new THREE.ConeGeometry(0.06, 0.26, 4);
-  tirnakGeo.rotateY(Math.PI / 4);
-  tirnakGeo.scale(0.62, 1, 1);
-  const tirnakZ = [-0.44, -0.22, 0, 0.22, 0.44];
-  let ortaTirnak = null;
-  tirnakZ.forEach((z) => {
-    const adaptor = new THREE.Mesh(adaptorGeo, M.celik);
-    adaptor.position.set(kenar.x + ileri.x * 0.05, kenar.y + ileri.y * 0.05, z);
-    adaptor.rotation.z = kenarAci;
-    kova.add(adaptor);
-    const tirnak = new THREE.Mesh(tirnakGeo, M.celik);
-    tirnak.position.set(kenar.x + ileri.x * 0.25, kenar.y + ileri.y * 0.25, z);
-    tirnak.rotation.z = kenarAci - Math.PI / 2;
-    kova.add(tirnak);
-    if (z === 0) ortaTirnak = tirnak;
-  });
-
-  // Yan bıçaklar (yanak Hardox levhası)
-  const ustOn = V2(0.6, 0.98);
-  const acikKenar = V2(kenar.x - ustOn.x, kenar.y - ustOn.y);
-  const yanBicakAci = Math.atan2(acikKenar.y, acikKenar.x);
-  const yanBicakGeo = new THREE.BoxGeometry(0.56, 0.11, 0.022);
-  [yariG + 0.012, -yariG - 0.012].forEach((z) => {
-    const yb = new THREE.Mesh(yanBicakGeo, M.hardox);
-    const t = 0.68;
-    const nx = acikKenar.y, ny = -acikKenar.x, nl = Math.hypot(nx, ny);
-    yb.position.set(ustOn.x + acikKenar.x * t - (nx / nl) * 0.07, ustOn.y + acikKenar.y * t - (ny / nl) * 0.07, z);
-    yb.rotation.z = yanBicakAci;
-    kova.add(yb);
-  });
-
-  // Kulaklar (pim yuvaları), pimler ve burçlar
-  const kulak = new THREE.Shape();
-  kulak.moveTo(-0.17, 0.97);
-  kulak.lineTo(-0.17, 1.15);
-  kulak.absarc(0, 1.15, 0.17, Math.PI, Math.PI / 2, true);
-  kulak.lineTo(0.38, 1.32);
-  kulak.absarc(0.38, 1.15, 0.17, Math.PI / 2, 0, true);
-  kulak.lineTo(0.55, 0.97);
-  kulak.lineTo(-0.17, 0.97);
-  [ARKA_PIM, ON_PIM].forEach((p) => {
-    const delik = new THREE.Path();
-    delik.absarc(p.x, p.y, 0.058, 0, Math.PI * 2, false);
-    kulak.holes.push(delik);
-  });
-  const kulakGeo = new THREE.ExtrudeGeometry(kulak, { depth: 0.045, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1, curveSegments: 20 });
-  [0.18, -0.225].forEach((z) => { const k = new THREE.Mesh(kulakGeo, M.govde); k.position.z = z; kova.add(k); });
-  const pimGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.64, 24); pimGeo.rotateX(Math.PI / 2);
-  const burcGeo = new THREE.CylinderGeometry(0.088, 0.088, 0.05, 28); burcGeo.rotateX(Math.PI / 2);
-  let onBurc = null;
-  [ARKA_PIM, ON_PIM].forEach((p, i) => {
-    const pim = new THREE.Mesh(pimGeo, M.krom); pim.position.set(p.x, p.y, 0); kova.add(pim);
-    [0.25, -0.25].forEach((z) => {
-      const burc = new THREE.Mesh(burcGeo, M.celik); burc.position.set(p.x, p.y, z); kova.add(burc);
-      if (i === 1 && z > 0) onBurc = burc;
+    // Kulaklar, pimler, burçlar (kolun iki yanında)
+    const kulak = new THREE.Shape();
+    kulak.moveTo(-0.17, 0.97);
+    kulak.lineTo(-0.17, 1.15);
+    kulak.absarc(0, 1.15, 0.17, Math.PI, Math.PI / 2, true);
+    kulak.lineTo(0.38, 1.32);
+    kulak.absarc(0.38, 1.15, 0.17, Math.PI / 2, 0, true);
+    kulak.lineTo(0.55, 0.97);
+    kulak.lineTo(-0.17, 0.97);
+    [ARKA_PIM, ON_PIM].forEach((p) => {
+      const delik = new THREE.Path();
+      delik.absarc(p.x, p.y, 0.058, 0, Math.PI * 2, false);
+      kulak.holes.push(delik);
     });
-  });
-
-  // ---- Kol (stick) ve hidrolik silindir ----
-  const kolYon = V2(-0.36, 1).normalize();
-  const kolDik = V2(kolYon.y, -kolYon.x);
-  const kolBoy = 2.6;
-  const kol = new THREE.Mesh(new THREE.BoxGeometry(0.24, kolBoy, 0.3), M.boya);
-  kol.position.set(ARKA_PIM.x + kolYon.x * kolBoy / 2, ARKA_PIM.y + kolYon.y * kolBoy / 2, 0);
-  kol.rotation.z = Math.atan2(kolYon.y, kolYon.x) - Math.PI / 2;
-  duzen.add(kol);
-  const kolUc = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.3, 28).rotateX(Math.PI / 2), M.boya);
-  kolUc.position.set(ARKA_PIM.x, ARKA_PIM.y, 0);
-  duzen.add(kolUc);
-
-  const BAGLANTI = V2(ARKA_PIM.x + kolYon.x * 1.45 + kolDik.x * 0.24, ARKA_PIM.y + kolYon.y * 1.45 + kolDik.y * 0.24);
-  const GOVDE_BOY = 0.95;
-  const silindir = new THREE.Group();
-  silindir.position.set(BAGLANTI.x, BAGLANTI.y, 0);
-  duzen.add(silindir);
-  const govdeGeo = new THREE.CylinderGeometry(0.088, 0.088, GOVDE_BOY, 32); govdeGeo.translate(0, GOVDE_BOY / 2, 0);
-  silindir.add(new THREE.Mesh(govdeGeo, M.boya));
-  const kapak = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.06, 32), M.celik); kapak.position.y = GOVDE_BOY; silindir.add(kapak);
-  const dipGoz = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.14, 24).rotateX(Math.PI / 2), M.celik); silindir.add(dipGoz);
-  const milGeo = new THREE.CylinderGeometry(0.044, 0.044, 1, 24); milGeo.translate(0, 0.5, 0);
-  const mil = new THREE.Mesh(milGeo, M.krom); mil.position.y = GOVDE_BOY; silindir.add(mil);
-  const milGoz = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.13, 24).rotateX(Math.PI / 2), M.celik); silindir.add(milGoz);
-  const silindirIsareti = new THREE.Object3D(); silindirIsareti.position.set(0.1, GOVDE_BOY * 0.45, 0); silindir.add(silindirIsareti);
-  const yukari = new THREE.Vector3(0, 1, 0);
-  const geciciV = new THREE.Vector3();
-
-  function silindiriGuncelle() {
-    // Ön pimin (kovayla birlikte dönen) düzen içindeki konumu
-    const aci = kovaMafsal.rotation.z;
-    const dx = ON_PIM.x - ARKA_PIM.x, dy = ON_PIM.y - ARKA_PIM.y;
-    const px = ARKA_PIM.x + dx * Math.cos(aci) - dy * Math.sin(aci);
-    const py = ARKA_PIM.y + dx * Math.sin(aci) + dy * Math.cos(aci);
-    geciciV.set(px - BAGLANTI.x, py - BAGLANTI.y, 0);
-    const boy = geciciV.length();
-    silindir.quaternion.setFromUnitVectors(yukari, geciciV.normalize());
-    const milBoy = Math.max(0.05, boy - GOVDE_BOY);
-    mil.scale.y = milBoy;
-    milGoz.position.y = boy;
+    const kulakGeo = new THREE.ExtrudeGeometry(kulak, { depth: 0.045, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1, curveSegments: 20 });
+    [0.31, -0.355].forEach((z) => { const k = new THREE.Mesh(kulakGeo, M.kova); k.position.z = z; grup.add(k); });
+    [ARKA_PIM, ON_PIM].forEach((p) => {
+      pimSilindiri(0.05, 0.84, M.krom, p.x, p.y, 0, grup);
+      pimSilindiri(0.088, 0.05, M.celik, p.x, p.y, 0.39, grup);
+      pimSilindiri(0.088, 0.05, M.celik, p.x, p.y, -0.39, grup);
+    });
+    return { grup, onPim: nokta(grup, ON_PIM.x, ON_PIM.y, 0), tirnakUcu: nokta(ortaTirnak, 0, 0.13, 0) };
   }
 
-  // ---- Zemin parıltısı ve gölge ----
+  // ---- Hidrolik silindirler: iki uç noktası arasında her karede uzayıp kısalır ----
+  const silindirler = [];
+  function silindirKur(ebeveyn, A, B, govdeR, milR) {
+    const grup = new THREE.Group();
+    ebeveyn.add(grup);
+    const govde = new THREE.Mesh(new THREE.CylinderGeometry(govdeR, govdeR, 1, 24).translate(0, 0.5, 0), M.turuncu);
+    const kapak = new THREE.Mesh(new THREE.CylinderGeometry(govdeR * 1.14, govdeR * 1.14, 0.05, 24), M.celik);
+    const mil = new THREE.Mesh(new THREE.CylinderGeometry(milR, milR, 1, 20).translate(0, 0.5, 0), M.krom);
+    const dipGoz = new THREE.Mesh(new THREE.CylinderGeometry(govdeR * 0.95, govdeR * 0.95, govdeR * 1.7, 20).rotateX(Math.PI / 2), M.celik);
+    const milGoz = new THREE.Mesh(new THREE.CylinderGeometry(milR * 1.7, milR * 1.7, milR * 2.6, 20).rotateX(Math.PI / 2), M.celik);
+    grup.add(govde, kapak, mil, dipGoz, milGoz);
+    const s = { grup, govde, kapak, mil, milGoz, A, B, ebeveyn, govdeBoy: 0 };
+    silindirler.push(s);
+    return s;
+  }
+  const vA = new THREE.Vector3(), vB = new THREE.Vector3(), yon = new THREE.Vector3(), Y = new THREE.Vector3(0, 1, 0);
+  function silindirGuncelle(s) {
+    s.A.getWorldPosition(vA);
+    s.B.getWorldPosition(vB);
+    s.ebeveyn.worldToLocal(vA);
+    s.ebeveyn.worldToLocal(vB);
+    yon.subVectors(vB, vA);
+    const boy = yon.length();
+    if (!s.govdeBoy) s.govdeBoy = boy * 0.58;   // ilk duruşta gövde boyun %58'i
+    s.grup.position.copy(vA);
+    s.grup.quaternion.setFromUnitVectors(Y, yon.multiplyScalar(1 / boy));
+    s.govde.scale.y = s.govdeBoy;
+    s.kapak.position.y = s.govdeBoy;
+    s.mil.position.y = s.govdeBoy * 0.9;
+    s.mil.scale.y = Math.max(0.05, boy - s.govdeBoy * 0.9);
+    s.milGoz.position.y = boy;
+  }
+  silindirKur(ust, nokta(ust, 1.55, 0.35, 0.33), nokta(bom, 1.35, 0.2, 0.36), 0.085, 0.05);
+  const sagBomSilindiri = silindirKur(ust, nokta(ust, 1.55, 0.35, -0.39), nokta(bom, 1.35, 0.2, -0.36), 0.085, 0.05);
+  silindirKur(bom, nokta(bom, 1.0, 1.0, 0), nokta(kol, -0.48, 0.3, 0), 0.08, 0.048);
+  silindirKur(kol, nokta(kol, 0.3, 0.26, 0), kovaParca.onPim, 0.065, 0.04);
+  const silindirIsareti = nokta(sagBomSilindiri.grup, 0.1, 0.45, 0);
+
+  // ---- Zemin gölgesi ve kehribar parıltı ----
   function radyalDoku(ic, dis) {
     const c = document.createElement('canvas'); c.width = c.height = 128;
     const x = c.getContext('2d');
@@ -1719,78 +1831,26 @@ function kur(THREE) {
     x.fillStyle = g; x.fillRect(0, 0, 128, 128);
     const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
   }
-  const golge = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 2.4), new THREE.MeshBasicMaterial({ map: radyalDoku('rgba(0,0,0,0.75)', 'rgba(0,0,0,0)'), transparent: true, depthWrite: false }));
-  golge.rotation.x = -Math.PI / 2; golge.position.set(0.25, -0.98, 0); duzen.add(golge);
-  const parilti = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 3.2), new THREE.MeshBasicMaterial({ map: radyalDoku('rgba(245,165,36,0.55)', 'rgba(245,165,36,0)'), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
-  parilti.rotation.x = -Math.PI / 2; parilti.position.set(0.25, -0.99, 0); duzen.add(parilti);
+  const golge = new THREE.Mesh(new THREE.PlaneGeometry(9, 4.6), new THREE.MeshBasicMaterial({ map: radyalDoku('rgba(0,0,0,0.8)', 'rgba(0,0,0,0)'), transparent: true, depthWrite: false }));
+  golge.rotation.x = -Math.PI / 2; golge.position.set(1.25, 0.004, 0); makine.add(golge);
+  const parilti = new THREE.Mesh(new THREE.PlaneGeometry(11, 6.5), new THREE.MeshBasicMaterial({ map: radyalDoku('rgba(245,165,36,0.5)', 'rgba(245,165,36,0)'), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+  parilti.rotation.x = -Math.PI / 2; parilti.position.set(1.25, 0.002, 0); makine.add(parilti);
 
-  // ---- Kaynak kıvılcımları ----
-  const KIVILCIM = 70;
-  const kKonum = new Float32Array(KIVILCIM * 3);
-  const kRenk = new Float32Array(KIVILCIM * 3);
-  const kHiz = new Float32Array(KIVILCIM * 3);
-  const kOmur = new Float32Array(KIVILCIM);
-  const kivilcimGeo = new THREE.BufferGeometry();
-  kivilcimGeo.setAttribute('position', new THREE.BufferAttribute(kKonum, 3));
-  kivilcimGeo.setAttribute('color', new THREE.BufferAttribute(kRenk, 3));
-  const kivilcimlar = new THREE.Points(kivilcimGeo, new THREE.PointsMaterial({
-    size: 0.045, map: radyalDoku('rgba(255,255,255,1)', 'rgba(255,255,255,0)'), vertexColors: true,
-    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
-  }));
-  kivilcimlar.frustumCulled = false;
-  kova.add(kivilcimlar);
-  const kaynakNokta = tabanBolumu[14];
-  const kaynakNormal = disNormal(tabanBolumu, 14);
-  const kaynakZ = seritZ[1] + seritYari + 0.005;
-  const kaynakIsik = new THREE.PointLight(0xffa634, 0, 1.6, 2);
-  kaynakIsik.position.set(kaynakNokta.x + kaynakNormal.x * 0.08, kaynakNokta.y + kaynakNormal.y * 0.08, kaynakZ);
-  kova.add(kaynakIsik);
-  for (let i = 0; i < KIVILCIM; i++) { kOmur[i] = 0; kKonum[i * 3 + 1] = -99; }
-
-  function kivilcimGuncelle(dt, zaman) {
-    const kaynakAcik = (zaman % 2.6) < 1.5;
-    kaynakIsik.intensity = kaynakAcik ? 1.2 + Math.random() * 1.4 : Math.max(0, kaynakIsik.intensity - dt * 8);
-    for (let i = 0; i < KIVILCIM; i++) {
-      const j = i * 3;
-      kOmur[i] -= dt;
-      if (kOmur[i] <= 0) {
-        if (!kaynakAcik || Math.random() > 0.35) { kKonum[j + 1] = -99; kRenk[j] = kRenk[j + 1] = kRenk[j + 2] = 0; continue; }
-        kOmur[i] = 0.35 + Math.random() * 0.5;
-        kKonum[j] = kaynakNokta.x + kaynakNormal.x * 0.045;
-        kKonum[j + 1] = kaynakNokta.y + kaynakNormal.y * 0.045;
-        kKonum[j + 2] = kaynakZ;
-        const hiz = 0.6 + Math.random() * 1.3;
-        kHiz[j] = kaynakNormal.x * hiz + (Math.random() - 0.5) * 1.1;
-        kHiz[j + 1] = kaynakNormal.y * hiz + Math.random() * 0.6;
-        kHiz[j + 2] = (Math.random() - 0.5) * 1.4;
-      }
-      kHiz[j + 1] -= 3.2 * dt;
-      kKonum[j] += kHiz[j] * dt;
-      kKonum[j + 1] += kHiz[j + 1] * dt;
-      kKonum[j + 2] += kHiz[j + 2] * dt;
-      const t = Math.min(1, kOmur[i] / 0.6);
-      kRenk[j] = 1;
-      kRenk[j + 1] = 0.45 + 0.5 * t;
-      kRenk[j + 2] = 0.12 + 0.6 * t * t;
-      kRenk[j] *= t; kRenk[j + 1] *= t; kRenk[j + 2] *= t;
-    }
-    kivilcimGeo.attributes.position.needsUpdate = true;
-    kivilcimGeo.attributes.color.needsUpdate = true;
+  // ---- Kazı döngüsü: bom, kol ve kova birlikte çalışır ----
+  function pozla(t) {
+    const w = 0.55;
+    bom.rotation.z = 0.32 + 0.08 * Math.sin(w * t);
+    kol.rotation.z = -2.05 + 0.18 * Math.sin(w * t + 1.3);
+    kovaMafsal.rotation.z = 2.53 + 0.3 * Math.sin(w * t + 2.4);
+    ust.rotation.y = 0.1 * Math.sin(0.3 * t);
   }
 
   // ---- Etiket işaretleri (3B noktayı ekrana yansıtır) ----
-  const hardoxIsareti = new THREE.Object3D();
-  const isaretNokta = tabanBolumu[24];
-  const isaretN = disNormal(tabanBolumu, 24);
-  hardoxIsareti.position.set(isaretNokta.x + isaretN.x * 0.07, isaretNokta.y + isaretN.y * 0.07, seritZ[2]);
-  kova.add(hardoxIsareti);
-  const bicakIsareti = new THREE.Object3D(); bicakIsareti.position.set(0, 0.13, 0); ortaTirnak.add(bicakIsareti);
-  const pimIsareti = new THREE.Object3D(); pimIsareti.position.set(0, 0, 0.04); onBurc.add(pimIsareti);
   const isaretler = [
-    { nesne: hardoxIsareti, el: sahneKutu.querySelector('[data-isaret="hardox"]') },
-    { nesne: bicakIsareti, el: sahneKutu.querySelector('[data-isaret="bicak"]') },
-    { nesne: pimIsareti, el: sahneKutu.querySelector('[data-isaret="pim"]') },
-    { nesne: silindirIsareti, el: sahneKutu.querySelector('[data-isaret="silindir"]') }
+    { nesne: silindirIsareti, el: sahneKutu.querySelector('[data-isaret="silindir"]') },
+    { nesne: motorIsareti, el: sahneKutu.querySelector('[data-isaret="motor"]') },
+    { nesne: kovaParca.tirnakUcu, el: sahneKutu.querySelector('[data-isaret="kova"]') },
+    { nesne: pimIsareti, el: sahneKutu.querySelector('[data-isaret="pim"]') }
   ].filter((x) => x.el);
   const yansit = new THREE.Vector3();
   let gen = 1, yuk = 1;
@@ -1809,21 +1869,22 @@ function kur(THREE) {
     });
   }
 
-  // ---- Boyut ve kamera kadrajı ----
+  // ---- Boyut ve kamera kadrajı: makinenin tamamı her en-boy oranında sığar ----
+  const YARI_EN = 4.55, YARI_BOY = 2.05;
   function boyutla() {
     gen = Math.max(1, sahneKutu.clientWidth);
     yuk = Math.max(1, sahneKutu.clientHeight);
     renderer.setSize(gen, yuk, false);
     kamera.aspect = gen / yuk;
-    // Dar kadrajda kamerayı geri çekerek kovanın tamamını sığdırır
-    const uzaklik = 6.4 / Math.min(1, kamera.aspect * 1.05);
-    kamera.position.set(hedef.x + 0.25, hedef.y + 0.25, hedef.z + uzaklik);
+    const tanY = Math.tan(THREE.MathUtils.degToRad(kamera.fov / 2));
+    const uzaklik = Math.max(YARI_BOY / tanY, YARI_EN / (tanY * kamera.aspect)) * 1.06;
+    kamera.position.set(hedef.x + uzaklik * 0.1, hedef.y + uzaklik * 0.13, hedef.z + uzaklik);
     kamera.lookAt(hedef);
     kamera.updateProjectionMatrix();
   }
 
   // ---- Etkileşim: fare paralaksı, sürükleyerek döndürme ve atalet ----
-  const TABAN_DONUS = -0.35;
+  const TABAN_DONUS = Math.PI + 0.42;
   let imlecX = 0, imlecY = 0, ekDonus = 0, atalet = 0, surukle = null;
   const kahraman = document.querySelector('.kahraman') || sahneKutu;
   kahraman.addEventListener('pointermove', (e) => {
@@ -1861,29 +1922,22 @@ function kur(THREE) {
   function kare() {
     const dt = Math.min(saat.getDelta(), 0.05);
     if (!azHareket) zaman += dt;
-
-    kovaMafsal.rotation.z = azHareket ? -0.35 : -0.35 + 0.22 * Math.sin(zaman * 0.75);
-    silindiriGuncelle();
+    pozla(zaman);
 
     if (!surukle && atalet) {
       ekDonus += atalet * dt;
       atalet *= Math.pow(0.03, dt);
       if (Math.abs(atalet) < 0.01) atalet = 0;
     }
-    const salinim = azHareket ? 0 : Math.sin(zaman * 0.4) * 0.08;
-    const hedefY = TABAN_DONUS + imlecX * 0.4 + ekDonus + salinim;
-    const hedefX = imlecY * 0.14;
+    const salinim = azHareket ? 0 : Math.sin(zaman * 0.4) * 0.06;
+    const hedefY = TABAN_DONUS + imlecX * 0.35 + ekDonus + salinim;
+    const hedefX = imlecY * 0.1;
     const yumusak = 1 - Math.pow(0.002, dt);
     duzen.rotation.y += (hedefY - duzen.rotation.y) * yumusak;
     duzen.rotation.x += (hedefX - duzen.rotation.x) * yumusak;
-    duzen.position.y = azHareket ? 0 : Math.sin(zaman * 0.9) * 0.025;
 
-    if (!azHareket) {
-      kivilcimGuncelle(dt, zaman);
-      const nabiz = 1.5 + Math.sin(zaman * 5.2) * 0.45;
-      M.dikis.emissiveIntensity = nabiz;
-    }
-
+    duzen.updateMatrixWorld(true);
+    silindirler.forEach(silindirGuncelle);
     renderer.render(sahne, kamera);
     etiketleriGuncelle();
 
@@ -1933,15 +1987,15 @@ function kur(THREE) {
     if (sekmeAcik) baslat(); else durdur();
   });
   if ('ResizeObserver' in window) {
-    new ResizeObserver(() => { boyutla(); uyandir(); if (!calisiyor) renderer.render(sahne, kamera); }).observe(sahneKutu);
+    new ResizeObserver(() => { boyutla(); uyandir(); }).observe(sahneKutu);
   } else {
     window.addEventListener('resize', () => { boyutla(); uyandir(); });
   }
 
   tuval.addEventListener('webglcontextlost', (e) => { e.preventDefault(); durdur(); yedegeGec('WebGL bağlamı kayboldu'); });
 
+  duzen.rotation.y = TABAN_DONUS;
   boyutla();
-  silindiriGuncelle();
   baslat();
 }
 </script>

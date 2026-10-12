@@ -115,14 +115,6 @@ test('sayfadaki tüm WhatsApp bağlantıları hazır mesajı taşır', () => {
   for (const a of adresler) assert.ok(a.startsWith('https://wa.me/905380773571'), a);
 });
 
-test('kapsamDisiMi borvek ve imalat taleplerini Türkçe büyük harfte de yakalar', () => {
-  assert.equal(B.kapsamDisiMi('Seyyar BORVEK lazım'), true);
-  assert.equal(B.kapsamDisiMi('Sıfırdan kova'), true);
-  assert.equal(B.kapsamDisiMi('YENİ KOVA İMALATI'), true);
-  assert.equal(B.kapsamDisiMi('Kova tabanı incelmiş, tırnak kırık'), false);
-  assert.equal(B.kapsamDisiMi(''), false);
-});
-
 test('telefonGecerliMi boşa izin verir, 10-13 hane ister', () => {
   assert.equal(B.telefonGecerliMi(''), true);
   assert.equal(B.telefonGecerliMi('0538 077 35 71'), true);

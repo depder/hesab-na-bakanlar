@@ -4,7 +4,7 @@ const { sayfaHtml, gorunenMetin } = require('./yardimci');
 
 const html = sayfaHtml();
 const metin = gorunenMetin();
-const KAPSAM_CUMLESI = 'Seyyar borvek ve sıfırdan imalat şu anda sunulmamaktadır.';
+const ISLEMLER = ['Hidrolik sistem tamir ve bakım', 'Motor tamir, bakım ve revizyon', 'Kova tamiri ve Hardox zırhlama', 'Mekanik ağır bakım'];
 
 test('kişi adı olarak yalnızca Mücahit Çakır geçer', () => {
   assert.match(metin, /Mücahit Çakır/);
@@ -24,21 +24,31 @@ test('sayfada tek telefon numarası var: 0538 077 35 71', () => {
   for (const n of gorunenNumaralar) assert.equal(n.replace(/^0/, ''), '5380773571');
 });
 
-test('uzmanlık bölümü yalnız yapılan işleri listeler; kapsam sınırı formda yazılı', () => {
-  const kapsamBolumu = html.slice(html.indexOf('id="kapsam"'), html.indexOf('id="hizmetler"'));
-  const form = html.slice(html.indexOf('id="isEmriFormu"'), html.indexOf('</form>'));
-  // Müşteri isteği: "sunulmayan hizmetler" kutusu uzmanlık bölümünde yer almaz
-  assert.doesNotMatch(kapsamBolumu, /borvek|sunulma/i);
-  assert.ok(form.includes(KAPSAM_CUMLESI));
-  for (const alan of ['Kova tamiri', 'Hardox kaynak kaplama', 'Hidrolik piston revizyonu', 'Mekanik ağır bakım']) {
-    assert.ok(kapsamBolumu.includes(alan), alan);
-    assert.ok(form.includes(`value="${alan}"`), alan);
-  }
+test('yapılmayan işlerden (borvek, imalat) sitede hiç söz edilmez', () => {
+  assert.doesNotMatch(metin, /borvek|imalat|sunulmamaktadır/i);
+  assert.doesNotMatch(html, /borvek|sıfırdan imalat/i);
 });
 
-test('formda yalnızca kapsamdaki dört işlem seçilebilir', () => {
+test('örnek alınan makine modelinin adı sitede geçmez', () => {
+  assert.doesNotMatch(metin, /hitachi|zaxis|\bzx\s?250/i);
+});
+
+test('hidrolik ve motor hizmetleri öne çıkar: ilk iki hizmet kartı', () => {
+  const basliklar = [...html.matchAll(/<article class="hizmet([^"]*)"[\s\S]*?<h3>([^<]+)<\/h3>/g)].map((m) => ({ sinif: m[1], baslik: m[2] }));
+  assert.equal(basliklar.length, 4);
+  assert.match(basliklar[0].baslik, /^Hidrolik Sistem/);
+  assert.match(basliklar[1].baslik, /^Motor/);
+  assert.match(basliklar[0].sinif, /hizmet--one/);
+  assert.match(basliklar[1].sinif, /hizmet--one/);
+  assert.match(metin, /Her marka kepçe, ekskavatör ve vinç/);
+});
+
+test('form işlemleri hizmetlerle aynı, sırası hidrolik ve motorla başlar', () => {
   const islemler = [...html.matchAll(/name="islem" value="([^"]+)"/g)].map((m) => m[1]);
-  assert.deepEqual(islemler, ['Kova tamiri', 'Hardox kaynak kaplama', 'Hidrolik piston revizyonu', 'Mekanik ağır bakım']);
+  assert.deepEqual(islemler, ISLEMLER);
+  const kartBaglari = [...html.matchAll(/data-islem="([^"]+)"/g)].map((m) => m[1]);
+  assert.deepEqual(kartBaglari, ISLEMLER);
+  assert.match(html, /name="makine" value="Vinç"/);
 });
 
 test('iletişim bilgileri ve çalışma saatleri yazılı', () => {
