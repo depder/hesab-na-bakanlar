@@ -158,7 +158,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Üst şerit: canlı çalışma durumu ---------- */
 .ust-serit { background: #07090c; border-bottom: 1px solid var(--cizgi); font-size: 14px; }
 .ust-serit__ic { display: flex; align-items: center; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; min-height: 44px; padding-block: 8px; }
-.ust-serit__tel { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: #fff; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.ust-serit__tel { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #fff; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .ust-serit__tel .ikon { width: 16px; height: 16px; color: var(--amber); }
 .ust-serit__tel:hover { color: var(--amber); }
 
@@ -191,7 +191,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .logo__isaret { width: 72px; height: 44px; flex: none; background: var(--logo) center / contain no-repeat; }
 .logo__yazi { display: flex; flex-direction: column; line-height: 1; }
 .logo__yazi b { font: 800 21px/1 var(--f-baslik); font-stretch: 125%; letter-spacing: .03em; }
-.logo__yazi span { margin-top: 6px; color: var(--amber); font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+.logo__yazi span { margin-top: 6px; color: var(--amber); font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
 
 .menu { margin-left: auto; }
 .menu__liste { display: flex; align-items: center; gap: 2px; }
@@ -298,7 +298,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .sahne__ipucu .ikon { width: 18px; height: 18px; color: var(--amber); }
 .sahne__lejant { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; width: 100%; }
 .sahne__lejant li { display: flex; align-items: center; gap: 8px; color: var(--yazi); font-size: 14px; }
-.sahne__lejant i { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; flex: none; background: var(--amber); color: #140f06; font: 800 11.5px/1 var(--f-govde); font-style: normal; }
+.sahne__lejant i { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; flex: none; background: var(--amber); color: #140f06; font: 800 12.5px/1 var(--f-govde); font-style: normal; }
 .sahne-kap:has(.sahne[data-sahne="yedek"]) .sahne__lejant { display: grid; }
 
 /* ---------- Kapsam bandı ---------- */
@@ -546,6 +546,8 @@ select.girdi option { background: var(--graf); color: #fff; }
     padding: 12px var(--kenar) 20px; background: rgba(11, 14, 19, .97); border-bottom: 1px solid var(--cizgi); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, .8);
   }
   .menu__liste.acik { display: flex; }
+  /* Kısa ekranda (yatay telefon) menünün tamamına kaydırarak ulaşılır; yükseklik betikle ekrana göre ayarlanır */
+  .menu__liste { overflow-y: auto; overscroll-behavior: contain; }
   .menu__liste a { min-height: 50px; padding: 10px 12px; font-size: 17px; }
   .menu__cta a { margin: 8px 0 0; justify-content: center; }
 
@@ -593,15 +595,30 @@ select.girdi option { background: var(--graf); color: #fff; }
 @media (max-width: 420px) {
   .logo__isaret { width: 60px; height: 36px; }
   .logo__yazi b { font-size: 18px; }
-  .logo__yazi span { font-size: 10px; letter-spacing: .14em; }
-  .baslik__ic { gap: 10px; }
+  .logo__yazi span { font-size: 12px; letter-spacing: .08em; }
+  .baslik__ic { gap: 8px; }
+  .menu__dugme { padding-inline: 10px; }
   .uzman-cip { padding-right: 14px; }
   .uzman__kart { grid-template-columns: 1fr; }
   .uzman__dugmeler { grid-template-columns: 1fr; }
   .segment { grid-template-columns: 1fr; }
   .bilet__liste div { grid-template-columns: 84px minmax(0, 1fr); }
   .hizli__yazi b { font-size: 14px; }
-  .hizli__yazi small { font-size: 11.5px; }
+  .hizli__yazi small { font-size: 12px; }
+}
+
+/* En dar telefonlar: başlıktaki arama düğmesi sığmaz; alttaki sabit "Hemen Ara" düğmesi her an görünür */
+@media (max-width: 374px) {
+  .baslik__ara { display: none; }
+  .menu { margin-left: auto; }
+}
+/* Alt şeritteki küçük yazı sığmazsa kesilmek yerine ikinci satıra geçer */
+@media (max-width: 340px) {
+  .hizli__yazi small { white-space: normal; }
+}
+/* Yatay telefon gibi kısa ekranlar: 3D sahne ekranın tamamını kaplamasın */
+@media (max-height: 520px) and (orientation: landscape) {
+  .sahne { max-height: max(260px, 100vh - 140px); }
 }
 
 /* Hareket azaltma tercihi */
@@ -1251,7 +1268,10 @@ select.girdi option { background: var(--graf); color: #fff; }
   var menuDugme = document.querySelector('.menu__dugme');
   var menuListe = document.getElementById('menuListe');
   var menuYazi = menuDugme.querySelector('.menu__yazi');
+  var baslik = document.querySelector('.baslik');
   function menuAyarla(acik) {
+    // Açılan menü ekranın altını aşmasın; fazlası menünün içinde kaydırılır
+    menuListe.style.maxHeight = acik ? Math.max(160, window.innerHeight - baslik.getBoundingClientRect().bottom - 8) + 'px' : '';
     menuListe.classList.toggle('acik', acik);
     menuDugme.setAttribute('aria-expanded', String(acik));
     menuYazi.textContent = acik ? 'Kapat' : 'Menü';
