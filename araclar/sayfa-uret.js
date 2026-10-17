@@ -10,6 +10,11 @@
  * Alan adı: kaynak/site.json → "alanAdi" (ör. "https://www.ornek.com"). Boşken canonical bağlantıları göreli yazılır,
  * og:url / og:image ve sitemap.xml üretilmez — sahte alan adı yayımlanmaz. */
 'use strict';
+// Okunamayan/yazılamayan dosyada ya da hatalı ayarda yarım çıktı bırakmadan, anlaşılır mesajla durur.
+process.on('uncaughtException', (hata) => {
+  console.error('Sayfa üretimi durdu: ' + hata.message);
+  process.exit(1);
+});
 const fs = require('fs');
 const path = require('path');
 
