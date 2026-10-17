@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { cekirdek, sayfaHtml } = require('./yardimci');
+const { cekirdek, tumSayfalar } = require('./yardimci');
 
 const B = cekirdek();
 const TEL_HREF = 'tel:+905380773571';
@@ -63,57 +63,99 @@ test('pazar her saatte kapalı ve ilk mesai yarın 09:00', () => {
   }
 });
 
-// ---- İş emri ----
+// ---- Servis talebi (iş emri) ----
 test('isEmriNo BK-YYAAGG-SSDD biçiminde', () => {
   assert.equal(B.isEmriNo({ yil: '2026', ay: '10', gunNo: '12', saat: 9, dk: 5 }), 'BK-261012-0905');
 });
 
-test('isEmriMetni hazır mesajla başlar ve alanları sırayla yazar', () => {
+test('altı arıza kategorisi kullanıcının verdiği sırada ve sonuncusu "Diğer"', () => {
+  assert.deepEqual(B.ARIZA_KATEGORILERI, [
+    'Hidrolik sistemde güç kaybı, yavaşlama veya ana pompa kaçağı',
+    'İş makinası şanzıman / tork konvertörü arızası ve yürümeme',
+    'Motor çekiş düşüklüğü, siyah/beyaz duman veya turbo arızası',
+    'Palet yürüyüş hidromotoru / redüktör arızası veya kule dönüş problemi',
+    'Hidrolik pompa ötmesi, uğultusu veya ses yapması (Kavitasyon/Emiş)',
+    'Diğer (Kendi arızamı yazmak istiyorum)'
+  ]);
+  assert.equal(B.DIGER, B.ARIZA_KATEGORILERI[5]);
+});
+
+test('isEmriMetni hazır mesajla başlar ve doldurulan alanları sırayla yazar', () => {
   const metin = B.isEmriMetni({
-    makine: 'Paletli ekskavatör', model: ' CAT  320D ', islem: 'Kova tamiri', aciliyet: 'Acil — makine durdu',
-    konum: 'Bodrum', ad: '  Deneme   Kişi ', geriTel: '0532 000 00 00', detay: '  Tabanda çatlak.\r\n\r\n\r\n2 tırnak kırık.  '
+    ad: '  Deneme   Kişi ', telefon: '0532 000 00 00', makineTuru: 'Ekskavatör (paletli)', marka: ' Hidromek ', model: '102S',
+    seriNo: 'AB123', kategori: B.ARIZA_KATEGORILERI[0], aciliyet: 'Acil — makine durdu', adres: 'Milas  taş ocağı',
+    konum: { enlem: 37.3161234, boylam: 27.7831234, dogruluk: 18.4 }, aciklama: '  Bom yavaş.\r\n\r\n\r\nPompa ötüyor.  '
   }, 'BK-261012-0905');
   assert.equal(metin, [
     'Merhaba. Başkent iş Makinalarından Servis bilgisi Almak İstiyorum.',
     '',
-    '*SERVİS İŞ EMRİ · BK-261012-0905*',
-    '*Makine:* Paletli ekskavatör — CAT 320D',
-    '*İşlem:* Kova tamiri',
-    '*Aciliyet:* Acil — makine durdu',
-    '*Konum:* Bodrum',
+    '*SERVİS TALEBİ · BK-261012-0905*',
     '*Ad soyad:* Deneme Kişi',
-    '*Geri dönüş telefonu:* 0532 000 00 00',
-    '*Arıza detayı:*',
-    'Tabanda çatlak.\n\n2 tırnak kırık.'
+    '*Telefon:* 0532 000 00 00',
+    '*Makine türü:* Ekskavatör (paletli)',
+    '*Marka / model:* Hidromek 102S',
+    '*Seri no:* AB123',
+    '*Arıza:* Hidrolik sistemde güç kaybı, yavaşlama veya ana pompa kaçağı',
+    '*Aciliyet:* Acil — makine durdu',
+    '*Adres:* Milas taş ocağı',
+    '*Konum:* https://maps.google.com/?q=37.316123,27.783123 (±18 m)',
+    '*Arıza açıklaması:*',
+    'Bom yavaş.\n\nPompa ötüyor.'
   ].join('\n'));
 });
 
-test('isEmriMetni boş isteğe bağlı alanları hiç yazmaz', () => {
-  const metin = B.isEmriMetni({ makine: 'Dozer', islem: 'Mekanik ağır bakım', aciliyet: 'Planlı — acil değil', ad: 'Ali' }, 'BK-1');
-  assert.doesNotMatch(metin, /Konum|Geri dönüş|Arıza detayı|undefined|null/);
-  assert.match(metin, /\*Makine:\* Dozer\n/);
+test('isEmriMetni yalnızca kullanıcının paylaştığı bilgileri yazar', () => {
+  const metin = B.isEmriMetni({ ad: 'Ali', kategori: B.ARIZA_KATEGORILERI[2], konum: null }, 'BK-1');
+  assert.doesNotMatch(metin, /Telefon|Makine|Seri|Adres|Konum|Aciliyet|açıklaması|undefined|null/);
+  assert.match(metin, /\*Arıza:\* Motor çekiş/);
 });
 
-test('isEmriMetni arıza detayını 600 karakterle sınırlar', () => {
-  const metin = B.isEmriMetni({ makine: 'Dozer', islem: 'Kova tamiri', ad: 'Ali', detay: 'x'.repeat(900) }, 'BK-1');
-  assert.equal(metin.split('\n').pop().length, B.DETAY_SINIRI);
+test('isEmriMetni açıklamayı 600 karakterle sınırlar', () => {
+  const metin = B.isEmriMetni({ ad: 'Ali', kategori: B.DIGER, aciklama: 'x'.repeat(900) }, 'BK-1');
+  assert.equal(metin.split('\n').pop().length, B.ACIKLAMA_SINIRI);
+});
+
+test('konumBaglantisi Google Maps biçiminde, geçersiz koordinatta boş', () => {
+  assert.equal(B.konumBaglantisi(37.31, 27.78), 'https://maps.google.com/?q=37.310000,27.780000');
+  assert.equal(B.konumBaglantisi(-91, 0), '');
+  assert.equal(B.konumBaglantisi(NaN, 1), '');
+  assert.equal(B.konumBaglantisi('37', '27'), '');
+});
+
+test('dogrula: ad ve kategori zorunlu, diğer alanlar isteğe bağlı', () => {
+  assert.deepEqual(Object.keys(B.dogrula({ ad: '', kategori: '' })).sort(), ['ad', 'kategori']);
+  assert.deepEqual(B.dogrula({ ad: 'Ali Veli', kategori: B.ARIZA_KATEGORILERI[1] }), {});
+  assert.ok(B.dogrula({ ad: 'Ali', kategori: 'uydurma kategori' }).kategori);
+  assert.ok(B.dogrula({ ad: 'Ali', kategori: B.ARIZA_KATEGORILERI[0], telefon: '12' }).telefon);
+});
+
+test('dogrula: "Diğer" seçilince açıklama gerekir; 600 karakter sınırı', () => {
+  assert.ok(B.dogrula({ ad: 'Ali', kategori: B.DIGER, aciklama: '' }).aciklama);
+  assert.deepEqual(B.dogrula({ ad: 'Ali', kategori: B.DIGER, aciklama: 'Kepçe titriyor' }), {});
+  assert.ok(B.dogrula({ ad: 'Ali', kategori: B.ARIZA_KATEGORILERI[0], aciklama: 'x'.repeat(601) }).aciklama);
+});
+
+test('hizliMesaj karşılama + seçilen arıza başlığı', () => {
+  assert.equal(B.hizliMesaj(B.ARIZA_KATEGORILERI[1]), B.KARSILAMA + '\n\n*Arıza:* ' + B.ARIZA_KATEGORILERI[1]);
+  assert.equal(B.hizliMesaj(''), B.KARSILAMA);
 });
 
 test('waAdresi doğru hatta gider ve metni bozulmadan taşır', () => {
-  const metin = B.isEmriMetni({ makine: 'Dozer', islem: 'Kova tamiri', ad: 'Ali & Veli #1', detay: 'Çatlak?%' }, 'BK-1');
+  const metin = B.isEmriMetni({ ad: 'Ali & Veli #1', kategori: B.DIGER, aciklama: 'Çatlak?%' }, 'BK-1');
   const adres = B.waAdresi(metin);
   assert.ok(adres.startsWith(WA_TABAN));
   assert.equal(decodeURIComponent(adres.slice(WA_TABAN.length)), metin);
 });
 
-test('sayfadaki tüm WhatsApp bağlantıları hazır mesajı taşır', () => {
-  const beklenen = B.waAdresi(B.KARSILAMA);
-  const adresler = [...sayfaHtml().matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)].map((m) => m[1].replace(/&amp;/g, '&'));
-  const mesajli = adresler.filter((a) => a.includes('?text='));
-  assert.ok(mesajli.length >= 3);
-  for (const a of mesajli) assert.equal(a, beklenen);
-  for (const a of adresler) assert.ok(a.startsWith('https://wa.me/905380773571'), a);
+test('tüm sayfalardaki WhatsApp bağlantıları tek hatta ve izinli mesajlarla gider', () => {
+  const izinli = new Set([B.waAdresi(B.KARSILAMA)].concat(B.ARIZA_KATEGORILERI.map((k) => B.waAdresi(B.hizliMesaj(k)))));
+  for (const { ad, html } of tumSayfalar()) {
+    const adresler = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)].map((m) => m[1].replace(/&amp;/g, '&'));
+    assert.ok(adresler.length >= 2, ad);
+    for (const a of adresler) assert.ok(izinli.has(a), ad + ': ' + a);
+  }
 });
+
 
 test('telefonGecerliMi boşa izin verir, 10-13 hane ister', () => {
   assert.equal(B.telefonGecerliMi(''), true);

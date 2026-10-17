@@ -1,32 +1,32 @@
-// index.html tek dosyadır: testler sayfadaki <script id="cekirdek"> bloğunu doğrudan çalıştırır.
+// Test yardımcıları: iş mantığı assets/js/cekirdek.js'ten, sayfalar kök klasördeki üretilmiş HTML'den okunur.
 const fs = require('fs');
 const path = require('path');
-const vm = require('vm');
 
-const SAYFA = path.join(__dirname, '..', 'index.html');
+const KOK = path.join(__dirname, '..');
+const SAYFALAR = ['index', 'hizmetler', 'surec', 'is-emri', 'iletisim', 'kvkk'];
 
-function sayfaHtml() {
-  return fs.readFileSync(SAYFA, 'utf8');
+function sayfaHtml(ad = 'index') {
+  return fs.readFileSync(path.join(KOK, ad + '.html'), 'utf8');
+}
+
+function tumSayfalar() {
+  return SAYFALAR.map((ad) => ({ ad, html: sayfaHtml(ad) }));
 }
 
 function cekirdek() {
-  const html = sayfaHtml();
-  const eslesme = html.match(/<script id="cekirdek">([\s\S]*?)<\/script>/);
-  if (!eslesme) throw new Error('index.html içinde <script id="cekirdek"> bulunamadı');
-  const modul = { exports: {} };
-  // Aynı realm'de çalıştırılır ki dönen nesneler deepStrictEqual ile karşılaştırılabilsin
-  vm.runInThisContext(`(function (module) {\n${eslesme[1]}\n})`, { filename: 'index.html#cekirdek' })(modul);
-  return modul.exports;
+  return require(path.join(KOK, 'assets/js/cekirdek.js'));
 }
 
-// Gömülü görselleri (base64) ve betikleri çıkarır; yalnızca ziyaretçinin gördüğü metin kalır
-function gorunenMetin() {
-  return sayfaHtml()
+// Betikleri, ikon tanımlarını ve etiketleri çıkarır; yalnızca ziyaretçinin gördüğü metin kalır
+function gorunenMetin(ad = 'index') {
+  return sayfaHtml(ad)
     .replace(/<script[\s\S]*?<\/script>/g, ' ')
     .replace(/<style[\s\S]*?<\/style>/g, ' ')
+    .replace(/<svg[\s\S]*?<\/svg>/g, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
     .replace(/\s+/g, ' ');
 }
 
-module.exports = { sayfaHtml, cekirdek, gorunenMetin };
+module.exports = { KOK, SAYFALAR, sayfaHtml, tumSayfalar, cekirdek, gorunenMetin };

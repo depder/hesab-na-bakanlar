@@ -1,25 +1,83 @@
-# Başkent İş Makinaları
+# Başkent İş Makinaları — web sitesi
 
-Her marka kepçe, ekskavatör ve vinç için hidrolik sistem ve motor tamiri, bakım ve revizyon; kova tamiri, Hardox zırhlama ve mekanik ağır bakım yapan atölyenin tanıtım sitesi. **Tek dosyadır:** `index.html` içinde tüm HTML, CSS ve JavaScript ile gömülü logo bulunur. Derleme adımı yoktur; dosyayı tarayıcıda açmanız ya da herhangi bir statik sunucuya (GitHub Pages, Netlify, cPanel vb.) yüklemeniz yeterli.
+İş makinelerinde hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 yerinde saha servisi veren atölyenin (Selimiye Mah. Sanayi Sitesi, Milas / Muğla) çok sayfalı tanıtım sitesi.
 
-```
-index.html        sitenin tamamı (tek dosya)
-tests/            iş mantığı ve içerik testleri: `node --test` (Node 20+, kurulum gerekmez)
-assets/           sosyal medya önizleme görseli (logo.jpg) ve apple-touch simgesi
-```
+Saf HTML, CSS ve JavaScript. Derleme adımı ve sunucu yoktur; kök klasördeki dosyaları herhangi bir statik barındırmaya (GitHub Pages, Netlify, Cloudflare Pages, cPanel vb.) yüklemek yeterlidir.
 
-## Sayfadaki özellikler
+## Sayfalar
 
-- **3D sahne (Three.js 0.170.0, jsDelivr CDN):** fareyle yönlenen, sürükleyerek çevrilen paletli ekskavatör modeli (bom, kol ve kova kazı döngüsünde; hidrolik silindirler birlikte uzayıp kısalır). Sahne yalnızca ekranda görünürken çizilir; yavaş cihazda çözünürlük kendiliğinden düşer. CDN yüklenemezse ya da WebGL yoksa yerine teknik çizim (SVG) kalır. "Hareketi azalt" tercihinde animasyon durur.
-- **Canlı çalışma durumu:** Hafta içi 09:00–17:30, Cumartesi 09:00–13:30. Durum ziyaretçinin bulunduğu yerden bağımsız olarak **Türkiye saatine** göre hesaplanır: "Açık / Atölye Hizmet Veriyor" ya da "Kapalı / İlk Mesai Saatinde Dönüş Yapılacak".
-- **WhatsApp iş emri jeneratörü:** makine türü, arıza kategorisi, aciliyet ve detaylardan biçimli bir servis bileti oluşturur ve 0538 077 35 71 hattına hazır metinle açar.
-
-## Bilgiler nerede
-
-| Ne | `index.html` içinde |
+| Dosya | İçerik |
 |---|---|
-| Telefon / WhatsApp | `TELEFON` sabiti (`<script id="cekirdek">`) ve `tel:+905380773571` bağlantıları |
-| Hazır WhatsApp mesajı | `KARSILAMA` sabiti |
-| Çalışma saatleri | `SAATLER` sabiti ve `.saatler` tablosu |
-| Adres | "Selimiye Mah. Sanayi Sitesi" geçen yerler |
-| Hizmet bölgesi | `.cipler` listesi ve formdaki konum seçenekleri |
+| `index.html` | Karşılama ve 3D ekskavatör, konum (harita), iletişim bilgileri, uzmanlık alanları, galeri |
+| `hizmetler.html` | Hizmetler, servis verilen makineler, sık sorulanlar |
+| `surec.html` | Servis süreci, atölye saatleri, saha servisi ve hizmet bölgesi |
+| `is-emri.html` | Servis talebi formu (konum ekleme, WhatsApp'a aktarma) |
+| `iletisim.html` | Telefon, WhatsApp, adres, WhatsApp hızlı arıza kartları, harita |
+| `kvkk.html` | KVKK aydınlatma metni |
+
+## Klasör yapısı
+
+```
+*.html                  üretilmiş sayfalar (doğrudan düzenlemeyin, aşağıya bakın)
+favicon.svg, robots.txt, manifest.webmanifest
+assets/css/site.css     tasarım sistemi (renk, yazı, boşluk değişkenleri ve bileşenler)
+assets/js/cekirdek.js   iş mantığı: çalışma durumu, WhatsApp mesajı, form doğrulama
+assets/js/site.js       menü, canlı durum, harita, Lenis + GSAP animasyonları
+assets/js/is-emri.js    servis talebi formu ve konum
+assets/js/sahne.js      3D ekskavatör (three.js)
+assets/js/vendor/       Lenis 1.3.27, GSAP 3.15.0 + ScrollTrigger, three.js 0.170.0
+assets/fonts/           Archivo ve Figtree (OFL-1.1, Türkçe karakterli alt kümeler)
+assets/images/          logo
+assets/icons/           favicon ve uygulama ikonları
+kaynak/sayfalar/        sayfa içerikleri (düzenlenecek yer)
+kaynak/site.json        alan adı ayarı
+kaynak/galeri.json      galeri fotoğrafları listesi
+araclar/sayfa-uret.js   sayfa üreteci
+tests/                  testler
+```
+
+## Düzenleme ve yeniden üretme
+
+Ortak üst bilgi, menü, alt bilgi ve ikonlar tek yerde (`araclar/sayfa-uret.js`) durur; sayfaların içerikleri `kaynak/sayfalar/` altındadır. Bir değişiklikten sonra (Node.js 18 veya üstü gerekir, paket kurulumu gerekmez):
+
+```
+node araclar/sayfa-uret.js    # kök klasördeki .html dosyalarını, robots.txt ve manifest'i yeniden yazar
+node --test                   # testler
+```
+
+### Bilgiler nerede
+
+| Ne | Nerede |
+|---|---|
+| Telefon / WhatsApp numarası, hazır mesaj | `assets/js/cekirdek.js` → `TELEFON`, `KARSILAMA` |
+| Atölye çalışma saatleri (canlı durum) | `assets/js/cekirdek.js` → `SAATLER`; tablo: `araclar/sayfa-uret.js` → `SAATLER_TABLOSU` |
+| Arıza kategorileri | `assets/js/cekirdek.js` → `ARIZA_KATEGORILERI` |
+| Adres, harita bağlantıları, yapısal veri | `araclar/sayfa-uret.js` |
+| Renkler ve yazı tipleri | `assets/css/site.css` → `:root` |
+
+### Alan adı (canonical, sitemap)
+
+Sitenin yayınlanacağı alan adı belli olunca `kaynak/site.json` içine yazın ve üreteci çalıştırın:
+
+```json
+{ "alanAdi": "https://www.ornek-alan-adi.com" }
+```
+
+Bu durumda canonical bağlantıları mutlak olur, Open Graph görseli eklenir, `sitemap.xml` üretilir ve `robots.txt`'ye eklenir. Alan adı boşken sahte adres yayımlanmaz.
+
+### Galeriye fotoğraf ekleme
+
+Fotoğrafları (tercihen 1600 px genişliğe küçültülmüş WebP) `assets/images/galeri/` altına koyun ve `kaynak/galeri.json`'a ekleyin:
+
+```json
+[{ "dosya": "assets/images/galeri/kova-hardox.webp", "en": 1600, "boy": 1200, "alt": "Hardox kaplanmış ekskavatör kovası", "aciklama": "Kova tamiri ve Hardox zırhlama" }]
+```
+
+## Yayına alma
+
+1. Kök klasördeki her şeyi (`kaynak/`, `araclar/`, `tests/` dahil edilse de zararı yoktur) statik barındırmaya yükleyin.
+2. HTTPS zorunludur: konum özelliği tarayıcılarda yalnızca güvenli bağlantıda çalışır.
+3. GitHub Pages için: depo → Settings → Pages → Branch: `master`, klasör: `/ (root)`.
+4. Alan adını `kaynak/site.json`'a yazıp üreteci yeniden çalıştırın.
+
+Ayrıntılar, test sonuçları ve kalan işler: [TECHNICAL-REPORT.md](TECHNICAL-REPORT.md).

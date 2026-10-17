@@ -1,0 +1,53 @@
+<!--
+{
+  "baslik": "Servis Süreci — Talepten Teslime · Başkent İş Makinaları",
+  "aciklama": "İş makinesi servis süreci: talebinizi iletin, ön değerlendirme, atölye ya da yerinde saha servisi, tespit ve teklif, onarım, kontrol ve teslim. Atölye saatleri ve hizmet bölgesi."
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Konum"><li><a href="./">Ana Sayfa</a></li><li aria-current="page">Servis Süreci</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Servis Süreci</h1>
+      <p data-anim="giris">Talebinizi ilettiğiniz andan makinenin teslimine kadar her adımda muhatabınız aynı kişidir: Mücahit ÇAKIR, {{MUHATAP}}.</p>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-labelledby="adimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Adım adım</p>
+        <h2 id="adimBaslik">Talepten teslime altı adım.</h2>
+      </div>
+      <ol class="adimlar">
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">01</span><h3>Talebinizi iletin</h3><p>Servis talebi formunu doldurun, WhatsApp'tan yazın ya da arayın. Arızalı parçanın fotoğrafını ve makinenin konumunu ekleyebilirsiniz.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">02</span><h3>Ön değerlendirme</h3><p>Mücahit ÇAKIR gönderdiğiniz bilgi ve fotoğraflara bakar, size dönüş yapar.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">03</span><h3>Atölye ya da saha</h3><p>Makine ya da parça atölyeye getirilir; makine sahada kaldıysa ekibimiz bulunduğu yere gelir.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">04</span><h3>Tespit ve teklif</h3><p>Arıza tespit edilir; işin kapsamı ve tahmini süresi netleşir.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">05</span><h3>Onarım ve revizyon</h3><p>Onayladığınız iş yapılır.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">06</span><h3>Kontrol ve teslim</h3><p>Tamamlanan iş kontrol edilerek teslim edilir.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="saatBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Saatler ve bölge</p>
+        <h2 id="saatBaslik">Atölye ne zaman açık, nerelere geliyoruz?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart" data-anim="kart">
+          <h3>Atölye çalışma saatleri</h3>
+          {{ROZET_BUYUK}}
+          {{SAATLER_TABLOSU}}
+          <p class="not">Durum Türkiye saatine (Milas) göre anlık hesaplanır. Mesai dışında gelen taleplere ilk mesai saatinde dönüş yapılır.</p>
+        </div>
+        <div class="kart" data-anim="kart">
+          <h3>Saha servisi ve hizmet bölgesi</h3>
+          <p><b>7/24 saha servisi:</b> makine sahada arızalandıysa atölye saatlerini beklemeden <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a> numarasını arayın.</p>
+          <p>Muğla'nın tüm ilçeleri ve Didim (Aydın) hizmet bölgemizdir. Diğer iller için özel anlaşma ve fiyatlandırma uygulanır.</p>
+          {{ILCELER}}
+        </div>
+      </div>
+    </div>
+  </section>
