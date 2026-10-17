@@ -136,8 +136,16 @@ Yapılan performans iyileştirmeleri: üçüncü taraf font/betik kaldırıldı,
 |---|---|---|---|
 | lenis | 1.3.27 | MIT | `assets/js/vendor/lenis.min.js` |
 | gsap (+ ScrollTrigger) | 3.15.0 | GSAP Standard "no charge" | `assets/js/vendor/` |
-| three | 0.170.0 (önceden vardı) | MIT | `assets/js/vendor/three.module.min.js` |
 | @fontsource-variable/archivo, figtree | 5.3.0 | OFL-1.1 | `assets/fonts/` |
 | lucide-static (yalnızca ikon çizimleri) | 1.59.0 | ISC | `kaynak/ikonlar.svg` |
 
 Geliştirme sırasında yalnızca test için (depoya eklenmedi): playwright-core, axe-core 4.14.0, lighthouse 13.5.0.
+
+## 11. Güncelleme — 3D kaldırıldı, Claude Code becerileri eklendi
+
+- Kullanıcının isteğiyle 3D ekskavatör tamamen kaldırıldı: `assets/js/sahne.js`, `three.module.min.js` ve ilgili CSS silindi. Karşılamada yerine sabit SVG ekskavatör çizimi duruyor (kaydırmaya bağlı hafif hareketiyle). Yukarıdaki bölümlerde geçen 3D ölçüm ve testleri bu değişiklikten önceki sürüme aittir.
+- `.claude/skills/frontend-design/SKILL.md`: anthropics/claude-code deposundan. Lisansı "© Anthropic PBC, tüm hakları saklıdır"; depo herkese açıksa bu yeniden dağıtım sayılır, dikkate alınmalı.
+- `.claude/skills/karpathy-guidelines/SKILL.md`: MIT. forrestchang ve multica-ai depolarındaki dosyalar birebir aynı.
+- `.claude/agents/`: cerenazar/ekip ekibi — backend-dev, code-reviewer, debugger, test-writer (MIT, `LICENSE-ekip.txt`).
+- vercel-labs/skills bir kurulum aracı (`npx skills add <depo>`); projeye dosya eklenmedi.
+- jakechancariol/youtube-agent-skill indirilemedi (depo bulunamadı ya da erişim yok).

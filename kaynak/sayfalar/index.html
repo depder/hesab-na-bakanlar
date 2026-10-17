@@ -2,7 +2,6 @@
 {
   "baslik": "Başkent İş Makinaları — İş Makinesi Hidrolik, Şanzıman ve Dizel Motor Servisi · Milas",
   "aciklama": "Milas Selimiye Sanayi Sitesi'nde iş makinelerine hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 yerinde saha servisi. Tel: 0538 077 35 71.",
-  "betikler": ["sahne.js"],
   "yapisalVeri": true
 }
 -->
@@ -22,9 +21,9 @@
         </div>
       </div>
 
-      <figure class="sahne-kap" data-anim="parallax" aria-labelledby="sahneAciklama">
-        <div class="sahne" id="sahne" data-sahne="bekliyor">
-          <svg class="sahne__yedek" viewBox="0 0 400 400" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <figure class="sahne-kap" data-anim="parallax" aria-hidden="true">
+        <div class="sahne">
+          <svg class="sahne__cizim" viewBox="0 0 400 400" focusable="false" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <g stroke="rgba(255,255,255,.07)" stroke-width="1"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
             <g stroke="rgba(255,255,255,.18)" stroke-width="1.4"><path d="M20 331h360"/></g>
             <g stroke="#d6a64f" stroke-width="2.2">
@@ -43,25 +42,7 @@
             </g>
             <g stroke="#a7afba" stroke-width="3"><path d="M238 268 182 178M150 128 82 158M100 192l4 80"/></g>
           </svg>
-          <canvas class="sahne__tuval" id="sahneTuval" aria-hidden="true"></canvas>
-          <div class="sahne__isaretler" aria-hidden="true">
-            <span class="isaret" data-isaret="silindir"><i>1</i><b>Hidrolik silindirler</b></span>
-            <span class="isaret" data-isaret="motor"><i>2</i><b>Dizel motor</b></span>
-            <span class="isaret" data-isaret="kova"><i>3</i><b>Kova ve tırnaklar</b></span>
-            <span class="isaret" data-isaret="pim"><i>4</i><b>Pim–burç bağlantıları</b></span>
-          </div>
-          <span class="sahne__yukleme">3D model yükleniyor…</span>
-          <button class="dugme dugme--cizgi dugme--kucuk sahne__baslat" type="button" hidden>{{ikon:surukle}}3D modeli göster</button>
         </div>
-        <figcaption id="sahneAciklama">
-          <span class="sahne__ipucu">{{ikon:surukle}}Etkileşimli 3D ekskavatör modeli — sürükleyerek çevirin</span>
-          <ol class="sahne__lejant">
-            <li><i>1</i>Hidrolik silindirler</li>
-            <li><i>2</i>Dizel motor</li>
-            <li><i>3</i>Kova ve tırnaklar</li>
-            <li><i>4</i>Pim–burç bağlantıları</li>
-          </ol>
-        </figcaption>
       </figure>
     </div>
 

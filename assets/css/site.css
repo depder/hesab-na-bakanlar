@@ -311,41 +311,11 @@ html.lenis, html.lenis body { height: auto; }
   .kahraman__dugmeler .dugme { flex: 1 1 100%; }
 }
 
-/* 3D sahne */
-.sahne-kap { margin: 0; display: grid; gap: var(--b3); }
-.sahne {
-  position: relative; aspect-ratio: 1 / 1; max-height: 600px; border-radius: var(--r-buyuk); overflow: hidden; isolation: isolate;
-  background: radial-gradient(circle at 55% 62%, rgba(214, 166, 79, .16), transparent 60%), var(--grafit);
-  border: 1px solid var(--cizgi); box-shadow: var(--golge);
-}
-.sahne__yedek { position: absolute; inset: 6%; width: 88%; height: 88%; z-index: 1; transition: opacity .8s ease; }
-.sahne__tuval { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; opacity: 0; transition: opacity .9s ease; touch-action: pan-y; cursor: grab; }
-.sahne__tuval:active { cursor: grabbing; }
-.sahne[data-sahne="hazir"] .sahne__tuval { opacity: 1; }
-.sahne[data-sahne="hazir"] .sahne__yedek { opacity: 0; }
-.sahne__yukleme { position: absolute; left: 50%; bottom: 16px; z-index: 4; transform: translateX(-50%); padding: 6px 12px; border-radius: 999px; background: rgba(16, 24, 39, .8); color: var(--metin-soluk); font-size: .8125rem; font-weight: 600; white-space: nowrap; }
-.sahne:not([data-sahne="yukleniyor"]) .sahne__yukleme { display: none; }
-.sahne__isaretler { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
-.isaret { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; transform: translate3d(-999px, -999px, 0); opacity: 0; transition: opacity .5s ease; will-change: transform; }
-.sahne[data-sahne="hazir"] .isaret { opacity: 1; }
-.isaret i { display: grid; place-items: center; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 50%; flex: none; font: 800 12px/1 var(--f-govde); font-style: normal; color: var(--lacivert); background: var(--altin); box-shadow: 0 0 0 4px rgba(214, 166, 79, .25); }
-.isaret b { margin-top: -12px; padding: 6px 10px; border-radius: 999px; font: 600 .8125rem/1 var(--f-govde); color: var(--beyaz); background: rgba(16, 24, 39, .85); border: 1px solid rgba(255, 255, 255, .12); }
-.sahne[data-sahne] .isaret.isaret--gizli { opacity: 0; }
-.isaret--sol { flex-direction: row-reverse; }
-.isaret--sol i { margin: -12px -12px 0 0; }
-.sahne-kap figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--b2) var(--b5); color: var(--metin-soluk); font-size: var(--y-kucuk); }
-.sahne__ipucu { display: inline-flex; align-items: center; gap: var(--b2); }
-.sahne__ipucu .ikon { width: 18px; height: 18px; color: var(--altin); }
-.sahne__lejant { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--b2) var(--b4); width: 100%; list-style: none; }
-.sahne__lejant li { display: flex; align-items: center; gap: var(--b2); color: var(--metin); }
-.sahne__lejant i { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; flex: none; background: var(--altin); color: var(--lacivert); font: 800 .8125rem/1 var(--f-govde); font-style: normal; }
-.sahne-kap:has(.sahne[data-sahne="yedek"]) .sahne__lejant, .sahne-kap:has(.sahne[data-sahne="bekliyor"]) .sahne__lejant { display: grid; }
-.sahne__baslat { position: absolute; left: 50%; bottom: 16px; z-index: 5; transform: translateX(-50%); background: rgba(16, 24, 39, .88); white-space: nowrap; }
-.sahne__baslat:hover { transform: translateX(-50%) translateY(-1px); }
-.sahne__baslat:active { transform: translateX(-50%) scale(.98); }
-@media (max-width: 980px) { .sahne { aspect-ratio: 5 / 4; max-height: 520px; } }
-@media (max-width: 560px) { .sahne { aspect-ratio: 1 / 1; } .isaret b { display: none; } .sahne__lejant { display: grid; } }
-@media (max-height: 520px) and (orientation: landscape) { .sahne { max-height: max(260px, 100vh - 140px); } }
+/* Karşılama çizimi (sabit SVG) */
+.sahne-kap { margin: 0; }
+.sahne { position: relative; aspect-ratio: 1 / 1; max-height: 560px; border-radius: var(--r-buyuk); overflow: hidden; background: radial-gradient(circle at 55% 62%, rgba(214, 166, 79, .16), transparent 60%), var(--grafit); border: 1px solid var(--cizgi); box-shadow: var(--golge); }
+.sahne__cizim { position: absolute; inset: 6%; width: 88%; height: 88%; }
+@media (max-width: 980px) { .sahne { aspect-ratio: 5 / 4; max-height: 460px; } }
 
 /* ---------------------------------------------------------------- Harita (Google içeriği isteğe bağlı yüklenir) */
 .konum__izgara { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(1rem, .7rem + 1vw, 1.5rem); align-items: stretch; }
