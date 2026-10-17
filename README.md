@@ -8,7 +8,7 @@ Saf HTML, CSS ve JavaScript. Derleme adımı ve sunucu yoktur; kök klasördeki 
 
 | Dosya | İçerik |
 |---|---|
-| `index.html` | Karşılama ve 3D ekskavatör, konum (harita), iletişim bilgileri, uzmanlık alanları, galeri |
+| `index.html` | Karşılama ve ekskavatör çizimi, konum (harita), iletişim bilgileri, uzmanlık alanları, galeri |
 | `hizmetler.html` | Hizmetler, servis verilen makineler, sık sorulanlar |
 | `surec.html` | Servis süreci, atölye saatleri, saha servisi ve hizmet bölgesi |
 | `is-emri.html` | Servis talebi formu (konum ekleme, WhatsApp'a aktarma) |
@@ -24,8 +24,9 @@ assets/css/site.css     tasarım sistemi (renk, yazı, boşluk değişkenleri ve
 assets/js/cekirdek.js   iş mantığı: çalışma durumu, WhatsApp mesajı, form doğrulama
 assets/js/site.js       menü, canlı durum, harita, Lenis + GSAP animasyonları
 assets/js/is-emri.js    servis talebi formu ve konum
-assets/js/sahne.js      3D ekskavatör (three.js)
-assets/js/vendor/       Lenis 1.3.27, GSAP 3.15.0 + ScrollTrigger, three.js 0.170.0
+assets/js/vendor/       Lenis 1.3.27, GSAP 3.15.0 + ScrollTrigger
+.claude/skills/         frontend-design, karpathy-guidelines (Claude Code becerileri)
+.claude/agents/         backend-dev, code-reviewer, debugger, test-writer (Claude Code ekibi)
 assets/fonts/           Archivo ve Figtree (OFL-1.1, Türkçe karakterli alt kümeler)
 assets/images/          logo
 assets/icons/           favicon ve uygulama ikonları
