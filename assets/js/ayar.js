@@ -1,7 +1,7 @@
 /* site.config.json'dan üretildi — elle düzenlemeyin; node araclar/sayfa-uret.js */
 window.BaskentAyar = {
   "firma": "Başkent İş Makinaları",
-  "alanAdi": "",
+  "alanAdi": "https://baskent-is-makinalari.vercel.app",
   "telefon": {
     "e164": "905380773571",
     "gorunen": "0538 077 35 71"
@@ -13,10 +13,11 @@ window.BaskentAyar = {
     "talepKapanisi": "_Merhaba, web siteniz üzerinden servis talebi oluşturdum. Bilgi ve destek rica ederim._"
   },
   "adres": {
-    "satir": "Selimiye Mahallesi",
+    "satir": "Selimiye, Küçük Sanayi Sitesi",
+    "postaKodu": "48200",
     "ilce": "Milas",
     "il": "Muğla",
-    "haritaSorgusu": "Selimiye Mahallesi, 48200 Milas/Muğla",
+    "haritaSorgusu": "Selimiye, Küçük Sanayi Sitesi, 48200 Milas/Muğla",
     "koordinat": null
   },
   "calismaSaatleri": [

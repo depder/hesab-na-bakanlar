@@ -27,7 +27,7 @@ if (alanAdi && !/^https:\/\/[a-z0-9.-]+\.[a-z]{2,}$/i.test(alanAdi)) {
 }
 // Zorunlu metin alanları: eksik ya da boşsa sitede "undefined" yayımlamak yerine durur.
 ['firma', 'telefon.gorunen', 'whatsapp.karsilama', 'whatsapp.talepBasligi', 'whatsapp.talepKapanisi',
-  'adres.satir', 'adres.ilce', 'adres.il', 'adres.haritaSorgusu', 'sahaServisi', 'yonetim', 'yetkili.ad', 'yetkili.unvan', 'hizmetBolgesiNotu']
+  'adres.satir', 'adres.postaKodu', 'adres.ilce', 'adres.il', 'adres.haritaSorgusu', 'sahaServisi', 'yonetim', 'yetkili.ad', 'yetkili.unvan', 'hizmetBolgesiNotu']
   .forEach((alan) => {
     const deger = alan.split('.').reduce((o, k) => (o == null ? o : o[k]), A);
     if (typeof deger !== 'string' || !deger.trim()) throw new Error('site.config.json → "' + alan + '" eksik ya da boş.');
@@ -55,7 +55,7 @@ function mutlak(ad) { return alanAdi + '/' + (ad === 'index' ? '' : ad + '.html'
 
 // ---------------------------------------------------------------- Ayarlardan türetilen değerler
 const FIRMA = A.firma;
-const ADRES = `${A.adres.satir}, ${A.adres.ilce} / ${A.adres.il}`;
+const ADRES = `${A.adres.satir}, ${A.adres.postaKodu} ${A.adres.ilce} / ${A.adres.il}`;
 const TEL_HREF = 'tel:+' + A.telefon.e164;
 const WA_HAZIR = K.waAdresi(K.KARSILAMA);
 // Koordinat biliniyorsa harita onu, bilinmiyorsa adres sorgusunu kullanır (koordinat uydurulmaz).
@@ -110,7 +110,7 @@ ${A.calismaSaatleri.map((s) => `              <tr data-gunler="${s.gunler.join('
   HARITA: `<div class="harita" data-harita="${kacir(HARITA_GOMULU)}">
             <div class="harita__ic">
               <span class="harita__pin">${ikon('konum')}</span>
-              <strong>${kacir(A.adres.satir)}<br>${kacir(A.adres.ilce + ' / ' + A.adres.il)}</strong>
+              <strong>${kacir(A.adres.satir)}<br>${kacir(A.adres.postaKodu + ' ' + A.adres.ilce + ' / ' + A.adres.il)}</strong>
               <p class="not">Harita Google tarafından sunulur. Göstermek için düğmeye basın; bu durumda tarayıcınız Google'a bağlanır.</p>
               <button class="dugme dugme--koyu harita__dugme" type="button">${ikon('konum')}Haritayı göster</button>
             </div>
@@ -157,7 +157,7 @@ function yapisalVeri() {
     name: FIRMA,
     description: 'Ekskavatör, loder, beko loder, vinç ve diğer iş makineleri için hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve yerinde saha servisi.',
     telephone: '+' + A.telefon.e164,
-    address: { '@type': 'PostalAddress', streetAddress: A.adres.satir, addressLocality: A.adres.ilce, addressRegion: A.adres.il, addressCountry: 'TR' },
+    address: { '@type': 'PostalAddress', streetAddress: A.adres.satir, addressLocality: A.adres.ilce, addressRegion: A.adres.il, postalCode: A.adres.postaKodu, addressCountry: 'TR' },
     openingHoursSpecification: ACIK_SAATLER.map((s) => ({
       '@type': 'OpeningHoursSpecification', dayOfWeek: s.gunler.map((g) => GUN_EN[g]), opens: s.acilis, closes: s.kapanis
     })),
@@ -195,6 +195,8 @@ ${m.dizinleme === false ? '<meta name="robots" content="noindex, follow">\n' : '
 <meta property="og:description" content="${kacir(parcaDoldur(m.aciklama))}">
 ${alanAdi ? `<meta property="og:url" content="${kacir(mutlak(ad))}">
 <meta property="og:image" content="${kacir(alanAdi + '/assets/images/logo.jpg')}">
+<meta property="og:image:secure_url" content="${kacir(alanAdi + '/assets/images/logo.jpg')}">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="800">
 <meta property="og:image:alt" content="${kacir(FIRMA)} logosu">

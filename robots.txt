@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://baskent-is-makinalari.vercel.app/sitemap.xml
