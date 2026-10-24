@@ -354,7 +354,19 @@ if (alanAdi) {
     SAYFALAR.map((ad) => `  <url><loc>${mutlak(ad)}</loc><lastmod>${tarih}</lastmod></url>`).join('\n') + '\n</urlset>\n']);
 }
 
-cikti.forEach(([dosya, icerik]) => fs.writeFileSync(path.join(KOK, dosya), icerik));
+// Önce hepsi geçici dosyaya yazılır; biri bile yazılamazsa geçiciler silinir ve mevcut site olduğu gibi kalır.
+const gecici = [];
+try {
+  cikti.forEach(([dosya, icerik]) => {
+    const g = path.join(KOK, dosya + '.yeni');
+    fs.writeFileSync(g, icerik);
+    gecici.push(g);
+  });
+} catch (hata) {
+  gecici.forEach((g) => { try { fs.unlinkSync(g); } catch (silinemedi) { /* yok say */ } });
+  throw new Error('Yazılamadı, hiçbir dosya değiştirilmedi: ' + hata.message);
+}
+cikti.forEach(([dosya]) => fs.renameSync(path.join(KOK, dosya + '.yeni'), path.join(KOK, dosya)));
 const haritaDosya = path.join(KOK, 'sitemap.xml');
 if (!alanAdi && fs.existsSync(haritaDosya)) fs.unlinkSync(haritaDosya);
 
