@@ -213,3 +213,21 @@ test('üretilmiş sayfalar kaynakla güncel (node araclar/sayfa-uret.js çalış
   }
   assert.ok(enYeniKaynak > 0);
 });
+
+test('site.config.json\'da zorunlu alan eksikse üreteç durur, "undefined" yayımlamaz', () => {
+  const os = require('os');
+  const { spawnSync } = require('child_process');
+  const gecici = fs.mkdtempSync(path.join(os.tmpdir(), 'baskent-'));
+  try {
+    for (const d of ['araclar', 'assets', 'kaynak']) fs.cpSync(path.join(KOK, d), path.join(gecici, d), { recursive: true });
+    const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+    delete ayar.adres.satir;
+    fs.writeFileSync(path.join(gecici, 'site.config.json'), JSON.stringify(ayar));
+    const sonuc = spawnSync(process.execPath, [path.join(gecici, 'araclar/sayfa-uret.js')], { encoding: 'utf8' });
+    assert.equal(sonuc.status, 1);
+    assert.match(sonuc.stderr, /"adres\.satir" eksik ya da boş/);
+    assert.equal(fs.existsSync(path.join(gecici, 'index.html')), false);
+  } finally {
+    fs.rmSync(gecici, { recursive: true, force: true });
+  }
+});
