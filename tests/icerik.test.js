@@ -34,6 +34,22 @@ test('başlık düzeni: H2 öncesinde H3 yok (H1 → H2 → H3)', () => {
   }
 });
 
+test('WhatsApp bağlantı kartı: mutlak og:url, og:image (1200x800 JPEG), sitemap', () => {
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+  if (!ayar.alanAdi) return;
+  for (const { ad, html } of tumSayfalar()) {
+    assert.match(html, new RegExp('<meta property="og:url" content="' + ayar.alanAdi.replace(/\./g, '\\.') + '/'), ad);
+    assert.match(html, /<meta property="og:image" content="https:\/\/[^"]+\/assets\/images\/logo\.jpg">/, ad);
+    assert.match(html, /<meta property="og:title" content="[^"]+">/, ad);
+    assert.match(html, /<meta property="og:description" content="[^"]{70,}">/, ad);
+    assert.match(html, /<link rel="canonical" href="https:\/\//, ad);
+  }
+  const resim = fs.readFileSync(path.join(KOK, 'assets/images/logo.jpg'));
+  assert.ok(resim.length < 300 * 1024, 'WhatsApp için 300 KB altı');
+  assert.ok(fs.readFileSync(path.join(KOK, 'sitemap.xml'), 'utf8').includes(ayar.alanAdi + '/servis-talebi.html'));
+  assert.match(fs.readFileSync(path.join(KOK, 'robots.txt'), 'utf8'), /Sitemap: https:\/\//);
+});
+
 test('alan adı bilinmiyorken sahte alan adı yayımlanmaz', () => {
   const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
   if (ayar.alanAdi) return;
@@ -75,8 +91,8 @@ test('tek telefon numarası: 0538 077 35 71', () => {
 test('adres ve atölye saatleri tüm sayfalarda tutarlı (08:30–18:00, Cmt 08:30–13:30, Pazar kapalı)', () => {
   for (const ad of SAYFALAR) {
     const metin = gorunenMetin(ad);
-    assert.match(metin, /Selimiye Mahallesi, Milas \/ Muğla/, ad);
-    assert.doesNotMatch(metin, /Sanayi Sitesi/, ad + ': harita ile çelişen eski adres');
+    assert.match(metin, /Selimiye, Küçük Sanayi Sitesi, 48200 Milas \/ Muğla/, ad);
+    assert.doesNotMatch(metin, /Selimiye Mah\.|Selimiye Mahallesi/, ad + ': eski adres');
     assert.match(metin, /08:30 – 18:00/, ad);
     assert.match(metin, /08:30 – 13:30/, ad);
     assert.match(metin, /Pazar kapalı/, ad);
@@ -98,7 +114,7 @@ test('işletme bilgileri sabit yazılmaz: sayfa kaynakları ve üreteç site.con
   for (const s of ['site.js', 'servis-talebi.js']) kaynaklar.push(fs.readFileSync(path.join(KOK, 'assets/js', s), 'utf8'));
   for (const k of kaynaklar) {
     assert.doesNotMatch(k, /0538|5380773571|077 35 71/, 'telefon');
-    assert.doesNotMatch(k, /Selimiye Mah|Sanayi Sitesi/, 'adres');
+    assert.doesNotMatch(k, /Selimiye Mah|Küçük Sanayi|48200/, 'adres');
     assert.doesNotMatch(k, /\b(08|09|13|17|18):(00|30)\b/, 'saat');
     assert.doesNotMatch(k, /Mücahit|Teknisyen|Servis bilgisi Almak/, 'kişi / mesaj');
   }
