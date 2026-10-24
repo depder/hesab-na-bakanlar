@@ -4,30 +4,31 @@ Bu notu yeni sohbetin ilk mesajı olarak yapıştırın.
 
 ---
 
-Depo: `depder/hesab-na-bakanlar`, çalışma dalı `claude/baskent-is-makineleri-website-bjbltc`. Kurallar kökteki `CLAUDE.md` dosyasında; teknik ayrıntılar `README.md` ve `TECHNICAL-REPORT.md`'de.
+Depo: `depder/hesab-na-bakanlar`, ana dal `master`, çalışma dalı `claude/baskent-is-makineleri-website-bjbltc` (her işte `origin/master`'dan yeniden başlatılır). Kurallar kökteki `CLAUDE.md`'de; teknik ayrıntılar `README.md` ve `TECHNICAL-REPORT.md`'de. Her değişiklikten sonra: `node araclar/sayfa-uret.js` → `node --test` → commit → PR → squash ile birleştir. Zorla gönderme (force push) hesap kuralıyla yasak; uzak dal eski geçmiş taşıyorsa `git merge -s ours origin/<dal>` ile bağlanıp normal gönderilir.
 
-## Şu ana kadar yapılanlar
-- Site 6 sayfa: index (en üstte harita), hizmetlerimiz, servis-talebi (3 adımlı kartlar), hakkimizda (yönetim + süreç), iletisim, kvkk. İşletme bilgilerinin tek kaynağı `site.config.json`.
-- Yeni renk paleti (#101827, #171B22, #A7AFBA, #F5F6F8, #D6A64F), Archivo + Figtree fontları (yerelde).
-- Lenis + GSAP/ScrollTrigger ile akıcı kaydırma ve ölçülü animasyonlar.
-- Servis talebi formu: 6 arıza kategorisi, doğrulama, çift gönderim engeli, isteğe bağlı GPS konumu, WhatsApp'a hazır mesajla aktarma (sunucu yok; site veri kaydetmez).
-- İletişim sayfasında 6 arıza başlığıyla WhatsApp hızlı kartları; harita tıklayınca yükleniyor.
-- 3D model tamamen kaldırıldı; karşılamada sabit ekskavatör çizimi var.
-- Claude Code eklemeleri: `.claude/skills/frontend-design`, `.claude/skills/karpathy-guidelines`, `.claude/agents/` (backend-dev, code-reviewer, debugger, test-writer).
-- Testler: 37 birim/içerik testi, 33 tarayıcı işlev testi, 7 ekran genişliği, axe erişilebilirlik — hepsi geçti.
-- PR'lar: #13 (çok sayfalı site), #14 (üreteç hata mesajı) birleşti; 3D kaldırma ve skill'ler sonraki PR'da.
+## Sitenin şu anki hâli (PR #17, #18, #19 birleşti)
+- Saf HTML/CSS/JS statik site. Next.js'e geçilmedi (kullanıcı "mevcut siteyi geliştir" dedi). 3D yok.
+- **Tek kaynak `site.config.json`:** telefon 0538 077 35 71, WhatsApp ve hazır mesajlar, adres (Selimiye Mah. Sanayi Sitesi, Milas / Muğla), koordinat (`null` — bilinmiyor, uydurulmaz), çalışma saatleri, yetkili, hizmet / ekipman / aciliyet / bölge listeleri, 6 arıza kategorisi, alan adı (boş). Üreteç bunu sayfalara ve `assets/js/ayar.js`'e aktarır; bir test sayfa kaynaklarında ve betiklerde bu bilgilerin sabit yazılmadığını denetler.
+- **Saatler:** Pzt–Cum 08:30–18:00, Cmt 08:30–13:30, Pazar kapalı; saha servisi 7/24.
+- **Kişi:** yalnızca Mücahit ÇAKIR, unvanı "Baş Teknisyen / Master Technician"; yönetim yalnızca "Şirket Yönetimi" olarak anılır. Başka isim yok.
+- **Sayfalar:** `index` (ilk ekranda Google Haritalar + "Yol Tarifi Al" / "Konumu Paylaş"; ardından hizmetler, Şirket Yönetimi güvencesi, saatler, galeri), `hizmetlerimiz`, `servis-talebi` (3 adım: hizmet kartı → ekipman/aciliyet/bölge → WhatsApp şablonu), `hakkimizda` (yönetim, uzmanlık, servis süreci), `iletisim`, `kvkk`. Eski `hizmetler/surec/is-emri.html` kaldırıldı (yönlendirme yok).
+- **Başlık:** logo + canlı "Atölye Açık / Hizmete Hazır" rozeti, "Hemen Ara" ve "WhatsApp". Masaüstünde telefon bağlantısı kopyala/ara penceresi açar, WhatsApp bağlantıları WhatsApp Web'e gider; mobilde altta sabit Ara/WhatsApp şeridi.
+- Ana sayfa haritası otomatik yüklendiği için KVKK metni buna göre güncellendi.
+- Üreteç: hatalı/eksik ayarda mesajla durur; dosya yazılamazsa hiçbir sayfayı değiştirmez (önce `.yeni` dosyalarına yazar).
+- Doğrulama: `node --test` 44/44; tarayıcı işlev kontrolü 27/27; hata yolları 6/6; axe 0 ihlal; 7 genişlikte yatay taşma yok.
+- Kullanıcıya `baskentismakinaları.com.zip` (ana dalın tamamı + tek dosyalık önizleme) gönderildi.
 
 ## Kullanıcıdan beklenenler
-1. Sitenin alan adı (canonical, sitemap, sosyal medya görseli için) → `site.config.json` → `alanAdi`. Atölyenin kesin koordinatı → `adres.koordinat`.
-2. Gerçek atölye/iş fotoğrafları (galeri için) → `kaynak/galeri.json`.
-3. "7/24 saha servisi" ve "şanzıman / tork konvertörü" hizmetlerinin onayı.
+1. Atölyenin kesin harita koordinatı → `site.config.json` → `adres.koordinat` (`{ "enlem": .., "boylam": .. }`).
+2. Sitenin alan adı → `site.config.json` → `alanAdi` (canonical, sitemap, sosyal medya görseli için).
+3. Gerçek atölye/iş fotoğrafları → `assets/images/galeri/` + `kaynak/galeri.json`.
 4. KVKK metninin bir hukukçuya kontrol ettirilmesi.
-5. WhatsApp Business (Cloud API) istenirse: Meta işletme hesabı, numara kararı, sunucu.
+5. CAT / JCB / Hitachi sitelerinin incelenmesi isteniyorsa ortam ağ ayarlarında bu alan adlarına izin verilmesi (şu an engelli).
 
 ## Bilinen açıklar
-- Telefonda deneme ölçümünde sayfanın görünme süresi 2,9–3,3 sn (hedef 2,5 sn).
-- Tasarım gözle (ekran görüntüsüyle) kontrol edilemedi; gerçek telefonda deneme yapılmadı.
-- jakechancariol/youtube-agent-skill deposu indirilemedi.
+- Harita ve yeni tasarım gerçek ekranda gözle kontrol edilemedi (ağ kapalı, görüntü okuma engelli); gerçek telefonda deneme yapılmadı.
+- Yeni ana sayfa için Lighthouse yeniden ölçülmedi; otomatik yüklenen harita hızı düşürebilir.
+- Eski sayfa adreslerine gelenler "bulunamadı" görür.
 
 ## Sonraki adım
-Kullanıcının göndereceği alan adı ve fotoğrafları eklemek; ardından `node araclar/sayfa-uret.js`, `node --test`, PR aç ve birleştir.
+Kullanıcı koordinat veya alan adı verirse `site.config.json`'a yazıp `node araclar/sayfa-uret.js` ve `node --test` çalıştırmak; ardından PR aç ve birleştir.
