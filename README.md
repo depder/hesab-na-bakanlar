@@ -1,6 +1,6 @@
 # Başkent İş Makinaları — web sitesi
 
-İş makinelerinde hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 yerinde saha servisi veren atölyenin (Selimiye Mah. Sanayi Sitesi, Milas / Muğla) çok sayfalı tanıtım sitesi.
+İş makinelerinde hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 yerinde saha servisi veren atölyenin (Selimiye Mahallesi, Milas / Muğla) çok sayfalı tanıtım sitesi.
 
 Saf HTML, CSS ve JavaScript. Derleme adımı ve sunucu yoktur; kök klasördeki dosyaları herhangi bir statik barındırmaya (GitHub Pages, Netlify, Cloudflare Pages, cPanel vb.) yüklemek yeterlidir.
 

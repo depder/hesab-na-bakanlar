@@ -6,7 +6,7 @@ Tarih: 17 Ekim 2026 · Önceki sürümün yedeği: `master` dalındaki d725898 n
 
 - Güncel site tek dosyaydı: `index.html` (~134 KB; CSS, JS ve logo içine gömülü). Kökteki `baskent-is-makinalari.html` git'te izlenmeyen, eski bir paket çıktısıydı; dokunulmadı.
 - Çalışan özellikler: Türkiye saatine göre canlı "Açık / Kapalı" rozeti, WhatsApp iş emri oluşturucu, 3D ekskavatör (three.js), çerçeve içinde `tel:` düzeltmesi. Hepsi korundu.
-- Doğrulanmış işletme bilgileri: Selimiye Mah. Sanayi Sitesi, Milas / Muğla · 0538 077 35 71 · atölye Pzt–Cum 08:30–18:00, Cmt 08:30–13:30, Pazar kapalı · hizmet bölgesi Muğla'nın tüm ilçeleri ve Didim · muhatap Mücahit ÇAKIR (Baş Teknisyen / Master Technician), yönetim "Şirket Yönetimi". Tümü `site.config.json`'da tek kaynaktan. "7/24 saha servisi" ve şanzıman / tork konvertörü hizmeti kullanıcının talimatından alındı.
+- Doğrulanmış işletme bilgileri: Selimiye Mahallesi, Milas / Muğla · 0538 077 35 71 · atölye Pzt–Cum 08:30–18:00, Cmt 08:30–13:30, Pazar kapalı · hizmet bölgesi Muğla'nın tüm ilçeleri ve Didim · muhatap Mücahit ÇAKIR (Baş Teknisyen / Master Technician), yönetim "Şirket Yönetimi". Tümü `site.config.json`'da tek kaynaktan. "7/24 saha servisi" ve şanzıman / tork konvertörü hizmeti kullanıcının talimatından alındı.
 
 ## 2. Kaynak araştırması — erişim durumu
 

@@ -152,7 +152,16 @@
       Array.prototype.forEach.call(rozetler, function (r) {
         r.classList.toggle('rozet--acik', d.acik);
         r.classList.toggle('rozet--kapali', !d.acik);
-        var b = r.querySelector('.rozet__baslik'); if (b) b.textContent = d.baslik;
+        // "Atölye" ön eki ayrı tutulur: dar ekranda başlıktaki rozet yalnızca "Açık / Kapalı" gösterir
+        var b = r.querySelector('.rozet__baslik');
+        if (b) {
+          var bosluk = d.baslik.indexOf(' ');
+          var on = document.createElement('span');
+          on.className = 'rozet__on';
+          on.textContent = d.baslik.slice(0, bosluk + 1);
+          b.textContent = d.baslik.slice(bosluk + 1);
+          b.insertBefore(on, b.firstChild);
+        }
         var a = r.querySelector('.rozet__alt'); if (a) a.textContent = d.alt;
         var e = r.querySelector('.rozet__ek'); if (e) e.textContent = d.ek;
       });
