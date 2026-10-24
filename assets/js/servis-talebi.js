@@ -48,7 +48,7 @@
   }
 
   // Masaüstünde (fare ile kullanılan cihaz) WhatsApp Web açılır; telefonda wa.me uygulamayı açar.
-  function waAdres(metin) {
+  function cihazaGoreWaAdresi(metin) {
     var adres = B.waAdresi(metin);
     return document.documentElement.classList.contains('masaustu') ? B.waMasaustuAdresi(adres) : adres;
   }
@@ -128,7 +128,7 @@
     mesgul = true;
     gonderDugme.disabled = true;
     gonderDugme.setAttribute('aria-busy', 'true');
-    var adres = waAdres(B.talepMetni(v));
+    var adres = cihazaGoreWaAdresi(B.talepMetni(v));
     waYedek.href = adres;
     basari.hidden = false;
     basari.focus();
