@@ -50,6 +50,19 @@ test('WhatsApp bağlantı kartı: mutlak og:url, og:image (1200x800 JPEG), sitem
   assert.match(fs.readFileSync(path.join(KOK, 'robots.txt'), 'utf8'), /Sitemap: https:\/\//);
 });
 
+test('WhatsApp kataloğu: düğme aynı numaranın wa.me/c/ adresini yeni sekmede açar', () => {
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+  if (!ayar.whatsapp.katalog) return;
+  assert.equal(ayar.whatsapp.katalog, 'https://wa.me/c/' + ayar.whatsapp.numara);
+  for (const ad of ['index', 'servis-talebi']) {
+    const bag = sayfaHtml(ad).match(/<a [^>]*href="(https:\/\/wa\.me\/c\/\d+)"[^>]*>[\s\S]*?Hizmet kartlarını WhatsApp'ta aç<\/a>/);
+    assert.ok(bag, ad + ': katalog düğmesi yok');
+    assert.equal(bag[1], ayar.whatsapp.katalog, ad);
+    assert.match(bag[0], /target="_blank"/);
+    assert.match(bag[0], /rel="noopener"/);
+  }
+});
+
 test('alan adı bilinmiyorken sahte alan adı yayımlanmaz', () => {
   const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
   if (ayar.alanAdi) return;

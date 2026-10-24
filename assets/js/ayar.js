@@ -8,6 +8,7 @@ window.BaskentAyar = {
   },
   "whatsapp": {
     "numara": "905380773571",
+    "katalog": "https://wa.me/c/905380773571",
     "karsilama": "Merhaba. Başkent iş Makinalarından Servis bilgisi Almak İstiyorum.",
     "talepBasligi": "🛠️ *BAŞKENT İŞ MAKİNALARI - WEB SERVİS TALEBİ*",
     "talepKapanisi": "_Merhaba, web siteniz üzerinden servis talebi oluşturdum. Bilgi ve destek rica ederim._"
