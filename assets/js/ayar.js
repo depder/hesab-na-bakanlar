@@ -13,10 +13,10 @@ window.BaskentAyar = {
     "talepKapanisi": "_Merhaba, web siteniz üzerinden servis talebi oluşturdum. Bilgi ve destek rica ederim._"
   },
   "adres": {
-    "satir": "Selimiye Mah. Sanayi Sitesi",
+    "satir": "Selimiye Mahallesi",
     "ilce": "Milas",
     "il": "Muğla",
-    "haritaSorgusu": "Selimiye Mah. Sanayi Sitesi, Milas, Muğla",
+    "haritaSorgusu": "Selimiye Mahallesi, 48200 Milas/Muğla",
     "koordinat": null
   },
   "calismaSaatleri": [

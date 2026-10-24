@@ -180,7 +180,16 @@ html.lenis, html.lenis body { height: auto; }
 .baslik__eylem .dugme .ikon { width: 17px; height: 17px; }
 @media (max-width: 1180px) { .baslik__eylem .dugme { padding-inline: .7rem; } .menu__liste a { padding-inline: .6rem; } }
 @media (max-width: 760px) { .baslik__eylem { display: none; } }
-@media (max-width: 560px) { .rozet--baslik .rozet__alt { display: none; } .rozet--baslik { padding: .3rem .55rem; } }
+.rozet--baslik, .rozet--baslik .rozet__metin { white-space: nowrap; flex-wrap: nowrap; }
+/* Dar ekranda rozet tek satır kalır: önce alt yazı, sonra "Atölye" ön eki gizlenir (menü düğmesine yer açılır) */
+@media (max-width: 980px) { .rozet--baslik .rozet__alt { display: none; } }
+@media (max-width: 480px) {
+  .baslik__sol { gap: var(--b3); }
+  .rozet--baslik { padding: .3rem .55rem; }
+  .rozet--baslik .rozet__on { display: none; }
+  .menu__dugme { padding: 0; width: var(--dokunma); justify-content: center; }
+  .menu__dugme .menu__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
 .logo img { width: 62px; height: auto; border-radius: 4px; }
 .logo__yazi { display: grid; line-height: 1.05; }
 .logo__yazi b { font: 800 1.15rem/1 var(--f-baslik); letter-spacing: .02em; }
@@ -584,7 +593,10 @@ textarea.girdi { min-height: 130px; resize: vertical; line-height: 1.5; }
 @media (max-width: 400px) {
   .logo__yazi span { display: none; }
   .logo img { width: 52px; }
-  .menu__dugme .menu__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media (max-width: 359px) {
+  /* En dar ekranda yalnızca logo işareti; yazı ekran okuyucu için kalır */
+  .logo__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 
 /* ---------------------------------------------------------------- Hareket tercihi */

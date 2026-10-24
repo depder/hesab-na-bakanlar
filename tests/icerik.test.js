@@ -75,7 +75,8 @@ test('tek telefon numarası: 0538 077 35 71', () => {
 test('adres ve atölye saatleri tüm sayfalarda tutarlı (08:30–18:00, Cmt 08:30–13:30, Pazar kapalı)', () => {
   for (const ad of SAYFALAR) {
     const metin = gorunenMetin(ad);
-    assert.match(metin, /Selimiye Mah\. Sanayi Sitesi, Milas \/ Muğla/, ad);
+    assert.match(metin, /Selimiye Mahallesi, Milas \/ Muğla/, ad);
+    assert.doesNotMatch(metin, /Sanayi Sitesi/, ad + ': harita ile çelişen eski adres');
     assert.match(metin, /08:30 – 18:00/, ad);
     assert.match(metin, /08:30 – 13:30/, ad);
     assert.match(metin, /Pazar kapalı/, ad);
@@ -97,7 +98,7 @@ test('işletme bilgileri sabit yazılmaz: sayfa kaynakları ve üreteç site.con
   for (const s of ['site.js', 'servis-talebi.js']) kaynaklar.push(fs.readFileSync(path.join(KOK, 'assets/js', s), 'utf8'));
   for (const k of kaynaklar) {
     assert.doesNotMatch(k, /0538|5380773571|077 35 71/, 'telefon');
-    assert.doesNotMatch(k, /Selimiye Mah|Sanayi Sitesi, Milas/, 'adres');
+    assert.doesNotMatch(k, /Selimiye Mah|Sanayi Sitesi/, 'adres');
     assert.doesNotMatch(k, /\b(08|09|13|17|18):(00|30)\b/, 'saat');
     assert.doesNotMatch(k, /Mücahit|Teknisyen|Servis bilgisi Almak/, 'kişi / mesaj');
   }

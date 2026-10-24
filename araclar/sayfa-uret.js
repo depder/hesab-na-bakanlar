@@ -76,6 +76,7 @@ function secenekler(liste) { return liste.map((x) => `<option>${kacir(x)}</optio
 const parcalar = {
   FIRMA: kacir(FIRMA),
   ADRES: kacir(ADRES),
+  ADRES_KISA: kacir(A.adres.satir),
   TEL_HREF: TEL_HREF,
   TEL: kacir(A.telefon.gorunen),
   WA_HAZIR: kacir(WA_HAZIR),
