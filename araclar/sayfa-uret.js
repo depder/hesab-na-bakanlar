@@ -25,6 +25,13 @@ const alanAdi = String(A.alanAdi || '').replace(/\/+$/, '');
 if (alanAdi && !/^https:\/\/[a-z0-9.-]+\.[a-z]{2,}$/i.test(alanAdi)) {
   throw new Error('site.config.json → alanAdi "https://alan.adi" biçiminde olmalı: ' + alanAdi);
 }
+// Zorunlu metin alanları: eksik ya da boşsa sitede "undefined" yayımlamak yerine durur.
+['firma', 'telefon.gorunen', 'whatsapp.karsilama', 'whatsapp.talepBasligi', 'whatsapp.talepKapanisi',
+  'adres.satir', 'adres.ilce', 'adres.il', 'adres.haritaSorgusu', 'sahaServisi', 'yonetim', 'yetkili.ad', 'yetkili.unvan', 'hizmetBolgesiNotu']
+  .forEach((alan) => {
+    const deger = alan.split('.').reduce((o, k) => (o == null ? o : o[k]), A);
+    if (typeof deger !== 'string' || !deger.trim()) throw new Error('site.config.json → "' + alan + '" eksik ya da boş.');
+  });
 if (!/^90\d{10}$/.test(A.telefon.e164) || !/^90\d{10}$/.test(A.whatsapp.numara)) {
   throw new Error('site.config.json → telefon.e164 ve whatsapp.numara 90 ile başlayan 12 hane olmalı.');
 }
