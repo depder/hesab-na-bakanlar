@@ -156,11 +156,11 @@
         var b = r.querySelector('.rozet__baslik');
         if (b) {
           var bosluk = d.baslik.indexOf(' ');
-          var on = document.createElement('span');
-          on.className = 'rozet__on';
-          on.textContent = d.baslik.slice(0, bosluk + 1);
+          var onEk = document.createElement('span');
+          onEk.className = 'rozet__on';
+          onEk.textContent = d.baslik.slice(0, bosluk + 1);
           b.textContent = d.baslik.slice(bosluk + 1);
-          b.insertBefore(on, b.firstChild);
+          b.insertBefore(onEk, b.firstChild);
         }
         var a = r.querySelector('.rozet__alt'); if (a) a.textContent = d.alt;
         var e = r.querySelector('.rozet__ek'); if (e) e.textContent = d.ek;
