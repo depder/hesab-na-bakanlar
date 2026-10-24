@@ -1,26 +1,40 @@
-/* Başkent İş Makinaları — iş mantığı (DOM'a dokunmaz; tests/ klasöründeki testler doğrudan bunu çalıştırır). */
+/* Başkent İş Makinaları — iş mantığı (DOM'a dokunmaz; tests/ klasöründeki testler doğrudan bunu çalıştırır).
+ * Telefon, mesajlar, saatler ve seçenek listeleri site.config.json'dan gelir: Node'da doğrudan okunur,
+ * tarayıcıda sayfa üretecinin yazdığı assets/js/ayar.js (window.BaskentAyar) üzerinden. */
 (function (kok) {
   'use strict';
 
-  var TELEFON = '905380773571';
-  var TELEFON_GORUNEN = '0538 077 35 71';
-  var KARSILAMA = 'Merhaba. Başkent iş Makinalarından Servis bilgisi Almak İstiyorum.';
+  var nodeda = typeof module === 'object' && module.exports;
+  var AYAR = nodeda ? require('../../site.config.json') : kok.BaskentAyar;
+  if (!AYAR) throw new Error('Site ayarları yüklenmedi (assets/js/ayar.js).');
+
+  var TELEFON = AYAR.telefon.e164;
+  var TELEFON_GORUNEN = AYAR.telefon.gorunen;
+  var WA_NUMARA = AYAR.whatsapp.numara;
+  var KARSILAMA = AYAR.whatsapp.karsilama;
   var GUNLER = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
-  // getDay() sırasıyla (0 = Pazar). Günün dakikası olarak [açılış, kapanış]; null = kapalı.
-  // Bunlar ATÖLYE saatleridir; 7/24 saha servisi bu saatlerden bağımsızdır.
-  var SAATLER = [null, [540, 1050], [540, 1050], [540, 1050], [540, 1050], [540, 1050], [540, 810]];
   var GUN_KISA = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
   var ACIKLAMA_SINIRI = 600;
-  var DIGER = 'Diğer (Kendi arızamı yazmak istiyorum)';
-  var ARIZA_KATEGORILERI = [
-    'Hidrolik sistemde güç kaybı, yavaşlama veya ana pompa kaçağı',
-    'İş makinası şanzıman / tork konvertörü arızası ve yürümeme',
-    'Motor çekiş düşüklüğü, siyah/beyaz duman veya turbo arızası',
-    'Palet yürüyüş hidromotoru / redüktör arızası veya kule dönüş problemi',
-    'Hidrolik pompa ötmesi, uğultusu veya ses yapması (Kavitasyon/Emiş)',
-    DIGER
-  ];
+  var ARIZA_KATEGORILERI = AYAR.arizaKategorileri.slice();
+  var DIGER = ARIZA_KATEGORILERI[ARIZA_KATEGORILERI.length - 1];
+  var HIZMETLER = AYAR.servisTalebi.hizmetler.map(function (h) { return h.ad; });
+  var EKIPMANLAR = AYAR.servisTalebi.ekipmanlar.slice();
+  var ACILIYETLER = AYAR.servisTalebi.aciliyetler.slice();
+  var BOLGELER = AYAR.bolgeler.slice();
   var bicimleyici = null;
+
+  function dakikaOku(metin) {
+    var p = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(metin));
+    if (!p) throw new Error('Saat "SS:DD" biçiminde olmalı: ' + metin);
+    return Number(p[1]) * 60 + Number(p[2]);
+  }
+
+  // getDay() sırasıyla (0 = Pazar). Günün dakikası olarak [açılış, kapanış]; null = kapalı.
+  // Bunlar ATÖLYE saatleridir; saha servisi bu saatlerden bağımsızdır.
+  var SAATLER = [null, null, null, null, null, null, null];
+  AYAR.calismaSaatleri.forEach(function (s) {
+    s.gunler.forEach(function (g) { SAATLER[g] = s.acilis ? [dakikaOku(s.acilis), dakikaOku(s.kapanis)] : null; });
+  });
 
   // Atölye Milas'ta: durum ziyaretçinin bulunduğu yerden bağımsız olarak Türkiye saatiyle hesaplanır.
   function istanbulZamani(tarih) {
@@ -33,7 +47,7 @@
     var p = {};
     bicimleyici.formatToParts(tarih).forEach(function (parca) { p[parca.type] = parca.value; });
     var saat = Number(p.hour) % 24;
-    return { gun: GUN_KISA[p.weekday], dakika: saat * 60 + Number(p.minute), yil: p.year, ay: p.month, gunNo: p.day, saat: saat, dk: Number(p.minute) };
+    return { gun: GUN_KISA[p.weekday], dakika: saat * 60 + Number(p.minute), yil: p.year };
   }
 
   function iki(sayi) { return String(sayi).padStart(2, '0'); }
@@ -46,21 +60,16 @@
   function durumHesapla(z) {
     var bugun = SAATLER[z.gun];
     if (bugun && z.dakika >= bugun[0] && z.dakika < bugun[1]) {
-      return { acik: true, baslik: 'Açık', alt: 'Atölye Hizmet Veriyor', ek: 'Bugün kapanış ' + saatYaz(bugun[1]) };
+      return { acik: true, baslik: 'Atölye Açık', alt: 'Hizmete Hazır', ek: 'Bugün kapanış ' + saatYaz(bugun[1]) };
     }
     for (var fark = 0; fark <= 7; fark++) {
       var g = (z.gun + fark) % 7;
       var s = SAATLER[g];
       if (!s || (fark === 0 && z.dakika >= s[0])) continue;
       var hangiGun = fark === 0 ? 'bugün' : fark === 1 ? 'yarın' : GUNLER[g];
-      return { acik: false, baslik: 'Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: 'İlk mesai: ' + hangiGun + ' ' + saatYaz(s[0]) };
+      return { acik: false, baslik: 'Atölye Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: 'Açılış: ' + hangiGun + ' ' + saatYaz(s[0]) };
     }
-    return { acik: false, baslik: 'Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: '' };
-  }
-
-  // İş emri numarası: BK-YYAAGG-SSDD (Türkiye saatiyle)
-  function isEmriNo(z) {
-    return 'BK-' + String(z.yil).slice(-2) + z.ay + z.gunNo + '-' + iki(z.saat) + iki(z.dk);
+    return { acik: false, baslik: 'Atölye Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: '' };
   }
 
   function tekSatir(deger) {
@@ -84,25 +93,26 @@
     return 'https://maps.google.com/?q=' + enlem.toFixed(6) + ',' + boylam.toFixed(6);
   }
 
-  // v: { ad, telefon, makineTuru, marka, model, seriNo, kategori, aciliyet, adres, konum: {enlem, boylam, dogruluk} | null, aciklama }
-  // Yalnızca doldurulan alanlar mesaja girer; konum yalnızca kullanıcı "konumumu ekle" dediyse vardır.
-  function isEmriMetni(v, no) {
-    var satirlar = [KARSILAMA, '', '*SERVİS TALEBİ · ' + no + '*'];
+  // v: { hizmet, ekipman, aciliyet, bolge, kategori, ad, telefon, makine, konum: {enlem, boylam, dogruluk} | null, aciklama }
+  // Şablon: başlık → dört zorunlu satır → yalnızca doldurulan ek bilgiler → kapanış cümlesi.
+  function talepMetni(v) {
+    var satirlar = [AYAR.whatsapp.talepBasligi, ''];
     function ekle(etiket, deger) { if (deger) satirlar.push('*' + etiket + ':* ' + deger); }
+    ekle('Talep Türü', tekSatir(v.hizmet));
+    ekle('Ekipman', tekSatir(v.ekipman));
+    ekle('Aciliyet', tekSatir(v.aciliyet));
+    ekle('Bölge', tekSatir(v.bolge));
+    ekle('Arıza', tekSatir(v.kategori));
+    ekle('Marka / model', tekSatir(v.makine));
     ekle('Ad soyad', tekSatir(v.ad));
     ekle('Telefon', tekSatir(v.telefon));
-    ekle('Makine türü', tekSatir(v.makineTuru));
-    ekle('Marka / model', [tekSatir(v.marka), tekSatir(v.model)].filter(Boolean).join(' '));
-    ekle('Seri no', tekSatir(v.seriNo));
-    ekle('Arıza', tekSatir(v.kategori));
-    ekle('Aciliyet', tekSatir(v.aciliyet));
-    ekle('Adres', tekSatir(v.adres));
     if (v.konum) {
       var bag = konumBaglantisi(v.konum.enlem, v.konum.boylam);
       if (bag) ekle('Konum', bag + (sayiMi(v.konum.dogruluk) ? ' (±' + Math.round(v.konum.dogruluk) + ' m)' : ''));
     }
     var aciklama = cokSatir(v.aciklama);
-    if (aciklama) satirlar.push('*Arıza açıklaması:*', aciklama);
+    if (aciklama) satirlar.push('*Açıklama:*', aciklama);
+    satirlar.push('', AYAR.whatsapp.talepKapanisi);
     return satirlar.join('\n');
   }
 
@@ -112,7 +122,14 @@
   }
 
   function waAdresi(metin) {
-    return 'https://wa.me/' + TELEFON + '?text=' + encodeURIComponent(metin);
+    return 'https://wa.me/' + WA_NUMARA + '?text=' + encodeURIComponent(metin);
+  }
+
+  // Masaüstünde wa.me yerine doğrudan WhatsApp Web açılır (kurulu WhatsApp Desktop bu adresi devralabilir).
+  function waMasaustuAdresi(adres) {
+    var p = /^https:\/\/wa\.me\/(\d+)(?:\?text=([^#]*))?$/.exec(String(adres || ''));
+    if (!p) return adres;
+    return 'https://web.whatsapp.com/send?phone=' + p[1] + (p[2] ? '&text=' + p[2] : '');
   }
 
   // Telefon: boş olabilir; doluysa 10-13 hane olmalı
@@ -121,14 +138,17 @@
     return haneler.length === 0 || (haneler.length >= 10 && haneler.length <= 13);
   }
 
-  // Form doğrulaması: { alanAdi: 'hata metni' } döner; boş nesne = geçerli.
-  // Zorunlu: ad soyad ve arıza kategorisi. "Diğer" seçilirse açıklama da gerekir.
-  function dogrula(v) {
+  // Servis talebi doğrulaması: { alan: 'hata metni' } döner; boş nesne = geçerli.
+  // Zorunlu: talep türü, ekipman, aciliyet, bölge. "Diğer" arızası seçilirse açıklama da gerekir.
+  function talepDogrula(v) {
     var hatalar = {};
-    if (tekSatir(v.ad).length < 2) hatalar.ad = 'Adınızı ve soyadınızı yazın.';
+    if (HIZMETLER.indexOf(v.hizmet) === -1) hatalar.hizmet = 'Talep türünü seçin.';
+    if (EKIPMANLAR.indexOf(v.ekipman) === -1) hatalar.ekipman = 'Ekipmanı seçin.';
+    if (ACILIYETLER.indexOf(v.aciliyet) === -1) hatalar.aciliyet = 'Aciliyeti seçin.';
+    if (BOLGELER.indexOf(v.bolge) === -1) hatalar.bolge = 'Bölgeyi seçin.';
     if (!telefonGecerliMi(v.telefon)) hatalar.telefon = 'Telefonu 05xx xxx xx xx biçiminde yazın ya da boş bırakın.';
-    if (ARIZA_KATEGORILERI.indexOf(v.kategori) === -1) hatalar.kategori = 'Arıza kategorisini seçin.';
-    else if (v.kategori === DIGER && cokSatir(v.aciklama).length < 5) hatalar.aciklama = '"Diğer" seçtiğinizde arızayı kısaca yazın.';
+    if (v.kategori && ARIZA_KATEGORILERI.indexOf(v.kategori) === -1) hatalar.kategori = 'Listeden bir arıza seçin.';
+    if (v.kategori === DIGER && cokSatir(v.aciklama).length < 5) hatalar.aciklama = '"Diğer" seçtiğinizde arızayı kısaca yazın.';
     if (String(v.aciklama || '').length > ACIKLAMA_SINIRI) hatalar.aciklama = 'Açıklama en fazla ' + ACIKLAMA_SINIRI + ' karakter olabilir.';
     return hatalar;
   }
@@ -151,13 +171,14 @@
   }
 
   var api = {
-    TELEFON: TELEFON, TELEFON_GORUNEN: TELEFON_GORUNEN, KARSILAMA: KARSILAMA, SAATLER: SAATLER, GUNLER: GUNLER,
+    AYAR: AYAR, TELEFON: TELEFON, TELEFON_GORUNEN: TELEFON_GORUNEN, KARSILAMA: KARSILAMA, SAATLER: SAATLER, GUNLER: GUNLER,
     ACIKLAMA_SINIRI: ACIKLAMA_SINIRI, ARIZA_KATEGORILERI: ARIZA_KATEGORILERI, DIGER: DIGER,
-    istanbulZamani: istanbulZamani, saatYaz: saatYaz, durumHesapla: durumHesapla, isEmriNo: isEmriNo,
-    konumBaglantisi: konumBaglantisi, isEmriMetni: isEmriMetni, hizliMesaj: hizliMesaj, waAdresi: waAdresi,
-    telefonGecerliMi: telefonGecerliMi, dogrula: dogrula,
+    HIZMETLER: HIZMETLER, EKIPMANLAR: EKIPMANLAR, ACILIYETLER: ACILIYETLER, BOLGELER: BOLGELER,
+    dakikaOku: dakikaOku, istanbulZamani: istanbulZamani, saatYaz: saatYaz, durumHesapla: durumHesapla,
+    konumBaglantisi: konumBaglantisi, talepMetni: talepMetni, talepDogrula: talepDogrula, hizliMesaj: hizliMesaj,
+    waAdresi: waAdresi, waMasaustuAdresi: waMasaustuAdresi, telefonGecerliMi: telefonGecerliMi,
     cerceveIcindeMi: cerceveIcindeMi, telBaglantilariniAyarla: telBaglantilariniAyarla
   };
-  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (nodeda) module.exports = api;
   else kok.Baskent = api;
 })(typeof window !== 'undefined' ? window : globalThis);

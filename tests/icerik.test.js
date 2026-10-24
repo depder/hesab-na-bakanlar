@@ -35,7 +35,7 @@ test('başlık düzeni: H2 öncesinde H3 yok (H1 → H2 → H3)', () => {
 });
 
 test('alan adı bilinmiyorken sahte alan adı yayımlanmaz', () => {
-  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'kaynak/site.json'), 'utf8'));
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
   if (ayar.alanAdi) return;
   for (const { ad, html } of tumSayfalar()) {
     assert.doesNotMatch(html, /github\.io|example\.com|ornek\.com|alanadi/i, ad);
@@ -46,17 +46,19 @@ test('alan adı bilinmiyorken sahte alan adı yayımlanmaz', () => {
   assert.doesNotMatch(fs.readFileSync(path.join(KOK, 'robots.txt'), 'utf8'), /Sitemap:/);
 });
 
-test('kişi adı yalnızca Mücahit ÇAKIR, unvan her yerde BAŞ TEKNİSYEN', () => {
+test('kişi adı yalnızca Mücahit ÇAKIR, unvan "Baş Teknisyen / Master Technician"; Şirket Yönetimi anılır', () => {
   for (const ad of SAYFALAR) {
     const metin = gorunenMetin(ad);
-    assert.doesNotMatch(metin, /Baş Teknisyen|Master Technician|Baş Uzman|Mücahit Çakır|Usta Başı/, ad);
+    assert.doesNotMatch(metin, /BAŞ TEKNİSYEN|Baş Uzman|Mücahit Çakır|Usta Başı/, ad);
   }
-  assert.match(gorunenMetin('index'), /Mücahit ÇAKIR[\s\S]{0,40}BAŞ TEKNİSYEN/);
+  assert.match(gorunenMetin('index'), /Mücahit ÇAKIR[\s\S]{0,40}Baş Teknisyen \/ Master Technician/);
+  assert.match(gorunenMetin('index'), /Şirket Yönetimi/);
+  assert.match(gorunenMetin('hakkimizda'), /Şirket Yönetimi[\s\S]*Mücahit ÇAKIR[\s\S]{0,40}Baş Teknisyen \/ Master Technician/);
   for (const { ad, html } of tumSayfalar()) {
-    assert.doesNotMatch(html, /\bCem\b|Şahin/i, ad);
+    assert.doesNotMatch(html, /\bCem\b|Şahin|COO/i, ad);
   }
   const veri = JSON.parse(sayfaHtml('index').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
-  assert.deepEqual(veri.employee, { '@type': 'Person', name: 'Mücahit ÇAKIR', jobTitle: 'BAŞ TEKNİSYEN' });
+  assert.deepEqual(veri.employee, { '@type': 'Person', name: 'Mücahit ÇAKIR', jobTitle: 'Baş Teknisyen / Master Technician' });
 });
 
 test('tek telefon numarası: 0538 077 35 71', () => {
@@ -70,35 +72,64 @@ test('tek telefon numarası: 0538 077 35 71', () => {
   }
 });
 
-test('adres ve atölye saatleri tüm sayfalarda tutarlı', () => {
+test('adres ve atölye saatleri tüm sayfalarda tutarlı (08:30–18:00, Cmt 08:30–13:30, Pazar kapalı)', () => {
   for (const ad of SAYFALAR) {
     const metin = gorunenMetin(ad);
     assert.match(metin, /Selimiye Mah\. Sanayi Sitesi, Milas \/ Muğla/, ad);
-    assert.match(metin, /09:00 – 17:30/, ad);
-    assert.match(metin, /09:00 – 13:30/, ad);
-    assert.doesNotMatch(metin, /08:00|18:00|19:00|Pazar 09/, ad);
+    assert.match(metin, /08:30 – 18:00/, ad);
+    assert.match(metin, /08:30 – 13:30/, ad);
+    assert.match(metin, /Pazar kapalı/, ad);
+    assert.doesNotMatch(metin, /08:00|09:00|17:30|19:00/, ad);
   }
   const veri = JSON.parse(sayfaHtml('iletisim').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
-  assert.equal(veri.telephone, '+90-538-077-35-71');
+  assert.equal(veri.telephone, '+905380773571');
   assert.equal(veri.address.addressLocality, 'Milas');
-  assert.deepEqual(veri.openingHoursSpecification.map((o) => [o.opens, o.closes]), [['09:00', '17:30'], ['09:00', '13:30']]);
+  assert.deepEqual(veri.openingHoursSpecification.map((o) => [o.opens, o.closes]), [['08:30', '18:00'], ['08:30', '13:30']]);
+  assert.equal(veri.geo, undefined, 'koordinat bilinmiyorken uydurulmaz');
   assert.equal(veri.aggregateRating, undefined);
   assert.equal(veri.review, undefined);
 });
 
-test('ana sayfa: istenen başlık, açıklama ve iki düğme; harita → iletişim → galeri sırası', () => {
+test('işletme bilgileri sabit yazılmaz: sayfa kaynakları ve üreteç site.config.json\'a bağlı', () => {
+  const kaynaklar = fs.readdirSync(path.join(KOK, 'kaynak/sayfalar')).map((d) => fs.readFileSync(path.join(KOK, 'kaynak/sayfalar', d), 'utf8'));
+  kaynaklar.push(fs.readFileSync(path.join(KOK, 'araclar/sayfa-uret.js'), 'utf8'));
+  kaynaklar.push(fs.readFileSync(path.join(KOK, 'assets/js/cekirdek.js'), 'utf8'));
+  for (const s of ['site.js', 'servis-talebi.js']) kaynaklar.push(fs.readFileSync(path.join(KOK, 'assets/js', s), 'utf8'));
+  for (const k of kaynaklar) {
+    assert.doesNotMatch(k, /0538|5380773571|077 35 71/, 'telefon');
+    assert.doesNotMatch(k, /Selimiye Mah|Sanayi Sitesi, Milas/, 'adres');
+    assert.doesNotMatch(k, /\b(08|09|13|17|18):(00|30)\b/, 'saat');
+    assert.doesNotMatch(k, /Mücahit|Teknisyen|Servis bilgisi Almak/, 'kişi / mesaj');
+  }
+  const ayarJs = fs.readFileSync(path.join(KOK, 'assets/js/ayar.js'), 'utf8');
+  assert.deepEqual(JSON.parse(ayarJs.slice(ayarJs.indexOf('=') + 1).trim().replace(/;$/, '')), JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8')));
+});
+
+test('ana sayfa: ilk görünen Google Haritalar; Yol Tarifi Al ve Konumu Paylaş; ardından hizmetler, güvence, saatler', () => {
   const html = sayfaHtml('index');
-  const metin = gorunenMetin('index');
-  assert.match(metin, /Gücün arkasındaki mühendislik\./);
-  assert.match(metin, /İş makinelerinde hidrolik sistemler, şanzıman ve dizel motor revizyonu için profesyonel servis çözümleri\./);
-  assert.match(html, /href="is-emri\.html">Servis Talebi Oluştur/);
-  assert.match(html, /href="hizmetler\.html">Hizmetlerimizi İncele</);
-  const sira = ['id="konum"', 'id="iletisim-bilgileri"', 'id="galeri"'].map((s) => html.indexOf(s));
-  assert.ok(sira.every((i) => i > 0) && sira[0] < sira[1] && sira[1] < sira[2], String(sira));
+  const govde = html.slice(html.indexOf('<main'));
+  assert.ok(govde.indexOf('<iframe class="kahraman-harita__cerceve" src="https://maps.google.com/maps?q=') > 0);
+  assert.ok(govde.indexOf('<iframe') < govde.indexOf('<h1'), 'harita ilk bölümde');
+  assert.match(govde, /href="https:\/\/www\.google\.com\/maps\/dir\/\?api=1&amp;destination=[^"]+"[^>]*>\s*<span class="eylem__ikon">[\s\S]*?Yol Tarifi Al/);
+  assert.match(govde, /<button class="eylem eylem--paylas" type="button" data-paylas [^>]*data-url="https:\/\/www\.google\.com\/maps\/search\/[^"]+"/);
+  const sira = ['class="kahraman-harita"', 'id="hizmetler"', 'id="guvence"', 'id="saatler"', 'id="galeri"'].map((s) => govde.indexOf(s));
+  assert.ok(sira.every((i) => i >= 0) && sira.every((i, n) => n === 0 || sira[n - 1] < i), String(sira));
+});
+
+test('başlık: logo, canlı atölye rozeti, Hemen Ara ve WhatsApp; masaüstü telefon penceresi; mobil alt şerit', () => {
+  for (const { ad, html } of tumSayfalar()) {
+    const baslik = html.slice(html.indexOf('<header class="baslik">'), html.indexOf('</header>'));
+    assert.match(baslik, /class="baslik__sol">\s*<a class="logo"[\s\S]*<p class="rozet rozet--baslik" data-durum>/, ad);
+    assert.match(baslik, /<div class="baslik__eylem">\s*<a class="dugme dugme--altin dugme--kucuk" href="tel:\+905380773571">[\s\S]*Hemen Ara<\/a>\s*<a class="dugme dugme--wa/, ad);
+    assert.match(html, /<dialog class="tel-pencere" id="telPencere"[\s\S]*data-kopyala="0538 077 35 71"[\s\S]*data-tel-dogrudan/, ad);
+    assert.match(html, /<aside class="hizli"[\s\S]*class="hizli__ara"[\s\S]*class="hizli__wa"/, ad);
+    const menu = [...html.matchAll(/<ul class="menu__liste"[\s\S]*?<\/ul>/g)][0][0];
+    assert.deepEqual([...menu.matchAll(/href="([^"]+)"/g)].map((m) => m[1]), ['./', 'hizmetlerimiz.html', 'hakkimizda.html', 'iletisim.html', 'servis-talebi.html'], ad);
+  }
 });
 
 test('hizmetler sayfası istenen hizmetleri içerir', () => {
-  const metin = gorunenMetin('hizmetler');
+  const metin = gorunenMetin('hizmetlerimiz');
   for (const h of ['Hidrolik Sistem Servisi', 'Şanzıman ve Tork Konvertörü', 'Dizel Motor Revizyonu (Overhaul)', 'Atölye Servisi', 'Yerinde Saha Servisi', 'Kova Tamiri ve Hardox Zırhlama', 'Mekanik Ağır Bakım']) {
     assert.ok(metin.includes(h), h);
   }
@@ -108,22 +139,41 @@ test('hizmetler sayfası istenen hizmetleri içerir', () => {
 test('yapılmayan işler, model adı ve uydurma iddialar yok', () => {
   for (const ad of SAYFALAR) {
     const metin = gorunenMetin(ad);
-    assert.doesNotMatch(metin, /borvek|sıfırdan imalat|sunulmamaktadır/i, ad);
+    assert.doesNotMatch(metin, /borvek|imalat|sunulmamaktadır/i, ad);
     assert.doesNotMatch(metin, /hitachi|zaxis|\bzx\s?250/i, ad);
     assert.doesNotMatch(metin, /garanti|sertifika|müşteri yorum|memnun müşteri|\d+\+? yıllık|\d+\.?\d*\+ makine|%\d+/i, ad);
   }
 });
 
-test('servis talebi formu: istenen alanlar, altı kategori, KVKK bağlantısı', () => {
-  const html = sayfaHtml('is-emri');
-  for (const ad of ['ad', 'telefon', 'marka', 'model', 'seriNo', 'aciklama', 'adres']) assert.match(html, new RegExp('name="' + ad + '"'), ad);
-  const kategoriler = [...html.matchAll(/name="kategori" value="([^"]+)"/g)].map((m) => m[1]);
-  assert.deepEqual(kategoriler, B.ARIZA_KATEGORILERI);
+test('servis talebi: 3 adım, seçenekler site.config.json\'dan, yalnız dört seçim zorunlu', () => {
+  const html = sayfaHtml('servis-talebi');
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+  for (const id of ['adim1', 'adim2', 'adim3']) assert.match(html, new RegExp('id="' + id + '"'), id);
+  assert.deepEqual([...html.matchAll(/name="hizmet" value="([^"]+)"/g)].map((m) => m[1]), ayar.servisTalebi.hizmetler.map((h) => h.ad));
+  assert.deepEqual([...html.matchAll(/name="aciliyet" value="([^"]+)"/g)].map((m) => m[1]), ayar.servisTalebi.aciliyetler);
+  const secenekler = (ad) => [...html.match(new RegExp('<select[^>]*name="' + ad + '"[\\s\\S]*?</select>'))[0].matchAll(/<option>([^<]+)<\/option>/g)].map((m) => m[1]);
+  assert.deepEqual(secenekler('ekipman'), ayar.servisTalebi.ekipmanlar);
+  assert.deepEqual(secenekler('bolge'), ayar.bolgeler);
+  assert.deepEqual(secenekler('kategori'), B.ARIZA_KATEGORILERI);
   assert.match(html, /id="konumAl"/);
   assert.match(html, /href="kvkk\.html"/);
-  // Zorunlu olan yalnızca ad ve kategori
-  assert.deepEqual([...html.matchAll(/<(?:input|textarea|select)[^>]*\srequired[^>]*>/g)].map((m) => m[0].match(/name="([^"]+)"/)[1]), ['ad', 'kategori']);
+  assert.match(html, /WhatsApp ile Talep Oluştur/);
+  assert.deepEqual([...html.matchAll(/<(?:input|textarea|select)[^>]*\srequired[^>]*>/g)].map((m) => m[0].match(/name="([^"]+)"/)[1]), ['hizmet', 'ekipman', 'bolge', 'aciliyet']);
   assert.doesNotMatch(html, /<form[^>]*action=/, 'form bir sunucuya gönderiyormuş gibi görünmemeli');
+  assert.doesNotMatch(gorunenMetin('servis-talebi'), /Hidromek|JCB|CAT\b|320D|3CX|102S/, 'örnek model adı yok');
+});
+
+test('hizmet sayfasındaki talep bağlantıları geçerli bir hizmete gider', () => {
+  const html = sayfaHtml('hizmetlerimiz');
+  const nolar = [...html.matchAll(/servis-talebi\.html\?hizmet=(\d+)/g)].map((m) => Number(m[1]));
+  assert.ok(nolar.length >= 5);
+  for (const n of nolar) assert.ok(n >= 1 && n <= B.HIZMETLER.length, String(n));
+});
+
+test('KVKK metni ana sayfada otomatik yüklenen haritayı açıklar', () => {
+  const metin = gorunenMetin('kvkk');
+  assert.match(metin, /Ana sayfanın en üstündeki harita, sayfa açılırken Google Haritalar'dan yüklenir/);
+  assert.match(metin, /WhatsApp ile Talep Oluştur/);
 });
 
 test('iletişim sayfasında altı WhatsApp hızlı arıza kartı var', () => {

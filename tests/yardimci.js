@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const KOK = path.join(__dirname, '..');
-const SAYFALAR = ['index', 'hizmetler', 'surec', 'is-emri', 'iletisim', 'kvkk'];
+const SAYFALAR = ['index', 'hizmetlerimiz', 'servis-talebi', 'hakkimizda', 'iletisim', 'kvkk'];
 
 function sayfaHtml(ad = 'index') {
   return fs.readFileSync(path.join(KOK, ad + '.html'), 'utf8');

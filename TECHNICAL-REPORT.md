@@ -6,7 +6,7 @@ Tarih: 17 Ekim 2026 · Önceki sürümün yedeği: `master` dalındaki d725898 n
 
 - Güncel site tek dosyaydı: `index.html` (~134 KB; CSS, JS ve logo içine gömülü). Kökteki `baskent-is-makinalari.html` git'te izlenmeyen, eski bir paket çıktısıydı; dokunulmadı.
 - Çalışan özellikler: Türkiye saatine göre canlı "Açık / Kapalı" rozeti, WhatsApp iş emri oluşturucu, 3D ekskavatör (three.js), çerçeve içinde `tel:` düzeltmesi. Hepsi korundu.
-- Doğrulanmış işletme bilgileri: Selimiye Mah. Sanayi Sitesi, Milas / Muğla · 0538 077 35 71 · atölye Pzt–Cum 09:00–17:30, Cmt 09:00–13:30, Pazar kapalı · hizmet bölgesi Muğla'nın tüm ilçeleri ve Didim · muhatap Mücahit ÇAKIR (BAŞ TEKNİSYEN). "7/24 saha servisi" ve şanzıman / tork konvertörü hizmeti kullanıcının talimatından alındı.
+- Doğrulanmış işletme bilgileri: Selimiye Mah. Sanayi Sitesi, Milas / Muğla · 0538 077 35 71 · atölye Pzt–Cum 08:30–18:00, Cmt 08:30–13:30, Pazar kapalı · hizmet bölgesi Muğla'nın tüm ilçeleri ve Didim · muhatap Mücahit ÇAKIR (Baş Teknisyen / Master Technician), yönetim "Şirket Yönetimi". Tümü `site.config.json`'da tek kaynaktan. "7/24 saha servisi" ve şanzıman / tork konvertörü hizmeti kullanıcının talimatından alındı.
 
 ## 2. Kaynak araştırması — erişim durumu
 
@@ -47,7 +47,7 @@ Logo: mevcut logo korundu (`assets/images/logo.jpg`, `logo-isaret.png` yedek; si
 
 ## 4. Çok sayfalı yapı
 
-Altı sayfa: `index`, `hizmetler`, `surec`, `is-emri`, `iletisim`, `kvkk`. Ortak üst bilgi, menü, alt bilgi ve ikonlar `araclar/sayfa-uret.js` ile tek kaynaktan üretilir (bağımlılıksız Node betiği). Ana sayfa sırası: karşılama → harita → iletişim bilgileri → uzmanlık alanları → galeri.
+Altı sayfa: `index`, `hizmetlerimiz`, `servis-talebi`, `hakkimizda`, `iletisim`, `kvkk`. Ortak üst bilgi, menü, alt bilgi ve ikonlar `araclar/sayfa-uret.js` ile tek kaynaktan üretilir (bağımlılıksız Node betiği). Ana sayfa sırası: Google Haritalar (ilk ekran; Yol Tarifi Al / Konumu Paylaş kartları) → kısa bilgi bandı → hizmet özetleri → Şirket Yönetimi güvencesi → çalışma saatleri → galeri. Harita ana sayfada otomatik yüklendiği için KVKK metni buna göre güncellendi. Masaüstünde telefon bağlantısı kopyala / ara penceresi açar, WhatsApp bağlantıları WhatsApp Web'e gider; mobilde alt şeritte Ara ve WhatsApp sabittir.
 
 ## 5. Akıcı kaydırma ve animasyonlar
 
@@ -88,8 +88,8 @@ Kaynaklar (web araması): [Meta — Cloud API Get Started](https://developers.fa
 ## 7. SEO ve güvenlik
 
 - Her sayfada benzersiz `title` ve `description`, `lang="tr"`, tek H1, sıralı H2/H3, Open Graph başlık/açıklama, favicon (SVG + PNG), `manifest.webmanifest`, `robots.txt`.
-- **Canonical ve sitemap:** Üretim alan adı bilinmiyor. Sahte alan adı yayımlanmadı: canonical şimdilik göreli, `sitemap.xml`, `og:url` ve `og:image` üretilmiyor (Lighthouse SEO 92 bu yüzden — "canonical mutlak değil"). Alan adı `kaynak/site.json`'a yazılınca tek komutla tamamlanır.
-- Yapısal veri (LocalBusiness): yalnızca doğrulanmış ad, telefon, adres, atölye saatleri, hizmet bölgesi, hizmet listesi ve çalışan (Mücahit ÇAKIR, BAŞ TEKNİSYEN). Puan, yorum, sertifika yok.
+- **Canonical ve sitemap:** Üretim alan adı bilinmiyor. Sahte alan adı yayımlanmadı: canonical şimdilik göreli, `sitemap.xml`, `og:url` ve `og:image` üretilmiyor (Lighthouse SEO 92 bu yüzden — "canonical mutlak değil"). Alan adı `site.config.json`'a yazılınca tek komutla tamamlanır.
+- Yapısal veri (LocalBusiness): yalnızca doğrulanmış ad, telefon, adres, atölye saatleri, hizmet bölgesi, hizmet listesi ve çalışan (Mücahit ÇAKIR, Baş Teknisyen / Master Technician). Puan, yorum, sertifika yok.
 - Güvenlik: sitede kullanıcı girdisi DOM'a yalnızca `textContent` ile yazılır (XSS yolu yok); dış bağlantılar `rel="noopener"`; `Referrer-Policy` meta etiketi; üçüncü taraf betik yok (3D için yerel kopya, dosyadan açılışta yedek olarak jsDelivr); Google Haritalar yalnızca tıklayınca yüklenir. Sunucu, form gönderimi, dosya yükleme, API anahtarı yok — CSRF / istek sınırlama gerektiren bir uç nokta bulunmuyor. Barındırmada önerilen başlıklar: `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`.
 - KVKK metni sitenin bugünkü gerçek işleyişine göre yazıldı; **hukuki uygunluğu bir uzman tarafından doğrulanmadı**, yayından önce gözden geçirilmeli.
 
@@ -109,7 +109,7 @@ Lighthouse 13.5.0, **laboratuvar verisi** (yerel sunucu, bu konteynerin yazılı
 | index | 92 · 3,3 s · 30 ms · 0 | 70 · 0,7 s · 1.150 ms · 0,018 |
 | hizmetler | 94 · 3,1 s · 0 ms · 0 | 100 · 0,7 s · 0 ms · 0 |
 | surec | 95 · 2,9 s · 0 ms · 0 | 100 · 0,7 s · 0 ms · 0 |
-| is-emri | 94 · 3,0 s · 50 ms · 0 | 100 · 0,7 s · 0 ms · 0,001 |
+| is-emri (eski adı; servis-talebi olarak yeniden yazıldı, yeniden ölçülmedi) | 94 · 3,0 s · 50 ms · 0 | 100 · 0,7 s · 0 ms · 0,001 |
 | iletisim | 95 · 2,9 s · 10 ms · 0 | 100 · 0,7 s · 0 ms · 0 |
 | kvkk | 94 · 3,0 s · 0 ms · 0 | 100 · 0,7 s · 0 ms · 0 |
 

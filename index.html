@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Başkent İş Makinaları — İş Makinesi Hidrolik, Şanzıman ve Dizel Motor Servisi · Milas</title>
-<meta name="description" content="Milas Selimiye Sanayi Sitesi'nde iş makinelerine hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 yerinde saha servisi. Tel: 0538 077 35 71.">
+<meta name="description" content="Milas Selimiye Sanayi Sitesi'nde iş makinelerine hidrolik, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 saha servisi. Tel: 0538 077 35 71.">
 <link rel="canonical" href="./">
 <meta name="theme-color" content="#101827">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Başkent İş Makinaları">
 <meta property="og:title" content="Başkent İş Makinaları — İş Makinesi Hidrolik, Şanzıman ve Dizel Motor Servisi · Milas">
-<meta property="og:description" content="Milas Selimiye Sanayi Sitesi'nde iş makinelerine hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 yerinde saha servisi. Tel: 0538 077 35 71.">
+<meta property="og:description" content="Milas Selimiye Sanayi Sitesi'nde iş makinelerine hidrolik, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve 7/24 saha servisi. Tel: 0538 077 35 71.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
@@ -28,7 +28,7 @@
   "@type": "LocalBusiness",
   "name": "Başkent İş Makinaları",
   "description": "Ekskavatör, loder, beko loder, vinç ve diğer iş makineleri için hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve yerinde saha servisi.",
-  "telephone": "+90-538-077-35-71",
+  "telephone": "+905380773571",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Selimiye Mah. Sanayi Sitesi",
@@ -46,13 +46,15 @@
         "Thursday",
         "Friday"
       ],
-      "opens": "09:00",
-      "closes": "17:30"
+      "opens": "08:30",
+      "closes": "18:00"
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:00",
+      "dayOfWeek": [
+        "Saturday"
+      ],
+      "opens": "08:30",
       "closes": "13:30"
     }
   ],
@@ -69,7 +71,7 @@
   "employee": {
     "@type": "Person",
     "name": "Mücahit ÇAKIR",
-    "jobTitle": "BAŞ TEKNİSYEN"
+    "jobTitle": "Baş Teknisyen / Master Technician"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -79,49 +81,35 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Hidrolik Sistem Servisi"
+          "name": "Kova Tamiri / Zırhlama"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Şanzıman ve Tork Konvertörü"
+          "name": "Mekanik Bakım / Overhaul"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Dizel Motor Revizyonu (Overhaul)"
+          "name": "Hidrolik Sistem"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Atölye Servisi"
+          "name": "Şanzıman / Tork Konvertörü"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Yerinde Saha Servisi"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Kova Tamiri ve Hardox Zırhlama"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Mekanik Ağır Bakım"
+          "name": "Saha Acil Servis"
         }
       }
     ]
@@ -131,6 +119,7 @@
 <script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/vendor/gsap.min.js"></script>
 <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/ayar.js"></script>
 <script defer src="assets/js/cekirdek.js"></script>
 <script defer src="assets/js/site.js"></script>
 </head>
@@ -166,164 +155,132 @@
   <symbol id="i-silindir" viewBox="0 0 24 24"><rect x="2.5" y="8.5" width="11" height="7" rx="1.6"/><path d="M13.5 12h6"/><circle cx="20.5" cy="12" r="1.6"/><path d="M6 8.5V6.5M10 15.5v2"/></symbol>
   <symbol id="i-motor" viewBox="0 0 24 24"><path d="M7 8h3V6h4v2h2l2 2h2v2.5h1.5v3H20V18h-3l-2 2H8l-1-2H5v-3H3.5v-3H5V10l2-2z"/><path d="M10 6V4.5h4V6M11 12.5l-1.5 2.5h3L11 17.5"/></symbol>
   <symbol id="i-sanziman" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.2"/><circle cx="16.5" cy="15.5" r="4.2"/><path d="M8 3v1.6M8 11.4V13M3 8h1.6M11.4 8H13M16.5 9.5v1.8M16.5 19.7v1.8M10.5 15.5h1.8M20.7 15.5h1.8"/></symbol>
+  <symbol id="i-paylas" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol>
 </svg>
-<aside class="ust-serit" aria-label="Atölye durumu ve telefon">
-  <div class="sar ust-serit__ic">
-    <p class="rozet" data-durum><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 09:00–17:30 · Cmt 09:00–13:30</span><span class="rozet__ek"></span></span></p>
-    <span class="ust-serit__saha"><svg class="ikon" aria-hidden="true"><use href="#i-siren"/></svg><span><b>7/24 saha servisi</b> · acil arızada arayın</span></span>
-    <a class="ust-serit__tel" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span class="sayi">0538 077 35 71</span></a>
-  </div>
-</aside>
 <header class="baslik">
   <div class="sar baslik__ic">
-    <a class="logo" href="./">
-      <img src="assets/images/logo-isaret.webp" width="240" height="144" alt="">
-      <span class="logo__yazi"><b>BAŞKENT</b> <span>İş Makinaları</span><span class="gorunmez"> — Ana Sayfa</span></span>
-    </a>
+    <div class="baslik__sol">
+      <a class="logo" href="./">
+        <img src="assets/images/logo-isaret.webp" width="240" height="144" alt="">
+        <span class="logo__yazi"><b>BAŞKENT</b> <span>İş Makinaları</span><span class="gorunmez"> — Ana Sayfa</span></span>
+      </a>
+      <p class="rozet rozet--baslik" data-durum><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 08:30–18:00 · Cmt 08:30–13:30</span><span class="rozet__ek"></span></span></p>
+    </div>
     <nav class="menu" aria-label="Ana menü">
       <button class="menu__dugme" type="button" aria-expanded="false" aria-controls="menuListe">
         <svg class="ikon menu__ikon-ac" aria-hidden="true"><use href="#i-menu"/></svg><svg class="ikon menu__ikon-kapa" aria-hidden="true"><use href="#i-kapat"/></svg><span class="menu__yazi">Menü</span>
       </button>
       <ul class="menu__liste" id="menuListe" data-lenis-prevent>
         <li><a href="./" aria-current="page">Ana Sayfa</a></li>
-        <li><a href="hizmetler.html">Hizmetler</a></li>
-        <li><a href="surec.html">Servis Süreci</a></li>
+        <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
         <li><a href="iletisim.html">İletişim</a></li>
-        <li class="menu__cta"><a href="is-emri.html">Servis Talebi</a></li>
+        <li class="menu__cta"><a href="servis-talebi.html">Servis Talebi</a></li>
       </ul>
     </nav>
+    <div class="baslik__eylem">
+      <a class="dugme dugme--altin dugme--kucuk" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara</a>
+      <a class="dugme dugme--wa dugme--kucuk" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+    </div>
   </div>
 </header>
 
 <main id="icerik">
-<section class="kahraman" aria-labelledby="kahramanBaslik">
-    <div class="sar kahraman__ic">
-      <div class="kahraman__metin">
-        <p class="etiket" data-anim="giris">Ağır iş makinesi servisi · Milas / Muğla</p>
-        <h1 id="kahramanBaslik" data-anim="giris">Gücün arkasındaki <em>mühendislik.</em></h1>
-        <p class="kahraman__giris" data-anim="giris">İş makinelerinde hidrolik sistemler, şanzıman ve dizel motor revizyonu için profesyonel servis çözümleri.</p>
-        <div class="kahraman__dugmeler" data-anim="giris">
-          <a class="dugme dugme--altin dugme--buyuk" href="is-emri.html">Servis Talebi Oluştur<svg class="ikon ikon--ok" aria-hidden="true"><use href="#i-ok"/></svg></a>
-          <a class="dugme dugme--cizgi dugme--buyuk" href="hizmetler.html">Hizmetlerimizi İncele</a>
-        </div>
-        <div class="muhatap" data-anim="giris">
-          <span class="muhatap__harf" aria-hidden="true">MÇ</span>
-          <span class="muhatap__yazi"><b>Mücahit ÇAKIR</b><span><span class="unvan">BAŞ TEKNİSYEN</span> · telefonda ve WhatsApp'ta muhatabınız</span></span>
+<section class="kahraman-harita" aria-labelledby="kahramanBaslik">
+    <div class="kahraman-harita__harita">
+      <iframe class="kahraman-harita__cerceve" src="https://maps.google.com/maps?q=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla&amp;z=15&amp;output=embed" title="Başkent İş Makinaları konumu — Google Haritalar" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="sar kahraman-harita__ust">
+      <div class="kahraman-harita__panel" data-anim="giris">
+        <p class="etiket">Atölye konumu · Milas / Muğla</p>
+        <h1 id="kahramanBaslik">Gücün arkasındaki <em>mühendislik.</em></h1>
+        <p class="kahraman-harita__adres"><svg class="ikon" aria-hidden="true"><use href="#i-konum"/></svg><span>Selimiye Mah. Sanayi Sitesi, Milas / Muğla</span></p>
+        <p class="rozet rozet--buyuk" data-durum aria-live="polite"><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 08:30–18:00 · Cmt 08:30–13:30</span><span class="rozet__ek"></span></span></p>
+        <div class="eylemler">
+          <a class="eylem eylem--yol" href="https://www.google.com/maps/dir/?api=1&amp;destination=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla" target="_blank" rel="noopener">
+            <span class="eylem__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-yol"/></svg></span><span class="eylem__yazi"><b>Yol Tarifi Al</b><span>Google Haritalar'da açılır</span></span>
+          </a>
+          <button class="eylem eylem--paylas" type="button" data-paylas data-baslik="Başkent İş Makinaları" data-metin="Selimiye Mah. Sanayi Sitesi, Milas / Muğla" data-url="https://www.google.com/maps/search/?api=1&amp;query=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla">
+              <span class="eylem__ikon"><svg class="ikon" aria-hidden="true"><use href="#i-paylas"/></svg></span><span class="eylem__yazi"><b>Konumu Paylaş</b><span data-paylas-durum aria-live="polite">Bağlantıyı gönderin ya da kopyalayın</span></span>
+            </button>
         </div>
       </div>
-
-      <figure class="sahne-kap" data-anim="parallax" aria-hidden="true">
-        <div class="sahne">
-          <svg class="sahne__cizim" viewBox="0 0 400 400" focusable="false" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <g stroke="rgba(255,255,255,.07)" stroke-width="1"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
-            <g stroke="rgba(255,255,255,.18)" stroke-width="1.4"><path d="M20 331h360"/></g>
-            <g stroke="#d6a64f" stroke-width="2.2">
-              <rect x="175" y="292" width="195" height="38" rx="19" fill="rgba(214,166,79,.05)"/>
-              <circle cx="194" cy="311" r="11"/><circle cx="351" cy="311" r="11"/>
-              <path d="M178 272h194v20H178z"/>
-              <path d="M330 272v-40q0-10 10-10h22q12 0 12 14v36" fill="rgba(214,166,79,.08)"/>
-              <path d="M255 232h77v40h-77z" fill="rgba(214,166,79,.14)"/>
-              <path d="M192 170h48v102h-48z"/><path d="M198 178h36v52h-36z" stroke-width="1.4"/>
-              <path d="M232 250 165 140 88 176" stroke-width="14" stroke="rgba(214,166,79,.28)"/>
-              <path d="M232 250 165 140 88 176"/>
-              <path d="M88 176 96 286" stroke-width="10" stroke="rgba(214,166,79,.28)"/>
-              <path d="M88 176 96 286"/>
-              <path d="M96 286q-36 4-38 28 2 16 26 18l26-2z" fill="rgba(214,166,79,.1)"/>
-              <circle cx="232" cy="250" r="6"/><circle cx="88" cy="176" r="6"/><circle cx="96" cy="286" r="5"/>
-            </g>
-            <g stroke="#a7afba" stroke-width="3"><path d="M238 268 182 178M150 128 82 158M100 192l4 80"/></g>
-          </svg>
-        </div>
-      </figure>
     </div>
+  </section>
 
-    <ul class="sar kahraman__bilgi">
-      <li><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span><b><a class="sayi" href="tel:+905380773571">0538 077 35 71</a></b>Telefon ve WhatsApp hattı</span></li>
-      <li><svg class="ikon" aria-hidden="true"><use href="#i-saat"/></svg><span><b>Atölye: Pzt–Cum 09:00–17:30</b>Cumartesi 09:00–13:30 · Pazar kapalı</span></li>
+  <section class="giris-bant" aria-label="Kısa bilgi">
+    <ul class="sar giris-bant__liste">
+      <li><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span><b><a class="sayi" href="tel:+905380773571">0538 077 35 71</a></b>Telefon ve WhatsApp · Mücahit ÇAKIR</span></li>
+      <li><svg class="ikon" aria-hidden="true"><use href="#i-saat"/></svg><span><b>Atölye: Pzt–Cum 08:30–18:00 · Cmt 08:30–13:30</b>Pazar kapalı</span></li>
       <li><svg class="ikon" aria-hidden="true"><use href="#i-siren"/></svg><span><b>7/24 saha servisi</b>Acil arızada atölye saatlerinden bağımsız arayın</span></li>
     </ul>
   </section>
 
-  <section class="bolum bolum--acik" id="konum" aria-labelledby="konumBaslik">
+  <section class="bolum bolum--acik" id="hizmetler" aria-labelledby="hizmetBaslik">
     <div class="sar">
       <div class="bolum__bas" data-anim="baslik">
-        <p class="etiket">Konum</p>
-        <h2 id="konumBaslik">Atölyemiz Milas Selimiye Sanayi Sitesi'nde.</h2>
-        <p>Makinenizi ya da sökülmüş parçayı atölyeye getirebilirsiniz; makine sahada kaldıysa ekibimiz bulunduğu yere gelir.</p>
-      </div>
-      <div class="konum__izgara">
-        <div class="harita" data-harita="https://maps.google.com/maps?q=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla&amp;z=15&amp;output=embed">
-            <div class="harita__ic">
-              <span class="harita__pin"><svg class="ikon" aria-hidden="true"><use href="#i-konum"/></svg></span>
-              <strong>Selimiye Mah. Sanayi Sitesi<br>Milas / Muğla</strong>
-              <p class="not">Harita Google tarafından sunulur. Göstermek için düğmeye basın; bu durumda tarayıcınız Google'a bağlanır.</p>
-              <button class="dugme dugme--koyu harita__dugme" type="button"><svg class="ikon" aria-hidden="true"><use href="#i-konum"/></svg>Haritayı göster</button>
-            </div>
-          </div>
-        <div class="kart kart--acik iletisim-kart" data-anim="kart">
-          <div class="iletisim-kart__ust"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-konum"/></svg></span><h3>Adres</h3></div>
-          <p class="iletisim-kart__deger">Selimiye Mah. Sanayi Sitesi, Milas / Muğla</p>
-          <p class="not">Hizmet bölgesi: Muğla'nın tüm ilçeleri ve Didim (Aydın). Diğer iller için özel anlaşma ve fiyatlandırma uygulanır.</p>
-          <a class="dugme dugme--koyu" href="https://www.google.com/maps/dir/?api=1&amp;destination=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-yol"/></svg>Yol tarifi al</a>
-          <a class="metin-bag" href="https://www.google.com/maps/search/?api=1&amp;query=Selimiye%20Mah.%20Sanayi%20Sitesi%2C%20Milas%2C%20Mu%C4%9Fla" target="_blank" rel="noopener">Google Haritalar'da aç</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bolum" id="iletisim-bilgileri" aria-labelledby="iletisimBaslik">
-    <div class="sar">
-      <div class="bolum__bas" data-anim="baslik">
-        <p class="etiket">İletişim bilgileri</p>
-        <h2 id="iletisimBaslik">Doğrudan ustasıyla konuşun.</h2>
-        <p>Telefonda ve WhatsApp'ta muhatabınız Mücahit ÇAKIR — <span class="unvan">BAŞ TEKNİSYEN</span>.</p>
-      </div>
-      <div class="izgara izgara--3">
-        <div class="kart iletisim-kart" data-anim="kart">
-          <div class="iletisim-kart__ust"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg></span><h3>Telefon</h3></div>
-          <a class="iletisim-kart__deger sayi" href="tel:+905380773571">0538 077 35 71</a>
-          <p>Arıza tarifini telefonda dinler, ne yapılması gerektiğini birlikte netleştiririz.</p>
-          <a class="dugme dugme--altin" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara</a>
-        </div>
-        <div class="kart iletisim-kart" data-anim="kart">
-          <div class="iletisim-kart__ust"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg></span><h3>WhatsApp</h3></div>
-          <p class="iletisim-kart__deger">Fotoğraf ve konum gönderin</p>
-          <p>Arızalı parçanın fotoğrafı ve makinenin konumu ön değerlendirmeyi hızlandırır.</p>
-          <a class="dugme dugme--wa" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp'tan yaz</a>
-        </div>
-        <div class="kart iletisim-kart" data-anim="kart">
-          <div class="iletisim-kart__ust"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-saat"/></svg></span><h3>Atölye saatleri</h3></div>
-          <p class="rozet rozet--buyuk" data-durum aria-live="polite"><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 09:00–17:30 · Cmt 09:00–13:30</span><span class="rozet__ek"></span></span></p>
-          <table class="saatler">
-            <caption class="gorunmez">Atölye çalışma saatleri</caption>
-            <tbody>
-              <tr data-gunler="1 2 3 4 5"><th scope="row">Pazartesi – Cuma</th><td>09:00 – 17:30</td></tr>
-              <tr data-gunler="6"><th scope="row">Cumartesi</th><td>09:00 – 13:30</td></tr>
-              <tr data-gunler="0"><th scope="row">Pazar</th><td>Kapalı</td></tr>
-            </tbody>
-          </table>
-          <p class="not">Saha servisi 7/24'tür; atölye saatleri yalnızca atölyeye geliş içindir.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bolum bolum--grafit" id="uzmanlik" aria-labelledby="uzmanlikBaslik">
-    <div class="sar">
-      <div class="bolum__bas" data-anim="baslik">
-        <p class="etiket">Uzmanlık alanlarımız</p>
-        <h2 id="uzmanlikBaslik">Hidrolikten şanzımana, motordan sahaya.</h2>
+        <p class="etiket">Hizmetlerimiz</p>
+        <h2 id="hizmetBaslik">İş makinelerinde hidrolik sistemler, şanzıman ve dizel motor revizyonu.</h2>
         <p>Marka ayırt etmeden ekskavatör, loder, beko loder, vinç ve diğer iş makinelerine servis veriyoruz. Herhangi bir markanın yetkili servisi değiliz.</p>
       </div>
       <div class="izgara izgara--3">
-        <article class="kart hizmet-ozet" data-anim="kart"><a href="hizmetler.html#hidrolik"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg></span><h3>Hidrolik Sistem Servisi</h3><p>Güç kaybı, yavaşlama, pompa kaçağı ve hidrolik devre arızaları.</p></a></article>
-        <article class="kart hizmet-ozet" data-anim="kart"><a href="hizmetler.html#sanziman"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-sanziman"/></svg></span><h3>Şanzıman ve Tork Konvertörü</h3><p>Yürümeme, çekiş kaybı ve şanzıman arızalarında tespit ve onarım.</p></a></article>
-        <article class="kart hizmet-ozet" data-anim="kart"><a href="hizmetler.html#motor"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-motor"/></svg></span><h3>Dizel Motor Revizyonu (Overhaul)</h3><p>Çekiş düşüklüğü, duman ve turbo sorunlarından komple revizyona.</p></a></article>
-        <article class="kart hizmet-ozet" data-anim="kart"><a href="hizmetler.html#atolye"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-atolye"/></svg></span><h3>Atölye Servisi</h3><p>Makine ya da sökülmüş parça Selimiye Sanayi Sitesi'ndeki atölyemizde.</p></a></article>
-        <article class="kart hizmet-ozet" data-anim="kart"><a href="hizmetler.html#saha"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-kamyon"/></svg></span><h3>Yerinde Saha Servisi</h3><p>Sahada kalan makineye 7/24 ulaşırız: Muğla geneli ve Didim.</p></a></article>
-        <article class="kart hizmet-ozet" data-anim="kart"><a href="hizmetler.html#kova"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg></span><h3>Kova, Hardox ve Mekanik Bakım</h3><p>Kova tamiri, Hardox zırhlama, pim–burç ve mekanik ağır bakım.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#hidrolik"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-silindir"/></svg></span><h3>Hidrolik Sistem Servisi</h3><p>Güç kaybı, yavaşlama, pompa kaçağı ve hidrolik devre arızaları.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#sanziman"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-sanziman"/></svg></span><h3>Şanzıman ve Tork Konvertörü</h3><p>Yürümeme, çekiş kaybı ve şanzıman arızalarında tespit ve onarım.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#motor"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-motor"/></svg></span><h3>Dizel Motor Revizyonu (Overhaul)</h3><p>Çekiş düşüklüğü, duman ve turbo sorunlarından komple revizyona.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#kova"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-kova"/></svg></span><h3>Kova Tamiri ve Zırhlama</h3><p>Çatlak, tırnak, bıçak ve Hardox aşınma plakası.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#atolye"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-atolye"/></svg></span><h3>Atölye Servisi</h3><p>Makine ya da sökülmüş parça Selimiye Sanayi Sitesi'ndeki atölyemizde.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#saha"><span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-kamyon"/></svg></span><h3>Yerinde Saha Servisi</h3><p>Sahada kalan makineye 7/24 ulaşırız. Muğla'nın tüm ilçeleri ve Didim (Aydın). Diğer iller için özel anlaşma ve fiyatlandırma uygulanır.</p></a></article>
       </div>
-      <p class="not" data-anim="baslik"><a class="metin-bag" href="hizmetler.html">Tüm hizmetleri ve servis verdiğimiz makineleri görün</a></p>
+      <p class="bolum__dugme" data-anim="baslik"><a class="dugme dugme--koyu" href="servis-talebi.html">Servis Talebi Oluştur<svg class="ikon ikon--ok" aria-hidden="true"><use href="#i-ok"/></svg></a> <a class="metin-bag" href="hizmetlerimiz.html">Tüm hizmetler ve makineler</a></p>
+    </div>
+  </section>
+
+  <section class="bolum bolum--grafit" id="guvence" aria-labelledby="guvenceBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Şirket Yönetimi güvencesi</p>
+        <h2 id="guvenceBaslik">Tek muhatap, açık süreç, onayınız olmadan iş yok.</h2>
+      </div>
+      <div class="izgara izgara--3">
+        <div class="kart guvence-kart" data-anim="kart">
+          <span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-anahtar"/></svg></span>
+          <h3>Teknik sorumluluk</h3>
+          <p><b>Mücahit ÇAKIR</b> — <span class="unvan">Baş Teknisyen / Master Technician</span>. Telefonda, WhatsApp'ta ve sahada muhatabınız aynı kişidir.</p>
+        </div>
+        <div class="kart guvence-kart" data-anim="kart">
+          <span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-kalkan"/></svg></span>
+          <h3>Şirket Yönetimi</h3>
+          <p>İş akışı Şirket Yönetimi tarafından yürütülür: arıza tespit edilir, işin kapsamı ve tahmini süresi size bildirilir.</p>
+        </div>
+        <div class="kart guvence-kart" data-anim="kart">
+          <span class="ikon-kutu"><svg class="ikon" aria-hidden="true"><use href="#i-onay"/></svg></span>
+          <h3>Onayınızla başlar</h3>
+          <p>Onarım, siz kapsamı onayladıktan sonra başlar; tamamlanan iş kontrol edilerek teslim edilir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" id="saatler" aria-labelledby="saatBaslik">
+    <div class="sar">
+      <div class="izgara izgara--2 saat-izgara">
+        <div class="bolum__bas" data-anim="baslik">
+          <p class="etiket">Çalışma saatleri</p>
+          <h2 id="saatBaslik">Atölye saatleri ve 7/24 saha servisi.</h2>
+          <p>Durum Türkiye saatine (Milas) göre anlık hesaplanır. Mesai dışında gelen taleplere ilk mesai saatinde dönüş yapılır; makine sahada durduysa saat fark etmeksizin arayın.</p>
+        </div>
+        <div class="kart" data-anim="kart">
+          <p class="rozet rozet--buyuk" data-durum aria-live="polite"><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 08:30–18:00 · Cmt 08:30–13:30</span><span class="rozet__ek"></span></span></p>
+          <table class="saatler">
+            <caption class="gorunmez">Atölye çalışma saatleri</caption>
+            <tbody>
+              <tr data-gunler="1 2 3 4 5"><th scope="row">Pazartesi – Cuma</th><td>08:30 – 18:00</td></tr>
+              <tr data-gunler="6"><th scope="row">Cumartesi</th><td>08:30 – 13:30</td></tr>
+              <tr data-gunler="0"><th scope="row">Pazar</th><td>Kapalı</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -347,12 +304,12 @@
         <p class="etiket">İletişim</p>
         <h2 id="kapanisBaslik">Makineniz mi durdu? Hemen konuşalım.</h2>
         <span class="kapanis__cizgi" aria-hidden="true"></span>
-        <p>Telefonda ve WhatsApp'ta muhatabınız <b>Mücahit ÇAKIR</b> — <span class="unvan">BAŞ TEKNİSYEN</span>. Atölye mesai dışındaysa acil saha servisi için yine arayabilirsiniz.</p>
+        <p>Telefonda ve WhatsApp'ta muhatabınız <b>Mücahit ÇAKIR</b> — <span class="unvan">Baş Teknisyen / Master Technician</span>. Atölye mesai dışındaysa acil saha servisi için yine arayabilirsiniz.</p>
       </div>
       <div class="kapanis__dugmeler">
         <a class="dugme dugme--altin dugme--buyuk" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara <span class="sayi">0538 077 35 71</span></a>
         <a class="dugme dugme--wa dugme--buyuk" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp'tan yaz</a>
-        <a class="dugme dugme--cizgi dugme--buyuk" href="is-emri.html">Servis Talebi Oluştur<svg class="ikon ikon--ok" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        <a class="dugme dugme--cizgi dugme--buyuk" href="servis-talebi.html">Servis Talebi Oluştur<svg class="ikon ikon--ok" aria-hidden="true"><use href="#i-ok"/></svg></a>
       </div>
     </div>
   </section>
@@ -369,17 +326,17 @@
         <h2>Sayfalar</h2>
         <ul>
           <li><a href="./">Ana Sayfa</a></li>
-          <li><a href="hizmetler.html">Hizmetler</a></li>
-          <li><a href="surec.html">Servis Süreci</a></li>
-          <li><a href="is-emri.html">Servis Talebi</a></li>
+          <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="servis-talebi.html">Servis Talebi</a></li>
         </ul>
       </div>
       <div>
         <h2>Atölye</h2>
         <ul>
-          <li>Pazartesi – Cuma 09:00 – 17:30</li>
-          <li>Cumartesi 09:00 – 13:30</li>
+          <li>Pazartesi – Cuma 08:30 – 18:00</li>
+          <li>Cumartesi 08:30 – 13:30</li>
           <li>Pazar kapalı</li>
           <li><b>7/24 saha servisi</b></li>
         </ul>
@@ -405,5 +362,18 @@
   <a class="hizli__ara" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Ara</a>
   <a class="hizli__wa" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
 </aside>
+
+<dialog class="tel-pencere" id="telPencere" aria-labelledby="telPencereBaslik">
+  <form method="dialog" class="tel-pencere__ic">
+    <p class="etiket" id="telPencereBaslik">Telefon · Mücahit ÇAKIR</p>
+    <p class="tel-pencere__numara sayi">0538 077 35 71</p>
+    <p class="tel-pencere__not">Baş Teknisyen / Master Technician. Bilgisayardan arama yapılamıyorsa numarayı kopyalayıp telefonunuzdan arayın.</p>
+    <div class="tel-pencere__dugmeler">
+      <button class="dugme dugme--altin" type="button" data-kopyala="0538 077 35 71"><svg class="ikon" aria-hidden="true"><use href="#i-kopya"/></svg><span>Numarayı kopyala</span></button>
+      <a class="dugme dugme--cizgi" href="tel:+905380773571" data-tel-dogrudan><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Ara</a>
+      <button class="dugme dugme--cizgi" value="kapat"><svg class="ikon" aria-hidden="true"><use href="#i-kapat"/></svg>Kapat</button>
+    </div>
+  </form>
+</dialog>
 </body>
 </html>
