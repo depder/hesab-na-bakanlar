@@ -25,6 +25,7 @@
 <script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/vendor/gsap.min.js"></script>
 <script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/ayar.js"></script>
 <script defer src="assets/js/cekirdek.js"></script>
 <script defer src="assets/js/site.js"></script>
 </head>
@@ -60,32 +61,33 @@
   <symbol id="i-silindir" viewBox="0 0 24 24"><rect x="2.5" y="8.5" width="11" height="7" rx="1.6"/><path d="M13.5 12h6"/><circle cx="20.5" cy="12" r="1.6"/><path d="M6 8.5V6.5M10 15.5v2"/></symbol>
   <symbol id="i-motor" viewBox="0 0 24 24"><path d="M7 8h3V6h4v2h2l2 2h2v2.5h1.5v3H20V18h-3l-2 2H8l-1-2H5v-3H3.5v-3H5V10l2-2z"/><path d="M10 6V4.5h4V6M11 12.5l-1.5 2.5h3L11 17.5"/></symbol>
   <symbol id="i-sanziman" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.2"/><circle cx="16.5" cy="15.5" r="4.2"/><path d="M8 3v1.6M8 11.4V13M3 8h1.6M11.4 8H13M16.5 9.5v1.8M16.5 19.7v1.8M10.5 15.5h1.8M20.7 15.5h1.8"/></symbol>
+  <symbol id="i-paylas" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol>
 </svg>
-<aside class="ust-serit" aria-label="Atölye durumu ve telefon">
-  <div class="sar ust-serit__ic">
-    <p class="rozet" data-durum><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 09:00–17:30 · Cmt 09:00–13:30</span><span class="rozet__ek"></span></span></p>
-    <span class="ust-serit__saha"><svg class="ikon" aria-hidden="true"><use href="#i-siren"/></svg><span><b>7/24 saha servisi</b> · acil arızada arayın</span></span>
-    <a class="ust-serit__tel" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg><span class="sayi">0538 077 35 71</span></a>
-  </div>
-</aside>
 <header class="baslik">
   <div class="sar baslik__ic">
-    <a class="logo" href="./">
-      <img src="assets/images/logo-isaret.webp" width="240" height="144" alt="">
-      <span class="logo__yazi"><b>BAŞKENT</b> <span>İş Makinaları</span><span class="gorunmez"> — Ana Sayfa</span></span>
-    </a>
+    <div class="baslik__sol">
+      <a class="logo" href="./">
+        <img src="assets/images/logo-isaret.webp" width="240" height="144" alt="">
+        <span class="logo__yazi"><b>BAŞKENT</b> <span>İş Makinaları</span><span class="gorunmez"> — Ana Sayfa</span></span>
+      </a>
+      <p class="rozet rozet--baslik" data-durum><span class="rozet__nokta" aria-hidden="true"></span><span class="rozet__metin"><b class="rozet__baslik">Atölye</b><span class="rozet__alt">Pzt–Cum 08:30–18:00 · Cmt 08:30–13:30</span><span class="rozet__ek"></span></span></p>
+    </div>
     <nav class="menu" aria-label="Ana menü">
       <button class="menu__dugme" type="button" aria-expanded="false" aria-controls="menuListe">
         <svg class="ikon menu__ikon-ac" aria-hidden="true"><use href="#i-menu"/></svg><svg class="ikon menu__ikon-kapa" aria-hidden="true"><use href="#i-kapat"/></svg><span class="menu__yazi">Menü</span>
       </button>
       <ul class="menu__liste" id="menuListe" data-lenis-prevent>
         <li><a href="./">Ana Sayfa</a></li>
-        <li><a href="hizmetler.html">Hizmetler</a></li>
-        <li><a href="surec.html">Servis Süreci</a></li>
+        <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
         <li><a href="iletisim.html">İletişim</a></li>
-        <li class="menu__cta"><a href="is-emri.html">Servis Talebi</a></li>
+        <li class="menu__cta"><a href="servis-talebi.html">Servis Talebi</a></li>
       </ul>
     </nav>
+    <div class="baslik__eylem">
+      <a class="dugme dugme--altin dugme--kucuk" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Hemen Ara</a>
+      <a class="dugme dugme--wa dugme--kucuk" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+    </div>
   </div>
 </header>
 
@@ -109,7 +111,7 @@
 
       <h2>Servis talebi formu ve WhatsApp</h2>
       <ul>
-        <li>Formda doldurduğunuz bilgiler (ad soyad, isteğe bağlı telefon, makine bilgileri, arıza bilgisi, adres ve paylaşmayı seçerseniz konum) <strong>"WhatsApp'a aktar"</strong> düğmesine bastığınızda hazır bir WhatsApp mesajına dönüştürülür.</li>
+        <li>Formda doldurduğunuz bilgiler (talep türü, ekipman, aciliyet, bölge; isteğe bağlı olarak ad soyad, telefon, makine ve arıza bilgisi, açıklama ve paylaşmayı seçerseniz konum) <strong>"WhatsApp ile Talep Oluştur"</strong> düğmesine bastığınızda hazır bir WhatsApp mesajına dönüştürülür.</li>
         <li>Mesaj, siz WhatsApp'ta <strong>Gönder</strong>'e bastığınızda <span class="sayi">0538 077 35 71</span> numaralı hattımıza ulaşır. Göndermeden önce mesajı düzenleyebilir ya da vazgeçebilirsiniz.</li>
         <li>WhatsApp, Meta Platforms tarafından işletilen bir hizmettir ve mesajları kendi koşulları çerçevesinde, yurt dışındaki sunucularında da işleyebilir. WhatsApp'ı kullanmak sizin tercihinizdir; dilerseniz bizi telefonla arayabilirsiniz.</li>
         <li>Bize ulaşan bilgiler, servis talebinizi değerlendirmek, size dönüş yapmak ve talep ettiğiniz servisi yürütmek amacıyla kullanılır.</li>
@@ -117,13 +119,14 @@
 
       <h2>Konum bilgisi</h2>
       <ul>
-        <li>Konumunuz yalnızca servis talebi formundaki <strong>"Konumumu ekle"</strong> düğmesine bastığınızda ve tarayıcınızın sorduğu izni verdiğinizde alınır.</li>
+        <li>Konumunuz yalnızca servis talebi sayfasındaki <strong>"Konumumu ekle"</strong> düğmesine bastığınızda ve tarayıcınızın sorduğu izni verdiğinizde alınır.</li>
         <li>Alınan konum yalnızca o mesaja bir harita bağlantısı olarak eklenir; site konumunuzu kaydetmez. "Konumu kaldır" ile mesajdan çıkarabilirsiniz.</li>
         <li>Konum izni vermek zorunlu değildir; adresi ya da tarifi elle yazabilirsiniz.</li>
       </ul>
 
       <h2>Google Haritalar</h2>
-      <p>Sayfalardaki harita, siz <strong>"Haritayı göster"</strong> düğmesine basana kadar yüklenmez. Bastığınızda ya da "Google Haritalar'da aç" / "Yol tarifi al" bağlantılarını kullandığınızda tarayıcınız Google'a bağlanır ve Google'ın kendi gizlilik koşulları geçerli olur.</p>
+      <p><strong>Ana sayfanın en üstündeki harita, sayfa açılırken Google Haritalar'dan yüklenir.</strong> Bu sırada tarayıcınız Google'a bağlanır; Google, IP adresiniz gibi teknik bilgileri kendi gizlilik koşulları çerçevesinde, yurt dışındaki sunucularında işleyebilir ve çerez kullanabilir. Diğer sayfalardaki harita ise siz <strong>"Haritayı göster"</strong> düğmesine basana kadar yüklenmez.</p>
+      <p>"Yol Tarifi Al", "Google Haritalar'da aç" ve "Konumu Paylaş" bağlantıları da Google Haritalar'a yönlendirir. "Konumu Paylaş" yalnızca atölyemizin harita bağlantısını paylaşır; sizin konumunuzu almaz.</p>
 
       <h2>Hukuki sebep</h2>
       <p>Talebiniz üzerine paylaştığınız veriler, KVKK md. 5/2-c (bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması) ve md. 5/2-f (temel hak ve özgürlüklerinize zarar vermemek kaydıyla meşru menfaat) kapsamında işlenir.</p>
@@ -146,17 +149,17 @@
         <h2>Sayfalar</h2>
         <ul>
           <li><a href="./">Ana Sayfa</a></li>
-          <li><a href="hizmetler.html">Hizmetler</a></li>
-          <li><a href="surec.html">Servis Süreci</a></li>
-          <li><a href="is-emri.html">Servis Talebi</a></li>
+          <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="servis-talebi.html">Servis Talebi</a></li>
         </ul>
       </div>
       <div>
         <h2>Atölye</h2>
         <ul>
-          <li>Pazartesi – Cuma 09:00 – 17:30</li>
-          <li>Cumartesi 09:00 – 13:30</li>
+          <li>Pazartesi – Cuma 08:30 – 18:00</li>
+          <li>Cumartesi 08:30 – 13:30</li>
           <li>Pazar kapalı</li>
           <li><b>7/24 saha servisi</b></li>
         </ul>
@@ -182,5 +185,18 @@
   <a class="hizli__ara" href="tel:+905380773571"><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Ara</a>
   <a class="hizli__wa" href="https://wa.me/905380773571?text=Merhaba.%20Ba%C5%9Fkent%20i%C5%9F%20Makinalar%C4%B1ndan%20Servis%20bilgisi%20Almak%20%C4%B0stiyorum." target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
 </aside>
+
+<dialog class="tel-pencere" id="telPencere" aria-labelledby="telPencereBaslik">
+  <form method="dialog" class="tel-pencere__ic">
+    <p class="etiket" id="telPencereBaslik">Telefon · Mücahit ÇAKIR</p>
+    <p class="tel-pencere__numara sayi">0538 077 35 71</p>
+    <p class="tel-pencere__not">Baş Teknisyen / Master Technician. Bilgisayardan arama yapılamıyorsa numarayı kopyalayıp telefonunuzdan arayın.</p>
+    <div class="tel-pencere__dugmeler">
+      <button class="dugme dugme--altin" type="button" data-kopyala="0538 077 35 71"><svg class="ikon" aria-hidden="true"><use href="#i-kopya"/></svg><span>Numarayı kopyala</span></button>
+      <a class="dugme dugme--cizgi" href="tel:+905380773571" data-tel-dogrudan><svg class="ikon" aria-hidden="true"><use href="#i-tel"/></svg>Ara</a>
+      <button class="dugme dugme--cizgi" value="kapat"><svg class="ikon" aria-hidden="true"><use href="#i-kapat"/></svg>Kapat</button>
+    </div>
+  </form>
+</dialog>
 </body>
 </html>

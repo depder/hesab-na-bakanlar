@@ -7,7 +7,7 @@ Bu notu yeni sohbetin ilk mesajı olarak yapıştırın.
 Depo: `depder/hesab-na-bakanlar`, çalışma dalı `claude/baskent-is-makineleri-website-bjbltc`. Kurallar kökteki `CLAUDE.md` dosyasında; teknik ayrıntılar `README.md` ve `TECHNICAL-REPORT.md`'de.
 
 ## Şu ana kadar yapılanlar
-- Site 6 sayfaya ayrıldı: index (ana sayfa), hizmetler, surec, is-emri (servis talebi), iletisim, kvkk.
+- Site 6 sayfa: index (en üstte harita), hizmetlerimiz, servis-talebi (3 adımlı kartlar), hakkimizda (yönetim + süreç), iletisim, kvkk. İşletme bilgilerinin tek kaynağı `site.config.json`.
 - Yeni renk paleti (#101827, #171B22, #A7AFBA, #F5F6F8, #D6A64F), Archivo + Figtree fontları (yerelde).
 - Lenis + GSAP/ScrollTrigger ile akıcı kaydırma ve ölçülü animasyonlar.
 - Servis talebi formu: 6 arıza kategorisi, doğrulama, çift gönderim engeli, isteğe bağlı GPS konumu, WhatsApp'a hazır mesajla aktarma (sunucu yok; site veri kaydetmez).
@@ -18,7 +18,7 @@ Depo: `depder/hesab-na-bakanlar`, çalışma dalı `claude/baskent-is-makineleri
 - PR'lar: #13 (çok sayfalı site), #14 (üreteç hata mesajı) birleşti; 3D kaldırma ve skill'ler sonraki PR'da.
 
 ## Kullanıcıdan beklenenler
-1. Sitenin alan adı (canonical, sitemap, sosyal medya görseli için) → `kaynak/site.json`.
+1. Sitenin alan adı (canonical, sitemap, sosyal medya görseli için) → `site.config.json` → `alanAdi`. Atölyenin kesin koordinatı → `adres.koordinat`.
 2. Gerçek atölye/iş fotoğrafları (galeri için) → `kaynak/galeri.json`.
 3. "7/24 saha servisi" ve "şanzıman / tork konvertörü" hizmetlerinin onayı.
 4. KVKK metninin bir hukukçuya kontrol ettirilmesi.

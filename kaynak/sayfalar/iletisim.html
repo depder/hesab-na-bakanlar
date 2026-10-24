@@ -1,7 +1,7 @@
 <!--
 {
   "baslik": "İletişim — Telefon, WhatsApp, Adres · Başkent İş Makinaları Milas",
-  "aciklama": "Başkent İş Makinaları: Selimiye Mah. Sanayi Sitesi, Milas / Muğla. Telefon ve WhatsApp 0538 077 35 71. Atölye Pzt–Cum 09:00–17:30, Cmt 09:00–13:30; saha servisi 7/24.",
+  "aciklama": "{{FIRMA}}: {{ADRES}}. Telefon ve WhatsApp {{TEL}}. Atölye {{SAAT_OZET}}; saha servisi {{SAHA}}.",
   "yapisalVeri": true
 }
 -->
@@ -9,7 +9,7 @@
     <div class="sar">
       <ol class="ekmek" aria-label="Konum"><li><a href="./">Ana Sayfa</a></li><li aria-current="page">İletişim</li></ol>
       <h1 id="sayfaBaslik" data-anim="giris">İletişim</h1>
-      <p data-anim="giris">Telefonda ve WhatsApp'ta muhatabınız Mücahit ÇAKIR — {{MUHATAP}}.</p>
+      <p data-anim="giris">Telefonda ve WhatsApp'ta muhatabınız {{YETKILI}} — {{MUHATAP}}.</p>
     </div>
   </section>
 
@@ -29,12 +29,12 @@
         </div>
         <div class="kart iletisim-kart" data-anim="kart">
           <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:konum}}</span><h3>Adres</h3></div>
-          <p class="iletisim-kart__deger">Selimiye Mah. Sanayi Sitesi, Milas / Muğla</p>
+          <p class="iletisim-kart__deger">{{ADRES}}</p>
           <a class="dugme dugme--cizgi" href="{{YOL_TARIFI}}" target="_blank" rel="noopener">{{ikon:yol}}Yol tarifi al</a>
         </div>
         <div class="kart iletisim-kart" data-anim="kart">
           <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:siren}}</span><h3>Saha servisi</h3></div>
-          <p class="iletisim-kart__deger">7/24</p>
+          <p class="iletisim-kart__deger">{{SAHA}}</p>
           <p>Makine sahada arızalandıysa atölye saatlerini beklemeden arayın.</p>
         </div>
       </div>
@@ -46,7 +46,7 @@
       <div class="bolum__bas" data-anim="baslik">
         <p class="etiket">WhatsApp ile hızlı arıza bildirimi</p>
         <h2 id="hizliBaslik">Arızanızı seçin, WhatsApp hazır mesajla açılsın.</h2>
-        <p>Seçtiğiniz başlık mesajın altına eklenir. Fotoğraf ve konumu WhatsApp'ta ekleyebilirsiniz. Daha ayrıntılı talep için <a class="metin-bag" href="is-emri.html">servis talebi formunu</a> kullanın.</p>
+        <p>Seçtiğiniz başlık mesajın altına eklenir. Fotoğraf ve konumu WhatsApp'ta ekleyebilirsiniz. Daha ayrıntılı talep için <a class="metin-bag" href="servis-talebi.html">servis talebi kartlarını</a> kullanın.</p>
       </div>
       <div data-anim="kart">
         {{HIZLI_ARIZA}}
@@ -77,7 +77,7 @@
       <div class="bolum__bas" data-anim="baslik">
         <p class="etiket">Hizmet bölgesi</p>
         <h2 id="bolgeBaslik">Muğla'nın tüm ilçeleri ve Didim.</h2>
-        <p>Diğer iller için özel anlaşma ve fiyatlandırma uygulanır.</p>
+        <p>{{HIZMET_BOLGESI}}</p>
       </div>
       <div data-anim="kart">{{ILCELER}}</div>
     </div>

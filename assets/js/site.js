@@ -9,6 +9,77 @@
 
   if (B) B.telBaglantilariniAyarla(document.querySelectorAll('a[href^="tel:"]'), B.cerceveIcindeMi(window));
 
+  // ---------------------------------------------------------------- Kopyalama (Clipboard API, olmazsa eski yöntem)
+  function kopyala(metin, sonuc) {
+    function eskiYontem() {
+      var alan = document.createElement('textarea');
+      alan.value = metin; alan.setAttribute('readonly', ''); alan.className = 'gorunmez';
+      document.body.appendChild(alan); alan.select();
+      var basarili = false;
+      try { basarili = document.execCommand('copy'); } catch (hata) { basarili = false; }
+      document.body.removeChild(alan);
+      sonuc(basarili);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(metin).then(function () { sonuc(true); }, eskiYontem);
+    else eskiYontem();
+  }
+  window.BaskentKopyala = kopyala;
+
+  // ---------------------------------------------------------------- Masaüstü: WhatsApp Web ve telefon penceresi
+  // Fareyle kullanılan cihazda wa.me yerine doğrudan WhatsApp Web açılır; tel: bağlantısı arama yapamayacağı için
+  // numarayı kopyalama / arama seçenekli bir pencere gösterilir. Dokunmatik cihazlarda bağlantılar olduğu gibi çalışır.
+  var masaustu = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  kok.classList.toggle('masaustu', masaustu);
+  if (masaustu && B) {
+    Array.prototype.forEach.call(document.querySelectorAll('a[href^="https://wa.me/"]'), function (a) {
+      a.href = B.waMasaustuAdresi(a.getAttribute('href'));
+    });
+    var telPencere = document.getElementById('telPencere');
+    if (telPencere && typeof telPencere.showModal === 'function') {
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+        if (!a || a.hasAttribute('data-tel-dogrudan')) return;
+        e.preventDefault();
+        telPencere.showModal();
+      });
+      // Pencerenin dışına (arka plana) tıklayınca kapanır
+      telPencere.addEventListener('click', function (e) { if (e.target === telPencere) telPencere.close(); });
+    }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-kopyala]'), function (dugme) {
+    var yazi = dugme.querySelector('span');
+    var ilk = yazi ? yazi.textContent : '';
+    dugme.addEventListener('click', function () {
+      kopyala(dugme.getAttribute('data-kopyala'), function (basarili) {
+        if (!yazi) return;
+        yazi.textContent = basarili ? 'Kopyalandı' : 'Kopyalanamadı';
+        setTimeout(function () { yazi.textContent = ilk; }, 2200);
+      });
+    });
+  });
+
+  // ---------------------------------------------------------------- Konumu paylaş: atölyenin harita bağlantısı
+  Array.prototype.forEach.call(document.querySelectorAll('[data-paylas]'), function (dugme) {
+    var durum = dugme.querySelector('[data-paylas-durum]');
+    var ilk = durum ? durum.textContent : '';
+    function bildir(metin) {
+      if (!durum) return;
+      durum.textContent = metin;
+      setTimeout(function () { durum.textContent = ilk; }, 2600);
+    }
+    dugme.addEventListener('click', function () {
+      var veri = { title: dugme.getAttribute('data-baslik'), text: dugme.getAttribute('data-metin'), url: dugme.getAttribute('data-url') };
+      if (navigator.share && (!navigator.canShare || navigator.canShare(veri))) {
+        navigator.share(veri).catch(function (hata) {
+          if (hata && hata.name === 'AbortError') return; // kullanıcı vazgeçti
+          kopyala(veri.text + ' — ' + veri.url, function (b) { bildir(b ? 'Bağlantı kopyalandı' : 'Paylaşılamadı'); });
+        });
+        return;
+      }
+      kopyala(veri.text + ' — ' + veri.url, function (b) { bildir(b ? 'Bağlantı kopyalandı' : 'Kopyalanamadı'); });
+    });
+  });
+
   var baslik = document.querySelector('.baslik');
   function baslikYuksekligi() { return baslik ? baslik.offsetHeight : 0; }
 

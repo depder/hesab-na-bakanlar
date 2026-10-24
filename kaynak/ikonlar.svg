@@ -28,4 +28,5 @@
   <symbol id="i-silindir" viewBox="0 0 24 24"><rect x="2.5" y="8.5" width="11" height="7" rx="1.6"/><path d="M13.5 12h6"/><circle cx="20.5" cy="12" r="1.6"/><path d="M6 8.5V6.5M10 15.5v2"/></symbol>
   <symbol id="i-motor" viewBox="0 0 24 24"><path d="M7 8h3V6h4v2h2l2 2h2v2.5h1.5v3H20V18h-3l-2 2H8l-1-2H5v-3H3.5v-3H5V10l2-2z"/><path d="M10 6V4.5h4V6M11 12.5l-1.5 2.5h3L11 17.5"/></symbol>
   <symbol id="i-sanziman" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.2"/><circle cx="16.5" cy="15.5" r="4.2"/><path d="M8 3v1.6M8 11.4V13M3 8h1.6M11.4 8H13M16.5 9.5v1.8M16.5 19.7v1.8M10.5 15.5h1.8M20.7 15.5h1.8"/></symbol>
+  <symbol id="i-paylas" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol>
 </svg>
