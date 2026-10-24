@@ -32,6 +32,10 @@ if (alanAdi && !/^https:\/\/[a-z0-9.-]+\.[a-z]{2,}$/i.test(alanAdi)) {
     const deger = alan.split('.').reduce((o, k) => (o == null ? o : o[k]), A);
     if (typeof deger !== 'string' || !deger.trim()) throw new Error('site.config.json → "' + alan + '" eksik ya da boş.');
   });
+// Katalog bağlantısı (isteğe bağlı) yalnızca aynı WhatsApp numarasının wa.me/c/ adresi olabilir.
+if (A.whatsapp.katalog && A.whatsapp.katalog !== 'https://wa.me/c/' + A.whatsapp.numara) {
+  throw new Error('site.config.json → whatsapp.katalog "https://wa.me/c/' + A.whatsapp.numara + '" olmalı ya da boş bırakılmalı.');
+}
 if (!/^90\d{10}$/.test(A.telefon.e164) || !/^90\d{10}$/.test(A.whatsapp.numara)) {
   throw new Error('site.config.json → telefon.e164 ve whatsapp.numara 90 ile başlayan 12 hane olmalı.');
 }
@@ -87,6 +91,10 @@ const parcalar = {
   TEL_HREF: TEL_HREF,
   TEL: kacir(A.telefon.gorunen),
   WA_HAZIR: kacir(WA_HAZIR),
+  // Katalog tanımlı değilse düğme hiç basılmaz (boş katalog bağlantısı yayımlanmaz)
+  KATALOG_DUGME: A.whatsapp.katalog
+    ? `<a class="dugme dugme--wa" href="${kacir(A.whatsapp.katalog)}" target="_blank" rel="noopener">${ikon('wa')}Hizmet kartlarını WhatsApp'ta aç</a>`
+    : '',
   HARITA_AC: kacir(HARITA_AC),
   YOL_TARIFI: kacir(YOL_TARIFI),
   YETKILI: kacir(A.yetkili.ad),
