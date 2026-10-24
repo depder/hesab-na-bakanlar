@@ -19,7 +19,10 @@ window.BaskentAyar = {
     "ilce": "Milas",
     "il": "Muğla",
     "haritaSorgusu": "Selimiye, Küçük Sanayi Sitesi, 48200 Milas/Muğla",
-    "koordinat": null
+    "koordinat": {
+      "enlem": 37.391047,
+      "boylam": 27.661943
+    }
   },
   "calismaSaatleri": [
     {
