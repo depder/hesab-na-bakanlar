@@ -32,6 +32,11 @@ if (alanAdi && !/^https:\/\/[a-z0-9.-]+\.[a-z]{2,}$/i.test(alanAdi)) {
     const deger = alan.split('.').reduce((o, k) => (o == null ? o : o[k]), A);
     if (typeof deger !== 'string' || !deger.trim()) throw new Error('site.config.json → "' + alan + '" eksik ya da boş.');
   });
+// Koordinat (isteğe bağlı): Türkiye sınırları içinde sayı çifti olmalı; yanlışsa harita yanlış yeri gösterirdi.
+const KO = A.adres.koordinat;
+if (KO && !(typeof KO.enlem === 'number' && typeof KO.boylam === 'number' && KO.enlem >= 35 && KO.enlem <= 43 && KO.boylam >= 25 && KO.boylam <= 45)) {
+  throw new Error('site.config.json → adres.koordinat { "enlem": sayı, "boylam": sayı } biçiminde ve Türkiye içinde olmalı.');
+}
 // Katalog bağlantısı (isteğe bağlı) yalnızca aynı WhatsApp numarasının wa.me/c/ adresi olabilir.
 if (A.whatsapp.katalog && A.whatsapp.katalog !== 'https://wa.me/c/' + A.whatsapp.numara) {
   throw new Error('site.config.json → whatsapp.katalog "https://wa.me/c/' + A.whatsapp.numara + '" olmalı ya da boş bırakılmalı.');

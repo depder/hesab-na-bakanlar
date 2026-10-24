@@ -15,7 +15,7 @@
     "ilce": "Milas",
     "il": "Muğla",
     "haritaSorgusu": "Selimiye, Küçük Sanayi Sitesi, 48200 Milas/Muğla",
-    "koordinat": null
+    "koordinat": { "enlem": 37.391047, "boylam": 27.661943 }
   },
   "calismaSaatleri": [
     { "etiket": "Pazartesi – Cuma", "gunler": [1, 2, 3, 4, 5], "acilis": "08:30", "kapanis": "18:00" },

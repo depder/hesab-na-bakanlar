@@ -84,7 +84,7 @@ test('kişi adı yalnızca Mücahit ÇAKIR, unvan "Baş Teknisyen / Master Techn
   assert.match(gorunenMetin('index'), /Şirket Yönetimi/);
   assert.match(gorunenMetin('hakkimizda'), /Şirket Yönetimi[\s\S]*Mücahit ÇAKIR[\s\S]{0,40}Baş Teknisyen \/ Master Technician/);
   for (const { ad, html } of tumSayfalar()) {
-    assert.doesNotMatch(html, /\bCem\b|Şahin|COO/i, ad);
+    assert.doesNotMatch(html, /\bCem\b|Şahin|\bCOO\b/i, ad); // \b: "GeoCoordinates" gibi kelimelere takılmasın
   }
   const veri = JSON.parse(sayfaHtml('index').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.deepEqual(veri.employee, { '@type': 'Person', name: 'Mücahit ÇAKIR', jobTitle: 'Baş Teknisyen / Master Technician' });
@@ -115,7 +115,16 @@ test('adres ve atölye saatleri tüm sayfalarda tutarlı (08:30–18:00, Cmt 08:
   assert.equal(veri.telephone, '+905380773571');
   assert.equal(veri.address.addressLocality, 'Milas');
   assert.deepEqual(veri.openingHoursSpecification.map((o) => [o.opens, o.closes]), [['08:30', '18:00'], ['08:30', '13:30']]);
-  assert.equal(veri.geo, undefined, 'koordinat bilinmiyorken uydurulmaz');
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+  if (ayar.adres.koordinat) {
+    assert.deepEqual([veri.geo.latitude, veri.geo.longitude], [ayar.adres.koordinat.enlem, ayar.adres.koordinat.boylam]);
+    const nokta = ayar.adres.koordinat.enlem + ',' + ayar.adres.koordinat.boylam;
+    const html = sayfaHtml('index');
+    assert.ok(html.includes('maps.google.com/maps?q=' + encodeURIComponent(nokta)), 'harita koordinata işaret etmeli');
+    assert.ok(html.includes('destination=' + encodeURIComponent(nokta)), 'yol tarifi koordinata gitmeli');
+  } else {
+    assert.equal(veri.geo, undefined, 'koordinat bilinmiyorken uydurulmaz');
+  }
   assert.equal(veri.aggregateRating, undefined);
   assert.equal(veri.review, undefined);
 });
