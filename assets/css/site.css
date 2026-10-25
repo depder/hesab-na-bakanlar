@@ -180,8 +180,12 @@ html.lenis, html.lenis body { height: auto; }
 .baslik__eylem .dugme .ikon { width: 17px; height: 17px; }
 @media (max-width: 1180px) { .baslik__eylem .dugme { padding-inline: .7rem; } .menu__liste a { padding-inline: .6rem; } }
 @media (max-width: 760px) { .baslik__eylem { display: none; } }
-/* Masaüstü menü açıkken 1480px altında eylem düğmelerine yer kalmaz; arama/WhatsApp sayfa içinde ve menüde "Servis Talebi" var */
-@media (min-width: 1101px) and (max-width: 1479px) { .baslik__eylem { display: none; } }
+/* Masaüstü menü açıkken yazılı düğmelere yer kalmaz (içerik genişliği sınırlı): Ara/WhatsApp yalnız simge olur, adı ekran okuyucuya kalır */
+@media (min-width: 1101px) {
+  .baslik__eylem .dugme { width: var(--dokunma); padding: 0; }
+  .baslik__eylem .dugme__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media (min-width: 1101px) and (max-width: 1219px) { .baslik__eylem { display: none; } }
 .rozet--baslik, .rozet--baslik .rozet__metin { white-space: nowrap; flex-wrap: nowrap; }
 /* Dar ekranda rozet tek satır kalır: "Atölye" ön eki gizlenir (menü düğmesine yer açılır) */
 @media (max-width: 480px) {

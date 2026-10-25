@@ -16,7 +16,7 @@ Depo: `depder/hesab-na-bakanlar`, ana dal `master`, çalışma dalı `claude/bas
 - **Sayfalar:** `index`, `hizmetlerimiz`, `yedek-parca` (yağ bölmeleri, cer açıklaması, parça grupları, parça mesajlı WhatsApp), `servis-talebi` (3 adım → WhatsApp; 6. seçenek "Yedek Parça / Yağ Tedariki"), `hakkimizda`, `iletisim`, `kvkk`.
 - **Yedek parça araştırması:** `YEDEK-PARCA-ARASTIRMA.md` (iç belge, sitede yok). Sitede marka/model adı geçmez; test denetler.
 - **WhatsApp:** bağlantı paylaşılınca kart (og etiketleri) çıkar; "Hizmet kartlarını WhatsApp'ta aç" düğmesi kataloğu WhatsApp uygulamasında açar. Katalog kurulum adımları: `WHATSAPP-KATALOG.md`.
-- **Başlık:** logo + "Atölye Açık / Kapalı" rozeti + menü; menü 1100px'e kadar hamburger; 1480px ve üstünde "Hemen Ara" / "WhatsApp" düğmeleri de görünür. 320–1920px arası 19 genişlikte, 7 sayfada taşma ve çakışma yok.
+- **Başlık:** logo + "Atölye Açık / Kapalı" rozeti + menü; menü 1100px'e kadar hamburger; 1220px ve üstünde "Hemen Ara" / "WhatsApp" yalnız simge olarak görünür (1101–1219px arası gizli; 761–1100px arası yazılı). 320–1920px arası başlıkta taşma ve çakışma yok.
 - Doğrulama: `node --test` 48/48; tarayıcı işlev kontrolü 27/27; hata yolları 6/6; axe 0 ihlal; 7 genişlikte taşma yok.
 
 ## Kullanıcının yapacakları

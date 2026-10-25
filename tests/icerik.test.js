@@ -160,7 +160,7 @@ test('başlık: logo, canlı atölye rozeti, Hemen Ara ve WhatsApp; masaüstü t
   for (const { ad, html } of tumSayfalar()) {
     const baslik = html.slice(html.indexOf('<header class="baslik">'), html.indexOf('</header>'));
     assert.match(baslik, /class="baslik__sol">\s*<a class="logo"[\s\S]*<p class="rozet rozet--baslik" data-durum>/, ad);
-    assert.match(baslik, /<div class="baslik__eylem">\s*<a class="dugme dugme--altin dugme--kucuk" href="tel:\+905380773571">[\s\S]*Hemen Ara<\/a>\s*<a class="dugme dugme--wa/, ad);
+    assert.match(baslik, /<div class="baslik__eylem">\s*<a class="dugme dugme--altin dugme--kucuk" href="tel:\+905380773571">[\s\S]*Hemen Ara<\/span><\/a>\s*<a class="dugme dugme--wa/, ad);
     assert.match(html, /<dialog class="tel-pencere" id="telPencere"[\s\S]*data-kopyala="0538 077 35 71"[\s\S]*data-tel-dogrudan/, ad);
     assert.match(html, /<aside class="hizli"[\s\S]*class="hizli__ara"[\s\S]*class="hizli__wa"/, ad);
     const menu = [...html.matchAll(/<ul class="menu__liste"[\s\S]*?<\/ul>/g)][0][0];
