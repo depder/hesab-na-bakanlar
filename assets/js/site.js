@@ -4,6 +4,7 @@
 (function () {
   'use strict';
   var B = window.Baskent;
+  var T = B ? B.ceviri : function (m) { return m; };
   var kok = document.documentElement;
   kok.classList.add('js');
 
@@ -52,7 +53,7 @@
     dugme.addEventListener('click', function () {
       kopyala(dugme.getAttribute('data-kopyala'), function (basarili) {
         if (!yazi) return;
-        yazi.textContent = basarili ? 'Kopyalandı' : 'Kopyalanamadı';
+        yazi.textContent = basarili ? T('Kopyalandı') : T('Kopyalanamadı');
         setTimeout(function () { yazi.textContent = ilk; }, 2200);
       });
     });
@@ -72,11 +73,11 @@
       if (navigator.share && (!navigator.canShare || navigator.canShare(veri))) {
         navigator.share(veri).catch(function (hata) {
           if (hata && hata.name === 'AbortError') return; // kullanıcı vazgeçti
-          kopyala(veri.text + ' — ' + veri.url, function (b) { bildir(b ? 'Bağlantı kopyalandı' : 'Paylaşılamadı'); });
+          kopyala(veri.text + ' — ' + veri.url, function (b) { bildir(b ? T('Bağlantı kopyalandı') : T('Paylaşılamadı')); });
         });
         return;
       }
-      kopyala(veri.text + ' — ' + veri.url, function (b) { bildir(b ? 'Bağlantı kopyalandı' : 'Kopyalanamadı'); });
+      kopyala(veri.text + ' — ' + veri.url, function (b) { bildir(b ? T('Bağlantı kopyalandı') : T('Kopyalanamadı')); });
     });
   });
 
@@ -104,6 +105,7 @@
   }
 
   // ---------------------------------------------------------------- Menü
+  var dilSecici = document.querySelector('.dil');
   var menuDugme = document.querySelector('.menu__dugme');
   var menuListe = document.getElementById('menuListe');
   function menuAcikMi() { return Boolean(menuListe && menuListe.classList.contains('acik')); }
@@ -111,10 +113,11 @@
     if (!menuDugme || !menuListe) return;
     // Panel, başlığın o anki alt kenarından başlar (üst şerit kaydırılınca başlık en üste yapışır)
     if (acik && baslik) menuListe.style.setProperty('--menu-ust', Math.round(baslik.getBoundingClientRect().bottom) + 'px');
+    if (acik && dilSecici) dilSecici.open = false;
     menuListe.classList.toggle('acik', acik);
     kok.classList.toggle('menu-acik', acik);
     menuDugme.setAttribute('aria-expanded', String(acik));
-    menuDugme.querySelector('.menu__yazi').textContent = acik ? 'Kapat' : 'Menü';
+    menuDugme.querySelector('.menu__yazi').textContent = acik ? T('Kapat') : T('Menü');
     if (lenis) { if (acik) lenis.stop(); else lenis.start(); }
     if (acik) {
       var ilk = menuListe.querySelector('a');
@@ -133,9 +136,19 @@
       if (menuAcikMi() && !e.target.closest('.menu')) menuAyarla(false, false);
     });
     // Masaüstü genişliğine geçilirse açık kalan mobil menü kapanır (kaydırma kilidi takılı kalmasın)
-    var genisEkran = window.matchMedia('(min-width: 1101px)');
+    var genisEkran = window.matchMedia('(min-width: 1200px)');
     var genisDegisti = function (s) { if (s.matches && menuAcikMi()) menuAyarla(false, false); };
     if (genisEkran.addEventListener) genisEkran.addEventListener('change', genisDegisti);
+  }
+
+  // ---------------------------------------------------------------- Dil seçici: dışına tıklayınca ya da Esc ile kapanır
+  if (dilSecici) {
+    // Dil listesi açılınca telefondaki menü kapanır (ikisi üst üste binmesin)
+    dilSecici.addEventListener('toggle', function () { if (dilSecici.open && menuAcikMi()) menuAyarla(false, false); });
+    document.addEventListener('click', function (e) { if (dilSecici.open && !e.target.closest('.dil')) dilSecici.open = false; });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && dilSecici.open) { dilSecici.open = false; dilSecici.querySelector('summary').focus(); }
+    });
   }
 
   // ---------------------------------------------------------------- Canlı çalışma durumu (Türkiye saati)
@@ -182,7 +195,7 @@
     dugme.addEventListener('click', function () {
       var cerceve = document.createElement('iframe');
       cerceve.src = kutu.getAttribute('data-harita');
-      cerceve.title = 'Başkent İş Makinaları konumu — Google Haritalar';
+      cerceve.title = T('{0} konumu — Google Haritalar', B ? B.AYAR.firma : '');
       cerceve.loading = 'lazy';
       cerceve.referrerPolicy = 'strict-origin-when-cross-origin';
       cerceve.setAttribute('allowfullscreen', '');

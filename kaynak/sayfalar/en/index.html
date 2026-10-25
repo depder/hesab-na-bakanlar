@@ -1,0 +1,105 @@
+<!--
+{
+  "baslik": "Başkent İş Makinaları — Hydraulic, Transmission and Diesel Engine Service for Construction Machinery · Milas",
+  "aciklama": "{{ADRES}}: hydraulic, transmission and diesel engine repair for construction machinery; workshop and on-site service. Tel: {{TEL}}.",
+  "yapisalVeri": true
+}
+-->
+  <section class="kahraman-harita" aria-labelledby="kahramanBaslik">
+    <div class="kahraman-harita__harita">
+      {{KAHRAMAN_HARITA}}
+    </div>
+    <div class="sar kahraman-harita__ust">
+      <div class="kahraman-harita__panel" data-anim="giris">
+        <p class="etiket">Workshop location · Milas / Muğla</p>
+        <h1 id="kahramanBaslik">The engineering <em>behind the power.</em></h1>
+        <p class="kahraman-harita__adres">{{ikon:konum}}<span>{{ADRES}}</span></p>
+        {{ROZET_BUYUK}}
+        <div class="eylemler">
+          <a class="eylem eylem--yol" href="{{YOL_TARIFI}}" target="_blank" rel="noopener">
+            <span class="eylem__ikon">{{ikon:yol}}</span><span class="eylem__yazi"><b>Get Directions</b><span>Opens in Google Maps</span></span>
+          </a>
+          {{KONUM_PAYLAS}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="giris-bant" aria-label="Key information">
+    <ul class="sar giris-bant__liste">
+      <li>{{ikon:tel}}<span><b><a class="sayi" href="{{TEL_HREF}}">{{TEL}}</a></b>Phone and WhatsApp · {{YETKILI}}</span></li>
+      <li>{{ikon:saat}}<span><b>Workshop: {{SAAT_OZET}}</b>{{KAPALI_OZET}}</span></li>
+      <li>{{ikon:konum}}<span><b>On-site service</b>During working hours: {{SAAT_OZET}}</span></li>
+    </ul>
+  </section>
+
+  <section class="bolum bolum--acik" id="hizmetler" aria-labelledby="hizmetBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Our Services</p>
+        <h2 id="hizmetBaslik">Hydraulic systems, transmissions and diesel engine overhaul for construction machinery.</h2>
+        <p>We service excavators, wheel loaders, backhoe loaders, cranes and other construction machinery of every brand. We are not an authorised service centre of any brand.</p>
+      </div>
+      <div class="izgara izgara--3">
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#hidrolik"><span class="ikon-kutu">{{ikon:silindir}}</span><h3>Hydraulic System Service</h3><p>Loss of power, slow operation, pump leaks and hydraulic circuit faults.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#sanziman"><span class="ikon-kutu">{{ikon:sanziman}}</span><h3>Transmission and Torque Converter</h3><p>Diagnosis and repair when the machine will not drive, loses traction or has a transmission fault.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#motor"><span class="ikon-kutu">{{ikon:motor}}</span><h3>Diesel Engine Overhaul</h3><p>From low power, smoke and turbo problems to a complete overhaul.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#kova"><span class="ikon-kutu">{{ikon:kova}}</span><h3>Bucket Repair and Hardfacing</h3><p>Cracks, teeth, cutting edges and Hardox wear plates.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#atolye"><span class="ikon-kutu">{{ikon:atolye}}</span><h3>Workshop Service</h3><p>Bring the machine or the removed part to our workshop at {{ADRES_KISA}}.</p></a></article>
+        <article class="kart kart--acik hizmet-ozet" data-anim="kart"><a href="hizmetlerimiz.html#saha"><span class="ikon-kutu">{{ikon:konum}}</span><h3>On-Site Service</h3><p>We come to machines stranded on site during working hours. {{HIZMET_BOLGESI}}</p></a></article>
+      </div>
+      <p class="bolum__dugme" data-anim="baslik"><a class="dugme dugme--koyu" href="servis-talebi.html">Create a Service Request{{ikon:ok:ikon--ok}}</a> {{KATALOG_DUGME}} <a class="metin-bag" href="hizmetlerimiz.html">All services and machines</a></p>
+    </div>
+  </section>
+
+  <section class="bolum bolum--grafit" id="guvence" aria-labelledby="guvenceBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">The {{YONETIM}} guarantee</p>
+        <h2 id="guvenceBaslik">One point of contact, a clear process, no work without your approval.</h2>
+      </div>
+      <div class="izgara izgara--3">
+        <div class="kart guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:anahtar}}</span>
+          <h3>Technical responsibility</h3>
+          <p><b>{{YETKILI}}</b> — {{MUHATAP}}. On the phone, on WhatsApp and on site, you deal with the same person.</p>
+        </div>
+        <div class="kart guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:kalkan}}</span>
+          <h3>{{YONETIM}}</h3>
+          <p>The work is managed by {{YONETIM}}: the fault is diagnosed, and you are told the scope of the work and the estimated time.</p>
+        </div>
+        <div class="kart guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:onay}}</span>
+          <h3>Starts with your approval</h3>
+          <p>Repairs begin only after you approve the scope; finished work is checked before it is handed over.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" id="saatler" aria-labelledby="saatBaslik">
+    <div class="sar">
+      <div class="izgara izgara--2 saat-izgara">
+        <div class="bolum__bas" data-anim="baslik">
+          <p class="etiket">Opening hours</p>
+          <h2 id="saatBaslik">Workshop and on-site service hours.</h2>
+          <p>The status is calculated live in Turkish time (Milas). Requests received outside working hours are answered at the start of the next working day. On-site service is provided during the same working hours.</p>
+        </div>
+        <div class="kart" data-anim="kart">
+          {{ROZET_BUYUK}}
+          {{SAATLER_TABLOSU}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" id="galeri" aria-labelledby="galeriBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">From the workshop</p>
+        <h2 id="galeriBaslik">Our work</h2>
+      </div>
+      {{GALERI}}
+    </div>
+  </section>

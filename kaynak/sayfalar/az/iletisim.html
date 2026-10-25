@@ -1,0 +1,84 @@
+<!--
+{
+  "baslik": "Əlaqə — Telefon, WhatsApp, ünvan · Başkent İş Makinaları Milas",
+  "aciklama": "{{FIRMA}}: {{ADRES}}. Telefon və WhatsApp {{TEL}}. Emalatxana {{SAAT_OZET}}; yerində servis iş saatlarında.",
+  "yapisalVeri": true
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Naviqasiya yolu"><li><a href="./">Ana səhifə</a></li><li aria-current="page">Əlaqə</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Əlaqə</h1>
+      <p data-anim="giris">Telefonda və WhatsApp-da əlaqə şəxsiniz: {{YETKILI}} — {{MUHATAP}}.</p>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="kanalBaslik">
+    <div class="sar">
+      <h2 class="gorunmez" id="kanalBaslik">Əlaqə vasitələri</h2>
+      <div class="izgara izgara--4">
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:tel}}</span><h3>Telefon nömrəsi</h3></div>
+          <a class="iletisim-kart__deger sayi" href="{{TEL_HREF}}">{{TEL}}</a>
+          <a class="dugme dugme--altin" href="{{TEL_HREF}}">{{ikon:tel}}İndi zəng edin</a>
+        </div>
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:wa}}</span><h3>WhatsApp</h3></div>
+          <p class="iletisim-kart__deger sayi">{{TEL}}</p>
+          <a class="dugme dugme--wa" href="{{WA_HAZIR}}" target="_blank" rel="noopener">{{ikon:wa}}Hazır mesajla yazın</a>
+        </div>
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:konum}}</span><h3>Ünvan</h3></div>
+          <p class="iletisim-kart__deger">{{ADRES}}</p>
+          <a class="dugme dugme--cizgi" href="{{YOL_TARIFI}}" target="_blank" rel="noopener">{{ikon:yol}}Marşrut qurun</a>
+        </div>
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:siren}}</span><h3>Yerində servis</h3></div>
+          <p class="iletisim-kart__deger">{{SAHA}}</p>
+          <p>Texnika obyektdə nasaz olubsa, iş saatlarında zəng edin; iş saatlarından kənar gələn sorğulara növbəti iş gününün əvvəlində cavab verilir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-labelledby="hizliBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">WhatsApp ilə sürətli nasazlıq bildirişi</p>
+        <h2 id="hizliBaslik">Nasazlığı seçin, WhatsApp hazır mesajla açılsın.</h2>
+        <p>Seçdiyiniz nasazlıq mesajın sonuna əlavə olunur. Fotonu və məkanı WhatsApp-da əlavə edə bilərsiniz. Daha ətraflı sorğu üçün <a class="metin-bag" href="servis-talebi.html">servis sorğusu kartlarından</a> istifadə edin.</p>
+      </div>
+      <div data-anim="kart">
+        {{HIZLI_ARIZA}}
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" id="harita" aria-labelledby="haritaBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Ünvan</p>
+        <h2 id="haritaBaslik">Emalatxanaya necə gəlmək olar?</h2>
+      </div>
+      <div class="konum__izgara">
+        {{HARITA}}
+        <div class="kart kart--acik iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:saat}}</span><h3>Emalatxananın iş saatları</h3></div>
+          {{SAATLER_TABLOSU}}
+          <a class="dugme dugme--koyu" href="{{YOL_TARIFI}}" target="_blank" rel="noopener">{{ikon:yol}}Marşrut qurun</a>
+          <a class="metin-bag" href="{{HARITA_AC}}" target="_blank" rel="noopener">Google Xəritələrdə açın</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="bolgeBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Xidmət ərazisi</p>
+        <h2 id="bolgeBaslik">Muğlanın bütün rayonları və Didim.</h2>
+        <p>{{HIZMET_BOLGESI}}</p>
+      </div>
+      <div data-anim="kart">{{ILCELER}}</div>
+    </div>
+  </section>

@@ -95,6 +95,10 @@ img { height: auto; }
 a { color: inherit; }
 p { margin: 0 0 var(--b4); }
 h1, h2, h3, h4 { margin: 0; font-family: var(--f-baslik); font-weight: 800; line-height: 1.08; letter-spacing: -.015em; text-wrap: balance; }
+/* Uzun birleşik kelimeler (ör. Almanca "Dieselmotorüberholung") dar telefonda kutudan taşmasın:
+   tarayıcı sayfa dilinin (html lang) kurallarıyla heceler; hecelenemeyen kelime en son çare olarak bölünür. */
+body { overflow-wrap: break-word; }
+:lang(de), :lang(es), :lang(en), :lang(az) { -webkit-hyphens: auto; hyphens: auto; }
 h1 { font-size: var(--y-h1); line-height: 1; letter-spacing: -.025em; }
 h2 { font-size: var(--y-h2); }
 h3 { font-size: var(--y-h3); font-weight: 700; line-height: 1.2; letter-spacing: -.005em; }
@@ -181,22 +185,57 @@ html.lenis, html.lenis body { height: auto; }
 .rozet--baslik .rozet__ek { display: none; }
 .baslik__eylem { display: flex; align-items: center; gap: var(--b2); flex: none; }
 .baslik__eylem .dugme .ikon { width: 17px; height: 17px; }
-@media (max-width: 1180px) { .baslik__eylem .dugme { padding-inline: .7rem; } .menu__liste a { padding-inline: .6rem; } }
-@media (max-width: 760px) { .baslik__eylem { display: none; } }
-/* Masaüstü menü açıkken yazılı düğmelere yer kalmaz (içerik genişliği sınırlı): Ara/WhatsApp yalnız simge olur, adı ekran okuyucuya kalır */
-@media (min-width: 1101px) {
-  .baslik__eylem .dugme { width: var(--dokunma); padding: 0; }
-  .baslik__eylem .dugme__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-}
-@media (min-width: 1101px) and (max-width: 1219px) { .baslik__eylem { display: none; } }
+/* Başlıkta Ara/WhatsApp yalnız tablette (761–1199px) ve yalnız simge olarak durur; adı ekran okuyucuya kalır.
+   Telefonda alttaki sabit şerit, masaüstünde menü + dil seçici var (içerik genişliği sınırlı, hepsi sığmaz). */
+.baslik__eylem .dugme { width: var(--dokunma); padding: 0; }
+.baslik__eylem .dugme__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 760px), (min-width: 1200px) { .baslik__eylem { display: none; } }
 .rozet--baslik, .rozet--baslik .rozet__metin { white-space: nowrap; flex-wrap: nowrap; }
-/* Dar ekranda rozet tek satır kalır: "Atölye" ön eki gizlenir (menü düğmesine yer açılır) */
+/* Telefonda açık/kapalı durumu başlıkta değil, hemen altındaki ince şeritte ve açılış/kapanış saatiyle yazar:
+   böylece başlığa her dilde (uzun kelimelerle de) logo, dil seçici ve menü düğmesi rahat sığar. */
+.durum-serit { display: none; }
+@media (max-width: 760px) {
+  .rozet--baslik { display: none; }
+  .durum-serit { display: block; background: var(--grafit); border-bottom: 1px solid var(--cizgi); }
+  .durum-serit .sar { padding-block: .45rem; }
+  .rozet--serit { font-size: .875rem; line-height: 1.35; }
+  .js .rozet--serit .rozet__alt { display: none; }
+  .rozet--serit .rozet__ek:not(:empty)::before { content: "· "; }
+}
 @media (max-width: 480px) {
-  .baslik__sol { gap: var(--b3); }
-  .rozet--baslik { padding: .3rem .55rem; }
-  .rozet--baslik .rozet__on { display: none; }
   .menu__dugme { padding: 0; width: var(--dokunma); justify-content: center; }
   .menu__dugme .menu__yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+/* Dil seçici: her zaman görünür; masaüstünde menünün sağında, telefonda menü düğmesinin solunda */
+.dil { position: relative; flex: none; }
+.dil__dugme {
+  list-style: none; display: inline-flex; align-items: center; gap: .4rem; min-height: var(--dokunma); padding: 0 .7rem;
+  border: 1px solid rgba(214, 166, 79, .45); border-radius: var(--r); background: rgba(214, 166, 79, .08);
+  color: var(--altin); font-weight: 700; font-size: .9375rem; letter-spacing: .03em; cursor: pointer; user-select: none;
+  transition: border-color var(--sure) var(--egri), background-color var(--sure) var(--egri);
+}
+.dil__dugme::-webkit-details-marker, .dil__dugme::marker { display: none; content: ""; }
+.dil__dugme .ikon { width: 18px; height: 18px; }
+.dil__dugme .dil__ok { width: 14px; height: 14px; transition: transform var(--sure) var(--egri); }
+.dil__dugme:hover, .dil[open] .dil__dugme { border-color: var(--altin); background: rgba(214, 166, 79, .14); }
+.dil[open] .dil__ok { transform: rotate(180deg); }
+.dil__liste {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 60; min-width: 13.5rem; margin: 0; padding: .4rem; list-style: none;
+  background: var(--lacivert); border: 1px solid rgba(214, 166, 79, .45); border-radius: var(--r); box-shadow: 0 18px 44px rgba(0, 0, 0, .5);
+}
+.dil__liste a {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 46px; padding: 0 .85rem;
+  border-radius: var(--r-kucuk); color: var(--metin-soluk); font-weight: 600; text-decoration: none; white-space: nowrap;
+}
+.dil__liste a:hover, .dil__liste a:focus-visible { background: rgba(255, 255, 255, .06); color: var(--metin); }
+.dil__liste a[aria-current="true"] { background: rgba(214, 166, 79, .16); color: var(--altin); font-weight: 700; }
+.dil__bayrak { flex: none; width: 24px; height: 16px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255, 255, 255, .18); }
+@media (min-width: 1200px) { .dil { order: 1; } .menu__liste a { padding-inline: .6rem; } }
+/* Dar masaüstünde (uzun menü adlı dillerde de) sığsın: rozet yalnız "Açık / Kapalı" der */
+@media (min-width: 1200px) and (max-width: 1439px) { .rozet--baslik .rozet__on { display: none; } .menu__liste a { padding-inline: .5rem; } }
+@media (max-width: 480px) {
+  .dil__dugme { padding: 0 .5rem; gap: .3rem; }
+  .dil__dugme .dil__ok { display: none; }
 }
 .logo img { width: 62px; height: auto; border-radius: 4px; }
 .logo__yazi { display: grid; line-height: 1.05; }
@@ -223,7 +262,7 @@ html.lenis, html.lenis body { height: auto; }
 .menu__liste .menu__cta a:hover { background: var(--altin-acik); }
 .menu__liste .menu__cta a[aria-current="page"] { box-shadow: 0 0 0 2px var(--lacivert), 0 0 0 4px var(--altin); }
 
-@media (max-width: 1100px) {
+@media (max-width: 1199px) {
   .menu__dugme { display: inline-flex; }
   .menu__liste {
     display: none; position: fixed; left: 0; right: 0; top: var(--menu-ust, 112px); bottom: 0; z-index: 49;
@@ -291,6 +330,7 @@ html.lenis, html.lenis body { height: auto; }
 .bolum--acik .cipler li.vurgu, .kart--acik .cipler li.vurgu { border-color: var(--altin-koyu); }
 .not { font-size: var(--y-kucuk); color: var(--metin-soluk); }
 .bolum--acik .not, .kart--acik .not { color: var(--koyu-soluk); }
+.bilet .not { color: var(--metin-soluk); } /* açık bölüm içindeki koyu önizleme kartı */
 .metin-bag { color: var(--altin); font-weight: 700; text-underline-offset: 3px; }
 .bolum--acik .metin-bag, .kart--acik .metin-bag { color: var(--altin-koyu); }
 
@@ -395,6 +435,7 @@ html.lenis, html.lenis body { height: auto; }
   background: var(--beyaz); border: 1px solid var(--cizgi-acik); color: var(--koyu-metin); text-decoration: none; font-weight: 600; line-height: 1.35;
   transition: border-color var(--sure) var(--egri), transform var(--sure-kisa) var(--egri), box-shadow var(--sure) var(--egri);
 }
+.hizli-ariza a > span:not(.hizli-ariza__no) { min-width: 0; }
 .hizli-ariza a:hover { border-color: var(--altin-koyu); transform: translateY(-1px); box-shadow: var(--golge-acik); }
 .hizli-ariza__no { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; background: var(--lacivert); color: var(--altin); font: 800 .9rem/1 var(--f-baslik); flex: none; }
 .hizli-ariza .ikon--ok { margin-left: auto; color: var(--altin-koyu); }
@@ -592,7 +633,7 @@ textarea.girdi { min-height: 130px; resize: vertical; line-height: 1.5; }
 .hizli .ikon { width: 22px; height: 22px; }
 @media (max-width: 760px) {
   .hizli { left: 0; right: 0; bottom: 0; gap: 0; padding: 8px max(10px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)); background: rgba(16, 24, 39, .97); border-top: 1px solid var(--cizgi); }
-  .hizli a { flex: 1 1 50%; justify-content: center; border-radius: var(--r); box-shadow: none; }
+  .hizli a { flex: 1 1 50%; min-width: 0; padding-inline: .6rem; justify-content: center; border-radius: var(--r); box-shadow: none; white-space: nowrap; }
   .hizli a + a { margin-left: 8px; }
   .hizli__ara { display: inline-flex !important; }
 }

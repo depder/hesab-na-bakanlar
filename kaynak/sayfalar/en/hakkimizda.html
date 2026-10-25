@@ -1,0 +1,85 @@
+<!--
+{
+  "baslik": "About Us — Workshop, Management and Service Process · Başkent İş Makinaları",
+  "aciklama": "{{FIRMA}}: construction machinery workshop at {{ADRES}}. Management, technical responsibility, specialisms and our service process."
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Breadcrumb"><li><a href="./">Home</a></li><li aria-current="page">About Us</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">About Us</h1>
+      <p data-anim="giris">{{FIRMA}} services construction machinery in its workshop at {{ADRES}} and on site. Hydraulic systems, transmissions and diesel engine overhaul are our core specialisms.</p>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-labelledby="yonetimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Management and technical responsibility</p>
+        <h2 id="yonetimBaslik">Who is responsible, and who do you talk to?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart kart--acik guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:kalkan}}</span>
+          <h3>{{YONETIM}}</h3>
+          <p>The service workflow is run by {{YONETIM}}: the fault is diagnosed, and you are told the scope of the work and the estimated time. Repairs start only after you approve.</p>
+        </div>
+        <div class="kart kart--acik guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:anahtar}}</span>
+          <h3>{{YETKILI}}</h3>
+          <p>{{MUHATAP}}. Responsible for technical assessment and for carrying out the work in the workshop and on site; your contact on the phone and on WhatsApp: <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="uzmanlikBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Our specialisms</p>
+        <h2 id="uzmanlikBaslik">From hydraulics to transmissions, from engines to on-site work.</h2>
+        <p>We service machines of every brand; we are not an authorised service centre of any brand. For details, see the <a class="metin-bag" href="hizmetlerimiz.html">Our Services</a> page.</p>
+      </div>
+      <div data-anim="kart">{{MAKINELER}}</div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" id="surec" aria-labelledby="adimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Service process</p>
+        <h2 id="adimBaslik">Six steps from request to handover.</h2>
+      </div>
+      <ol class="adimlar">
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">01</span><h3>Send your request</h3><p>Fill in the service request cards, write on WhatsApp or call us. You can attach a photo of the faulty part and the machine's location.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">02</span><h3>Initial assessment</h3><p>{{YETKILI}} reviews the information and photos you send and gets back to you.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">03</span><h3>Workshop or on site</h3><p>The machine or part is brought to the workshop; if the machine is stuck on site, our team comes to it.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">04</span><h3>Diagnosis and quote</h3><p>The fault is diagnosed; the scope of the work and the estimated time are confirmed.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">05</span><h3>Repair and overhaul</h3><p>The work you approve is carried out.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">06</span><h3>Inspection and handover</h3><p>The finished work is checked and handed over.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="saatBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Hours and area</p>
+        <h2 id="saatBaslik">When is the workshop open, and where do we go?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart" data-anim="kart">
+          <h3>Workshop opening hours</h3>
+          {{ROZET_BUYUK}}
+          {{SAATLER_TABLOSU}}
+          <p class="not">The status is calculated live in Turkish time (Milas). Requests received outside working hours are answered at the start of the next working day.</p>
+        </div>
+        <div class="kart" data-anim="kart">
+          <h3>On-site service and service area</h3>
+          <p><b>On-site service:</b> during working hours ({{SAAT_OZET}}). If your machine has broken down on site, call <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a>.</p>
+          <p>{{HIZMET_BOLGESI}}</p>
+          {{ILCELER}}
+        </div>
+      </div>
+    </div>
+  </section>
