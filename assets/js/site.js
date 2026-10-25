@@ -133,7 +133,7 @@
       if (menuAcikMi() && !e.target.closest('.menu')) menuAyarla(false, false);
     });
     // Masaüstü genişliğine geçilirse açık kalan mobil menü kapanır (kaydırma kilidi takılı kalmasın)
-    var genisEkran = window.matchMedia('(min-width: 981px)');
+    var genisEkran = window.matchMedia('(min-width: 1101px)');
     var genisDegisti = function (s) { if (s.matches && menuAcikMi()) menuAyarla(false, false); };
     if (genisEkran.addEventListener) genisEkran.addEventListener('change', genisDegisti);
   }

@@ -164,7 +164,7 @@ test('başlık: logo, canlı atölye rozeti, Hemen Ara ve WhatsApp; masaüstü t
     assert.match(html, /<dialog class="tel-pencere" id="telPencere"[\s\S]*data-kopyala="0538 077 35 71"[\s\S]*data-tel-dogrudan/, ad);
     assert.match(html, /<aside class="hizli"[\s\S]*class="hizli__ara"[\s\S]*class="hizli__wa"/, ad);
     const menu = [...html.matchAll(/<ul class="menu__liste"[\s\S]*?<\/ul>/g)][0][0];
-    assert.deepEqual([...menu.matchAll(/href="([^"]+)"/g)].map((m) => m[1]), ['./', 'hizmetlerimiz.html', 'hakkimizda.html', 'iletisim.html', 'servis-talebi.html'], ad);
+    assert.deepEqual([...menu.matchAll(/href="([^"]+)"/g)].map((m) => m[1]), ['./', 'hizmetlerimiz.html', 'yedek-parca.html', 'hakkimizda.html', 'iletisim.html', 'servis-talebi.html'], ad);
   }
 });
 
@@ -269,4 +269,16 @@ test('site.config.json\'da zorunlu alan eksikse üreteç durur, "undefined" yay�
   } finally {
     fs.rmSync(gecici, { recursive: true, force: true });
   }
+});
+
+test('yedek parça sayfası: yağ bölmeleri, cer açıklaması, parça grupları, parça mesajı; marka ve model adı yok', () => {
+  const metin = gorunenMetin('yedek-parca');
+  for (const y of ['Motor yağı', 'Hidrolik yağı', 'Şanzıman ve tork konvertörü yağı', 'Cer ve kule dönüş redüktörü yağı', 'Aks, diferansiyel ve ıslak fren yağı', 'Gres, antifriz, AdBlue']) assert.ok(metin.includes(y), y);
+  for (const g of ['Filtreler', 'Joystick ve kumanda', 'Hidrolik', 'Yürüyüş ve alt takım', 'Motor', 'Şanzıman ve aks', 'Aşınma ve ataşman', 'Elektrik ve elektronik', 'Kabin']) assert.ok(metin.includes(g), g);
+  assert.match(metin, /Cer nedir\?/);
+  assert.match(metin, /şasi numarası/i);
+  assert.doesNotMatch(metin, /caterpillar|\bcat\b|komatsu|volvo|jcb|hitachi|hyundai|develon|doosan|hidromek|liebherr|kobelco|kubota|case\b|new holland|sany|xcmg|liugong/i);
+  const html = sayfaHtml('yedek-parca');
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+  assert.ok(html.includes(B.waAdresi(ayar.whatsapp.parcaTalebi).replace(/&/g, '&amp;')), 'parça mesajlı WhatsApp bağlantısı');
 });

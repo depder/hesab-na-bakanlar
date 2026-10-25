@@ -165,6 +165,7 @@ test('waMasaustuAdresi wa.me bağlantısını WhatsApp Web\'e çevirir, metni ko
 
 test('tüm sayfalardaki WhatsApp bağlantıları tek hatta ve izinli mesajlarla gider', () => {
   const izinli = new Set([B.waAdresi(B.KARSILAMA)].concat(B.ARIZA_KATEGORILERI.map((k) => B.waAdresi(B.hizliMesaj(k)))));
+  izinli.add(B.waAdresi(B.AYAR.whatsapp.parcaTalebi)); // yedek parça / yağ fiyatı mesajı
   if (B.AYAR.whatsapp.katalog) izinli.add(B.AYAR.whatsapp.katalog); // WhatsApp Business kataloğu (wa.me/c/aynı numara)
   for (const { ad, html } of tumSayfalar()) {
     const adresler = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)].map((m) => m[1].replace(/&amp;/g, '&'));

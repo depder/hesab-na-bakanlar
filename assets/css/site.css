@@ -180,8 +180,8 @@ html.lenis, html.lenis body { height: auto; }
 .baslik__eylem .dugme .ikon { width: 17px; height: 17px; }
 @media (max-width: 1180px) { .baslik__eylem .dugme { padding-inline: .7rem; } .menu__liste a { padding-inline: .6rem; } }
 @media (max-width: 760px) { .baslik__eylem { display: none; } }
-/* Masaüstü menü açıkken 1280px altında eylem düğmelerine yer kalmaz; arama/WhatsApp sayfa içinde ve menüde "Servis Talebi" var */
-@media (min-width: 981px) and (max-width: 1279px) { .baslik__eylem { display: none; } }
+/* Masaüstü menü açıkken 1480px altında eylem düğmelerine yer kalmaz; arama/WhatsApp sayfa içinde ve menüde "Servis Talebi" var */
+@media (min-width: 1101px) and (max-width: 1479px) { .baslik__eylem { display: none; } }
 .rozet--baslik, .rozet--baslik .rozet__metin { white-space: nowrap; flex-wrap: nowrap; }
 /* Dar ekranda rozet tek satır kalır: "Atölye" ön eki gizlenir (menü düğmesine yer açılır) */
 @media (max-width: 480px) {
@@ -216,7 +216,7 @@ html.lenis, html.lenis body { height: auto; }
 .menu__liste .menu__cta a:hover { background: var(--altin-acik); }
 .menu__liste .menu__cta a[aria-current="page"] { box-shadow: 0 0 0 2px var(--lacivert), 0 0 0 4px var(--altin); }
 
-@media (max-width: 980px) {
+@media (max-width: 1100px) {
   .menu__dugme { display: inline-flex; }
   .menu__liste {
     display: none; position: fixed; left: 0; right: 0; top: var(--menu-ust, 112px); bottom: 0; z-index: 49;
@@ -611,3 +611,30 @@ textarea.girdi { min-height: 130px; resize: vertical; line-height: 1.5; }
   .baslik, .hizli, .kahraman-harita__harita, .kapanis, .harita, .tel-pencere { display: none !important; }
   body, .bolum, .kart { background: #fff !important; color: #000 !important; }
 }
+
+/* ---------------------------------------------------------------- Yedek parça sayfası */
+.eylemler-satir { display: flex; flex-wrap: wrap; gap: var(--b3); margin-top: var(--b6); }
+.yag-kart { display: flex; flex-direction: column; gap: var(--b3); }
+.yag-kart h3 { margin: var(--b2) 0 0; }
+.yag-kart p { margin: 0; }
+.parca-izgara .kart h3 { padding-bottom: var(--b3); border-bottom: 1px solid var(--cizgi-acik); }
+.parca-izgara .tikli { font-size: var(--y-kucuk); }
+.parca-cta { display: flex; flex-wrap: wrap; gap: var(--b3); margin: clamp(1.5rem, 1rem + 2vw, 2.5rem) 0 0; }
+
+.cer { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(1.5rem, 1rem + 3vw, 4rem); align-items: center; }
+@media (max-width: 900px) { .cer { grid-template-columns: minmax(0, 1fr); } }
+.cer__metin p:not(.etiket) { color: var(--metin-soluk); max-width: 60ch; }
+.cer__metin .tikli { margin-top: var(--b5); }
+.cer__sema { margin: 0; padding: clamp(1rem, .8rem + 1vw, 1.5rem); border-radius: var(--r-buyuk); background: var(--lacivert); border: 1px solid var(--cizgi); }
+.cer__sema svg { display: block; width: 100%; height: auto; overflow: visible; }
+.cer__sema figcaption { margin-top: var(--b3); font-size: var(--y-kucuk); color: var(--metin-soluk); }
+.cer__palet { fill: none; stroke: var(--metal); stroke-width: 9; stroke-dasharray: 3 7; stroke-linecap: butt; opacity: .55; }
+.cer__avara { fill: var(--grafit-2); stroke: var(--cizgi-2); stroke-width: 2; }
+.cer__makara { fill: var(--grafit-2); stroke: var(--cizgi-2); stroke-width: 2; }
+.cer__disli circle { fill: var(--grafit-2); stroke: var(--altin); stroke-width: 2.5; }
+.cer__disli circle:first-child { stroke-dasharray: 9 4; stroke-width: 6; }
+.cer__disli .cer__planet { fill: #232934; stroke: var(--altin-acik); stroke-width: 1.5; stroke-dasharray: none; }
+.cer__disli .cer__motor { fill: var(--altin); stroke: none; }
+.cer__etiketler path { fill: none; stroke: var(--metin-soluk); stroke-width: 1; }
+.cer__etiketler text { fill: var(--metin); font: 600 11px/1 var(--f-govde); }
+.bolum--grafit .adimlar h3 { color: var(--koyu-metin); }

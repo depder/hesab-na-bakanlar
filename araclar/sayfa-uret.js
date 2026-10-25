@@ -26,7 +26,7 @@ if (alanAdi && !/^https:\/\/[a-z0-9.-]+\.[a-z]{2,}$/i.test(alanAdi)) {
   throw new Error('site.config.json → alanAdi "https://alan.adi" biçiminde olmalı: ' + alanAdi);
 }
 // Zorunlu metin alanları: eksik ya da boşsa sitede "undefined" yayımlamak yerine durur.
-['firma', 'telefon.gorunen', 'whatsapp.karsilama', 'whatsapp.talepBasligi', 'whatsapp.talepKapanisi',
+['firma', 'telefon.gorunen', 'whatsapp.karsilama', 'whatsapp.talepBasligi', 'whatsapp.talepKapanisi', 'whatsapp.parcaTalebi',
   'adres.satir', 'adres.postaKodu', 'adres.ilce', 'adres.il', 'adres.haritaSorgusu', 'sahaServisi', 'yonetim', 'yetkili.ad', 'yetkili.unvan', 'hizmetBolgesiNotu']
   .forEach((alan) => {
     const deger = alan.split('.').reduce((o, k) => (o == null ? o : o[k]), A);
@@ -47,10 +47,11 @@ if (!/^90\d{10}$/.test(A.telefon.e164) || !/^90\d{10}$/.test(A.whatsapp.numara))
 const ikonlar = fs.readFileSync(path.join(KOK, 'kaynak/ikonlar.svg'), 'utf8').trim();
 const galeri = JSON.parse(fs.readFileSync(path.join(KOK, 'kaynak/galeri.json'), 'utf8'));
 
-const SAYFALAR = ['index', 'hizmetlerimiz', 'servis-talebi', 'hakkimizda', 'iletisim', 'kvkk'];
+const SAYFALAR = ['index', 'hizmetlerimiz', 'yedek-parca', 'servis-talebi', 'hakkimizda', 'iletisim', 'kvkk'];
 const MENU = [
   { ad: 'index', yazi: 'Ana Sayfa' },
   { ad: 'hizmetlerimiz', yazi: 'Hizmetlerimiz' },
+  { ad: 'yedek-parca', yazi: 'Yedek Parça' },
   { ad: 'hakkimizda', yazi: 'Hakkımızda' },
   { ad: 'iletisim', yazi: 'İletişim' }
 ];
@@ -96,6 +97,7 @@ const parcalar = {
   TEL_HREF: TEL_HREF,
   TEL: kacir(A.telefon.gorunen),
   WA_HAZIR: kacir(WA_HAZIR),
+  WA_PARCA: kacir(K.waAdresi(A.whatsapp.parcaTalebi)),
   // Katalog tanımlı değilse düğme hiç basılmaz (boş katalog bağlantısı yayımlanmaz)
   KATALOG_DUGME: A.whatsapp.katalog
     ? `<a class="dugme dugme--wa" href="${kacir(A.whatsapp.katalog)}" target="_blank" rel="noopener">${ikon('wa')}Hizmet kartlarını WhatsApp'ta aç</a>`
@@ -286,7 +288,7 @@ function altBilgi() {
     <div class="alt__ic">
       <div class="alt__marka">
         <img src="assets/images/logo-isaret.webp" width="240" height="144" alt="${kacir(FIRMA)}" loading="lazy" decoding="async">
-        <p>İş makinelerinde hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; atölye ve yerinde saha servisi.</p>
+        <p>İş makinelerinde hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; yedek parça ve yağ tedariki; atölye ve yerinde saha servisi.</p>
       </div>
       <div>
         <h2>Sayfalar</h2>
