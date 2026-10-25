@@ -375,12 +375,6 @@ ${menuHtml(aktif)}
         <p>${t('İş makinelerinde hidrolik sistem, şanzıman ve tork konvertörü, dizel motor revizyonu; yedek parça ve yağ tedariki; atölye ve yerinde saha servisi.')}</p>
       </div>
       <div>
-        <h2>${t('Sayfalar')}</h2>
-        <ul>
-${MENU.concat([{ ad: 'servis-talebi', yazi: 'Servis Talebi' }]).map((s) => `          <li><a href="${sayfaYolu(s.ad)}">${t(s.yazi)}</a></li>`).join('\n')}
-        </ul>
-      </div>
-      <div>
         <h2>${t('Atölye')}</h2>
         <ul>
 ${A.calismaSaatleri.map((s) => `          <li>${kacir(t(s.etiket))} ${s.acilis ? s.acilis + ' – ' + s.kapanis : t('kapalı')}</li>`).join('\n')}
