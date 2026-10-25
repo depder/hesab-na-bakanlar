@@ -22,7 +22,7 @@
     { "etiket": "Cumartesi", "gunler": [6], "acilis": "08:30", "kapanis": "13:30" },
     { "etiket": "Pazar", "gunler": [0], "acilis": null, "kapanis": null }
   ],
-  "sahaServisi": "7/24",
+  "sahaServisi": "Mesai saatlerinde",
   "yonetim": "Şirket Yönetimi",
   "yetkili": { "ad": "Mücahit ÇAKIR", "unvan": "Baş Teknisyen / Master Technician" },
   "bolgeler": ["Milas", "Selimiye", "Bodrum", "Dalaman", "Datça", "Fethiye", "Kavaklıdere", "Köyceğiz", "Marmaris", "Menteşe", "Ortaca", "Seydikemer", "Ula", "Yatağan", "Didim (Aydın)", "Diğer il (özel anlaşma)"],
@@ -33,7 +33,7 @@
       { "ad": "Mekanik Bakım / Overhaul", "aciklama": "Motor revizyonu, pim–burç, periyodik ağır bakım" },
       { "ad": "Hidrolik Sistem", "aciklama": "Pompa, valf, silindir, kaçak, güç kaybı" },
       { "ad": "Şanzıman / Tork Konvertörü", "aciklama": "Yürümeme, çekiş kaybı, vites sorunu" },
-      { "ad": "Saha Acil Servis", "aciklama": "Makine şantiyede durdu, 7/24" }
+      { "ad": "Saha Acil Servis", "aciklama": "Makine şantiyede durdu, mesai saatlerinde yerinde servis" }
     ],
     "ekipmanlar": ["Ekskavatör", "Loder", "Beko loder", "Vinç", "Greyder", "Dozer", "Silindir", "Forklift", "Teleskopik yükleyici", "Beton pompası", "Transmikser", "Tır / ağır vasıta", "Diğer"],
     "aciliyetler": ["Şantiye durdu", "Normal bakım"]

@@ -26,7 +26,7 @@ Her kart için: **fotoğraf** (atölyeden gerçek bir fotoğraf), **ad**, **aç�
 | 2 | Mekanik Bakım / Overhaul | Motor revizyonu, pim–burç, periyodik ağır bakım |
 | 3 | Hidrolik Sistem | Pompa, valf, silindir, kaçak, güç kaybı |
 | 4 | Şanzıman / Tork Konvertörü | Yürümeme, çekiş kaybı, vites sorunu |
-| 5 | Saha Acil Servis | Makine şantiyede durdu, 7/24 |
+| 5 | Saha Acil Servis | Makine şantiyede durdu, mesai saatlerinde yerinde servis |
 
 Bağlantı alanı için: `https://baskent-is-makinalari.vercel.app/servis-talebi.html`
 

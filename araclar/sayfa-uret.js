@@ -268,7 +268,7 @@ function kapanis() {
         <p class="etiket">İletişim</p>
         <h2 id="kapanisBaslik">Makineniz mi durdu? Hemen konuşalım.</h2>
         <span class="kapanis__cizgi" aria-hidden="true"></span>
-        <p>Telefonda ve WhatsApp'ta muhatabınız <b>${parcalar.YETKILI}</b> — ${parcalar.MUHATAP}. Atölye mesai dışındaysa acil saha servisi için yine arayabilirsiniz.</p>
+        <p>Telefonda ve WhatsApp'ta muhatabınız <b>${parcalar.YETKILI}</b> — ${parcalar.MUHATAP}. Mesai dışında gelen arama ve mesajlara ilk mesai saatinde dönüş yapılır.</p>
       </div>
       <div class="kapanis__dugmeler">
         <a class="dugme dugme--altin dugme--buyuk" href="${TEL_HREF}">${ikon('tel')}Hemen Ara <span class="sayi">${parcalar.TEL}</span></a>
@@ -298,7 +298,7 @@ ${MENU.concat([{ ad: 'servis-talebi', yazi: 'Servis Talebi' }]).map((s) => `    
         <h2>Atölye</h2>
         <ul>
 ${A.calismaSaatleri.map((s) => `          <li>${kacir(s.etiket)} ${s.acilis ? s.acilis + ' – ' + s.kapanis : 'kapalı'}</li>`).join('\n')}
-          <li><b>${parcalar.SAHA} saha servisi</b></li>
+          <li><b>Saha servisi mesai saatlerinde</b></li>
         </ul>
       </div>
       <div>

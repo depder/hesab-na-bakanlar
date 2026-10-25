@@ -109,6 +109,7 @@ test('adres ve atölye saatleri tüm sayfalarda tutarlı (08:30–18:00, Cmt 08:
     assert.match(metin, /08:30 – 18:00/, ad);
     assert.match(metin, /08:30 – 13:30/, ad);
     assert.match(metin, /Pazar kapalı/, ad);
+    assert.doesNotMatch(metin, /7\/24|saat fark etmeksizin|günün her saatinde|beklemeden|bağımsız arayın/, ad + ': saha servisi mesai saatlerinde');
     assert.doesNotMatch(metin, /08:00|09:00|17:30|19:00/, ad);
   }
   const veri = JSON.parse(sayfaHtml('iletisim').match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);

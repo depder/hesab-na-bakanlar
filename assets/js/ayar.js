@@ -54,7 +54,7 @@ window.BaskentAyar = {
       "kapanis": null
     }
   ],
-  "sahaServisi": "7/24",
+  "sahaServisi": "Mesai saatlerinde",
   "yonetim": "Şirket Yönetimi",
   "yetkili": {
     "ad": "Mücahit ÇAKIR",
@@ -99,7 +99,7 @@ window.BaskentAyar = {
       },
       {
         "ad": "Saha Acil Servis",
-        "aciklama": "Makine şantiyede durdu, 7/24"
+        "aciklama": "Makine şantiyede durdu, mesai saatlerinde yerinde servis"
       }
     ],
     "ekipmanlar": [
