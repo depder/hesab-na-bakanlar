@@ -4,6 +4,7 @@
 (function () {
   'use strict';
   var B = window.Baskent;
+  var T = B ? B.ceviri : null;
   var form = document.getElementById('talepFormu');
   if (!B || !form) return;
 
@@ -63,7 +64,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('#adimCubugu [data-adim]'), function (li) {
       var no = li.getAttribute('data-adim');
       li.classList.toggle('tamam', tamam[no]);
-      if (tamam[no]) li.setAttribute('aria-label', li.textContent.replace(/^\d/, '').trim() + ' — tamamlandı');
+      if (tamam[no]) li.setAttribute('aria-label', T('{0} — tamamlandı', li.textContent.replace(/^\d/, '').trim()));
       else li.removeAttribute('aria-label');
     });
   }
@@ -179,31 +180,31 @@
 
   konumDugme.addEventListener('click', function () {
     if (!('geolocation' in navigator)) {
-      konumMesaji('Tarayıcınız konum özelliğini desteklemiyor. Yeri açıklamaya yazabilirsiniz.', true);
+      konumMesaji(T('Tarayıcınız konum özelliğini desteklemiyor. Yeri açıklamaya yazabilirsiniz.'), true);
       return;
     }
     if (!window.isSecureContext) {
-      konumMesaji('Konum yalnızca güvenli (https) bağlantıda alınabilir. Yeri açıklamaya yazabilirsiniz.', true);
+      konumMesaji(T('Konum yalnızca güvenli (https) bağlantıda alınabilir. Yeri açıklamaya yazabilirsiniz.'), true);
       return;
     }
     konumDugme.disabled = true;
-    konumMesaji('Konum izni isteniyor…', false);
+    konumMesaji(T('Konum izni isteniyor…'), false);
     navigator.geolocation.getCurrentPosition(function (p) {
       konum = { enlem: p.coords.latitude, boylam: p.coords.longitude, dogruluk: p.coords.accuracy };
       var bag = B.konumBaglantisi(konum.enlem, konum.boylam);
-      if (!bag) { konum = null; konumDugme.disabled = false; konumMesaji('Konum okunamadı. Yeri açıklamaya yazabilirsiniz.', true); return; }
+      if (!bag) { konum = null; konumDugme.disabled = false; konumMesaji(T('Konum okunamadı. Yeri açıklamaya yazabilirsiniz.'), true); return; }
       konumBag.href = bag;
       konumSonuc.hidden = false;
-      konumMesaji('Konum eklendi (yaklaşık ±' + Math.round(konum.dogruluk) + ' m). Mesaja bu bağlantı eklenecek.', false);
+      konumMesaji(T('Konum eklendi (yaklaşık ±{0} m). Mesaja bu bağlantı eklenecek.', Math.round(konum.dogruluk)), false);
       onizle();
     }, function (hata) {
       konumDugme.disabled = false;
       var mesajlar = {
-        1: 'Konum izni verilmedi. Sorun değil — makinenin yerini açıklamaya yazabilirsiniz.',
-        2: 'Konum belirlenemedi (GPS veya ağ bilgisi yok). Yeri açıklamaya yazabilirsiniz.',
-        3: 'Konum zamanında alınamadı. Yeniden deneyin ya da yeri açıklamaya yazın.'
+        1: T('Konum izni verilmedi. Sorun değil — makinenin yerini açıklamaya yazabilirsiniz.'),
+        2: T('Konum belirlenemedi (GPS veya ağ bilgisi yok). Yeri açıklamaya yazabilirsiniz.'),
+        3: T('Konum zamanında alınamadı. Yeniden deneyin ya da yeri açıklamaya yazın.')
       };
-      konumMesaji(mesajlar[hata && hata.code] || 'Konum alınamadı. Yeri açıklamaya yazabilirsiniz.', true);
+      konumMesaji(mesajlar[hata && hata.code] || T('Konum alınamadı. Yeri açıklamaya yazabilirsiniz.'), true);
     }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
   });
 
@@ -212,8 +213,8 @@
   kopyaDugme.addEventListener('click', function () {
     var yazi = kopyaDugme.querySelector('span');
     window.BaskentKopyala(B.talepMetni(degerler()), function (basarili) {
-      yazi.textContent = basarili ? 'Kopyalandı' : 'Kopyalanamadı — elle seçin';
-      setTimeout(function () { yazi.textContent = 'Mesaj metnini kopyala'; }, 2200);
+      yazi.textContent = basarili ? T('Kopyalandı') : T('Kopyalanamadı — elle seçin');
+      setTimeout(function () { yazi.textContent = T('Mesaj metnini kopyala'); }, 2200);
     });
   });
 

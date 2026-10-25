@@ -8,7 +8,9 @@ Depo: `depder/hesab-na-bakanlar`, ana dal `master`, çalışma dalı `claude/bas
 
 **Yayın:** Vercel projesi "baskent-is-makinalari" (takım Saforan) artık bu depoya (`depder/hesab-na-bakanlar`) bağlı. `master`'a her birleştirme otomatik yayına çıkar: https://baskent-is-makinalari.vercel.app
 
-## Sitenin şu anki hâli (PR #17–#28 birleşti)
+## Sitenin şu anki hâli (PR #17–#32 birleşti)
+- **5 dil:** Türkçe (kök), İngilizce `en/`, Almanca `de/`, İspanyolca `es/`, Azerbaycanca `az/`. Başlıkta 🌐 dil seçici (bayraklı liste). Çeviriler `kaynak/sayfalar/<dil>/` + `kaynak/ceviri/<dil>.json`; WhatsApp mesajları her dilde Türkçe. Ayrıntı README → "Diller". Çeviriler bir anadil konuşucusuna (özellikle Azerbaycanca) kontrol ettirilmedi.
+- **Telefon:** müşterilerin %85–90'ı telefondan gelir. Telefonda başlık: logo + dil + ☰ menü (menü tam ekran açılır); açık/kapalı durumu başlığın altındaki şeritte. Makine listesinde "Tır" yok, yerine "Mobil vinç hidrolik sistemleri".
 - Saf HTML/CSS/JS statik site. 3D yok.
 - **Tek kaynak `site.config.json`:** telefon 0538 077 35 71, WhatsApp ve hazır mesaj, adres (Selimiye, Küçük Sanayi Sitesi, 48200 Milas / Muğla), koordinat 37.391047, 27.661943 (Google'da "Milas oto gaz" görünen dükkân noktası), saatler, yetkili, listeler, alan adı, WhatsApp kataloğu (`https://wa.me/c/905380773571`). Bir test bu bilgilerin sayfalara/betiklere sabit yazılmadığını denetler.
 - **Saatler:** Pzt–Cum 08:30–18:00, Cmt 08:30–13:30, Pazar kapalı. Saha servisi de mesai saatlerinde; sitede "7/24" yok (test denetler).
@@ -17,14 +19,15 @@ Depo: `depder/hesab-na-bakanlar`, ana dal `master`, çalışma dalı `claude/bas
 - **Yedek parça araştırması:** `YEDEK-PARCA-ARASTIRMA.md` (iç belge, sitede yok). Sitede marka/model adı geçmez; test denetler.
 - **WhatsApp kartları:** tüm hazır mesajların 2. satırında `kart/<ad>/` bağlantısı var; WhatsApp bunu görselli karta çevirir (genel servis + 6 hizmet, görseller `assets/images/kart/`, üretici `araclar/kart-gorsel-uret.js`). Ayrıntı README → "WhatsApp kartları".
 - **WhatsApp:** bağlantı paylaşılınca kart (og etiketleri) çıkar; "Hizmet kartlarını WhatsApp'ta aç" düğmesi kataloğu WhatsApp uygulamasında açar. Katalog kurulum adımları: `WHATSAPP-KATALOG.md`.
-- **Başlık:** logo + "Atölye Açık / Kapalı" rozeti + menü; menü 1100px'e kadar hamburger; 1220px ve üstünde "Hemen Ara" / "WhatsApp" yalnız simge olarak görünür (1101–1219px arası gizli; 761–1100px arası yazılı). 320–1920px arası başlıkta taşma ve çakışma yok.
-- Doğrulama: `node --test` 48/48; tarayıcı işlev kontrolü 27/27; hata yolları 6/6; axe 0 ihlal; 7 genişlikte taşma yok.
+- **Başlık:** menü 1199px'e kadar ☰ (hamburger); masaüstünde logo + rozet + menü + dil. "Hemen Ara" / "WhatsApp" başlıkta yalnız tablette (761–1199px) simge olarak; telefonda alttaki sabit şerit. 5 dilde 320–1920px arası başlıkta taşma ve çakışma yok.
+- Doğrulama: `node --test` 57/57; 5 dil × 7 sayfa × 8 genişlikte taşma yok (280/280); dil seçici 317/317; yabancı dilde form 24/24; axe 70/70 sayfa ihlalsiz.
 
 ## Kullanıcının yapacakları
 1. **WhatsApp Business kataloğu:** `WHATSAPP-KATALOG.md`'deki adımlarla 5 hizmet kartını telefondan kurmak. Kurulmazsa sitedeki katalog düğmesi boş katalog açar (istenirse `"katalog": ""` yapılıp düğme kaldırılır).
 2. **Google İşletme Profili:** Haritada nokta şu an "Milas oto gaz · LPG Dönüşümü" adıyla görünüyor. 37.391047, 27.661943 noktasına "Başkent İş Makinaları" adıyla profil açmak ya da mevcut kaydı sahiplenmek; makine fotoğrafları o zaman harita kartında görünür.
 3. **Gerçek fotoğraflar:** `assets/images/galeri/` + `kaynak/galeri.json`.
 4. **KVKK metni:** bir hukukçuya kontrol ettirmek.
+5. **Çeviriler:** mümkünse her dili (öncelikle Azerbaycanca ve teknik terimler) o dili anadili olarak konuşan birine okutmak.
 
 ## Bilinen açıklar
 - Gerçek telefonda deneme yapılmadı; Lighthouse yeniden ölçülmedi (harita otomatik yüklendiği için hız düşebilir).

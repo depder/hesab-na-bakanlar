@@ -1,0 +1,149 @@
+<!--
+{
+  "baslik": "Crear solicitud de servicio · Başkent İş Makinaları",
+  "aciklama": "Solicitud de servicio en tres pasos: elija el servicio e indique la máquina, la urgencia y la zona; su solicitud llega al {{TEL}} como mensaje de WhatsApp listo.",
+  "betikler": ["servis-talebi.js"],
+  "kapanis": false
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Ruta de navegación"><li><a href="./">Inicio</a></li><li aria-current="page">Solicitud de servicio</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Crear solicitud de servicio</h1>
+      <p data-anim="giris">Complétela en tres pasos: su solicitud se convierte en un mensaje de WhatsApp listo y llega al <span class="sayi">{{TEL}}</span>, a {{YETKILI}} ({{MUHATAP}}).</p>
+      <ol class="adim-cubugu" id="adimCubugu" aria-label="Pasos de la solicitud">
+        <li data-adim="1"><span aria-hidden="true">1</span>Servicio</li>
+        <li data-adim="2"><span aria-hidden="true">2</span>Máquina y zona</li>
+        <li data-adim="3"><span aria-hidden="true">3</span>WhatsApp</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-label="Solicitud de servicio">
+    <div class="sar">
+      <p class="bolum__dugme katalog-satir">{{KATALOG_DUGME}}<span class="not">Si prefiere ver las tarjetas en la aplicación de WhatsApp, puede enviar el servicio elegido directamente al chat.</span></p>
+
+      <div class="bilgi-kutu">
+        {{ikon:bilgi}}
+        <p><b>¿Cómo funciona?</b> Este sitio no guarda sus datos ni los envía a ningún sitio por sí mismo. Al pulsar el botón del último paso, WhatsApp se abre con un mensaje listo que contiene solo los datos que ha elegido; el mensaje nos llega cuando pulsa <b>Enviar</b> en WhatsApp. Más información: <a class="metin-bag" href="kvkk.html">Aviso de privacidad (KVKK)</a>.</p>
+      </div>
+
+      <div class="isemri__izgara">
+        <form class="form" id="talepFormu" novalidate>
+          <div class="hata-ozeti" id="hataOzeti" tabindex="-1" role="alert" hidden>
+            <h2>Antes de crear la solicitud, complete lo siguiente:</h2>
+            <ul id="hataOzetiListe"></ul>
+          </div>
+
+          <fieldset class="form__grup" id="adim1">
+            <legend class="form__grup-baslik"><span aria-hidden="true">1</span>¿Qué servicio necesita? <span class="zorunlu">*</span><span class="gorunmez"> (obligatorio)</span></legend>
+            <div class="alan" id="alanHizmet">
+              <div class="kartsec kartsec--hizmet">
+{{HIZMET_KARTLARI}}
+              </div>
+              <p class="alan__hata" id="hataHizmet"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__grup" id="adim2">
+            <legend class="form__grup-baslik"><span aria-hidden="true">2</span>Máquina, urgencia y zona</legend>
+            <div class="alan-cift">
+              <div class="alan" id="alanEkipman">
+                <label class="etiket-alan" for="ekipman">Máquina <span class="zorunlu">*</span><span class="gorunmez"> (obligatorio)</span></label>
+                <select class="girdi" id="ekipman" name="ekipman" required aria-describedby="hataEkipman">
+                  <option value="">Seleccione</option>{{EKIPMAN_SECENEK}}
+                </select>
+                <p class="alan__hata" id="hataEkipman"></p>
+              </div>
+              <div class="alan" id="alanBolge">
+                <label class="etiket-alan" for="bolge">Zona <span class="zorunlu">*</span><span class="gorunmez"> (obligatorio)</span></label>
+                <select class="girdi" id="bolge" name="bolge" required aria-describedby="bolgeIpucu hataBolge">
+                  <option value="">Seleccione</option>{{BOLGE_SECENEK}}
+                </select>
+                <p class="alan__ipucu" id="bolgeIpucu">{{HIZMET_BOLGESI}}</p>
+                <p class="alan__hata" id="hataBolge"></p>
+              </div>
+            </div>
+            <fieldset class="alan" id="alanAciliyet" aria-describedby="hataAciliyet">
+              <legend class="etiket-alan">Urgencia <span class="zorunlu">*</span><span class="gorunmez"> (obligatorio)</span></legend>
+              <div class="segment segment--iki">
+{{ACILIYET_SECENEK}}
+              </div>
+              <p class="alan__hata" id="hataAciliyet"></p>
+            </fieldset>
+
+            <details class="ek-bilgi" id="ekBilgi">
+              <summary>Añadir más datos <span class="istege">(opcional: avería, nombre, teléfono, ubicación)</span></summary>
+              <div class="ek-bilgi__ic">
+                <div class="alan-cift">
+                  <div class="alan" id="alanKategori">
+                    <label class="etiket-alan" for="kategori">Síntoma de la avería</label>
+                    <select class="girdi" id="kategori" name="kategori" aria-describedby="hataKategori">
+                      <option value="">Seleccione</option>{{KATEGORI_SECENEK}}
+                    </select>
+                    <p class="alan__hata" id="hataKategori"></p>
+                  </div>
+                  <div class="alan">
+                    <label class="etiket-alan" for="makine">Marca / modelo de la máquina</label>
+                    <input class="girdi" id="makine" name="makine" type="text" maxlength="60" autocomplete="off">
+                  </div>
+                  <div class="alan">
+                    <label class="etiket-alan" for="ad">Nombre y apellidos</label>
+                    <input class="girdi" id="ad" name="ad" type="text" maxlength="80" autocomplete="name">
+                  </div>
+                  <div class="alan" id="alanTelefon">
+                    <label class="etiket-alan" for="telefon">Teléfono</label>
+                    <input class="girdi" id="telefon" name="telefon" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+90 5xx xxx xx xx" aria-describedby="hataTelefon">
+                    <p class="alan__hata" id="hataTelefon"></p>
+                  </div>
+                </div>
+                <div class="alan" id="alanAciklama">
+                  <label class="etiket-alan" for="aciklama">Descripción <span class="istege">(obligatoria si la avería es «Otro»)</span></label>
+                  <textarea class="girdi" id="aciklama" name="aciklama" maxlength="600" placeholder="Ej.: Al levantar la pluma se vuelve lenta y la bomba zumba." aria-describedby="aciklamaAlt hataAciklama"></textarea>
+                  <p class="alan__alt" id="aciklamaAlt"><span>Puede añadir fotos cuando se abra WhatsApp.</span><span id="aciklamaSayac" class="sayi">0 / 600</span></p>
+                  <p class="alan__hata" id="hataAciklama"></p>
+                </div>
+                <div class="konum">
+                  <p>Para el servicio en obra puede compartir dónde está la máquina. La ubicación solo se obtiene cuando pulsa el botón, con el permiso de su navegador, y solo se añade a este mensaje como enlace.</p>
+                  <div class="konum__satir">
+                    <button class="dugme dugme--koyu" type="button" id="konumAl">{{ikon:hedef}}Añadir mi ubicación</button>
+                    <p class="konum__durum" id="konumDurum" role="status" aria-live="polite"></p>
+                  </div>
+                  <div class="konum__satir" id="konumSonuc" hidden>
+                    <a class="metin-bag" id="konumBag" target="_blank" rel="noopener">Comprobar en el mapa{{ikon:dis}}</a>
+                    <button class="dugme dugme--koyu-cizgi dugme--kucuk" type="button" id="konumKaldir">{{ikon:cop}}Quitar ubicación</button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </fieldset>
+
+          <div class="form__grup form__alt" id="adim3">
+            <p class="form__grup-baslik"><span aria-hidden="true">3</span>Pasar la solicitud a WhatsApp</p>
+            <button class="dugme dugme--wa dugme--buyuk" id="gonderDugme" type="submit">{{ikon:wa}}Crear solicitud por WhatsApp</button>
+            <p class="form__not">Los campos con asterisco (*) son obligatorios. Puede editar el mensaje en WhatsApp antes de enviarlo.</p>
+            <div class="sonuc" id="gonderimSonucu" tabindex="-1" role="status" hidden>
+              <h2>Abriendo WhatsApp</h2>
+              <p>Su solicitud aún no se ha enviado: nos llega cuando pulsa <b>Enviar</b> en el mensaje que se abre en WhatsApp. Si WhatsApp no se ha abierto, use el enlace de abajo o copie el texto y envíelo al <span class="sayi">{{TEL}}</span>.</p>
+              <div class="sonuc__dugmeler">
+                <a class="dugme dugme--wa dugme--kucuk" id="waYedek" href="{{WA_HAZIR}}" target="_blank" rel="noopener">{{ikon:wa}}Volver a abrir WhatsApp</a>
+                <a class="dugme dugme--koyu-cizgi dugme--kucuk" href="{{TEL_HREF}}">{{ikon:tel}}Llamar</a>
+              </div>
+            </div>
+            <button class="dugme dugme--koyu-cizgi dugme--kucuk" type="button" id="formuTemizle">Borrar selección</button>
+            <noscript><p class="form__not">Para usar esta página, JavaScript debe estar activado en su navegador. También puede llamar al <a href="{{TEL_HREF}}">{{TEL}}</a> o escribir por WhatsApp.</p></noscript>
+          </div>
+        </form>
+
+        <aside class="bilet" aria-labelledby="biletBaslik">
+          <div class="bilet__ust"><span id="biletBaslik">Vista previa del mensaje de WhatsApp</span></div>
+          <div class="bilet__govde">
+            <pre class="bilet__metin" id="biletMetin"></pre>
+            {{WA_DIL_NOTU}}
+            <p class="bilet__alici">{{ikon:wa}}<span>Para: <b>{{YETKILI}}</b> — {{UNVAN}} · <span class="sayi">{{TEL}}</span></span></p>
+            <button class="dugme dugme--cizgi dugme--kucuk" type="button" id="metniKopyala">{{ikon:kopya}}<span>Copiar el texto del mensaje</span></button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>

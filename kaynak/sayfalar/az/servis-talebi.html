@@ -1,0 +1,149 @@
+<!--
+{
+  "baslik": "Servis sorğusu yaradın · Başkent İş Makinaları",
+  "aciklama": "Üç addımda servis sorğusu: xidməti seçin, texnikanı, təcililiyi və ərazini göstərin; sorğunuz hazır WhatsApp mesajı kimi {{TEL}} nömrəsinə çatır.",
+  "betikler": ["servis-talebi.js"],
+  "kapanis": false
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Naviqasiya yolu"><li><a href="./">Ana səhifə</a></li><li aria-current="page">Servis sorğusu</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Servis sorğusu yaradın</h1>
+      <p data-anim="giris">Üç addımda tamamlayın; sorğunuz hazır WhatsApp mesajına çevrilir və <span class="sayi">{{TEL}}</span> nömrəsinə, {{YETKILI}} ({{MUHATAP}}) adına göndərilir.</p>
+      <ol class="adim-cubugu" id="adimCubugu" aria-label="Sorğunun addımları">
+        <li data-adim="1"><span aria-hidden="true">1</span>Xidmət</li>
+        <li data-adim="2"><span aria-hidden="true">2</span>Texnika və ərazi</li>
+        <li data-adim="3"><span aria-hidden="true">3</span>WhatsApp</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-label="Servis sorğusu">
+    <div class="sar">
+      <p class="bolum__dugme katalog-satir">{{KATALOG_DUGME}}<span class="not">Kartları WhatsApp tətbiqində görmək istəyirsinizsə, seçdiyiniz xidməti birbaşa söhbətə göndərə bilərsiniz.</span></p>
+
+      <div class="bilgi-kutu">
+        {{ikon:bilgi}}
+        <p><b>Necə işləyir?</b> Bu sayt məlumatlarınızı saxlamır və özü heç yerə göndərmir. Son addımdakı düyməyə toxunduqda WhatsApp yalnız seçdiyiniz məlumatları ehtiva edən hazır mesajla açılır; mesaj yalnız WhatsApp-da <b>Göndər</b> düyməsinə toxunduqda bizə çatır. Ətraflı: <a class="metin-bag" href="kvkk.html">Məxfilik bildirişi (KVKK)</a>.</p>
+      </div>
+
+      <div class="isemri__izgara">
+        <form class="form" id="talepFormu" novalidate>
+          <div class="hata-ozeti" id="hataOzeti" tabindex="-1" role="alert" hidden>
+            <h2>Sorğunu yaratmazdan əvvəl bunları tamamlayın:</h2>
+            <ul id="hataOzetiListe"></ul>
+          </div>
+
+          <fieldset class="form__grup" id="adim1">
+            <legend class="form__grup-baslik"><span aria-hidden="true">1</span>Hansı xidmətə ehtiyacınız var? <span class="zorunlu">*</span><span class="gorunmez"> (məcburi)</span></legend>
+            <div class="alan" id="alanHizmet">
+              <div class="kartsec kartsec--hizmet">
+{{HIZMET_KARTLARI}}
+              </div>
+              <p class="alan__hata" id="hataHizmet"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__grup" id="adim2">
+            <legend class="form__grup-baslik"><span aria-hidden="true">2</span>Texnika, təcililik və ərazi</legend>
+            <div class="alan-cift">
+              <div class="alan" id="alanEkipman">
+                <label class="etiket-alan" for="ekipman">Texnika <span class="zorunlu">*</span><span class="gorunmez"> (məcburi)</span></label>
+                <select class="girdi" id="ekipman" name="ekipman" required aria-describedby="hataEkipman">
+                  <option value="">Seçin</option>{{EKIPMAN_SECENEK}}
+                </select>
+                <p class="alan__hata" id="hataEkipman"></p>
+              </div>
+              <div class="alan" id="alanBolge">
+                <label class="etiket-alan" for="bolge">Ərazi <span class="zorunlu">*</span><span class="gorunmez"> (məcburi)</span></label>
+                <select class="girdi" id="bolge" name="bolge" required aria-describedby="bolgeIpucu hataBolge">
+                  <option value="">Seçin</option>{{BOLGE_SECENEK}}
+                </select>
+                <p class="alan__ipucu" id="bolgeIpucu">{{HIZMET_BOLGESI}}</p>
+                <p class="alan__hata" id="hataBolge"></p>
+              </div>
+            </div>
+            <fieldset class="alan" id="alanAciliyet" aria-describedby="hataAciliyet">
+              <legend class="etiket-alan">Təcililik <span class="zorunlu">*</span><span class="gorunmez"> (məcburi)</span></legend>
+              <div class="segment segment--iki">
+{{ACILIYET_SECENEK}}
+              </div>
+              <p class="alan__hata" id="hataAciliyet"></p>
+            </fieldset>
+
+            <details class="ek-bilgi" id="ekBilgi">
+              <summary>Əlavə məlumat əlavə edin <span class="istege">(istəyə bağlı: nasazlıq, ad, telefon, məkan)</span></summary>
+              <div class="ek-bilgi__ic">
+                <div class="alan-cift">
+                  <div class="alan" id="alanKategori">
+                    <label class="etiket-alan" for="kategori">Nasazlığın əlaməti</label>
+                    <select class="girdi" id="kategori" name="kategori" aria-describedby="hataKategori">
+                      <option value="">Seçin</option>{{KATEGORI_SECENEK}}
+                    </select>
+                    <p class="alan__hata" id="hataKategori"></p>
+                  </div>
+                  <div class="alan">
+                    <label class="etiket-alan" for="makine">Texnikanın markası / modeli</label>
+                    <input class="girdi" id="makine" name="makine" type="text" maxlength="60" autocomplete="off">
+                  </div>
+                  <div class="alan">
+                    <label class="etiket-alan" for="ad">Ad və soyad</label>
+                    <input class="girdi" id="ad" name="ad" type="text" maxlength="80" autocomplete="name">
+                  </div>
+                  <div class="alan" id="alanTelefon">
+                    <label class="etiket-alan" for="telefon">Telefon nömrəsi</label>
+                    <input class="girdi" id="telefon" name="telefon" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+90 5xx xxx xx xx" aria-describedby="hataTelefon">
+                    <p class="alan__hata" id="hataTelefon"></p>
+                  </div>
+                </div>
+                <div class="alan" id="alanAciklama">
+                  <label class="etiket-alan" for="aciklama">Təsvir <span class="istege">(nasazlıq "Digər" olduqda məcburidir)</span></label>
+                  <textarea class="girdi" id="aciklama" name="aciklama" maxlength="600" placeholder="Məsələn: Bumu qaldıranda yavaşlayır, nasosdan uğultu gəlir." aria-describedby="aciklamaAlt hataAciklama"></textarea>
+                  <p class="alan__alt" id="aciklamaAlt"><span>Fotoları WhatsApp açılanda əlavə edə bilərsiniz.</span><span id="aciklamaSayac" class="sayi">0 / 600</span></p>
+                  <p class="alan__hata" id="hataAciklama"></p>
+                </div>
+                <div class="konum">
+                  <p>Yerində servis üçün texnikanın yerini paylaşa bilərsiniz. Məkan yalnız düyməyə toxunduqda, brauzerinizin icazəsi ilə alınır və yalnız bu mesaja link kimi əlavə olunur.</p>
+                  <div class="konum__satir">
+                    <button class="dugme dugme--koyu" type="button" id="konumAl">{{ikon:hedef}}Məkanımı əlavə et</button>
+                    <p class="konum__durum" id="konumDurum" role="status" aria-live="polite"></p>
+                  </div>
+                  <div class="konum__satir" id="konumSonuc" hidden>
+                    <a class="metin-bag" id="konumBag" target="_blank" rel="noopener">Xəritədə yoxlayın{{ikon:dis}}</a>
+                    <button class="dugme dugme--koyu-cizgi dugme--kucuk" type="button" id="konumKaldir">{{ikon:cop}}Məkanı sil</button>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </fieldset>
+
+          <div class="form__grup form__alt" id="adim3">
+            <p class="form__grup-baslik"><span aria-hidden="true">3</span>Sorğunu WhatsApp-a ötürün</p>
+            <button class="dugme dugme--wa dugme--buyuk" id="gonderDugme" type="submit">{{ikon:wa}}WhatsApp ilə sorğu yaradın</button>
+            <p class="form__not">Ulduzla (*) işarələnmiş xanalar məcburidir. Mesajı WhatsApp-da göndərməzdən əvvəl redaktə edə bilərsiniz.</p>
+            <div class="sonuc" id="gonderimSonucu" tabindex="-1" role="status" hidden>
+              <h2>WhatsApp açılır</h2>
+              <p>Sorğunuz hələ göndərilməyib: WhatsApp-da açılan mesajda <b>Göndər</b> düyməsinə toxunduqda bizə çatacaq. WhatsApp açılmadısa, aşağıdakı linkdən istifadə edin və ya mətni kopyalayıb <span class="sayi">{{TEL}}</span> nömrəsinə göndərin.</p>
+              <div class="sonuc__dugmeler">
+                <a class="dugme dugme--wa dugme--kucuk" id="waYedek" href="{{WA_HAZIR}}" target="_blank" rel="noopener">{{ikon:wa}}WhatsApp-ı yenidən açın</a>
+                <a class="dugme dugme--koyu-cizgi dugme--kucuk" href="{{TEL_HREF}}">{{ikon:tel}}Zəng edin</a>
+              </div>
+            </div>
+            <button class="dugme dugme--koyu-cizgi dugme--kucuk" type="button" id="formuTemizle">Seçimləri təmizləyin</button>
+            <noscript><p class="form__not">Bu səhifədən istifadə etmək üçün brauzerinizdə JavaScript aktiv olmalıdır. Bunun əvəzinə <a href="{{TEL_HREF}}">{{TEL}}</a> nömrəsinə zəng edə və ya WhatsApp-da yaza bilərsiniz.</p></noscript>
+          </div>
+        </form>
+
+        <aside class="bilet" aria-labelledby="biletBaslik">
+          <div class="bilet__ust"><span id="biletBaslik">WhatsApp mesajının önizləməsi</span></div>
+          <div class="bilet__govde">
+            <pre class="bilet__metin" id="biletMetin"></pre>
+            {{WA_DIL_NOTU}}
+            <p class="bilet__alici">{{ikon:wa}}<span>Kimə: <b>{{YETKILI}}</b> — {{UNVAN}} · <span class="sayi">{{TEL}}</span></span></p>
+            <button class="dugme dugme--cizgi dugme--kucuk" type="button" id="metniKopyala">{{ikon:kopya}}<span>Mesajın mətnini kopyalayın</span></button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,85 @@
+<!--
+{
+  "baslik": "Über uns — Werkstatt, Leitung und Serviceablauf · Başkent İş Makinaları",
+  "aciklama": "{{FIRMA}}: Werkstatt für Baumaschinen, {{ADRES}}. Geschäftsleitung, technische Verantwortung, Kompetenzen und unser Serviceablauf."
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Brotkrumen"><li><a href="./">Startseite</a></li><li aria-current="page">Über uns</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Über uns</h1>
+      <p data-anim="giris">{{FIRMA}} wartet und repariert Baumaschinen in der eigenen Werkstatt ({{ADRES}}) und vor Ort. Hydrauliksysteme, Getriebe und die Überholung von Dieselmotoren sind unsere Kernkompetenzen.</p>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-labelledby="yonetimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Leitung und technische Verantwortung</p>
+        <h2 id="yonetimBaslik">Wer ist verantwortlich, mit wem sprechen Sie?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart kart--acik guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:kalkan}}</span>
+          <h3>{{YONETIM}}</h3>
+          <p>Den Serviceablauf steuert die {{YONETIM}}: Der Fehler wird diagnostiziert, und Sie erfahren den Arbeitsumfang und die voraussichtliche Dauer. Die Reparatur beginnt erst nach Ihrer Freigabe.</p>
+        </div>
+        <div class="kart kart--acik guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:anahtar}}</span>
+          <h3>{{YETKILI}}</h3>
+          <p>{{MUHATAP}}. Verantwortlich für die technische Beurteilung und die Ausführung der Arbeiten in der Werkstatt und vor Ort; Ihr Ansprechpartner am Telefon und per WhatsApp: <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="uzmanlikBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Unsere Kompetenzen</p>
+        <h2 id="uzmanlikBaslik">Von der Hydraulik bis zum Getriebe, vom Motor bis zum Einsatz vor Ort.</h2>
+        <p>Wir arbeiten an Maschinen aller Marken; wir sind kein autorisierter Servicepartner einer Marke. Details finden Sie auf der Seite <a class="metin-bag" href="hizmetlerimiz.html">Leistungen</a>.</p>
+      </div>
+      <div data-anim="kart">{{MAKINELER}}</div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" id="surec" aria-labelledby="adimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Serviceablauf</p>
+        <h2 id="adimBaslik">Sechs Schritte von der Anfrage bis zur Übergabe.</h2>
+      </div>
+      <ol class="adimlar">
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">01</span><h3>Anfrage senden</h3><p>Füllen Sie die Servicekarten aus, schreiben Sie per WhatsApp oder rufen Sie an. Ein Foto des defekten Teils und den Standort der Maschine können Sie gleich mitschicken.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">02</span><h3>Erste Einschätzung</h3><p>{{YETKILI}} sieht sich Ihre Angaben und Fotos an und meldet sich bei Ihnen.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">03</span><h3>Werkstatt oder vor Ort</h3><p>Die Maschine oder das Teil kommt in die Werkstatt; steht die Maschine auf der Baustelle fest, kommt unser Team zu ihr.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">04</span><h3>Diagnose und Angebot</h3><p>Der Fehler wird diagnostiziert; Arbeitsumfang und voraussichtliche Dauer werden festgelegt.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">05</span><h3>Reparatur und Überholung</h3><p>Die von Ihnen freigegebene Arbeit wird ausgeführt.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">06</span><h3>Prüfung und Übergabe</h3><p>Die fertige Arbeit wird geprüft und übergeben.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="saatBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Zeiten und Gebiet</p>
+        <h2 id="saatBaslik">Wann ist die Werkstatt geöffnet, wohin kommen wir?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart" data-anim="kart">
+          <h3>Öffnungszeiten der Werkstatt</h3>
+          {{ROZET_BUYUK}}
+          {{SAATLER_TABLOSU}}
+          <p class="not">Der Status wird live nach türkischer Zeit (Milas) berechnet. Anfragen außerhalb der Geschäftszeiten beantworten wir zu Beginn des nächsten Arbeitstages.</p>
+        </div>
+        <div class="kart" data-anim="kart">
+          <h3>Service vor Ort und Einsatzgebiet</h3>
+          <p><b>Service vor Ort:</b> während der Geschäftszeiten ({{SAAT_OZET}}). Ist Ihre Maschine auf der Baustelle ausgefallen, rufen Sie <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a> an.</p>
+          <p>{{HIZMET_BOLGESI}}</p>
+          {{ILCELER}}
+        </div>
+      </div>
+    </div>
+  </section>

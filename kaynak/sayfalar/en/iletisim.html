@@ -1,0 +1,84 @@
+<!--
+{
+  "baslik": "Contact — Phone, WhatsApp, Address · Başkent İş Makinaları Milas",
+  "aciklama": "{{FIRMA}}: {{ADRES}}. Phone and WhatsApp {{TEL}}. Workshop {{SAAT_OZET}}; on-site service during working hours.",
+  "yapisalVeri": true
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Breadcrumb"><li><a href="./">Home</a></li><li aria-current="page">Contact</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Contact</h1>
+      <p data-anim="giris">On the phone and on WhatsApp you will speak with {{YETKILI}} — {{MUHATAP}}.</p>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="kanalBaslik">
+    <div class="sar">
+      <h2 class="gorunmez" id="kanalBaslik">Ways to contact us</h2>
+      <div class="izgara izgara--4">
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:tel}}</span><h3>Phone</h3></div>
+          <a class="iletisim-kart__deger sayi" href="{{TEL_HREF}}">{{TEL}}</a>
+          <a class="dugme dugme--altin" href="{{TEL_HREF}}">{{ikon:tel}}Call now</a>
+        </div>
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:wa}}</span><h3>WhatsApp</h3></div>
+          <p class="iletisim-kart__deger sayi">{{TEL}}</p>
+          <a class="dugme dugme--wa" href="{{WA_HAZIR}}" target="_blank" rel="noopener">{{ikon:wa}}Write with a ready message</a>
+        </div>
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:konum}}</span><h3>Address</h3></div>
+          <p class="iletisim-kart__deger">{{ADRES}}</p>
+          <a class="dugme dugme--cizgi" href="{{YOL_TARIFI}}" target="_blank" rel="noopener">{{ikon:yol}}Get directions</a>
+        </div>
+        <div class="kart iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:siren}}</span><h3>On-site service</h3></div>
+          <p class="iletisim-kart__deger">{{SAHA}}</p>
+          <p>If your machine has broken down on site, call during working hours; requests received outside working hours are answered at the start of the next working day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-labelledby="hizliBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Quick fault report via WhatsApp</p>
+        <h2 id="hizliBaslik">Choose your fault and WhatsApp opens with a ready message.</h2>
+        <p>The fault you choose is added to the end of the message. You can add photos and your location in WhatsApp. For a more detailed request, use the <a class="metin-bag" href="servis-talebi.html">service request cards</a>.</p>
+      </div>
+      <div data-anim="kart">
+        {{HIZLI_ARIZA}}
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" id="harita" aria-labelledby="haritaBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Location</p>
+        <h2 id="haritaBaslik">How to find the workshop</h2>
+      </div>
+      <div class="konum__izgara">
+        {{HARITA}}
+        <div class="kart kart--acik iletisim-kart" data-anim="kart">
+          <div class="iletisim-kart__ust"><span class="ikon-kutu">{{ikon:saat}}</span><h3>Workshop hours</h3></div>
+          {{SAATLER_TABLOSU}}
+          <a class="dugme dugme--koyu" href="{{YOL_TARIFI}}" target="_blank" rel="noopener">{{ikon:yol}}Get directions</a>
+          <a class="metin-bag" href="{{HARITA_AC}}" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="bolgeBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Service area</p>
+        <h2 id="bolgeBaslik">All districts of Muğla and Didim.</h2>
+        <p>{{HIZMET_BOLGESI}}</p>
+      </div>
+      <div data-anim="kart">{{ILCELER}}</div>
+    </div>
+  </section>

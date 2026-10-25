@@ -1,0 +1,85 @@
+<!--
+{
+  "baslik": "Quiénes somos — Taller, dirección y proceso de servicio · Başkent İş Makinaları",
+  "aciklama": "{{FIRMA}}: taller de maquinaria de construcción en {{ADRES}}. Dirección, responsabilidad técnica, especialidades y nuestro proceso de servicio."
+}
+-->
+  <section class="sayfa-basi" aria-labelledby="sayfaBaslik">
+    <div class="sar">
+      <ol class="ekmek" aria-label="Ruta de navegación"><li><a href="./">Inicio</a></li><li aria-current="page">Quiénes somos</li></ol>
+      <h1 id="sayfaBaslik" data-anim="giris">Quiénes somos</h1>
+      <p data-anim="giris">{{FIRMA}} repara maquinaria de construcción en su taller de {{ADRES}} y en obra. Los sistemas hidráulicos, las transmisiones y la reconstrucción de motores diésel son nuestras especialidades principales.</p>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" aria-labelledby="yonetimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Dirección y responsabilidad técnica</p>
+        <h2 id="yonetimBaslik">¿Quién es responsable y con quién habla usted?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart kart--acik guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:kalkan}}</span>
+          <h3>{{YONETIM}}</h3>
+          <p>El flujo de trabajo lo gestiona la {{YONETIM}}: se diagnostica la avería y se le comunican el alcance del trabajo y el plazo estimado. La reparación empieza solo cuando usted la aprueba.</p>
+        </div>
+        <div class="kart kart--acik guvence-kart" data-anim="kart">
+          <span class="ikon-kutu">{{ikon:anahtar}}</span>
+          <h3>{{YETKILI}}</h3>
+          <p>{{MUHATAP}}. Responsable de la evaluación técnica y de la ejecución de los trabajos en el taller y en obra; su interlocutor por teléfono y por WhatsApp: <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="uzmanlikBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Nuestras especialidades</p>
+        <h2 id="uzmanlikBaslik">De la hidráulica a la transmisión, del motor a la obra.</h2>
+        <p>Trabajamos con máquinas de todas las marcas; no somos servicio técnico oficial de ninguna marca. Encontrará los detalles en la página de <a class="metin-bag" href="hizmetlerimiz.html">Servicios</a>.</p>
+      </div>
+      <div data-anim="kart">{{MAKINELER}}</div>
+    </div>
+  </section>
+
+  <section class="bolum bolum--acik" id="surec" aria-labelledby="adimBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Proceso de servicio</p>
+        <h2 id="adimBaslik">Seis pasos de la solicitud a la entrega.</h2>
+      </div>
+      <ol class="adimlar">
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">01</span><h3>Envíe su solicitud</h3><p>Rellene las tarjetas de solicitud de servicio, escríbanos por WhatsApp o llámenos. Puede adjuntar una foto de la pieza averiada y la ubicación de la máquina.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">02</span><h3>Evaluación inicial</h3><p>{{YETKILI}} revisa los datos y las fotos que nos envía y se pone en contacto con usted.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">03</span><h3>Taller u obra</h3><p>La máquina o la pieza se trae al taller; si la máquina se ha quedado parada en la obra, nuestro equipo va hasta ella.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">04</span><h3>Diagnóstico y presupuesto</h3><p>Se diagnostica la avería y se concretan el alcance del trabajo y el plazo estimado.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">05</span><h3>Reparación y reconstrucción</h3><p>Se realiza el trabajo que usted aprueba.</p></li>
+        <li data-anim="kart"><span class="adimlar__no" aria-hidden="true">06</span><h3>Revisión y entrega</h3><p>El trabajo terminado se revisa y se entrega.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bolum" aria-labelledby="saatBaslik">
+    <div class="sar">
+      <div class="bolum__bas" data-anim="baslik">
+        <p class="etiket">Horario y zona</p>
+        <h2 id="saatBaslik">¿Cuándo abre el taller y adónde vamos?</h2>
+      </div>
+      <div class="izgara izgara--2">
+        <div class="kart" data-anim="kart">
+          <h3>Horario del taller</h3>
+          {{ROZET_BUYUK}}
+          {{SAATLER_TABLOSU}}
+          <p class="not">El estado se calcula en tiempo real según la hora de Turquía (Milas). Las solicitudes recibidas fuera del horario laboral se responden al inicio de la siguiente jornada.</p>
+        </div>
+        <div class="kart" data-anim="kart">
+          <h3>Servicio en obra y zona de servicio</h3>
+          <p><b>Servicio en obra:</b> en horario laboral ({{SAAT_OZET}}). Si su máquina se ha averiado en la obra, llame al <a class="metin-bag sayi" href="{{TEL_HREF}}">{{TEL}}</a>.</p>
+          <p>{{HIZMET_BOLGESI}}</p>
+          {{ILCELER}}
+        </div>
+      </div>
+    </div>
+  </section>

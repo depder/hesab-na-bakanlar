@@ -131,7 +131,10 @@ test('adres ve atölye saatleri tüm sayfalarda tutarlı (08:30–18:00, Cmt 08:
 });
 
 test('işletme bilgileri sabit yazılmaz: sayfa kaynakları ve üreteç site.config.json\'a bağlı', () => {
-  const kaynaklar = fs.readdirSync(path.join(KOK, 'kaynak/sayfalar')).map((d) => fs.readFileSync(path.join(KOK, 'kaynak/sayfalar', d), 'utf8'));
+  // Türkçe ve çevrilmiş sayfa kaynakları (kaynak/sayfalar/<dil>/) ile çeviri sözlükleri
+  const kaynaklar = fs.readdirSync(path.join(KOK, 'kaynak/sayfalar'), { recursive: true }).filter((d) => d.endsWith('.html'))
+    .concat(fs.readdirSync(path.join(KOK, 'kaynak/ceviri')).map((d) => '../ceviri/' + d))
+    .map((d) => fs.readFileSync(path.join(KOK, 'kaynak/sayfalar', d), 'utf8'));
   kaynaklar.push(fs.readFileSync(path.join(KOK, 'araclar/sayfa-uret.js'), 'utf8'));
   kaynaklar.push(fs.readFileSync(path.join(KOK, 'assets/js/cekirdek.js'), 'utf8'));
   for (const s of ['site.js', 'servis-talebi.js']) kaynaklar.push(fs.readFileSync(path.join(KOK, 'assets/js', s), 'utf8'));

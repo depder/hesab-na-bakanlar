@@ -13,6 +13,8 @@ Statik, çok sayfalı site (saf HTML/CSS/JS). Ayrıntı: README.md, TECHNICAL-RE
 
 ## Çalışma düzeni
 - Sayfalar: index, hizmetlerimiz, servis-talebi, hakkimizda, iletisim, kvkk. Sayfa içerikleri `kaynak/sayfalar/`, ortak parçalar `araclar/sayfa-uret.js`. Değişiklikten sonra: `node araclar/sayfa-uret.js` ve `node --test`.
+- Diller: Türkçe ana dil (kök), ayrıca `en/ de/ es/ az/`. Çeviriler `kaynak/sayfalar/<dil>/*.html` (düzeni Türkçeyle birebir aynı; test denetler) ve `kaynak/ceviri/<dil>.json` (üreteç + betik metinleri). Türkçe sayfada metin değişirse 4 dilde de değiştir. WhatsApp mesajları her dilde Türkçe; KVKK çevirisi bilgi amaçlı, geçerli olan Türkçe metin. Kart sayfaları (`kart/`) yalnız Türkçe.
+- Telefon önceliklidir (ziyaretçilerin %85–90'ı telefondan gelir). Telefonda başlık: logo + dil + menü; açık/kapalı durumu başlığın altındaki şeritte.
 - Her değişiklikten sonra: dalda commit → PR aç → squash ile birleştir.
 - Kullanıcı Türkçe yazar, teknik değildir; kısa ve sade Türkçe yanıt ver.
 

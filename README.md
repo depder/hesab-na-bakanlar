@@ -16,6 +16,16 @@ Saf HTML, CSS ve JavaScript. Derleme adımı ve sunucu yoktur; kök klasördeki 
 | `kvkk.html` | KVKK aydınlatma metni |
 | `kart/<ad>/` | WhatsApp kart sayfaları (genel servis + her hizmet). Mesajların ikinci satırındaki bağlantı buraya gelir; WhatsApp bu sayfanın görselinden önizleme kartı çizer. Arama motorlarına kapalı. |
 
+### Diller
+
+Türkçe ana dildir (kök klasör). Aynı sayfalar İngilizce (`en/`), Almanca (`de/`), İspanyolca (`es/`) ve Azerbaycanca (`az/`) olarak da üretilir; başlıktaki 🌐 düğmesi aynı sayfanın diğer dildeki karşılığına gider, arama motorları için her sayfada `hreflang` bağlantıları vardır.
+
+- Sayfa çevirileri: `kaynak/sayfalar/<dil>/*.html`. Etiketler, sınıflar, bağlantılar ve `{{parçalar}}` Türkçe sayfayla birebir aynı kalmalıdır; yalnızca metinler (ve `alt`, `title`, `aria-label`, `placeholder`) çevrilir. `tests/ceviri.test.js` bunu ve çevrilmeden kalan Türkçe cümleyi denetler.
+- Üretecin ve tarayıcı betiklerinin yazdığı metinler (menü, alt bilgi, hizmet/ekipman adları, hata mesajları, açık/kapalı durumu): `kaynak/ceviri/<dil>.json` → `uretec` ve `betik`. Türkçe metni anahtar olarak kullanır; karşılığı olmayan metin varsa üreteç durur.
+- WhatsApp'a giden hazır mesajlar her dilde **Türkçedir** (teknisyen doğrudan okuyabilsin); form seçeneklerinin gönderilen değeri Türkçe, ziyaretçinin gördüğü adı çevrilidir.
+- KVKK çevirileri bilgi amaçlıdır; sayfada Türkçe metnin bağlayıcı olduğu yazar ve ona bağlantı verir.
+- Bir Türkçe metni değiştirirseniz aynı yeri dört dilde de güncelleyin; aksi hâlde test hata verir.
+
 ### WhatsApp kartları
 
 `wa.me` bağlantısı yalnızca düz metin taşır. Bu yüzden her hazır mesajın **ikinci satırına** bir kart bağlantısı konur (`https://…/kart/hidrolik/`). WhatsApp önizlemeyi mesajdaki ilk bağlantıdan üretir; müşteri mesaj kutusunda, siz de gelen mesajda görselli kartı görürsünüz. Servis talebi formunda seçilen hizmetin kartı, yedek parça mesajında parça kartı, diğer düğmelerde genel servis kartı kullanılır.

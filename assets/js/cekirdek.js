@@ -22,6 +22,15 @@
   var ACILIYETLER = AYAR.servisTalebi.aciliyetler.slice();
   var BOLGELER = AYAR.bolgeler.slice();
   var bicimleyici = null;
+  // Türkçe dışındaki sayfalarda assets/js/dil-<dil>.js ekrana yazılan metinlerin çevirisini verir (WhatsApp mesajı Türkçe kalır).
+  var DIL = !nodeda && kok.BaskentDil ? kok.BaskentDil.metin : null;
+
+  // Türkçe metnin sayfa dilindeki karşılığı; {0}, {1} yerine sonraki değerler yazılır.
+  function ceviri(metin) {
+    var sonuc = DIL && Object.prototype.hasOwnProperty.call(DIL, metin) ? DIL[metin] : metin;
+    var degerler = Array.prototype.slice.call(arguments, 1);
+    return sonuc.replace(/\{(\d)\}/g, function (tam, i) { return degerler[i]; });
+  }
 
   function dakikaOku(metin) {
     var p = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(metin));
@@ -60,16 +69,16 @@
   function durumHesapla(z) {
     var bugun = SAATLER[z.gun];
     if (bugun && z.dakika >= bugun[0] && z.dakika < bugun[1]) {
-      return { acik: true, baslik: 'Atölye Açık', alt: 'Hizmete Hazır', ek: 'Bugün kapanış ' + saatYaz(bugun[1]) };
+      return { acik: true, baslik: ceviri('Atölye Açık'), alt: ceviri('Hizmete Hazır'), ek: ceviri('Bugün kapanış {0}', saatYaz(bugun[1])) };
     }
     for (var fark = 0; fark <= 7; fark++) {
       var g = (z.gun + fark) % 7;
       var s = SAATLER[g];
       if (!s || (fark === 0 && z.dakika >= s[0])) continue;
-      var hangiGun = fark === 0 ? 'bugün' : fark === 1 ? 'yarın' : GUNLER[g];
-      return { acik: false, baslik: 'Atölye Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: 'Açılış: ' + hangiGun + ' ' + saatYaz(s[0]) };
+      var hangiGun = fark === 0 ? ceviri('bugün') : fark === 1 ? ceviri('yarın') : ceviri(GUNLER[g]);
+      return { acik: false, baslik: ceviri('Atölye Kapalı'), alt: ceviri('İlk Mesai Saatinde Dönüş Yapılacak'), ek: ceviri('Açılış: {0} {1}', hangiGun, saatYaz(s[0])) };
     }
-    return { acik: false, baslik: 'Atölye Kapalı', alt: 'İlk Mesai Saatinde Dönüş Yapılacak', ek: '' };
+    return { acik: false, baslik: ceviri('Atölye Kapalı'), alt: ceviri('İlk Mesai Saatinde Dönüş Yapılacak'), ek: '' };
   }
 
   function tekSatir(deger) {
@@ -182,14 +191,14 @@
   // Zorunlu: talep türü, ekipman, aciliyet, bölge. "Diğer" arızası seçilirse açıklama da gerekir.
   function talepDogrula(v) {
     var hatalar = {};
-    if (HIZMETLER.indexOf(v.hizmet) === -1) hatalar.hizmet = 'Talep türünü seçin.';
-    if (EKIPMANLAR.indexOf(v.ekipman) === -1) hatalar.ekipman = 'Ekipmanı seçin.';
-    if (ACILIYETLER.indexOf(v.aciliyet) === -1) hatalar.aciliyet = 'Aciliyeti seçin.';
-    if (BOLGELER.indexOf(v.bolge) === -1) hatalar.bolge = 'Bölgeyi seçin.';
-    if (!telefonGecerliMi(v.telefon)) hatalar.telefon = 'Telefonu 05xx xxx xx xx biçiminde yazın ya da boş bırakın.';
-    if (v.kategori && ARIZA_KATEGORILERI.indexOf(v.kategori) === -1) hatalar.kategori = 'Listeden bir arıza seçin.';
-    if (v.kategori === DIGER && cokSatir(v.aciklama).length < 5) hatalar.aciklama = '"Diğer" seçtiğinizde arızayı kısaca yazın.';
-    if (String(v.aciklama || '').length > ACIKLAMA_SINIRI) hatalar.aciklama = 'Açıklama en fazla ' + ACIKLAMA_SINIRI + ' karakter olabilir.';
+    if (HIZMETLER.indexOf(v.hizmet) === -1) hatalar.hizmet = ceviri('Talep türünü seçin.');
+    if (EKIPMANLAR.indexOf(v.ekipman) === -1) hatalar.ekipman = ceviri('Ekipmanı seçin.');
+    if (ACILIYETLER.indexOf(v.aciliyet) === -1) hatalar.aciliyet = ceviri('Aciliyeti seçin.');
+    if (BOLGELER.indexOf(v.bolge) === -1) hatalar.bolge = ceviri('Bölgeyi seçin.');
+    if (!telefonGecerliMi(v.telefon)) hatalar.telefon = ceviri('Telefonu 05xx xxx xx xx biçiminde yazın ya da boş bırakın.');
+    if (v.kategori && ARIZA_KATEGORILERI.indexOf(v.kategori) === -1) hatalar.kategori = ceviri('Listeden bir arıza seçin.');
+    if (v.kategori === DIGER && cokSatir(v.aciklama).length < 5) hatalar.aciklama = ceviri('"Diğer" seçtiğinizde arızayı kısaca yazın.');
+    if (String(v.aciklama || '').length > ACIKLAMA_SINIRI) hatalar.aciklama = ceviri('Açıklama en fazla {0} karakter olabilir.', ACIKLAMA_SINIRI);
     return hatalar;
   }
 
@@ -211,7 +220,7 @@
   }
 
   var api = {
-    AYAR: AYAR, TELEFON: TELEFON, TELEFON_GORUNEN: TELEFON_GORUNEN, KARSILAMA: KARSILAMA, SAATLER: SAATLER, GUNLER: GUNLER,
+    AYAR: AYAR, ceviri: ceviri, TELEFON: TELEFON, TELEFON_GORUNEN: TELEFON_GORUNEN, KARSILAMA: KARSILAMA, SAATLER: SAATLER, GUNLER: GUNLER,
     ACIKLAMA_SINIRI: ACIKLAMA_SINIRI, ARIZA_KATEGORILERI: ARIZA_KATEGORILERI, DIGER: DIGER,
     HIZMETLER: HIZMETLER, EKIPMANLAR: EKIPMANLAR, ACILIYETLER: ACILIYETLER, BOLGELER: BOLGELER,
     dakikaOku: dakikaOku, istanbulZamani: istanbulZamani, saatYaz: saatYaz, durumHesapla: durumHesapla,
