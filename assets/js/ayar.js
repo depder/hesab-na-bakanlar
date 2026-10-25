@@ -145,7 +145,7 @@ window.BaskentAyar = {
       "Teleskopik yükleyici",
       "Beton pompası",
       "Transmikser",
-      "Tır / ağır vasıta",
+      "Mobil vinç hidrolik sistemleri",
       "Diğer"
     ],
     "aciliyetler": [

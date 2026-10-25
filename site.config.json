@@ -39,7 +39,7 @@
       { "ad": "Saha Acil Servis", "aciklama": "Makine şantiyede durdu, mesai saatlerinde yerinde servis", "kart": "saha", "ikon": "kamyon", "detay": "hizmetlerimiz.html#saha" },
       { "ad": "Yedek Parça / Yağ Tedariki", "aciklama": "Filtre, yağ, joystick, cer ve alt takım parçaları", "kart": "yedek-parca", "ikon": "damla", "detay": "yedek-parca.html" }
     ],
-    "ekipmanlar": ["Ekskavatör", "Loder", "Beko loder", "Vinç", "Greyder", "Dozer", "Silindir", "Forklift", "Teleskopik yükleyici", "Beton pompası", "Transmikser", "Tır / ağır vasıta", "Diğer"],
+    "ekipmanlar": ["Ekskavatör", "Loder", "Beko loder", "Vinç", "Greyder", "Dozer", "Silindir", "Forklift", "Teleskopik yükleyici", "Beton pompası", "Transmikser", "Mobil vinç hidrolik sistemleri", "Diğer"],
     "aciliyetler": ["Şantiye durdu", "Normal bakım"]
   },
   "arizaKategorileri": [
