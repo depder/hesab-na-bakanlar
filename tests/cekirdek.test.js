@@ -84,7 +84,7 @@ test('altı arıza kategorisi verilen sırada ve sonuncusu "Diğer"', () => {
 test('istenen seçenekler mevcut: hizmet, ekipman, aciliyet, bölge', () => {
   for (const h of ['Kova Tamiri / Zırhlama', 'Mekanik Bakım / Overhaul', 'Saha Acil Servis']) assert.ok(B.HIZMETLER.includes(h), h);
   for (const e of ['Ekskavatör', 'Loder']) assert.ok(B.EKIPMANLAR.includes(e), e);
-  assert.ok(B.EKIPMANLAR.some((e) => /^Tır/.test(e)));
+  assert.ok(B.EKIPMANLAR.some((e) => /^Mobil vinç hidrolik sistemleri$/.test(e)));
   assert.deepEqual(B.ACILIYETLER, ['Şantiye durdu', 'Normal bakım']);
   for (const b of ['Milas', 'Selimiye', 'Bodrum']) assert.ok(B.BOLGELER.includes(b), b);
 });
