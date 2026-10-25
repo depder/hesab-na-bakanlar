@@ -30,7 +30,7 @@
   }
 
   // getDay() sırasıyla (0 = Pazar). Günün dakikası olarak [açılış, kapanış]; null = kapalı.
-  // Bunlar ATÖLYE saatleridir; saha servisi bu saatlerden bağımsızdır.
+  // Atölye ve saha servisi aynı mesai saatlerinde çalışır.
   var SAATLER = [null, null, null, null, null, null, null];
   AYAR.calismaSaatleri.forEach(function (s) {
     s.gunler.forEach(function (g) { SAATLER[g] = s.acilis ? [dakikaOku(s.acilis), dakikaOku(s.kapanis)] : null; });

@@ -169,20 +169,21 @@ html.lenis, html.lenis body { height: auto; }
   -webkit-backdrop-filter: saturate(140%) blur(10px); backdrop-filter: saturate(140%) blur(10px);
 }
 .baslik__ic { display: flex; align-items: center; gap: var(--b4); min-height: var(--baslik-y); }
-.baslik__sol { display: flex; align-items: center; gap: var(--b4); margin-right: auto; min-width: 0; }
+.baslik__sol { display: flex; align-items: center; gap: var(--b4); margin-right: auto; flex: none; }
 .logo { display: inline-flex; align-items: center; gap: var(--b3); text-decoration: none; min-height: var(--dokunma); flex: none; }
 .rozet--baslik { padding: .35rem .7rem; border-radius: 999px; background: var(--grafit-2); border: 1px solid var(--cizgi); font-size: .8125rem; line-height: 1.2; }
 .rozet--baslik .rozet__metin { display: grid; gap: 0; }
 .rozet--baslik .rozet__baslik { font-size: .8125rem; }
-.rozet--baslik .rozet__alt { color: var(--metin-soluk); }
+.rozet--baslik .rozet__alt { display: none; } /* başlıkta yalnız "Atölye Açık / Kapalı"; saatler sayfada yazıyor */
 .rozet--baslik .rozet__ek { display: none; }
 .baslik__eylem { display: flex; align-items: center; gap: var(--b2); flex: none; }
 .baslik__eylem .dugme .ikon { width: 17px; height: 17px; }
 @media (max-width: 1180px) { .baslik__eylem .dugme { padding-inline: .7rem; } .menu__liste a { padding-inline: .6rem; } }
 @media (max-width: 760px) { .baslik__eylem { display: none; } }
+/* Masaüstü menü açıkken 1280px altında eylem düğmelerine yer kalmaz; arama/WhatsApp sayfa içinde ve menüde "Servis Talebi" var */
+@media (min-width: 981px) and (max-width: 1279px) { .baslik__eylem { display: none; } }
 .rozet--baslik, .rozet--baslik .rozet__metin { white-space: nowrap; flex-wrap: nowrap; }
-/* Dar ekranda rozet tek satır kalır: önce alt yazı, sonra "Atölye" ön eki gizlenir (menü düğmesine yer açılır) */
-@media (max-width: 980px) { .rozet--baslik .rozet__alt { display: none; } }
+/* Dar ekranda rozet tek satır kalır: "Atölye" ön eki gizlenir (menü düğmesine yer açılır) */
 @media (max-width: 480px) {
   .baslik__sol { gap: var(--b3); }
   .rozet--baslik { padding: .3rem .55rem; }
@@ -206,7 +207,7 @@ html.lenis, html.lenis body { height: auto; }
 .menu__dugme[aria-expanded="true"] .menu__ikon-kapa { display: inline; }
 .menu__liste { display: flex; align-items: center; gap: var(--b1); list-style: none; }
 .menu__liste a {
-  display: inline-flex; align-items: center; min-height: var(--dokunma); padding: 0 .85rem; border-radius: var(--r-kucuk);
+  display: inline-flex; align-items: center; min-height: var(--dokunma); padding: 0 .85rem; border-radius: var(--r-kucuk); white-space: nowrap;
   color: var(--metin-soluk); font-weight: 600; text-decoration: none; transition: color var(--sure) var(--egri), background-color var(--sure) var(--egri);
 }
 .menu__liste a:hover { color: var(--metin); background: rgba(255, 255, 255, .05); }
