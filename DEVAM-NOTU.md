@@ -8,15 +8,16 @@ Depo: `depder/hesab-na-bakanlar`, ana dal `master`, çalışma dalı `claude/bas
 
 **Yayın:** Vercel projesi "baskent-is-makinalari" (takım Saforan) artık bu depoya (`depder/hesab-na-bakanlar`) bağlı. `master`'a her birleştirme otomatik yayına çıkar: https://baskent-is-makinalari.vercel.app
 
-## Sitenin şu anki hâli (PR #17–#27 birleşti)
+## Sitenin şu anki hâli (PR #17–#28 birleşti)
 - Saf HTML/CSS/JS statik site. 3D yok.
 - **Tek kaynak `site.config.json`:** telefon 0538 077 35 71, WhatsApp ve hazır mesaj, adres (Selimiye, Küçük Sanayi Sitesi, 48200 Milas / Muğla), koordinat 37.391047, 27.661943 (Google'da "Milas oto gaz" görünen dükkân noktası), saatler, yetkili, listeler, alan adı, WhatsApp kataloğu (`https://wa.me/c/905380773571`). Bir test bu bilgilerin sayfalara/betiklere sabit yazılmadığını denetler.
 - **Saatler:** Pzt–Cum 08:30–18:00, Cmt 08:30–13:30, Pazar kapalı. Saha servisi de mesai saatlerinde; sitede "7/24" yok (test denetler).
 - **Kişi:** yalnızca Mücahit ÇAKIR, "Baş Teknisyen / Master Technician"; yönetim yalnızca "Şirket Yönetimi".
-- **Sayfalar:** `index`, `hizmetlerimiz`, `servis-talebi` (3 adım → WhatsApp), `hakkimizda`, `iletisim`, `kvkk`.
+- **Sayfalar:** `index`, `hizmetlerimiz`, `yedek-parca` (yağ bölmeleri, cer açıklaması, parça grupları, parça mesajlı WhatsApp), `servis-talebi` (3 adım → WhatsApp; 6. seçenek "Yedek Parça / Yağ Tedariki"), `hakkimizda`, `iletisim`, `kvkk`.
+- **Yedek parça araştırması:** `YEDEK-PARCA-ARASTIRMA.md` (iç belge, sitede yok). Sitede marka/model adı geçmez; test denetler.
 - **WhatsApp:** bağlantı paylaşılınca kart (og etiketleri) çıkar; "Hizmet kartlarını WhatsApp'ta aç" düğmesi kataloğu WhatsApp uygulamasında açar. Katalog kurulum adımları: `WHATSAPP-KATALOG.md`.
-- **Başlık:** logo + "Atölye Açık / Kapalı" rozeti + menü; 1280px ve üstünde "Hemen Ara" / "WhatsApp" düğmeleri de görünür. Telefon ve masaüstünde (320–1920px) çakışma yok.
-- Doğrulama: `node --test` 47/47; tarayıcı işlev kontrolü 27/27; hata yolları 6/6; axe 0 ihlal; 7 genişlikte taşma yok.
+- **Başlık:** logo + "Atölye Açık / Kapalı" rozeti + menü; menü 1100px'e kadar hamburger; 1480px ve üstünde "Hemen Ara" / "WhatsApp" düğmeleri de görünür. 320–1920px arası 19 genişlikte, 7 sayfada taşma ve çakışma yok.
+- Doğrulama: `node --test` 48/48; tarayıcı işlev kontrolü 27/27; hata yolları 6/6; axe 0 ihlal; 7 genişlikte taşma yok.
 
 ## Kullanıcının yapacakları
 1. **WhatsApp Business kataloğu:** `WHATSAPP-KATALOG.md`'deki adımlarla 5 hizmet kartını telefondan kurmak. Kurulmazsa sitedeki katalog düğmesi boş katalog açar (istenirse `"katalog": ""` yapılıp düğme kaldırılır).

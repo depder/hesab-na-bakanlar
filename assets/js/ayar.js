@@ -11,7 +11,8 @@ window.BaskentAyar = {
     "katalog": "https://wa.me/c/905380773571",
     "karsilama": "Merhaba. Başkent iş Makinalarından Servis bilgisi Almak İstiyorum.",
     "talepBasligi": "🛠️ *BAŞKENT İŞ MAKİNALARI - WEB SERVİS TALEBİ*",
-    "talepKapanisi": "_Merhaba, web siteniz üzerinden servis talebi oluşturdum. Bilgi ve destek rica ederim._"
+    "talepKapanisi": "_Merhaba, web siteniz üzerinden servis talebi oluşturdum. Bilgi ve destek rica ederim._",
+    "parcaTalebi": "Merhaba. Başkent İş Makinalarından yedek parça / yağ fiyatı almak istiyorum.\n\nMakine marka ve modeli:\nŞasi (seri) numarası:\nİstenen parça / yağ:"
   },
   "adres": {
     "satir": "Selimiye, Küçük Sanayi Sitesi",
@@ -100,6 +101,10 @@ window.BaskentAyar = {
       {
         "ad": "Saha Acil Servis",
         "aciklama": "Makine şantiyede durdu, mesai saatlerinde yerinde servis"
+      },
+      {
+        "ad": "Yedek Parça / Yağ Tedariki",
+        "aciklama": "Filtre, yağ, joystick, cer ve alt takım parçaları"
       }
     ],
     "ekipmanlar": [
