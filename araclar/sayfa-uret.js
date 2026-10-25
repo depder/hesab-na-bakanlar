@@ -254,8 +254,8 @@ ${menuHtml(aktif)}
       </ul>
     </nav>
     <div class="baslik__eylem">
-      <a class="dugme dugme--altin dugme--kucuk" href="${TEL_HREF}">${ikon('tel')}Hemen Ara</a>
-      <a class="dugme dugme--wa dugme--kucuk" href="${kacir(WA_HAZIR)}" target="_blank" rel="noopener">${ikon('wa')}WhatsApp</a>
+      <a class="dugme dugme--altin dugme--kucuk" href="${TEL_HREF}">${ikon('tel')}<span class="dugme__yazi">Hemen Ara</span></a>
+      <a class="dugme dugme--wa dugme--kucuk" href="${kacir(WA_HAZIR)}" target="_blank" rel="noopener">${ikon('wa')}<span class="dugme__yazi">WhatsApp</span></a>
     </div>
   </div>
 </header>
