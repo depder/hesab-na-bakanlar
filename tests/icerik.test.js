@@ -280,5 +280,37 @@ test('yedek parça sayfası: yağ bölmeleri, cer açıklaması, parça gruplar�
   assert.doesNotMatch(metin, /caterpillar|\bcat\b|komatsu|volvo|jcb|hitachi|hyundai|develon|doosan|hidromek|liebherr|kobelco|kubota|case\b|new holland|sany|xcmg|liugong/i);
   const html = sayfaHtml('yedek-parca');
   const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
-  assert.ok(html.includes(B.waAdresi(ayar.whatsapp.parcaTalebi).replace(/&/g, '&amp;')), 'parça mesajlı WhatsApp bağlantısı');
+  assert.ok(html.includes(B.waAdresi(B.PARCA_MESAJI).replace(/&/g, '&amp;')), 'parça mesajlı WhatsApp bağlantısı');
+  assert.ok(B.PARCA_MESAJI.startsWith(ayar.whatsapp.parcaTalebi.split('\n')[0]));
+});
+
+test('WhatsApp kart sayfaları: her kartın sayfası, 1200x630 görseli ve og etiketleri var', () => {
+  const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
+  for (const [i, k] of B.KARTLAR.entries()) {
+    const html = fs.readFileSync(path.join(KOK, 'kart', k.kart, 'index.html'), 'utf8');
+    const adres = ayar.alanAdi + '/kart/' + k.kart + '/';
+    assert.match(html, /<html lang="tr">/, k.kart);
+    assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, k.kart + ' H1');
+    assert.match(html, /<meta name="robots" content="noindex, follow">/, k.kart);
+    assert.ok(html.includes('<meta property="og:url" content="' + adres + '">'), k.kart + ' og:url kendisi olmalı');
+    assert.ok(html.includes('<link rel="canonical" href="' + adres + '">'), k.kart);
+    assert.ok(html.includes('<meta property="og:image" content="' + ayar.alanAdi + '/assets/images/kart/' + k.kart + '.jpg">'), k.kart);
+    assert.match(html, /og:image:width" content="1200">\s*<meta property="og:image:height" content="630">/, k.kart);
+    assert.ok(html.includes(B.waAdresi(B.hizmetMesaji(k.ad)).replace(/&/g, '&amp;')), k.kart + ' WhatsApp düğmesi');
+    assert.match(html, /href="tel:\+905380773571"/, k.kart);
+    if (i > 0) assert.ok(html.includes('servis-talebi.html?hizmet=' + i), k.kart + ' talep bağlantısı doğru hizmeti seçer');
+    assert.doesNotMatch(html, /\{\{|\}\}|undefined/, k.kart);
+    // Göreli bağlantılar kökteki gerçek dosyalara gider
+    for (const m of html.matchAll(/(?:href|src)="\.\.\/\.\.\/([^"#?]*)/g)) {
+      const hedef = m[1] || 'index.html';
+      assert.ok(fs.existsSync(path.join(KOK, hedef.endsWith('/') ? hedef + 'index.html' : hedef)), k.kart + ': ' + hedef);
+    }
+    const resim = fs.readFileSync(path.join(KOK, 'assets/images/kart', k.kart + '.jpg'));
+    assert.ok(resim.length < 300 * 1024, k.kart + ' görseli 300 KB altı');
+    assert.equal(resim.readUInt16BE(0), 0xffd8, k.kart + ' JPEG');
+    // JPEG boyutu (SOF0/SOF2 bölümünden)
+    let o = 2;
+    while (o < resim.length && !(resim[o + 1] >= 0xc0 && resim[o + 1] <= 0xc2)) o += 2 + resim.readUInt16BE(o + 2);
+    assert.deepEqual([resim.readUInt16BE(o + 7), resim.readUInt16BE(o + 5)], [1200, 630], k.kart + ' 1200x630');
+  }
 });

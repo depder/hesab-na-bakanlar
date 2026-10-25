@@ -12,6 +12,14 @@ window.BaskentAyar = {
     "karsilama": "Merhaba. Başkent iş Makinalarından Servis bilgisi Almak İstiyorum.",
     "talepBasligi": "🛠️ *BAŞKENT İŞ MAKİNALARI - WEB SERVİS TALEBİ*",
     "talepKapanisi": "_Merhaba, web siteniz üzerinden servis talebi oluşturdum. Bilgi ve destek rica ederim._",
+    "genelKart": {
+      "ad": "İş Makinası Servisi",
+      "aciklama": "Hidrolik, şanzıman, motor ve kova; atölye ve saha servisi",
+      "kart": "servis",
+      "ikon": "anahtar",
+      "detay": "hizmetlerimiz.html"
+    },
+    "parcaKart": "yedek-parca",
     "parcaTalebi": "Merhaba. Başkent İş Makinalarından yedek parça / yağ fiyatı almak istiyorum.\n\nMakine marka ve modeli:\nŞasi (seri) numarası:\nİstenen parça / yağ:"
   },
   "adres": {
@@ -84,27 +92,45 @@ window.BaskentAyar = {
     "hizmetler": [
       {
         "ad": "Kova Tamiri / Zırhlama",
-        "aciklama": "Çatlak, tırnak, bıçak, Hardox aşınma plakası"
+        "aciklama": "Çatlak, tırnak, bıçak, Hardox aşınma plakası",
+        "kart": "kova",
+        "ikon": "kova",
+        "detay": "hizmetlerimiz.html#kova"
       },
       {
         "ad": "Mekanik Bakım / Overhaul",
-        "aciklama": "Motor revizyonu, pim–burç, periyodik ağır bakım"
+        "aciklama": "Motor revizyonu, pim–burç, periyodik ağır bakım",
+        "kart": "mekanik",
+        "ikon": "motor",
+        "detay": "hizmetlerimiz.html#motor"
       },
       {
         "ad": "Hidrolik Sistem",
-        "aciklama": "Pompa, valf, silindir, kaçak, güç kaybı"
+        "aciklama": "Pompa, valf, silindir, kaçak, güç kaybı",
+        "kart": "hidrolik",
+        "ikon": "silindir",
+        "detay": "hizmetlerimiz.html#hidrolik"
       },
       {
         "ad": "Şanzıman / Tork Konvertörü",
-        "aciklama": "Yürümeme, çekiş kaybı, vites sorunu"
+        "aciklama": "Yürümeme, çekiş kaybı, vites sorunu",
+        "kart": "sanziman",
+        "ikon": "sanziman",
+        "detay": "hizmetlerimiz.html#sanziman"
       },
       {
         "ad": "Saha Acil Servis",
-        "aciklama": "Makine şantiyede durdu, mesai saatlerinde yerinde servis"
+        "aciklama": "Makine şantiyede durdu, mesai saatlerinde yerinde servis",
+        "kart": "saha",
+        "ikon": "kamyon",
+        "detay": "hizmetlerimiz.html#saha"
       },
       {
         "ad": "Yedek Parça / Yağ Tedariki",
-        "aciklama": "Filtre, yağ, joystick, cer ve alt takım parçaları"
+        "aciklama": "Filtre, yağ, joystick, cer ve alt takım parçaları",
+        "kart": "yedek-parca",
+        "ikon": "damla",
+        "detay": "yedek-parca.html"
       }
     ],
     "ekipmanlar": [

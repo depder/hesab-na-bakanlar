@@ -44,6 +44,16 @@ if (A.whatsapp.katalog && A.whatsapp.katalog !== 'https://wa.me/c/' + A.whatsapp
 if (!/^90\d{10}$/.test(A.telefon.e164) || !/^90\d{10}$/.test(A.whatsapp.numara)) {
   throw new Error('site.config.json → telefon.e164 ve whatsapp.numara 90 ile başlayan 12 hane olmalı.');
 }
+// WhatsApp kartları: her hizmetin (ve genel servisin) kendi bağlantı sayfası ve görseli olur.
+K.KARTLAR.forEach((k, i) => {
+  if (!k || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(k.kart || '')) throw new Error('site.config.json → kart adı küçük harf/rakam/tire olmalı: ' + (k && k.kart));
+  if (K.KARTLAR.findIndex((x) => x.kart === k.kart) !== i) throw new Error('site.config.json → kart adı tekrar ediyor: ' + k.kart);
+  ['ad', 'aciklama', 'ikon', 'detay'].forEach((alan) => {
+    if (typeof k[alan] !== 'string' || !k[alan].trim()) throw new Error('site.config.json → "' + k.kart + '" kartında "' + alan + '" eksik.');
+  });
+  if (!/^[a-z-]+\.html(#[a-z-]+)?$/.test(k.detay)) throw new Error('site.config.json → "' + k.kart + '" kartının "detay" bağlantısı bir site sayfası olmalı: ' + k.detay);
+});
+if (!K.KARTLAR.some((k) => k.kart === A.whatsapp.parcaKart)) throw new Error('site.config.json → whatsapp.parcaKart tanımlı bir kart olmalı: ' + A.whatsapp.parcaKart);
 const ikonlar = fs.readFileSync(path.join(KOK, 'kaynak/ikonlar.svg'), 'utf8').trim();
 const galeri = JSON.parse(fs.readFileSync(path.join(KOK, 'kaynak/galeri.json'), 'utf8'));
 
@@ -67,7 +77,7 @@ function mutlak(ad) { return alanAdi + '/' + (ad === 'index' ? '' : ad + '.html'
 const FIRMA = A.firma;
 const ADRES = `${A.adres.satir}, ${A.adres.postaKodu} ${A.adres.ilce} / ${A.adres.il}`;
 const TEL_HREF = 'tel:+' + A.telefon.e164;
-const WA_HAZIR = K.waAdresi(K.KARSILAMA);
+const WA_HAZIR = K.waAdresi(K.KARSILAMA_KARTLI);
 // Koordinat biliniyorsa harita onu, bilinmiyorsa adres sorgusunu kullanır (koordinat uydurulmaz).
 const KONUM_SORGU = A.adres.koordinat ? A.adres.koordinat.enlem + ',' + A.adres.koordinat.boylam : A.adres.haritaSorgusu;
 const HARITA_AC = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(KONUM_SORGU);
@@ -97,7 +107,7 @@ const parcalar = {
   TEL_HREF: TEL_HREF,
   TEL: kacir(A.telefon.gorunen),
   WA_HAZIR: kacir(WA_HAZIR),
-  WA_PARCA: kacir(K.waAdresi(A.whatsapp.parcaTalebi)),
+  WA_PARCA: kacir(K.waAdresi(K.PARCA_MESAJI)),
   // Katalog tanımlı değilse düğme hiç basılmaz (boş katalog bağlantısı yayımlanmaz)
   KATALOG_DUGME: A.whatsapp.katalog
     ? `<a class="dugme dugme--wa" href="${kacir(A.whatsapp.katalog)}" target="_blank" rel="noopener">${ikon('wa')}Hizmet kartlarını WhatsApp'ta aç</a>`
@@ -351,9 +361,115 @@ function sayfaUret(ad) {
   return ustBilgi(m, ad) + '\n' + govdeBasi(ad) + '\n<main id="icerik">\n' + icerik + '\n' + (m.kapanis === false ? '' : kapanis() + '\n') + '</main>\n' + altBilgi();
 }
 
+// ---------------------------------------------------------------- WhatsApp kart sayfaları (kart/<ad>/)
+// Müşteriye giden mesajın ikinci satırındaki bağlantı buraya gelir. WhatsApp bu sayfanın og etiketlerinden
+// görselli kartı çizer; karta dokunan kişi de bu sayfayı açar. Betik yok: telefonun uygulama içi tarayıcısında
+// anında açılır. Arama motorlarına kapalıdır (içerik hizmetlerimiz sayfasının kopyası olmasın).
+const KART_KOK = '../../';
+function kartYolu(kart) { return 'kart/' + kart + '/'; }
+function kartSayfasi(kart, no) {
+  const genel = no === 0;
+  const adres = alanAdi ? alanAdi + '/' + kartYolu(kart.kart) : '';
+  const gorsel = alanAdi + '/assets/images/kart/' + kart.kart + '.jpg';
+  const baslik = kart.ad + ' — ' + FIRMA;
+  const aciklama = kart.aciklama + '. ' + A.adres.ilce + ' / ' + A.adres.il + ' — atölye ve mesai saatlerinde saha servisi.';
+  const talep = KART_KOK + 'servis-talebi.html' + (genel ? '' : '?hizmet=' + no);
+  const etiket = genel ? 'Servis kartı' : 'Hizmet · Kart ' + String(no).padStart(2, '0');
+  const digerleri = K.KARTLAR.filter((k) => k.kart !== kart.kart);
+  return `<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${kacir(baslik)}</title>
+<meta name="description" content="${kacir(aciklama)}">
+<link rel="canonical" href="${kacir(adres || './')}">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#101827">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="${kacir(FIRMA)}">
+<meta property="og:title" content="${kacir(baslik)}">
+<meta property="og:description" content="${kacir(aciklama)}">
+${alanAdi ? `<meta property="og:url" content="${kacir(adres)}">
+<meta property="og:image" content="${kacir(gorsel)}">
+<meta property="og:image:secure_url" content="${kacir(gorsel)}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${kacir(kart.ad + ' — ' + kart.aciklama)}">
+<meta name="twitter:card" content="summary_large_image">
+` : '<meta name="twitter:card" content="summary">\n'}<link rel="icon" href="${KART_KOK}favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${KART_KOK}assets/icons/apple-touch-icon.png">
+<link rel="preload" href="${KART_KOK}assets/fonts/archivo-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="${KART_KOK}assets/css/site.css">
+</head>
+<body class="kartsayfa">
+<a class="atla" href="#icerik">İçeriğe geç</a>
+${ikonlar}
+<header class="kartsayfa__ust sar">
+  <a class="logo" href="${KART_KOK}">
+    <img src="${KART_KOK}assets/images/logo-isaret.webp" width="240" height="144" alt="">
+    <span class="logo__yazi"><b>BAŞKENT</b> <span>İş Makinaları</span><span class="gorunmez"> — Ana Sayfa</span></span>
+  </a>
+  <a class="kartsayfa__site" href="${KART_KOK}hizmetlerimiz.html">Tüm hizmetler${ikon('ok', 'ikon--ok')}</a>
+</header>
+
+<main id="icerik" class="sar kartsayfa__ana">
+  <article class="kartsayfa__kart">
+    <div class="kartsayfa__metin">
+      <p class="etiket">${kacir(etiket)}</p>
+      <h1>${kacir(kart.ad).replace(/ \/ /g, '&nbsp;/ ')}</h1>
+      <p class="kartsayfa__aciklama">${kacir(kart.aciklama)}</p>
+    </div>
+    <div class="kartsayfa__pano" aria-hidden="true">
+      <svg class="kartsayfa__sekil"><use href="#i-${kacir(kart.ikon)}"/></svg>
+      <span class="kartsayfa__olcu"><span>${kacir(A.adres.ilce)} / ${kacir(A.adres.il)}</span></span>
+    </div>
+  </article>
+
+  <div class="kartsayfa__dugmeler">
+    <a class="dugme dugme--wa dugme--buyuk" href="${kacir(K.waAdresi(K.hizmetMesaji(kart.ad)))}" target="_blank" rel="noopener">${ikon('wa')}${genel ? 'WhatsApp\'tan yaz' : 'Bu hizmet için WhatsApp\'tan yaz'}</a>
+    <a class="dugme dugme--altin dugme--buyuk" href="${TEL_HREF}">${ikon('tel')}Hemen Ara <span class="sayi">${parcalar.TEL}</span></a>
+    <a class="dugme dugme--cizgi dugme--buyuk" href="${talep}">Servis talebi oluştur${ikon('ok', 'ikon--ok')}</a>
+  </div>
+
+  <dl class="kartsayfa__bilgi">
+    <div><dt>${ikon('konum')}Atölye</dt><dd><a href="${kacir(HARITA_AC)}" target="_blank" rel="noopener">${parcalar.ADRES}</a></dd></div>
+    <div><dt>${ikon('saat')}Çalışma saatleri</dt><dd>${parcalar.SAAT_OZET}<br>${parcalar.KAPALI_OZET} · Saha servisi ${kacir(A.sahaServisi.toLocaleLowerCase('tr'))}</dd></div>
+    <div><dt>${ikon('tel')}Muhatap</dt><dd>${parcalar.YETKILI} — ${parcalar.UNVAN}</dd></div>
+  </dl>
+
+  <p class="kartsayfa__detay"><a class="metin-bag" href="${KART_KOK}${kacir(kart.detay)}">${genel ? 'Hizmetlerimizi inceleyin' : 'Bu hizmetin ayrıntıları'}</a></p>
+
+  <nav class="kartsayfa__diger" aria-labelledby="digerBaslik">
+    <h2 id="digerBaslik">Diğer kartlar</h2>
+    <ul>
+${digerleri.map((k) => `      <li><a href="${KART_KOK}${kartYolu(k.kart)}">${ikon(k.ikon)}<span>${kacir(k.ad)}</span></a></li>`).join('\n')}
+    </ul>
+  </nav>
+</main>
+
+<footer class="kartsayfa__alt sar">
+  <span>© <span data-yil>${new Date().getFullYear()}</span> ${kacir(FIRMA)}</span>
+  <a href="${KART_KOK}kvkk.html">KVKK Aydınlatma Metni</a>
+</footer>
+</body>
+</html>
+`;
+}
+
 // ---------------------------------------------------------------- Yaz (önce hepsi hazırlanır, sonra yazılır: hata olursa yarım çıktı kalmaz)
 const cikti = [];
 SAYFALAR.forEach((ad) => cikti.push([ad + '.html', sayfaUret(ad)]));
+K.KARTLAR.forEach((k, i) => {
+  if (!fs.existsSync(path.join(KOK, 'assets/images/kart', k.kart + '.jpg'))) {
+    throw new Error('Kart görseli yok: assets/images/kart/' + k.kart + '.jpg — önce node araclar/kart-gorsel-uret.js');
+  }
+  cikti.push([kartYolu(k.kart) + 'index.html', kartSayfasi(k, i)]);
+});
 cikti.push(['assets/js/ayar.js', '/* site.config.json\'dan üretildi — elle düzenlemeyin; node araclar/sayfa-uret.js */\nwindow.BaskentAyar = ' + JSON.stringify(A, null, 2) + ';\n']);
 cikti.push(['robots.txt', 'User-agent: *\nAllow: /\n' + (alanAdi ? '\nSitemap: ' + alanAdi + '/sitemap.xml\n' : '')]);
 cikti.push(['manifest.webmanifest', JSON.stringify({
@@ -384,6 +500,7 @@ const gecici = [];
 try {
   cikti.forEach(([dosya, icerik]) => {
     const g = path.join(KOK, dosya + '.yeni');
+    fs.mkdirSync(path.dirname(g), { recursive: true });
     fs.writeFileSync(g, icerik);
     gecici.push(g);
   });
@@ -392,6 +509,12 @@ try {
   throw new Error('Yazılamadı, hiçbir dosya değiştirilmedi: ' + hata.message);
 }
 cikti.forEach(([dosya]) => fs.renameSync(path.join(KOK, dosya + '.yeni'), path.join(KOK, dosya)));
+// Config'den kaldırılmış kartların eski sayfaları silinir (yayında ölü kart kalmasın)
+const kartKlasoru = path.join(KOK, 'kart');
+if (fs.existsSync(kartKlasoru)) {
+  fs.readdirSync(kartKlasoru).filter((d) => !K.KARTLAR.some((k) => k.kart === d))
+    .forEach((d) => fs.rmSync(path.join(kartKlasoru, d), { recursive: true, force: true }));
+}
 const haritaDosya = path.join(KOK, 'sitemap.xml');
 if (!alanAdi && fs.existsSync(haritaDosya)) fs.unlinkSync(haritaDosya);
 

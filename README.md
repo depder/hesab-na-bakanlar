@@ -14,6 +14,15 @@ Saf HTML, CSS ve JavaScript. Derleme adımı ve sunucu yoktur; kök klasördeki 
 | `hakkimizda.html` | Atölye, yönetim ve teknik sorumluluk, uzmanlıklar, servis süreci, saatler ve bölge |
 | `iletisim.html` | Telefon, WhatsApp, adres, WhatsApp hızlı arıza kartları, harita |
 | `kvkk.html` | KVKK aydınlatma metni |
+| `kart/<ad>/` | WhatsApp kart sayfaları (genel servis + her hizmet). Mesajların ikinci satırındaki bağlantı buraya gelir; WhatsApp bu sayfanın görselinden önizleme kartı çizer. Arama motorlarına kapalı. |
+
+### WhatsApp kartları
+
+`wa.me` bağlantısı yalnızca düz metin taşır. Bu yüzden her hazır mesajın **ikinci satırına** bir kart bağlantısı konur (`https://…/kart/hidrolik/`). WhatsApp önizlemeyi mesajdaki ilk bağlantıdan üretir; müşteri mesaj kutusunda, siz de gelen mesajda görselli kartı görürsünüz. Servis talebi formunda seçilen hizmetin kartı, yedek parça mesajında parça kartı, diğer düğmelerde genel servis kartı kullanılır.
+
+- Kartların adı, açıklaması, ikonu ve bağlantısı `site.config.json` → `servisTalebi.hizmetler[]` ve `whatsapp.genelKart` içindedir.
+- Görseller (`assets/images/kart/*.jpg`, 1200×630) metin değişince yeniden üretilir: `NODE_PATH="$(npm root -g)" node araclar/kart-gorsel-uret.js` (Playwright gerekir), ardından `node araclar/sayfa-uret.js`.
+- WhatsApp önizlemeyi önbelleğe alır; görsel değişince kartın eskisi bir süre görünebilir. Kontrol: https://developers.facebook.com/tools/debug/
 
 ## Klasör yapısı
 
@@ -34,7 +43,8 @@ assets/icons/           favicon ve uygulama ikonları
 kaynak/sayfalar/        sayfa içerikleri (düzenlenecek yer)
 kaynak/galeri.json      galeri fotoğrafları listesi
 site.config.json        TÜM işletme bilgileri (telefon, WhatsApp, adres, saatler, yetkili, seçenekler, alan adı)
-araclar/sayfa-uret.js   sayfa üreteci
+araclar/sayfa-uret.js   sayfa üreteci (kart/<ad>/ sayfaları dahil)
+araclar/kart-gorsel-uret.js  WhatsApp kart görselleri (Playwright ile, elle çalıştırılır)
 tests/                  testler
 ```
 
