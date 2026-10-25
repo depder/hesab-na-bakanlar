@@ -277,7 +277,7 @@ test('site.config.json\'da zorunlu alan eksikse üreteç durur, "undefined" yay�
 test('yedek parça sayfası: yağ bölmeleri, cer açıklaması, parça grupları, parça mesajı; marka ve model adı yok', () => {
   const metin = gorunenMetin('yedek-parca');
   for (const y of ['Motor yağı', 'Hidrolik yağı', 'Şanzıman ve tork konvertörü yağı', 'Cer ve kule dönüş redüktörü yağı', 'Aks, diferansiyel ve ıslak fren yağı', 'Gres, antifriz, AdBlue']) assert.ok(metin.includes(y), y);
-  for (const g of ['Filtreler', 'Joystick ve kumanda', 'Hidrolik', 'Yürüyüş ve alt takım', 'Motor', 'Şanzıman ve aks', 'Aşınma ve ataşman', 'Elektrik ve elektronik', 'Kabin']) assert.ok(metin.includes(g), g);
+  for (const g of ['Filtreler', 'Joystick ve kumanda', 'Hidrolik', 'Yürüyüş ve alt takım', 'Motor', 'Şanzıman, aks ve fren', 'Aşınma ve ataşman', 'Elektrik ve elektronik', 'Kabin']) assert.ok(metin.includes(g), g);
   assert.match(metin, /Cer nedir\?/);
   assert.match(metin, /şasi numarası/i);
   assert.doesNotMatch(metin, /caterpillar|\bcat\b|komatsu|volvo|jcb|hitachi|hyundai|develon|doosan|hidromek|liebherr|kobelco|kubota|case\b|new holland|sany|xcmg|liugong/i);
@@ -285,6 +285,18 @@ test('yedek parça sayfası: yağ bölmeleri, cer açıklaması, parça gruplar�
   const ayar = JSON.parse(fs.readFileSync(path.join(KOK, 'site.config.json'), 'utf8'));
   assert.ok(html.includes(B.waAdresi(B.PARCA_MESAJI).replace(/&/g, '&amp;')), 'parça mesajlı WhatsApp bağlantısı');
   assert.ok(B.PARCA_MESAJI.startsWith(ayar.whatsapp.parcaTalebi.split('\n')[0]));
+});
+
+test('yedek parça tedariki ana sayfada ve hizmetlerde görünür; alt bilgide menü tekrarı yok', () => {
+  const ana = sayfaHtml('index');
+  assert.match(ana, /<section class="bolum" id="yedek-parca"/);
+  assert.match(gorunenMetin('index'), /Tamir ve bakımın yanında yedek parça da bizden\./);
+  assert.match(ana, /giris-bant__liste[\s\S]*?href="yedek-parca\.html"[\s\S]*?<\/ul>/);
+  assert.match(sayfaHtml('hizmetlerimiz'), /class="metin-bag" href="yedek-parca\.html"/);
+  for (const { ad, html } of tumSayfalar()) {
+    const alt = html.slice(html.indexOf('<footer class="alt">'));
+    assert.doesNotMatch(alt, /href="hizmetlerimiz\.html"|href="hakkimizda\.html"/, ad + ': alt bilgide sayfa listesi');
+  }
 });
 
 test('WhatsApp kart sayfaları: her kartın sayfası, 1200x630 görseli ve og etiketleri var', () => {

@@ -20,7 +20,7 @@ window.BaskentAyar = {
       "detay": "hizmetlerimiz.html"
     },
     "parcaKart": "yedek-parca",
-    "parcaTalebi": "Merhaba. Başkent İş Makinalarından yedek parça / yağ fiyatı almak istiyorum.\n\nMakine marka ve modeli:\nŞasi (seri) numarası:\nİstenen parça / yağ:"
+    "parcaTalebi": "Merhaba. Başkent İş Makinalarından yedek parça fiyatı almak istiyorum.\n\nMakine marka ve modeli:\nŞasi (seri) numarası:\nİstenen parça:"
   },
   "adres": {
     "satir": "Selimiye, Küçük Sanayi Sitesi",
@@ -126,10 +126,10 @@ window.BaskentAyar = {
         "detay": "hizmetlerimiz.html#saha"
       },
       {
-        "ad": "Yedek Parça / Yağ Tedariki",
-        "aciklama": "Filtre, yağ, joystick, cer ve alt takım parçaları",
+        "ad": "Yedek Parça Tedariki",
+        "aciklama": "Motor, hidrolik, şanzıman, alt takım, elektrik, filtre ve yağ",
         "kart": "yedek-parca",
-        "ikon": "damla",
+        "ikon": "disli",
         "detay": "yedek-parca.html"
       }
     ],
