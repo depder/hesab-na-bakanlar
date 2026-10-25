@@ -94,6 +94,7 @@ const TAM = { hizmet: 'Kova Tamiri / Zırhlama', ekipman: 'Ekskavatör', aciliye
 test('talepMetni istenen şablonu birebir üretir', () => {
   assert.equal(B.talepMetni(TAM), [
     '🛠️ *BAŞKENT İŞ MAKİNALARI - WEB SERVİS TALEBİ*',
+    'https://baskent-is-makinalari.vercel.app/kart/kova/',
     '',
     '*Talep Türü:* Kova Tamiri / Zırhlama',
     '*Ekipman:* Ekskavatör',
@@ -143,9 +144,25 @@ test('talepDogrula: arıza "Diğer" ise açıklama gerekir; 600 karakter sınır
   assert.ok(B.talepDogrula(Object.assign({}, TAM, { aciklama: 'x'.repeat(601) })).aciklama);
 });
 
-test('hizliMesaj karşılama + seçilen arıza başlığı', () => {
-  assert.equal(B.hizliMesaj(B.ARIZA_KATEGORILERI[1]), B.KARSILAMA + '\n\n*Arıza:* ' + B.ARIZA_KATEGORILERI[1]);
-  assert.equal(B.hizliMesaj(''), B.KARSILAMA);
+test('hizliMesaj karşılama + genel kart + seçilen arıza başlığı', () => {
+  assert.equal(B.KARSILAMA_KARTLI, B.KARSILAMA + '\nhttps://baskent-is-makinalari.vercel.app/kart/servis/');
+  assert.equal(B.hizliMesaj(B.ARIZA_KATEGORILERI[1]), B.KARSILAMA_KARTLI + '\n\n*Arıza:* ' + B.ARIZA_KATEGORILERI[1]);
+  assert.equal(B.hizliMesaj(''), B.KARSILAMA_KARTLI);
+});
+
+test('WhatsApp kartı: bağlantı mesajın ikinci satırında, mesajdaki ilk bağlantı', () => {
+  const kartli = B.talepMetni(Object.assign({}, TAM, { hizmet: 'Hidrolik Sistem', konum: { enlem: 37.39, boylam: 27.66 } }));
+  const baglantilar = kartli.match(/https:\/\/\S+/g);
+  assert.equal(baglantilar[0], 'https://baskent-is-makinalari.vercel.app/kart/hidrolik/', 'önizleme ilk bağlantıdan çıkar');
+  assert.equal(kartli.split('\n')[1], baglantilar[0]);
+  assert.equal(B.PARCA_MESAJI.split('\n')[1], 'https://baskent-is-makinalari.vercel.app/kart/yedek-parca/');
+  assert.equal(B.hizmetKarti('Bilinmeyen'), B.AYAR.whatsapp.genelKart.kart);
+  assert.equal(B.hizmetMesaji('Saha Acil Servis'), B.KARSILAMA + '\nhttps://baskent-is-makinalari.vercel.app/kart/saha/\n\n*Hizmet:* Saha Acil Servis');
+  assert.equal(B.hizmetMesaji(B.AYAR.whatsapp.genelKart.ad), B.KARSILAMA_KARTLI);
+  // Her hizmetin benzersiz bir kartı var
+  const adlar = B.KARTLAR.map((k) => k.kart);
+  assert.equal(new Set(adlar).size, adlar.length);
+  for (const h of B.HIZMETLER) assert.ok(B.kartAdresi(B.hizmetKarti(h)).endsWith('/kart/' + B.hizmetKarti(h) + '/'), h);
 });
 
 test('waAdresi doğru hatta gider ve metni bozulmadan taşır', () => {
@@ -164,8 +181,8 @@ test('waMasaustuAdresi wa.me bağlantısını WhatsApp Web\'e çevirir, metni ko
 });
 
 test('tüm sayfalardaki WhatsApp bağlantıları tek hatta ve izinli mesajlarla gider', () => {
-  const izinli = new Set([B.waAdresi(B.KARSILAMA)].concat(B.ARIZA_KATEGORILERI.map((k) => B.waAdresi(B.hizliMesaj(k)))));
-  izinli.add(B.waAdresi(B.AYAR.whatsapp.parcaTalebi)); // yedek parça / yağ fiyatı mesajı
+  const izinli = new Set([B.waAdresi(B.KARSILAMA_KARTLI)].concat(B.ARIZA_KATEGORILERI.map((k) => B.waAdresi(B.hizliMesaj(k)))));
+  izinli.add(B.waAdresi(B.PARCA_MESAJI)); // yedek parça / yağ fiyatı mesajı + parça kartı
   if (B.AYAR.whatsapp.katalog) izinli.add(B.AYAR.whatsapp.katalog); // WhatsApp Business kataloğu (wa.me/c/aynı numara)
   for (const { ad, html } of tumSayfalar()) {
     const adresler = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)].map((m) => m[1].replace(/&amp;/g, '&'));

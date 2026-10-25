@@ -15,6 +15,7 @@ Depo: `depder/hesab-na-bakanlar`, ana dal `master`, çalışma dalı `claude/bas
 - **Kişi:** yalnızca Mücahit ÇAKIR, "Baş Teknisyen / Master Technician"; yönetim yalnızca "Şirket Yönetimi".
 - **Sayfalar:** `index`, `hizmetlerimiz`, `yedek-parca` (yağ bölmeleri, cer açıklaması, parça grupları, parça mesajlı WhatsApp), `servis-talebi` (3 adım → WhatsApp; 6. seçenek "Yedek Parça / Yağ Tedariki"), `hakkimizda`, `iletisim`, `kvkk`.
 - **Yedek parça araştırması:** `YEDEK-PARCA-ARASTIRMA.md` (iç belge, sitede yok). Sitede marka/model adı geçmez; test denetler.
+- **WhatsApp kartları:** tüm hazır mesajların 2. satırında `kart/<ad>/` bağlantısı var; WhatsApp bunu görselli karta çevirir (genel servis + 6 hizmet, görseller `assets/images/kart/`, üretici `araclar/kart-gorsel-uret.js`). Ayrıntı README → "WhatsApp kartları".
 - **WhatsApp:** bağlantı paylaşılınca kart (og etiketleri) çıkar; "Hizmet kartlarını WhatsApp'ta aç" düğmesi kataloğu WhatsApp uygulamasında açar. Katalog kurulum adımları: `WHATSAPP-KATALOG.md`.
 - **Başlık:** logo + "Atölye Açık / Kapalı" rozeti + menü; menü 1100px'e kadar hamburger; 1220px ve üstünde "Hemen Ara" / "WhatsApp" yalnız simge olarak görünür (1101–1219px arası gizli; 761–1100px arası yazılı). 320–1920px arası başlıkta taşma ve çakışma yok.
 - Doğrulama: `node --test` 48/48; tarayıcı işlev kontrolü 27/27; hata yolları 6/6; axe 0 ihlal; 7 genişlikte taşma yok.

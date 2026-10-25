@@ -113,12 +113,52 @@
     var aciklama = cokSatir(v.aciklama);
     if (aciklama) satirlar.push('*Açıklama:*', aciklama);
     satirlar.push('', AYAR.whatsapp.talepKapanisi);
+    return kartla(satirlar.join('\n'), hizmetKarti(tekSatir(v.hizmet)));
+  }
+
+  // ---------------------------------------------------------------- WhatsApp kartları
+  // wa.me yalnızca düz metin taşır. Mesajın ikinci satırına kartın bağlantısı konur; WhatsApp bu bağlantıyı
+  // görselli bir önizleme kartına çevirir (önizleme, mesajdaki İLK bağlantıdan üretilir — bu yüzden en üstte).
+  // Alan adı bilinmiyorsa bağlantı eklenmez, mesaj düz metin kalır.
+  var ALAN_ADI = String(AYAR.alanAdi || '').replace(/\/+$/, '');
+  var KARTLAR = [AYAR.whatsapp.genelKart].concat(AYAR.servisTalebi.hizmetler);
+  var GENEL_KART = AYAR.whatsapp.genelKart.kart;
+
+  function kartAdresi(kart) {
+    if (!ALAN_ADI || !kart) return '';
+    return ALAN_ADI + '/kart/' + kart + '/';
+  }
+
+  function hizmetKarti(hizmetAdi) {
+    for (var i = 0; i < AYAR.servisTalebi.hizmetler.length; i++) {
+      if (AYAR.servisTalebi.hizmetler[i].ad === hizmetAdi) return AYAR.servisTalebi.hizmetler[i].kart;
+    }
+    return GENEL_KART;
+  }
+
+  function kartla(metin, kart) {
+    var adres = kartAdresi(kart);
+    if (!adres) return metin;
+    var satirlar = String(metin).split('\n');
+    satirlar.splice(1, 0, adres);
     return satirlar.join('\n');
   }
 
-  // WhatsApp hızlı arıza kartları: karşılama + seçilen başlık
+  // Genel WhatsApp düğmelerinin mesajı: karşılama + genel servis kartı
+  var KARSILAMA_KARTLI = kartla(KARSILAMA, GENEL_KART);
+  // Yedek parça / yağ fiyatı mesajı + parça kartı
+  var PARCA_MESAJI = kartla(AYAR.whatsapp.parcaTalebi, AYAR.whatsapp.parcaKart);
+
+  // WhatsApp hızlı arıza kartları: karşılama + genel kart + seçilen başlık
   function hizliMesaj(kategori) {
-    return kategori ? KARSILAMA + '\n\n*Arıza:* ' + tekSatir(kategori) : KARSILAMA;
+    return kategori ? KARSILAMA_KARTLI + '\n\n*Arıza:* ' + tekSatir(kategori) : KARSILAMA_KARTLI;
+  }
+
+  // Tek bir hizmetin kart sayfasındaki "WhatsApp'tan yaz" mesajı
+  function hizmetMesaji(hizmetAdi) {
+    var h = tekSatir(hizmetAdi);
+    var genel = !h || h === AYAR.whatsapp.genelKart.ad;
+    return kartla(KARSILAMA + (genel ? '' : '\n\n*Hizmet:* ' + h), hizmetKarti(h));
   }
 
   function waAdresi(metin) {
@@ -176,6 +216,8 @@
     HIZMETLER: HIZMETLER, EKIPMANLAR: EKIPMANLAR, ACILIYETLER: ACILIYETLER, BOLGELER: BOLGELER,
     dakikaOku: dakikaOku, istanbulZamani: istanbulZamani, saatYaz: saatYaz, durumHesapla: durumHesapla,
     konumBaglantisi: konumBaglantisi, talepMetni: talepMetni, talepDogrula: talepDogrula, hizliMesaj: hizliMesaj,
+    KARTLAR: KARTLAR, KARSILAMA_KARTLI: KARSILAMA_KARTLI, PARCA_MESAJI: PARCA_MESAJI,
+    kartAdresi: kartAdresi, hizmetKarti: hizmetKarti, kartla: kartla, hizmetMesaji: hizmetMesaji,
     waAdresi: waAdresi, waMasaustuAdresi: waMasaustuAdresi, telefonGecerliMi: telefonGecerliMi,
     cerceveIcindeMi: cerceveIcindeMi, telBaglantilariniAyarla: telBaglantilariniAyarla
   };
